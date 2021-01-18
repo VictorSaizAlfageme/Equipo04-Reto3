@@ -11,17 +11,17 @@
     <meta name="copyright" content="Todos los derechos reservados a Nuve"/>
     <meta name="description"
           content="Pagina web pública creada y organizada por la empresa Nuve "/>
-    <link rel="icon" type="image/png" href="img/logo.png">
+    <link rel="icon" type="image/png" href="../../proyecto/img/logo.png">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     <!-- Custom fonts for this template-->
-    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="../../proyecto/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
             href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
             rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="css/style.css" rel="stylesheet">
+    <link href="../../proyecto/css/style.css" rel="stylesheet">
 
 </head>
 
@@ -64,16 +64,16 @@
                                             id="exampleRepeatPassword" placeholder="Repite la contraseña">
                                     </div>
                                 </div>
-                                <a href="login.html" class="btn btn-primary btn-user btn-block">
+                                <a href="login.blade.php" class="btn btn-primary btn-user btn-block">
                                     REGISTRATE
                                 </a>
                             </form>
                             <hr>
                             <div class="text-center">
-                                <a class="small" href="forgot-password.html">¿Se te ha olvidado la contraseña?</a>
+                                <a class="small" href="forgot-password.blade.php">¿Se te ha olvidado la contraseña?</a>
                             </div>
                             <div class="text-center">
-                                <small>¿Ya tienes cuenta? </small><a class="small" href="login.html">Inicia sesión.</a>
+                                <small>¿Ya tienes cuenta? </small><a class="small" href="login.blade.php">Inicia sesión.</a>
                             </div>
                         </div>
                     </div>
@@ -84,14 +84,14 @@
     </div>
 
     <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../../proyecto/vendor/jquery/jquery.min.js"></script>
+    <script src="../../proyecto/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="../../proyecto/vendor/jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Custom scripts for all pages-->
-    <script src="boostrap/js/sb-admin-2.min.js"></script>
+    <script src="../../proyecto/boostrap/js/sb-admin-2.min.js"></script>
 
 </body>
 
