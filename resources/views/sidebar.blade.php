@@ -10,7 +10,7 @@
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.blade.php">
                 <div class="sidebar-brand-icon">
-                    <img class="logo" src="../../public/img/logo.png">
+                    <img class="logo" src="img/logo.png">
                 </div>
                 <div class="sidebar-brand-text mx-3">NUVE</div>
             </a>
