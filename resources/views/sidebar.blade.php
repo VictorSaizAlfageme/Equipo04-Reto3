@@ -10,7 +10,7 @@
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.blade.php">
                 <div class="sidebar-brand-icon">
-                    <img class="logo" src="../../proyecto/img/logo.png">
+                    <img class="logo" src="../../public/img/logo.png">
                 </div>
                 <div class="sidebar-brand-text mx-3">NUVE</div>
             </a>
@@ -44,10 +44,10 @@
                      data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Ordenadas:</h6>
-                        <a class="collapse-item" href="../../proyecto/utilities-color.html">Semanalmente</a>
-                        <a class="collapse-item" href="../../proyecto/utilities-border.html">Mensualmente</a>
-                        <a class="collapse-item" href="../../proyecto/utilities-animation.html">Anualmente</a>
-                        <a class="collapse-item" href="../../proyecto/utilities-other.html">Historicamente</a>
+                        <a class="collapse-item" href="utilities-color.blade.php">Semanalmente</a>
+                        <a class="collapse-item" href="utilities-border.blade.php">Mensualmente</a>
+                        <a class="collapse-item" href="utilities-animation.blade.php">Anualmente</a>
+                        <a class="collapse-item" href="utilities-other.blade.php">Historicamente</a>
                     </div>
                 </div>
             </li>
@@ -58,7 +58,7 @@
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link" href="../../proyecto/charts.html">
+                <a class="nav-link" href="charts.blade.php">
                     <i class="fas fa-fw fa-bell"></i>
                     <span>Alertas</span>
                 </a>
@@ -66,14 +66,14 @@
 
             <!-- Nav Item - Charts -->
             <li class="nav-item">
-                <a class="nav-link" href="../../proyecto/charts.html">
+                <a class="nav-link" href="charts.blade.php">
                     <i class="fas fa-fw fa-tools"></i>
                     <span>Técnicos</span></a>
             </li>
 
             <!-- Nav Item - Tables -->
             <li class="nav-item">
-                <a class="nav-link" href="../../proyecto/tables.html">
+                <a class="nav-link" href="tables.blade.php">
                     <i class="fas fa-fw fa-user-shield"></i>
                     <span>Coordinadores</span></a>
             </li>
