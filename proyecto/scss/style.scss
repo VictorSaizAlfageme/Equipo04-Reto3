@@ -1,0 +1,51 @@
+//importamos el scss de boostrap
+@import "../boostrap/scss/sb-admin-2";
+
+
+.bg-gradient-primary {
+  background-color: #157d6a;
+}
+
+
+.btn-primary, .dropdown-header {
+  background-color: #157d6a !important;
+  border-color: #157d6a !important;
+}
+
+
+.logo {
+  width: 40px;
+  height: 40px;
+}
+
+.sidebar .sidebar-brand {
+  font-size: 1.3rem;
+}
+
+.left-column {
+  position: sticky;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  z-index: 5;
+}
+
+.footer-class {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.footer-img {
+  width: 100px;
+  height: 50px;
+}
+
+@media (max-width: 600px) {
+
+  .vitoria2 {
+    display: none;
+  }
+
+
+}
