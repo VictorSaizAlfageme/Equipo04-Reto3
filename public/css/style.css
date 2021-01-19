@@ -10832,7 +10832,7 @@ a:focus {
 }
 
 .bg-login-image {
-  background: url("../../public/img/vitoria.jpg");
+  background: url("../img/vitoria.jpg");
   background-position: center;
   background-size: 350px 450px;
   background-repeat: no-repeat;
