@@ -16,3 +16,4 @@ use Illuminate\Support\Facades\Route;
 
 Route::get("/trabajadores", "trabajadoresController@index");
 
+Route::view("/", "index");
