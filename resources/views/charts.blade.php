@@ -85,7 +85,7 @@
                         <h6 class="collapse-header">Custom Utilities:</h6>
                         <a class="collapse-item" href="utilities-color.blade.php">Colors</a>
                         <a class="collapse-item" href="utilities-border.blade.php">Borders</a>
-                        <a class="collapse-item" href="utilities-animation.blade.php">Animations</a>
+                        <a class="collapse-item" href="perfil.blade.php">Animations</a>
                         <a class="collapse-item" href="utilities-other.blade.php">Other</a>
                     </div>
                 </div>
@@ -114,7 +114,7 @@
                         <a class="collapse-item" href="forgot-password.blade.php">Forgot Password</a>
                         <div class="collapse-divider"></div>
                         <h6 class="collapse-header">Other Pages:</h6>
-                        <a class="collapse-item" href="404.blade.php">404 Page</a>
+                        <a class="collapse-item" href="error-pages/404.blade.php">404 Page</a>
                         <a class="collapse-item" href="blank.blade.php">Blank Page</a>
                     </div>
                 </div>

@@ -8,21 +8,19 @@
     <meta name="author" content="Equipo4"/>
     <meta name="copyright" content="Todos los derechos reservados a Nuve"/>
     <meta name="description"
-          content="Pagina web pública creada y organizada por la empresa Nuve "/>
-    <link rel="icon" type="image/png" href="../../public/img/logo.png">
+          content="Página web pública creada y organizada por la empresa Nuve "/>
+    <link rel="icon" type="image/png" href="img/logo.png">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     <!-- Custom fonts for this template-->
-    <link href="../../public/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link
-            href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-            rel="stylesheet">
+    <link href="fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="../../public/css/style.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/dark.css" rel="stylesheet">
 
-</head>
-
+</head><!-- Content Wrapper -->
 <body id="page-top">
 
 <!-- Page Wrapper -->
@@ -34,14 +32,18 @@
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.blade.php">
                 <div class="sidebar-brand-icon">
-                    <img class="logo" src="../../public/img/logo.png">
+                    <img class="logo" src="img/logo.png">
                 </div>
                 <div class="sidebar-brand-text mx-3">NUVE</div>
             </a>
 
             <!-- Divider -->
-            <hr class="sidebar-divider my-0">
+            <hr class="sidebar-divider">
 
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                ESTADÍSTICAS
+            </div>
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
                 <a class="nav-link" href="index.blade.php">
@@ -111,14 +113,12 @@
             </div>
         </div>
     </ul>
-
     <!-- End of Sidebar -->
 
-    <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
 
         <!-- Main Content -->
-        <div id="content">
+        <div id="content" class="bg-white-content">
 
             <!-- Topbar -->
             <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
@@ -130,7 +130,7 @@
 
                 <!-- Topbar Search -->
                 <form
-                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                    class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                     <div class="input-group">
                         <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
                                aria-label="Search" aria-describedby="basic-addon2">
@@ -168,7 +168,13 @@
                             </form>
                         </div>
                     </li>
-
+                    <li class="dark-mode nav-item dropdown">
+                        <label class="mb-0" for="darkSwitch"><i class="fas fa-fw fa-sun m-2"></i></label>
+                        <div class="custom-control custom-switch">
+                            <input type="checkbox" class="custom-control-input" id="darkSwitch" checked/>
+                            <label class="custom-control-label" for="darkSwitch"><i class="fas fa-fw fa-moon"></i></label>
+                        </div>
+                    </li>
                     <!-- Nav Item - Alerts -->
                     <li class="nav-item dropdown no-arrow mx-1">
                         <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
@@ -229,7 +235,7 @@
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <span class="mr-2 d-none d-lg-inline text-gray-600 small">Admin</span>
                             <img class="img-profile rounded-circle"
-                                 src="../../public/img/undraw_profile.svg">
+                                 src="img/undraw_profile.svg">
                         </a>
                         <!-- Dropdown - User Information -->
                         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -243,7 +249,7 @@
                                 Ajustes
                             </a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                            <a class="dropdown-item" href="{{route('paginaPrincipal')}}" data-toggle="modal" data-target="#logoutModal">
                                 <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                 Cerrar Sesión
                             </a>
@@ -276,7 +282,7 @@
                 </div>
             </div>
             <!-- End of Topbar -->
-
+            @yield('content')
             <!-- Begin Page Content -->
             <div class="container-fluid">
 
@@ -284,7 +290,7 @@
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
                     <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
                     <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                            class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+                        class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
                 </div>
 
                 <!-- Content Row -->
@@ -386,7 +392,7 @@
                         <div class="card shadow mb-4">
                             <!-- Card Header - Dropdown -->
                             <div
-                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                                 <h6 class="m-0 font-weight-bold text-primary">Earnings Overview</h6>
                                 <div class="dropdown no-arrow">
                                     <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
@@ -417,7 +423,7 @@
                         <div class="card shadow mb-4">
                             <!-- Card Header - Dropdown -->
                             <div
-                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                                 <h6 class="m-0 font-weight-bold text-primary">Revenue Sources</h6>
                                 <div class="dropdown no-arrow">
                                     <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
@@ -468,31 +474,31 @@
                             </div>
                             <div class="card-body">
                                 <h4 class="small font-weight-bold">Server Migration <span
-                                        class="float-right">20%</span></h4>
+                                    class="float-right">20%</span></h4>
                                 <div class="progress mb-4">
                                     <div class="progress-bar bg-danger" role="progressbar" style="width: 20%"
                                          aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>
                                 <h4 class="small font-weight-bold">Sales Tracking <span
-                                        class="float-right">40%</span></h4>
+                                    class="float-right">40%</span></h4>
                                 <div class="progress mb-4">
                                     <div class="progress-bar bg-warning" role="progressbar" style="width: 40%"
                                          aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>
                                 <h4 class="small font-weight-bold">Customer Database <span
-                                        class="float-right">60%</span></h4>
+                                    class="float-right">60%</span></h4>
                                 <div class="progress mb-4">
                                     <div class="progress-bar" role="progressbar" style="width: 60%"
                                          aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>
                                 <h4 class="small font-weight-bold">Payout Details <span
-                                        class="float-right">80%</span></h4>
+                                    class="float-right">80%</span></h4>
                                 <div class="progress mb-4">
                                     <div class="progress-bar bg-info" role="progressbar" style="width: 80%"
                                          aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>
                                 <h4 class="small font-weight-bold">Account Setup <span
-                                        class="float-right">Complete!</span></h4>
+                                    class="float-right">Complete!</span></h4>
                                 <div class="progress">
                                     <div class="progress-bar bg-success" role="progressbar" style="width: 100%"
                                          aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
@@ -583,7 +589,7 @@
                                          src="img/undraw_posting_photo.svg" alt="">
                                 </div>
                                 <p>Add some quality, svg illustrations to your project courtesy of <a
-                                        target="_blank" rel="nofollow" href="https://undraw.co/">unDraw</a>, a
+                                    target="_blank" rel="nofollow" href="https://undraw.co/">unDraw</a>, a
                                     constantly updated collection of beautiful svg images that you can use
                                     completely free and without attribution!</p>
                                 <a target="_blank" rel="nofollow" href="https://undraw.co/">Browse Illustrations on
@@ -614,13 +620,14 @@
         </div>
         <!-- End of Main Content -->
 
+
         <!-- Footer -->
         <footer class="sticky-footer bg-white">
             <div class="container my-auto">
                 <div class="footer-class copyright text-center my-auto">
-                    <img class="footer-img vitoria1" src="../../public/img/footer01.jpg">
+                    <img class="footer-img vitoria1" src="img/footer01.jpg">
                     <span>Copyright &copy; NUVE 2020</span>
-                    <img class="footer-img vitoria2" src="../../public/img/footer02.png">
+                    <img class="footer-img vitoria2" src="img/footer02.png">
                 </div>
             </div>
         </footer>
@@ -631,7 +638,7 @@
 
 </div>
 <!-- End of Page Wrapper -->
-
+</div>
 <!-- Scroll to Top Button-->
 <a class="scroll-to-top rounded" href="#page-top">
     <i class="fas fa-angle-up"></i>
@@ -639,22 +646,24 @@
 
 
 <!-- Bootstrap core JavaScript-->
-<script src="../../public/jquery/jquery.min.js"></script>
-<script src="../../public/js/bootstrap.bundle.min.js"></script>
+<script src="jquery/jquery.min.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
 
 <!-- Core plugin JavaScript-->
-<script src="../../public/jquery-easing/jquery.easing.min.js"></script>
+<script src="jquery-easing/jquery.easing.min.js"></script>
 
 <!-- Custom scripts for all pages-->
-<script src="../../public/components/js/sb-admin-2.min.js"></script>
+<script src="components/js/sb-admin-2.min.js"></script>
 
 <!-- Page level plugins -->
-<script src="../../public/js/chart.js/Chart.min.js"></script>
+<!--<script src="js/chart.js/Chart.min.js"></script>-->
+<script src="js/dark-mode-switch.min.js"></script>
 
 <!-- Page level custom scripts -->
-<script src="../../public/components/js/demo/chart-area-demo.js"></script>
-<script src="../../public/components/js/demo/chart-pie-demo.js"></script>
 
 </body>
 
 </html>
+
+
+

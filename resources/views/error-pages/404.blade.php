@@ -12,13 +12,13 @@
     <title>SB Admin 2 - 404</title>
 
     <!-- Custom fonts for this template-->
-    <link href="../../public/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="../../../public/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="../../public/css/style.css" rel="stylesheet">
+    <link href="../../../public/css/style.css" rel="stylesheet">
 
 </head>
 
@@ -31,7 +31,7 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.blade.php">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="../index.blade.php">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
@@ -43,7 +43,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
-                <a class="nav-link" href="index.blade.php">
+                <a class="nav-link" href="../index.blade.php">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span>
                 </a>
@@ -67,8 +67,8 @@
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Components:</h6>
-                        <a class="collapse-item" href="buttons.blade.php">Buttons</a>
-                        <a class="collapse-item" href="cards.blade.php">Cards</a>
+                        <a class="collapse-item" href="../buttons.blade.php">Buttons</a>
+                        <a class="collapse-item" href="../cards.blade.php">Cards</a>
                     </div>
                 </div>
             </li>
@@ -84,10 +84,10 @@
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Utilities:</h6>
-                        <a class="collapse-item" href="utilities-color.blade.php">Colors</a>
-                        <a class="collapse-item" href="utilities-border.blade.php">Borders</a>
-                        <a class="collapse-item" href="utilities-animation.blade.php">Animations</a>
-                        <a class="collapse-item" href="utilities-other.blade.php">Other</a>
+                        <a class="collapse-item" href="../utilities-color.blade.php">Colors</a>
+                        <a class="collapse-item" href="../utilities-border.blade.php">Borders</a>
+                        <a class="collapse-item" href="../perfil.blade.php">Animations</a>
+                        <a class="collapse-item" href="../utilities-other.blade.php">Other</a>
                     </div>
                 </div>
             </li>
@@ -111,27 +111,27 @@
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Login Screens:</h6>
-                        <a class="collapse-item" href="login.blade.php">Login</a>
-                        <a class="collapse-item" href="register.blade.php">Register</a>
-                        <a class="collapse-item" href="forgot-password.blade.php">Forgot Password</a>
+                        <a class="collapse-item" href="../login.blade.php">Login</a>
+                        <a class="collapse-item" href="../register.blade.php">Register</a>
+                        <a class="collapse-item" href="../forgot-password.blade.php">Forgot Password</a>
                         <div class="collapse-divider"></div>
                         <h6 class="collapse-header">Other Pages:</h6>
                         <a class="collapse-item active" href="404.blade.php">404 Page</a>
-                        <a class="collapse-item" href="blank.blade.php">Blank Page</a>
+                        <a class="collapse-item" href="../blank.blade.php">Blank Page</a>
                     </div>
                 </div>
             </li>
 
             <!-- Nav Item - Charts -->
             <li class="nav-item">
-                <a class="nav-link" href="charts.blade.php">
+                <a class="nav-link" href="../charts.blade.php">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Charts</span></a>
             </li>
 
             <!-- Nav Item - Tables -->
             <li class="nav-item">
-                <a class="nav-link" href="tables.blade.php">
+                <a class="nav-link" href="../tables.blade.php">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Tables</span></a>
             </li>
@@ -365,7 +365,7 @@
                         <div class="error mx-auto" data-text="404">404</div>
                         <p class="lead text-gray-800 mb-5">Page Not Found</p>
                         <p class="text-gray-500 mb-0">It looks like you found a glitch in the matrix...</p>
-                        <a href="index.blade.php">&larr; Back to Dashboard</a>
+                        <a href="../index.blade.php">&larr; Back to Dashboard</a>
                     </div>
 
                 </div>
@@ -409,18 +409,18 @@
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.blade.php">Logout</a>
+                    <a class="btn btn-primary" href="../login.blade.php">Logout</a>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- Bootstrap core JavaScript-->
-    <script src="../../public/jquery/jquery.min.js"></script>
-    <script src="../../public/js/bootstrap.bundle.min.js"></script>
+    <script src="../../../public/jquery/jquery.min.js"></script>
+    <script src="../../../public/js/bootstrap.bundle.min.js"></script>
 
     <!-- Core plugin JavaScript-->
-    <script src="../../public/jquery-easing/jquery.easing.min.js"></script>
+    <script src="../../../public/jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Custom scripts for all pages-->
     <script src="components/js/sb-admin-2.min.js"></script>

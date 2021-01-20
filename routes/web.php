@@ -19,3 +19,4 @@ Route::get("/trabajadores", "trabajadoresController@index");
 Route::view("/", "index")->name('paginaPrincipal');
 Route::view("/login", "login")->name('inicioSesion');
 Route::view("/register", "register")->name('registro');
+Route::view("/perfilSolicitante", "perfilSolicitante")->name('perfilS');
