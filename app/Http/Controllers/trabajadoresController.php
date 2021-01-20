@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\trabajador;
 use Illuminate\Http\Request;
-use DB;
 
 class trabajadoresController extends Controller
 {
@@ -14,7 +14,7 @@ class trabajadoresController extends Controller
      */
     public function index()
     {
-        $trabajadores = DB::table('TRABAJADORES')->get();
+        $trabajadores = Trabajador::get();
 
         return view("trabajadores", compact("trabajadores"));
     }
@@ -26,7 +26,7 @@ class trabajadoresController extends Controller
      */
     public function create()
     {
-        //
+        return view("trabajadoresForm");
     }
 
     /**
@@ -35,9 +35,44 @@ class trabajadoresController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store()
     {
-        //
+
+        /*
+            Trabajador::create([
+            "DNI" => request("dni"),
+            "PASSWORD" => request("password"),
+            "NOMBRE" => request("nombre"),
+            "APELLIDO1" => request("apellido1"),
+            "APELLIDO2" => request("apellido2"),
+            "IMAGEN" => request("imagen"),
+            "EMAIL" => request("email"),
+            "TELEFONO" => request("telefono"),
+            "DISPONIBILIDAD" => request("disponibilidad"),
+            "IDTIPO" => request("tipo")
+
+        ]);
+        */
+
+        $dis = (int)request("disponibilidad");
+        $tipo = (int)request("tipo");
+
+        $trabajador  = new Trabajador(
+            [
+                "DNI" => request("dni"),
+                "PASSWORD" => request("password"),
+                "NOMBRE" => request("nombre"),
+                "APELLIDO1" => request("apellido1"),
+                "APELLIDO2" => request("apellido2"),
+                "IMAGEN" => request("imagen"),
+                "EMAIL" => request("email"),
+                "TELEFONO" => request("telefono"),
+                "DISPONIBILIDAD" => $dis,
+                "IDTIPO" => $tipo
+            ]
+        );
+
+        $trabajador->save();
     }
 
     /**

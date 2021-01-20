@@ -16,4 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get("/trabajadores", "trabajadoresController@index");
 
+Route::get("/trabajadoresCrear", "trabajadoresController@create");
+Route::post("/trabajadoresStore", "trabajadoresController@store")->name("trabajadores.store");
+
 Route::view("/", "index");
