@@ -7,35 +7,21 @@ use Illuminate\Http\Request;
 
 class trabajadoresController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    /*Retorna todas las filas de la tabla. (SELECT * FROM)*/
+    public function listarTodos()
     {
         $trabajadores = Trabajador::get();
-
         return view("trabajadores", compact("trabajadores"));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    /*Retorna tan solo una fila concreta. (SELECT WHERE ID=x)*/
+    public function listarConcreto($id)
     {
-        return view("trabajadoresForm");
+        return $trabajador = Trabajador::find($id);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store()
+    /*Inserta un elemento en la tabla. (Los atributos se envían mediante POST)*/
+    public function insertar()
     {
 
         /*
@@ -75,16 +61,14 @@ class trabajadoresController extends Controller
         $trabajador->save();
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+    /*Abre el formulario crear*/
+    public function formCrear()
     {
-        //
+        return view("trabajadoresForm");
+
+        $this->listarTodos();
     }
+
 
     /**
      * Show the form for editing the specified resource.

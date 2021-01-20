@@ -1,6 +1,6 @@
 <h1>Formulario de trabajadores</h1>
 
-<form method="POST" action="{{route("trabajadores.store")}}">
+<form method="POST" action="{{route("trabajadores.insertar")}}">
 
     @csrf
 
