@@ -16,4 +16,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::get("/trabajadores", "trabajadoresController@index");
 
-Route::view("/", "index");
+Route::view("/", "index")->name('paginaPrincipal');
+Route::view("/login", "login")->name('inicioSesion');
+Route::view("/register", "register")->name('registro');
