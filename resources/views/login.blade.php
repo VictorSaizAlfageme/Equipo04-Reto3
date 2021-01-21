@@ -43,15 +43,16 @@
                                 <div class="text-center">
                                     <h1 class="h4 text-gray-900 mb-4">Bienvenid@!</h1>
                                 </div>
-                                <form class="user" id="formulario">
+                                <form class="user" id="formulario" method="POST" action="{{route("solicitanteIniciarSesion")}}">
+                                    @csrf
                                     <div class="form-group">
-                                        <input type="email" class="form-control form-control-user"
+                                        <input type="text" class="form-control form-control-user"
                                                id="exampleInputEmail" aria-describedby="emailHelp"
-                                               placeholder="Dirección de correo">
+                                               placeholder="DNI" name="dni">
                                     </div>
                                     <div class="form-group">
                                         <input type="password" class="form-control form-control-user"
-                                               id="exampleInputPassword" placeholder="Contraseña">
+                                               id="exampleInputPassword" placeholder="Contraseña" name="pass">
                                     </div>
                                     <div class="form-group">
                                         <div class="custom-control custom-checkbox small">
@@ -59,7 +60,7 @@
                                             <label class="custom-control-label" for="customCheck">Recuérdame</label>
                                         </div>
                                     </div>
-                                    <a href="index.html" class="btn btn-primary btn-user btn-block" onclick="document.getElementById('formulario').submit()">
+                                    <a class="btn btn-primary btn-user btn-block" onclick="document.getElementById('formulario').submit()">
                                         INICIAR SESIÓN
                                     </a>
                                 </form>

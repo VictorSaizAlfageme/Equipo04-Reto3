@@ -11,8 +11,8 @@ class trabajadoresController extends Controller
     /*Retorna todas las filas de la tabla. (SELECT * FROM)*/
     public function listarTodos()
     {
-        $trabajadores = Trabajador::get();
-        return view("trabajadores", compact("trabajadores"));
+        $lista = Trabajador::get();
+        return view("listar", compact("lista"));
     }
 
     /*Retorna tan solo una fila concreta. (SELECT WHERE ID=x)*/
