@@ -1,24 +1,20 @@
 //importamos el scss de boostrap
 @import "../components/scss/sb-admin-2";
-
+@import "variables";
 
 .btn-primary, .dropdown-header {
-    background-color: #157d6a !important;
-    border-color: #157d6a !important;
+    background-color: $nuvecolor !important;
+    border-color: $nuvecolor !important;
     transition: 1s;
 }
 
-
-
-
 .bg-gradient-primary {
-    background-color: #157d6a;
+    background-color: $nuvecolor;
 }
 
-
 .btn-primary, .dropdown-header {
-    background-color: #157d6a;
-    border-color: #157d6a;
+    background-color: $nuvecolor;
+    border-color: $nuvecolor;
 }
 
 
@@ -88,6 +84,126 @@
     font-size: 1em;
     text-align: center;
     width: 100%;
+}
+
+
+
+button {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    outline: none;
+    border: 0;
+    vertical-align: middle;
+    text-decoration: none;
+    background: transparent;
+    padding: 0;
+    font-size: inherit;
+    font-family: inherit;
+    &.learn-more {
+        width: 12rem;
+        height: auto;
+        .circle {
+            @include transition(all, 0.45s, cubic-bezier(0.65,0,.076,1));
+            position: relative;
+            display: block;
+            margin: 0;
+            width: 3rem;
+            height: 3rem;
+            background: $nuvecolor;
+            border-radius: 1.625rem;
+            .icon {
+                @include transition(all, 0.45s, cubic-bezier(0.65,0,.076,1));
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                margin: auto;
+                background: $white;
+                &.arrow {
+                    @include transition(all, 0.45s, cubic-bezier(0.65,0,.076,1));
+                    left: 0.625rem;
+                    width: 1.125rem;
+                    height: 0.125rem;
+                    background: none;
+                    &::before {
+                        position: absolute;
+                        content: '';
+                        top: -0.25rem;
+                        right: 0.0625rem;
+                        width: 0.625rem;
+                        height: 0.625rem;
+                        border-top: 0.125rem solid #fff;
+                        border-right: 0.125rem solid #fff;
+                        transform: rotate(45deg);
+                    }
+                }
+            }
+        }
+        .button-text {
+            @include transition(all, 0.45s, cubic-bezier(0.65,0,.076,1));
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            padding: 0.75rem 0;
+            margin: 0 0 0 1.85rem;
+            color: $black;
+            font-weight: 700;
+            line-height: 1.6;
+            text-align: center;
+            text-transform: uppercase;
+        }
+    }
+    &:hover {
+        .circle {
+            width: 100%;
+            transition: 0.5s;
+            .icon {
+                &.arrow {
+                    background: $white;
+                    transform: translate(1rem, 0);
+                    transition: 0.5s;
+                }
+            }
+        }
+        .button-text {
+            color: $white;
+        }
+    }
+}
+
+.descripcion {
+    resize: none;
+    border-radius: 30px !important;
+    height: 150px !important;
+}
+
+.descripcion::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+}
+.descripcion::-webkit-scrollbar-button {
+    width: 22px;
+    height: 22px;
+}
+.descripcion::-webkit-scrollbar-thumb {
+    background: #000000;
+}
+.descripcion::-webkit-scrollbar-thumb:hover {
+    background: black;
+}
+.descripcion::-webkit-scrollbar-thumb:active {
+    background: black;
+}
+.descripcion::-webkit-scrollbar-track {
+    background: white;
+}
+.descripcion::-webkit-scrollbar-track:active {
+    background: white;
+}
+.descripcion::-webkit-scrollbar-corner {
+    background: transparent;
 }
 
 

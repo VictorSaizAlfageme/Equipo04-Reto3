@@ -20,6 +20,7 @@
     <link href="css/style.css" rel="stylesheet">
     <link href="css/dark.css" rel="stylesheet">
 
+
 </head><!-- Content Wrapper -->
 <body id="page-top">
 
@@ -584,10 +585,6 @@
                                 <h6 class="m-0 font-weight-bold text-primary">Illustrations</h6>
                             </div>
                             <div class="card-body">
-                                <div class="text-center">
-                                    <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;"
-                                         src="img/undraw_posting_photo.svg" alt="">
-                                </div>
                                 <p>Add some quality, svg illustrations to your project courtesy of <a
                                         target="_blank" rel="nofollow" href="https://undraw.co/">unDraw</a>, a
                                     constantly updated collection of beautiful svg images that you can use

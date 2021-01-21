@@ -18,6 +18,8 @@ Route::view("/", "login")->name('inicioSesion');
 Route::view("/index", "index")->name('paginaPrincipal');
 Route::view("/register", "register")->name('registro');
 
+Route::view("/obra", "obra")->name('obra');
+
 //CONTROLADORES
 
 //TRABAJADORES
