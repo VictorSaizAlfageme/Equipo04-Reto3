@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 class trabajadoresController extends Controller
 {
+
     /*Retorna todas las filas de la tabla. (SELECT * FROM)*/
     public function listarTodos()
     {
@@ -23,22 +24,6 @@ class trabajadoresController extends Controller
     /*Inserta un elemento en la tabla. (Los atributos se envían mediante POST)*/
     public function insertar()
     {
-
-        /*
-            Trabajador::create([
-            "DNI" => request("dni"),
-            "PASSWORD" => request("password"),
-            "NOMBRE" => request("nombre"),
-            "APELLIDO1" => request("apellido1"),
-            "APELLIDO2" => request("apellido2"),
-            "IMAGEN" => request("imagen"),
-            "EMAIL" => request("email"),
-            "TELEFONO" => request("telefono"),
-            "DISPONIBILIDAD" => request("disponibilidad"),
-            "IDTIPO" => request("tipo")
-
-        ]);
-        */
 
         $dis = (int)request("disponibilidad");
         $tipo = (int)request("tipo");
@@ -61,11 +46,25 @@ class trabajadoresController extends Controller
         $trabajador->save();
     }
 
+    public function iniciarSesion(){
+        //FALTA LA ENCRIPTACIÓN
+        $dni = request("dni");
+        $pass = request("pass");
+
+        $trabajadores = Trabajador::get();
+
+        foreach ($trabajadores as $trabajador){
+            if($dni == $trabajador->DNI && $pass == $trabajador->PASSWORD){
+                return view("index");
+            }
+        }
+
+        return view("loginTrabajadores");
+    }
+
     /*Abre el formulario crear*/
     public function formCrear()
     {
-        return view("trabajadoresForm");
-
         $this->listarTodos();
     }
 

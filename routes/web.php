@@ -18,11 +18,19 @@ Route::view("/", "login")->name('inicioSesion');
 Route::view("/index", "index")->name('paginaPrincipal');
 Route::view("/register", "register")->name('registro');
 
-//CONTROLADORES
+//CONTROLADORES (Porfavor no tocar de aquí pa abajo; trabajo en progreso.)
 
 //TRABAJADORES
-Route::get("/trabajadores", "trabajadoresController@listarTodos");
-Route::get("/trabajadoresCrear", "trabajadoresController@formCrear");
+Route::view("/trabajadores", "loginTrabajadores")->name("loginTrabajadores");
+Route::post("/trabajadorLogin", "trabajadoresController@iniciarSesion")->name("trabajadorIniciarSesion");
+
+//Solicitantes (Usuarios normales)
+
+
+
+//PROVISIONALES
+Route::get("/trabajadoresListar", "trabajadoresController@listarTodos")->name("listarTrabajadores");
+Route::get("/trabajadoresCrear", "trabajadoresController@formCrear")->name("registrarTrabajador");
 Route::post("/trabajadoresStore", "trabajadoresController@store")->name("trabajadores.store");
 Route::get("/trabajadores/{id}", "trabajadoresController@listarConcreto");
 
