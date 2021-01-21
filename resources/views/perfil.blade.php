@@ -15,7 +15,7 @@
     <!-- Custom fonts for this template-->
     <link href="fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-
+    <link href="css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom styles for this template-->
     <link href="css/style.css" rel="stylesheet">
     <link href="css/dark.css" rel="stylesheet">
@@ -30,7 +30,7 @@
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
         <div class="left-column">
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.blade.php">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="../../../Equipo04-Reto3%20-%20copia/resources/views/index.blade.php">
                 <div class="sidebar-brand-icon">
                     <img class="logo" src="img/logo.png">
                 </div>
@@ -46,7 +46,7 @@
             </div>
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="index.blade.php">
+                <a class="nav-link" href="../../../Equipo04-Reto3%20-%20copia/resources/views/index.blade.php">
                     <i class="fas fa-fw fa-home"></i>
                     <span>Inicio</span></a>
             </li>
@@ -70,10 +70,10 @@
                      data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Ordenadas:</h6>
-                        <a class="collapse-item" href="utilities-color.blade.php">Semanalmente</a>
-                        <a class="collapse-item" href="utilities-border.blade.php">Mensualmente</a>
+                        <a class="collapse-item" href="../../../Equipo04-Reto3%20-%20copia/resources/views/utilities-color.blade.php">Semanalmente</a>
+                        <a class="collapse-item" href="../../../Equipo04-Reto3%20-%20copia/resources/views/utilities-border.blade.php">Mensualmente</a>
                         <a class="collapse-item" href="utilities-animation.blade.php">Anualmente</a>
-                        <a class="collapse-item" href="utilities-other.blade.php">Historicamente</a>
+                        <a class="collapse-item" href="../../../Equipo04-Reto3%20-%20copia/resources/views/utilities-other.blade.php">Historicamente</a>
                     </div>
                 </div>
             </li>
@@ -84,7 +84,7 @@
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link" href="charts.blade.php">
+                <a class="nav-link" href="../../../Equipo04-Reto3%20-%20copia/resources/views/charts.blade.php">
                     <i class="fas fa-fw fa-bell"></i>
                     <span>Alertas</span>
                 </a>
@@ -92,14 +92,14 @@
 
             <!-- Nav Item - Charts -->
             <li class="nav-item">
-                <a class="nav-link" href="charts.blade.php">
+                <a class="nav-link" href="../../../Equipo04-Reto3%20-%20copia/resources/views/charts.blade.php">
                     <i class="fas fa-fw fa-tools"></i>
                     <span>Técnicos</span></a>
             </li>
 
             <!-- Nav Item - Tables -->
             <li class="nav-item">
-                <a class="nav-link" href="tables.blade.php">
+                <a class="nav-link" href="../../../Equipo04-Reto3%20-%20copia/resources/views/tables.blade.php">
                     <i class="fas fa-fw fa-user-shield"></i>
                     <span>Coordinadores</span></a>
             </li>
@@ -276,7 +276,7 @@
                         </div>
                         <div class="modal-footer">
                             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-                            <a class="btn btn-primary" href="login.blade.php">Cerrar Sesión</a>
+                            <a class="btn btn-primary" href="../../../Equipo04-Reto3%20-%20copia/resources/views/login.blade.php">Cerrar Sesión</a>
                         </div>
                     </div>
                 </div>
@@ -319,11 +319,11 @@
 <script src="components/js/sb-admin-2.min.js"></script>
 
 <!-- Page level plugins -->
-<!--<script src="js/chart.js/Chart.min.js"></script>-->
+<script src="js/chart.js/Chart.min.js"></script>
 <script src="js/dark-mode-switch.min.js"></script>
 
 <!-- Page level custom scripts -->
-
+<script src="bootstrap/js/demo/bootstrap.js"></script>
 </body>
 
 </html>

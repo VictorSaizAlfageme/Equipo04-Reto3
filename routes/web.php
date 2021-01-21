@@ -14,9 +14,27 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get("/trabajadores", "trabajadoresController@index");
+
+
 
 Route::view("/", "index")->name('paginaPrincipal');
 Route::view("/login", "login")->name('inicioSesion');
 Route::view("/register", "register")->name('registro');
 Route::view("/perfilSolicitante", "perfilSolicitante")->name('perfilS');
+//CONTROLADORES (Porfavor no tocar de aquí pa abajo; trabajo en progreso.)
+
+//TRABAJADORES
+Route::view("/trabajadores", "loginTrabajadores")->name("loginTrabajadores");
+Route::post("/trabajadorLogin", "trabajadoresController@iniciarSesion")->name("trabajadorIniciarSesion");
+
+//Solicitantes (Usuarios normales)
+Route::view("/obrasSolicitante", "obrasSolicitante")->name("obraS");
+
+
+//PROVISIONALES
+Route::get("/trabajadoresListar", "trabajadoresController@listarTodos")->name("listarTrabajadores");
+Route::get("/trabajadoresCrear", "trabajadoresController@formCrear")->name("registrarTrabajador");
+Route::post("/trabajadoresStore", "trabajadoresController@store")->name("trabajadores.store");
+Route::get("/trabajadores/{id}", "trabajadoresController@listarConcreto");
+
+

@@ -1,5 +1,5 @@
 //importamos el scss de boostrap
-@import "../components/scss/sb-admin-2";
+@import "../../../Equipo04-Reto3 - copia/public/components/scss/sb-admin-2";
 
 
 .btn-primary, .dropdown-header {
@@ -105,6 +105,16 @@ footer.sticky-footer{
     position: fixed;
 }
 
+.page-link{
+    color: black;
+}
+.page-item.active .page-link{
+    background-color: #0f6848;
+    border-color: #0f6848;
+}
+.pagination{
+    justify-content: center;
+}
 @media (max-width: 600px) {
 
     .vitoria2 {
@@ -113,3 +123,5 @@ footer.sticky-footer{
 
 
 }
+
+

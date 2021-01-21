@@ -70,7 +70,7 @@
                         <h6 class="collapse-header">Ordenadas:</h6>
                         <a class="collapse-item" href="utilities-color.blade.php">Semanalmente</a>
                         <a class="collapse-item" href="utilities-border.blade.php">Mensualmente</a>
-                        <a class="collapse-item" href="perfil.blade.php">Anualmente</a>
+                        <a class="collapse-item" href="utilities-animation.blade.php">Anualmente</a>
                         <a class="collapse-item" href="utilities-other.blade.php">Historicamente</a>
                     </div>
                 </div>

@@ -2,54 +2,72 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\trabajador;
 use Illuminate\Http\Request;
-use DB;
 
 class trabajadoresController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        $trabajadores = DB::table('TRABAJADORES')->get();
 
+    /*Retorna todas las filas de la tabla. (SELECT * FROM)*/
+    public function listarTodos()
+    {
+        $trabajadores = Trabajador::get();
         return view("trabajadores", compact("trabajadores"));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    /*Retorna tan solo una fila concreta. (SELECT WHERE ID=x)*/
+    public function listarConcreto($id)
     {
-        //
+        return $trabajador = Trabajador::find($id);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    /*Inserta un elemento en la tabla. (Los atributos se envían mediante POST)*/
+    public function insertar()
     {
-        //
+
+        $dis = (int)request("disponibilidad");
+        $tipo = (int)request("tipo");
+
+        $trabajador  = new Trabajador(
+            [
+                "DNI" => request("dni"),
+                "PASSWORD" => request("password"),
+                "NOMBRE" => request("nombre"),
+                "APELLIDO1" => request("apellido1"),
+                "APELLIDO2" => request("apellido2"),
+                "IMAGEN" => request("imagen"),
+                "EMAIL" => request("email"),
+                "TELEFONO" => request("telefono"),
+                "DISPONIBILIDAD" => $dis,
+                "IDTIPO" => $tipo
+            ]
+        );
+
+        $trabajador->save();
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
+    public function iniciarSesion(){
+        //FALTA LA ENCRIPTACIÓN
+        $dni = request("dni");
+        $pass = request("pass");
+
+        $trabajadores = Trabajador::get();
+
+        foreach ($trabajadores as $trabajador){
+            if($dni == $trabajador->DNI && $pass == $trabajador->PASSWORD){
+                return view("index");
+            }
+        }
+
+        return view("loginTrabajadores");
     }
+
+    /*Abre el formulario crear*/
+    public function formCrear()
+    {
+        $this->listarTodos();
+    }
+
 
     /**
      * Show the form for editing the specified resource.
