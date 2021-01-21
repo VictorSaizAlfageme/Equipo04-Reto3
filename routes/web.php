@@ -18,7 +18,13 @@ use Illuminate\Support\Facades\Route;
 Route::view("/index", "index")->name('paginaPrincipal');
 Route::view("/register", "register")->name('registro');
 
-//CONTROLADORES (Porfavor no tocar de aquí pa abajo; trabajo en progreso.)
+/*
+ * |================================================================|
+ * |====Porfavor no tocar de aquí pa abajo; trabajo en progreso.====|
+ * |================================================================|
+ * */
+
+//CONTROLADORES
 
 //TRABAJADORES
 Route::view("/trabajadores", "loginTrabajadores")->name("loginTrabajadores");
@@ -32,7 +38,7 @@ Route::post("/registrando", "solicitantesController@insertar")->name("solicitant
 
 
 
-//PROVISIONALES
+//PROVISIONALES (SOLO PARA DESARROLLO)
 Route::get("/trabajadoresListar", "trabajadoresController@listarTodos");
 Route::get("/solicitantesListar", "solicitantesController@listarTodos");
 
