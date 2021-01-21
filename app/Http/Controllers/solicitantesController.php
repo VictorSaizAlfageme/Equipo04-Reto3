@@ -34,7 +34,7 @@ class solicitantesController extends Controller
             }
         }
 
-        return view("login");
+        return redirect()->route('inicioSesion');
     }
 
 
@@ -44,27 +44,26 @@ class solicitantesController extends Controller
 
         //Tratar los dates.
 
-        $trabajador  = new Trabajador(
+        $solicitante  = new Solicitante(
             [
                 "DNI" => request("dni"),
                 "PASSWORD" => request("password"),
                 "NOMBRE" => request("nombre"),
                 "APELLIDO" => request("apellido"),
                 "FECHANAC" => request("fechaNac"),
-                "LUGARNAC" => request("lugarNac"),
+                "LUGARNAC" => request("provincias"),
                 "EMAIL" => request("email"),
                 "TELEFONO" => request("telefono"),
             ]
         );
 
-        $trabajador->save();
+        $solicitante->save();
+        return redirect()->route('inicioSesion');
     }
 
     /*Abre el formulario crear*/
     public function formCrear()
     {
-        return view("register");
-
-        $this->listarTodos();
+        return view("login");
     }
 }

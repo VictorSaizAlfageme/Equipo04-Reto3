@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::view("/", "login")->name('inicioSesion');
+
 Route::view("/index", "index")->name('paginaPrincipal');
 Route::view("/register", "register")->name('registro');
 
@@ -26,7 +26,11 @@ Route::post("/trabajadorLogin", "trabajadoresController@iniciarSesion")->name("t
 
 //Solicitantes (Usuarios normales)
 Route::view("/", "login")->name('inicioSesion');
-Route::post("/usuarioLogin", "solicitantesController@iniciarSesion")->name("solicitanteIniciarSesion");
+Route::post("/login", "solicitantesController@iniciarSesion")->name("solicitanteIniciarSesion");
+Route::view("/registro", "register")->name("solicitanteRegistro");
+Route::post("/registrando", "solicitantesController@insertar")->name("solicitanteRegistrar");
+
+
 
 //PROVISIONALES
 Route::get("/trabajadoresListar", "trabajadoresController@listarTodos");

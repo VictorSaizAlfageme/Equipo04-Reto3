@@ -69,7 +69,7 @@
                                     <a class="small" href="forgot-password.html">¿Se te ha olvidado la contraseña?</a>
                                 </div>
                                 <div class="text-center">
-                                    <small>¿No tienes cuenta? </small><a class="small" href="{{route("registro")}}">Registrate aquí.</a>
+                                    <small>¿No tienes cuenta? </small><a class="small" href="{{route("solicitanteRegistro")}}">Registrate aquí.</a>
                                 </div>
                             </div>
                         </div>

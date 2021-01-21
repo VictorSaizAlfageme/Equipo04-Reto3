@@ -31,7 +31,8 @@
                         <div class="text-center">
                             <h1 class="h4 text-gray-900 mb-4">Formulario de Registro</h1>
                         </div>
-                        <form class="user" >
+                        <form class="user" method="POST" id="formulario" action="{{route("solicitanteRegistrar")}}">
+                            @csrf
                             <div class="form-group row">
                                 <div class="col-sm-6 mb-3 mb-sm-0">
                                     <input type="text" class="nombre form-control form-control-user" id="nombre"
@@ -49,7 +50,7 @@
                             <div class="form-group row">
                                 <div class="col-sm-6 mb-3 mb-sm-0">
                                     <input type="password" class="pass form-control form-control-user"
-                                           id="pass" placeholder="Contraseña" name="pass">
+                                           id="pass" placeholder="Contraseña" name="password">
                                 </div>
                                 <div class="col-sm-6">
                                     <input type="password" class="form-control form-control-user"
@@ -59,7 +60,7 @@
                             <div class="form-group row">
                                 <div class="col-sm-6 mb-3 mb-sm-0">
                                     <input type="date" class="form-control form-control-user"
-                                           id="fechaNac" placeholder="Fecha de nacimiento" name="date">
+                                           id="fechaNac" placeholder="Fecha de nacimiento" name="fechaNac">
                                 </div>
                                 <div class="col-sm-6">
                                     <input type="number" class="form-control form-control-user"
@@ -74,14 +75,14 @@
                                 <div class="col-sm-6">
                                     <select name="provincias" id="lugarNac" class="form-control form-control-user form-select">
                                         <option class="select-title" disabled selected>Lugar de nacimiento</option>
-                                        <option value="alava">Álava</option>
-                                        <option value="vizcaya">Vizcaya</option>
-                                        <option value="guipuzcoa">Guipúzcoa</option>
-                                        <option value="otro">Otro</option>
+                                        <option value="Alava">Álava</option>
+                                        <option value="Vizcaya">Vizcaya</option>
+                                        <option value="Guipuzcoa">Guipúzcoa</option>
+                                        <option value="Otro">Otro</option>
                                     </select>
                                 </div>
                             </div>
-                            <a onclick="validarDatos()" class="btn btn-primary btn-user btn-block">
+                            <a onclick="document.getElementById('formulario').submit()" class="btn btn-primary btn-user btn-block"> <!-- AQUÍ AÑADIR LAS VALIDACIONES -->
                                 REGISTRATE
                             </a>
                         </form>
