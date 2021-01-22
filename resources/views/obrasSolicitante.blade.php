@@ -1,4 +1,4 @@
-@extends('perfil')
+@extends('layout')
 @section('content')
     <div class="container">
         <div class="row">
@@ -73,7 +73,7 @@
                             <td colspan="3">¡¡Estamos con la obra!!</td>
                             <td colspan="2"><button type="button" class="btn btn-primary">Contactar</button></td>
                         </tr>
-                        <tr class="cell-1" data-toggle="collapse" data-target="#demo-4">
+                        <tr class="cell-1" data-toggle="collapse" data-target="#demo-5">
                             <td class="text-center">1</td>
                             <td>09485</td>
                             <td>Reparación</td>
@@ -82,7 +82,7 @@
                             <td>Sin definir</td>
                             <td class="table-elipse" data-toggle="collapse" data-target="#demo"><i class="fas fa-angle-down"></i></td>
                         </tr>
-                        <tr id="demo-4" class="collapse cell-1 row-child">
+                        <tr id="demo-5" class="collapse cell-1 row-child">
                             <td colspan="2"><b>Último comentario:</b></td>
                             <td colspan="3">Hemos finalizado tu obra. ¡¡Disfrutala!!</td>
                             <td colspan="2"><button type="button" class="btn btn-primary">Contactar</button></td>

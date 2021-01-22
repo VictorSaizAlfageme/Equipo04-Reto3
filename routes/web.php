@@ -26,7 +26,9 @@ Route::view("/perfilSolicitante", "perfilSolicitante")->name('perfilS');
 //TRABAJADORES
 Route::view("/trabajadores", "loginTrabajadores")->name("loginTrabajadores");
 Route::post("/trabajadorLogin", "trabajadoresController@iniciarSesion")->name("trabajadorIniciarSesion");
-
+Route::view("/iTecnicos", "iTecnicos")->name("itecnicos");
+Route::view("/iCoordinadores", "iCoordinadores")->name("icoordinadores");
+Route::view("/iComentariosTecnico", "iComentariosTecnico")->name("icomentariostecnicos");
 //Solicitantes (Usuarios normales)
 Route::view("/obrasSolicitante", "obrasSolicitante")->name("obraS");
 

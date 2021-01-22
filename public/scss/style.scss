@@ -130,6 +130,13 @@ input[type=file].hidden{
 .badge{
     color: black;
 }
+tr{
+    cursor: pointer;
+}
+h3{
+    text-align: center;
+    color: #157d6a;
+}
 @media (max-width: 600px) {
 
     .vitoria2 {
