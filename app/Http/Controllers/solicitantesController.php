@@ -69,6 +69,13 @@ class solicitantesController extends Controller
         return redirect()->route('inicioSesion');
     }
 
+    public function destroy(){
+        $a = Solicitante::where("ID", request("id"))->delete();
+
+        $lista = Solicitante::get();
+        return view("listar", compact("lista"));
+    }
+
     /*Abre el formulario crear*/
     public function formCrear()
     {
