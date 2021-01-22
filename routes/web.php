@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::view("/index", "index")->name('paginaPrincipal');
 Route::view("/register", "register")->name('registro');
-
+Route::view("/obra", "obra")->name('obra');
 /*
  * |================================================================|
  * |====Porfavor no tocar de aquí pa abajo; trabajo en progreso.====|
