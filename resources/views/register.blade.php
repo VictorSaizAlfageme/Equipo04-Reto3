@@ -31,7 +31,7 @@
                         <div class="text-center">
                             <h1 class="h4 text-gray-900 mb-4">Formulario de Registro</h1>
                         </div>
-                        <form class="user" method="POST" id="formulario" action="{{route("solicitanteRegistrar")}}">
+                        <form  class="user" method="POST" id="formulario" action="{{route("solicitanteRegistrar")}}">
                             @csrf
                             <div class="form-group row">
                                 <div class="col-sm-6 mb-3 mb-sm-0">
@@ -82,7 +82,7 @@
                                     </select>
                                 </div>
                             </div>
-                            <a onclick="document.getElementById('formulario').submit()" class="btn btn-primary btn-user btn-block"> <!-- AQUÍ AÑADIR LAS VALIDACIONES -->
+                            <a id="botonRegistro" class="btn btn-primary btn-user btn-block"> <!-- AQUÍ AÑADIR LAS VALIDACIONES -->
                                 REGISTRATE
                             </a>
                         </form>
@@ -109,6 +109,6 @@
 <script src="jquery-easing/jquery.easing.min.js"></script>
 <!-- Custom scripts for all pages-->
 <script src="boostrap/js/sb-admin-2.min.js"></script>
-<script src="js/registro.js"></script>
+<script src="js/validaciones.js"></script>
 </body>
 </html>

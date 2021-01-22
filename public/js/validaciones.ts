@@ -1,15 +1,28 @@
 
 var camposError:Array<string> = []; //array para guardar aquellos campos que no pasen validación
 var mensajesError:Array<string> =[]; //array donde se guarda el mensaje de error de cada campo erróneo
-var idsCampos:Array<string> =["#nombre", "#apellido", "#email", "#pass", "#pass2", "#fechaNac", "#telefono", "#dni", "#lugarNac"];
+var idsCampos:Array<string> = [];
+
+$(document).ready(function (){
+    //Asignamos la función correspondiente al formulario. El try 
+    try {
+        $("#botonRegistro").click(validarDatosRegistroSolicitante);
+    }catch (error){}
 
 
-function validarDatos():void{
+
+
+});
+
+function validarDatosRegistroSolicitante():void{
+    idsCampos = ["#nombre", "#apellido", "#email", "#pass", "#pass2", "#fechaNac", "#telefono", "#dni", "#lugarNac"];
+
 
     camposError = [];
     mensajesError =[];
     idsCampos.forEach(c =>  $(c).removeClass("buzz"));
     idsCampos.forEach(c => establecerEstiloNormal(c));
+
     validarNombre();
     validarApellido();
     validarEmail();
@@ -19,7 +32,13 @@ function validarDatos():void{
     validarDNI();
     validarFechaNac();
     validarLugarNac();
+
     comprobarYEstablecerEstilos();
+    if(mensajesError.length == 0){
+        $("#formulario").submit()
+    }else{
+        alert("Errores en el formulario")
+    }
 
     /*
     $.ajax({
@@ -241,7 +260,6 @@ function validarFechaNac(){
     }
 }
 
-
 function validarLugarNac(){
     let campo:string = "#lugarNac";
     // @ts-ignore
@@ -256,8 +274,6 @@ function validarLugarNac(){
         camposError.push(campo);
     }
 }
-
-
 
 function validarVacio(valorCampo){
     if (valorCampo == "")
