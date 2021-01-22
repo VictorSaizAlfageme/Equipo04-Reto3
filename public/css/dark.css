@@ -42,3 +42,10 @@
     display: flex;
     align-items: center;
 }
+
+[data-theme="dark"] table {
+    color: white;
+}
+[data-theme="dark"] .badge{
+    color: black !important;
+}

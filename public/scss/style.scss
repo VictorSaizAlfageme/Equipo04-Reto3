@@ -99,11 +99,6 @@ input[type=file].hidden{
     border-radius: 50%;
 }
 
-footer.sticky-footer{
-    width: 100%;
-    bottom: 0;
-    position: fixed;
-}
 
 .page-link{
     color: black;
@@ -115,6 +110,26 @@ footer.sticky-footer{
 .pagination{
     justify-content: center;
 }
+
+.badge-dark{ //Valorando
+    background-color: #9ac4f8;
+}
+.badge-secondary{ //Aceptado
+    background-color: #ffec17;
+}
+.badge-info{ //Denegado
+    background-color: #ff9000;
+}
+.badge-light{ //En proceso
+    background-color: #ff5c9a;
+    color: white;
+ }
+.badge-success{ //Finalizado
+    background-color: #affc41;
+}
+.badge{
+    color: black;
+}
 @media (max-width: 600px) {
 
     .vitoria2 {
@@ -123,5 +138,6 @@ footer.sticky-footer{
 
 
 }
+
 
 
