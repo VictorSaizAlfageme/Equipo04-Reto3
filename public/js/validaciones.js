@@ -1,7 +1,15 @@
 var camposError = []; //array para guardar aquellos campos que no pasen validación
 var mensajesError = []; //array donde se guarda el mensaje de error de cada campo erróneo
-var idsCampos = ["#nombre", "#apellido", "#email", "#pass", "#pass2", "#fechaNac", "#telefono", "#dni", "#lugarNac"];
-function validarDatos() {
+var idsCampos = [];
+$(document).ready(function () {
+    //Asignamos la función correspondiente al formulario. El try
+    try {
+        $("#botonRegistro").click(validarDatosRegistroSolicitante);
+    }
+    catch (error) { }
+});
+function validarDatosRegistroSolicitante() {
+    idsCampos = ["#nombre", "#apellido", "#email", "#pass", "#pass2", "#fechaNac", "#telefono", "#dni", "#lugarNac"];
     camposError = [];
     mensajesError = [];
     idsCampos.forEach(function (c) { return $(c).removeClass("buzz"); });
@@ -16,6 +24,9 @@ function validarDatos() {
     validarFechaNac();
     validarLugarNac();
     comprobarYEstablecerEstilos();
+    if (mensajesError.length == 0) {
+        $("#formulario").submit();
+    }
     /*
     $.ajax({
         type: "POST",
@@ -243,14 +254,12 @@ function validarVacio(valorCampo) {
     return true;
 }
 function aplicarEstiloError() {
-    camposError.forEach(function (c) { return $(c).css("border", " red solid 0.3px"); });
-    camposError.forEach(function (c) { return $(c).css("box-shadow", " 0px 0px 5px 0px rgba(255,0,0,1)"); });
+    camposError.forEach(function (c) { return $(c).css("border", " red solid 1px"); });
     camposError.forEach(function (c) { return $(c).css("color", " red"); });
     camposError.forEach(function (c) { return $(c).addClass("buzz"); });
 }
 function establecerEstiloNormal(parametro) {
     $(parametro).css("color", " black");
-    $(parametro).css("box-shadow", " none");
     $(parametro).css("border", " 1px solid #d1d3e2");
 }
 function hallarYEstablecerFocus() {

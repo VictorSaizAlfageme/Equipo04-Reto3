@@ -41,18 +41,20 @@
                         <div class="col-lg-6">
                             <div class="p-5">
                                 <div class="text-center">
-                                    <h1 class="h4 text-gray-900 mb-4">Bienvenid@!</h1>
+                                    <h1 class="h4 text-gray-900 mb-4">Login trabajadores</h1>
                                 </div>
-                                <form class="user" id="formulario" method="POST" action="{{route("solicitanteIniciarSesion")}}">
+                                <form class="user" id="formulario" method="POST" action="{{route("trabajadorIniciarSesion")}}">
                                     @csrf
                                     <div class="form-group">
                                         <input type="text" class="form-control form-control-user"
                                                id="exampleInputEmail" aria-describedby="emailHelp"
-                                               placeholder="DNI" name="dni">
+                                               name="dni"
+                                               placeholder="DNI">
                                     </div>
                                     <div class="form-group">
                                         <input type="password" class="form-control form-control-user"
-                                               id="exampleInputPassword" placeholder="Contraseña" name="pass">
+                                               id="exampleInputPassword" placeholder="Contraseña"
+                                               name="pass">
                                     </div>
                                     <div class="form-group">
                                         <div class="custom-control custom-checkbox small">
@@ -64,13 +66,7 @@
                                         INICIAR SESIÓN
                                     </a>
                                 </form>
-                                <hr>
-                                <div class="text-center">
-                                    <a class="small" href="forgot-password.html">¿Se te ha olvidado la contraseña?</a>
-                                </div>
-                                <div class="text-center">
-                                    <small>¿No tienes cuenta? </small><a class="small" href="{{route("solicitanteRegistro")}}">Registrate aquí.</a>
-                                </div>
+
                             </div>
                         </div>
                     </div>

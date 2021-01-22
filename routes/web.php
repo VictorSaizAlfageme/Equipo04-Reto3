@@ -14,15 +14,35 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::view("/", "login")->name('inicioSesion');
+
 Route::view("/index", "index")->name('paginaPrincipal');
 Route::view("/register", "register")->name('registro');
+
+/*
+ * |================================================================|
+ * |====Porfavor no tocar de aquí pa abajo; trabajo en progreso.====|
+ * |================================================================|
+ * */
 
 //CONTROLADORES
 
 //TRABAJADORES
-Route::get("/trabajadores", "trabajadoresController@listarTodos");
-Route::get("/trabajadoresCrear", "trabajadoresController@formCrear");
+Route::view("/trabajadores", "loginTrabajadores")->name("loginTrabajadores");
+Route::post("/trabajadorLogin", "trabajadoresController@iniciarSesion")->name("trabajadorIniciarSesion");
+
+//Solicitantes (Usuarios normales)
+Route::view("/", "login")->name('inicioSesion');
+Route::post("/login", "solicitantesController@iniciarSesion")->name("solicitanteIniciarSesion");
+Route::view("/registro", "register")->name("solicitanteRegistro");
+Route::post("/registrando", "solicitantesController@insertar")->name("solicitanteRegistrar");
+
+
+
+//PROVISIONALES (SOLO PARA DESARROLLO)
+Route::get("/trabajadoresListar", "trabajadoresController@listarTodos");
+Route::get("/solicitantesListar", "solicitantesController@listarTodos");
+
+Route::get("/trabajadoresCrear", "trabajadoresController@formCrear")->name("registrarTrabajador");
 Route::post("/trabajadoresStore", "trabajadoresController@store")->name("trabajadores.store");
 Route::get("/trabajadores/{id}", "trabajadoresController@listarConcreto");
 
