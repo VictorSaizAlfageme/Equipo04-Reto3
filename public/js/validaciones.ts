@@ -9,6 +9,10 @@ $(document).ready(function (){
         $("#botonRegistro").click(validarDatosRegistroSolicitante);
     }catch (error){}
 
+    try {
+        $("#botonRegistro").click(validarDatosObra);
+    }catch (error){}
+
 });
 
 function validarDatosRegistroSolicitante():void{
@@ -91,9 +95,36 @@ function enviarFormulario(){
 }
 */
 
-function comprobarYEstablecerEstilos(){
-    console.log(camposError)
-}
+    function validarDatosObra():void {
+        idsCampos = ["#tipoEdificio", "#tipoObra", "#descripcion", "#form-address", "#form-city", "#form-zip", "#portal", "#numero", "#municipio", "#provincias", "#customFile"];
+
+
+        camposError = [];
+        mensajesError = [];
+        idsCampos.forEach(c => $(c).removeClass("buzz"));
+        idsCampos.forEach(c => establecerEstiloNormal(c));
+
+        validarTipoEdificio();
+        validarTipoObra();
+        validarDescripcion();
+        validarDireccion();
+        validarCiudad();
+        validarCodigoPostal();
+        validarPortal();
+        validarNumero();
+        validarMunicipio();
+        validarProvincias();
+        //validarFichero();
+
+        comprobarYEstablecerEstilos();
+        if (mensajesError.length == 0) {
+            $("#formulario").submit()
+        }
+    }
+
+    function comprobarYEstablecerEstilos(){
+        console.log(camposError)
+    }
     if (camposError.length>0){
         aplicarEstiloError();
     }
@@ -262,6 +293,186 @@ function validarLugarNac(){
     try{
         if (dni == null){
             throw "Debes seleccionar tu lugar de nacimiento.";
+        }
+    }
+    catch(err){
+        mensajesError.push(err);
+        camposError.push(campo);
+    }
+}
+
+function validarTipoEdificio(){
+    let campo:string = "#tipoEdificio";
+    // @ts-ignore
+    let dni:string = $(campo).val();
+    try{
+        if (dni == null){
+            throw "Debes seleccionar un tipo de edificio.";
+        }
+    }
+    catch(err){
+        mensajesError.push(err);
+        camposError.push(campo);
+    }
+}
+
+function validarTipoObra(){
+    let campo:string = "#tipoObra";
+    // @ts-ignore
+    let dni:string = $(campo).val();
+    try{
+        if (dni == null){
+            throw "Debes seleccionar un tipo de obra.";
+        }
+    }
+    catch(err){
+        mensajesError.push(err);
+        camposError.push(campo);
+    }
+}
+
+function validarDescripcion(){
+    let campo:string = "#descripcion";
+    // @ts-ignore
+    let dni:string = $(campo).val();
+    try{
+        if (!validarVacio(dni)){
+            throw "Debes añadir una breve descripción de la obra.";
+        }
+        else{
+            if (dni.length>500){
+                throw "La descripcion debe ser mas breve.";
+            }
+        }
+    }
+    catch(err){
+        mensajesError.push(err);
+        camposError.push(campo);
+    }
+}
+
+function validarDireccion(){
+    let campo:string = "#form-address";
+    // @ts-ignore
+    let dni:string = $(campo).val();
+    try{
+        if (!validarVacio(dni)){
+            throw "Debes añadir una dirección.";
+        }
+    }
+    catch(err){
+        mensajesError.push(err);
+        camposError.push(campo);
+    }
+}
+
+function validarCiudad() {
+    let campo: string = "#form-city";
+    // @ts-ignore
+    let dni: string = $(campo).val();
+    let patron = RegExp("^[0-9]{5}$");
+    try {
+        if (!validarVacio(dni)) {
+            throw "Debes añadir un código postal.";
+        } else {
+            if (!patron.test(dni)) {
+                throw "El código postal debe tener 5 números.";
+            }
+        }
+    }catch(err){
+        mensajesError.push(err);
+        camposError.push(campo);
+    }
+}
+
+function validarCodigoPostal(){
+    let campo:string = "#form-zip";
+    // @ts-ignore
+    let dni:string = $(campo).val();
+    let patron = RegExp("^[A-zÀ-ÿ\\-]+([ ]+[A-zÀ-ÿ\\-]+)*$");
+    try{
+        if (!validarVacio(dni)){
+            throw "Debes añadir una ciudad.";
+        }
+        else{
+            if (!patron.test(dni)){
+                throw "La ciudad no está disposible.";
+            }
+        }
+    }
+    catch(err){
+        mensajesError.push(err);
+        camposError.push(campo);
+    }
+}
+
+
+function validarPortal(){
+    let campo:string = "#portal";
+    // @ts-ignore
+    let portal:string = $(campo).val();
+    let patron = RegExp("^[0-9]+$");
+    try {
+        if (!validarVacio(portal)) {
+            throw "Debes añadir el portal de destino.";
+        } else {
+            if (!patron.test(portal)) {
+                throw "El número del portal solo puede contener números.";
+            }
+        }
+    }catch(err){
+        mensajesError.push(err);
+        camposError.push(campo);
+    }
+}
+
+function validarNumero(){
+    let campo:string = "#numero";
+    // @ts-ignore
+    let portal:string = $(campo).val();
+    let patron = RegExp("^[0-9]+$");
+    try {
+        if (!validarVacio(portal)) {
+            throw "Debes añadir el número de destino.";
+        } else {
+            if (!patron.test(portal)) {
+                throw "Solo puede contener números.";
+            }
+        }
+    }catch(err){
+        mensajesError.push(err);
+        camposError.push(campo);
+    }
+}
+
+function validarMunicipio(){
+    let campo:string = "#municipio";
+    // @ts-ignore
+    let dni:string = $(campo).val();
+    let patron = RegExp("^[A-zÀ-ÿ\\-]+([ ]+[A-zÀ-ÿ\\-]+)*$");
+    try{
+        if (!validarVacio(dni)){
+            throw "Debes añadir un código postal.";
+        }
+        else{
+            if (!patron.test(dni)){
+                throw "El código postal debe tener 5 números.";
+            }
+        }
+    }
+    catch(err){
+        mensajesError.push(err);
+        camposError.push(campo);
+    }
+}
+
+function validarProvincias(){
+    let campo:string = "#provincias";
+    // @ts-ignore
+    let dni:string = $(campo).val();
+    try{
+        if (dni == null){
+            throw "Debes seleccionar una provincia.";
         }
     }
     catch(err){

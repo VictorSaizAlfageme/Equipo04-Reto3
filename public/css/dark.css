@@ -38,6 +38,16 @@
 }
 
 
+
+[data-theme="dark"] .ap-dataset-places {
+    background-color: black;
+}
+[data-theme="dark"] .ap-cursor {
+    background-color: #0d483e;
+}
+
+
+
 .dark-mode {
     display: flex;
     align-items: center;
