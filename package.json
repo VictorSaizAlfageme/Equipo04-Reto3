@@ -37,7 +37,9 @@
         "chart.js": "2.9.4",
         "datatables.net-bs4": "1.10.22",
         "jquery": "3.5.1",
-        "jquery.easing": "^1.4.1"
+        "jquery.easing": "^1.4.1",
+        "placejs": "0.0.3",
+        "places.js": "^1.19.0"
     },
     "devDependencies": {
         "browser-sync": "2.26.13",

@@ -268,8 +268,7 @@ function validarVacio(valorCampo){
 function aplicarEstiloError(){
 
 
-    camposError.forEach(c => $(c).css("border"," red solid 0.3px"));
-    camposError.forEach(c => $(c).css("box-shadow"," 0px 0px 5px 0px rgba(255,0,0,1)"));
+    camposError.forEach(c => $(c).css("border"," red solid 1px"));
     camposError.forEach(c => $(c).css("color"," red"));
     camposError.forEach(c => $(c).addClass("buzz"));
 }
@@ -277,7 +276,6 @@ function aplicarEstiloError(){
 function establecerEstiloNormal(parametro){
 
     $(parametro).css("color"," black");
-    $(parametro).css("box-shadow"," none");
     $(parametro).css("border"," 1px solid #d1d3e2");
 
 }

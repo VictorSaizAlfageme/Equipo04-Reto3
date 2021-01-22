@@ -11,7 +11,7 @@
                         <div class="text-center">
                             <h1 class="h4 text-gray-900 mb-4">Formulario de obra</h1>
                         </div>
-                        <form class="user" >
+                        <form class="user" action="#" method="get">
                             <div class="form-group row">
                                 <div class="col-sm-6 mb-3 mb-sm-0">
                                     <select name="tipoEdificio" id="tipoEdifio" class="form-control form-control-user form-select">
@@ -41,21 +41,21 @@
                             </div>
 
                             <div class="form-group">
-                                <input type="search" class="form-control form-control-user" id="form-address" placeholder="Dirección de la calle" />
+                                <input type="search" name="direccion" class="form-control form-control-user" id="form-address" placeholder="Dirección" />
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control form-control-user" id="form-address2" placeholder="Portal y número" />
+                                <input type="text" name="población" class="form-control form-control-user" id="form-city" placeholder="Ciudad">
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control form-control-user" id="form-city" placeholder="Ciudad">
+                                <input type="text" name="codigopostal" class="form-control form-control-user" id="form-zip" placeholder="Codigo Postal">
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control form-control-user" id="form-zip" placeholder="Codigo Postal">
+                                <input type="text" name="portalynumero" class="form-control form-control-user" id="portalynumero" placeholder="Portal y número" />
                             </div>
                             <div class="form-group row">
                                 <div class="col-sm-6 mb-3 mb-sm-0">
                                     <input type="text" class="form-control form-control-user"
-                                           id="población" placeholder="Población" name="poblacion">
+                                           id="municipio" placeholder="Municipio" name="municipio">
                                 </div>
                                 <div class="col-sm-6">
                                     <select name="provincias" id="lugarNac" class="form-control form-control-user form-select">
@@ -67,15 +67,9 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="form-group row">
-                                <div class="col-sm-12 mb-3 mb-sm-0">
-                                    <input type="text" class="form-control form-control-user"
-                                           id="municipio" placeholder="Municipio" name="municipio">
-                                </div>
-                            </div>
                             <div class="custom-file form-control">
                                 <input type="file" class="custom-file-input" id="customFile">
-                                <label class="custom-file-label" for="customFile">Selecciona tu plano</label>
+                                <label class="custom-file-label" for="customFile" >Selecciona tu plano</label>
                             </div>
                         </form>
                         <div id="mensajeError">
