@@ -37,7 +37,6 @@ class solicitantesController extends Controller
         return redirect()->route('inicioSesion');
     }
 
-
     /*Inserta un elemento en la tabla. (Los atributos se envían mediante POST)*/
     public function insertar()
     {
@@ -56,6 +55,15 @@ class solicitantesController extends Controller
                 "TELEFONO" => request("telefono"),
             ]
         );
+
+        //Verificamos si el DNI del usuario está siendo utilizado.
+        $lista = Solicitante::get();
+        foreach ($lista as $elemento){
+            if($elemento->DNI == request("dni")){
+                return back()->with('error', 'El DNI ya está en uso.');
+            }
+        }
+
 
         $solicitante->save();
         return redirect()->route('inicioSesion');
