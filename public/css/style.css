@@ -11125,11 +11125,11 @@ button {
   font-size: inherit;
   font-family: inherit;
 }
-button.learn-more {
+button.enviar {
   width: 12rem;
   height: auto;
 }
-button.learn-more .circle {
+button.enviar .circle {
   transition: all, 0.45s, cubic-bezier(0.65, 0, 0.076, 1);
   position: relative;
   display: block;
@@ -11140,11 +11140,11 @@ button.learn-more .circle {
   border-radius: 1.625rem;
 }
 @media (prefers-reduced-motion: reduce) {
-  button.learn-more .circle {
+  button.enviar .circle {
     transition: none;
   }
 }
-button.learn-more .circle .icon {
+button.enviar .circle .icon {
   transition: all, 0.45s, cubic-bezier(0.65, 0, 0.076, 1);
   position: absolute;
   top: 0;
@@ -11153,11 +11153,11 @@ button.learn-more .circle .icon {
   background: #fff;
 }
 @media (prefers-reduced-motion: reduce) {
-  button.learn-more .circle .icon {
+  button.enviar .circle .icon {
     transition: none;
   }
 }
-button.learn-more .circle .icon.arrow {
+button.enviar .circle .icon.arrow {
   transition: all, 0.45s, cubic-bezier(0.65, 0, 0.076, 1);
   left: 0.625rem;
   width: 1.125rem;
@@ -11165,11 +11165,11 @@ button.learn-more .circle .icon.arrow {
   background: none;
 }
 @media (prefers-reduced-motion: reduce) {
-  button.learn-more .circle .icon.arrow {
+  button.enviar .circle .icon.arrow {
     transition: none;
   }
 }
-button.learn-more .circle .icon.arrow::before {
+button.enviar .circle .icon.arrow::before {
   position: absolute;
   content: "";
   top: -0.25rem;
@@ -11180,7 +11180,7 @@ button.learn-more .circle .icon.arrow::before {
   border-right: 0.125rem solid #fff;
   transform: rotate(45deg);
 }
-button.learn-more .button-text {
+button.enviar .button-text {
   transition: all, 0.45s, cubic-bezier(0.65, 0, 0.076, 1);
   position: absolute;
   top: 0;
@@ -11196,7 +11196,7 @@ button.learn-more .button-text {
   text-transform: uppercase;
 }
 @media (prefers-reduced-motion: reduce) {
-  button.learn-more .button-text {
+  button.enviar .button-text {
     transition: none;
   }
 }
@@ -11211,6 +11211,18 @@ button:hover .circle .icon.arrow {
 }
 button:hover .button-text {
   color: #fff;
+}
+
+button.enviar {
+  outline: none;
+}
+
+.ap-cursor {
+  background-color: #157d6a;
+}
+
+.ap-input-icon, .ap-icon-clear, .ap-icon-pin {
+  display: none !important;
 }
 
 .descripcion {
@@ -11269,6 +11281,21 @@ button:hover .button-text {
   align-items: center;
 }
 
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.registro-obra {
+  border-radius: 50px;
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.custom-file {
+  height: 52px !important;
 input[type=file].hidden {
   color: transparent;
 }

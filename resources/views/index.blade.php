@@ -655,8 +655,9 @@
     <!-- Page level plugins -->
     <!--<script src="js/chart.js/Chart.min.js"></script>-->
     <script src="js/dark-mode-switch.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/places.js@1.19.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/places.js@1.19.0"></script>
     <script src="js/obra.js"></script>
+    <script src="js/validaciones.js"></script>
 
 
     <!-- Page level custom scripts -->
