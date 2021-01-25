@@ -94,17 +94,19 @@ function validarDatosObra() {
     mensajesError = [];
     idsCampos.forEach(function (c) { return $(c).removeClass("buzz"); });
     idsCampos.forEach(function (c) { return establecerEstiloNormal(c); });
-    validarTipoEdificio();
-    validarTipoObra();
-    validarDescripcion();
-    validarDireccion();
-    validarCiudad();
-    validarCodigoPostal();
-    validarPortal();
-    validarNumero();
-    validarMunicipio();
-    validarProvincias();
-    validarFichero();
+    /*
+        validarTipoEdificio();
+        validarTipoObra();
+        validarDescripcion();
+        validarDireccion();
+        validarCiudad();
+        validarCodigoPostal();
+        validarPortal();
+        validarNumero();
+        validarMunicipio();
+        validarProvincias();
+        validarFichero();
+    */
     comprobarYEstablecerEstilos();
     if (mensajesError.length == 0) {
         $("#formulario").submit();

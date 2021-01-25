@@ -13,9 +13,7 @@ $(document).ready(function (){
         $("#botonRegistroObra").click(validarDatosObra);
     }catch (error){}
 
-
     //Aquí añadir con JQUERY que al pulsar ENTER se envíe el formulario.
-
 });
 
 function validarDatosRegistroSolicitante():void {
@@ -109,6 +107,7 @@ function validarDatosObra():void {
     idsCampos.forEach(c => $(c).removeClass("buzz"));
     idsCampos.forEach(c => establecerEstiloNormal(c));
 
+/*
     validarTipoEdificio();
     validarTipoObra();
     validarDescripcion();
@@ -120,6 +119,8 @@ function validarDatosObra():void {
     validarMunicipio();
     validarProvincias();
     validarFichero();
+*/
+
 
     comprobarYEstablecerEstilos();
     if (mensajesError.length == 0) {
@@ -142,7 +143,7 @@ function validarNombre(){
     let nombre : string  = $(campo).val();
     let patron = RegExp("^[A-zÀ-ÿ]+([ ]+[A-zÀ-ÿ]+)*$");
     try{
-        if(!validarVacio(nombre)){ 
+        if(!validarVacio(nombre)){
             throw "Debes insertar tu nombre.";
         }
         if (!patron.test(nombre)){

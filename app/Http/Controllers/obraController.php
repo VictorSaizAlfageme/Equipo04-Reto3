@@ -25,19 +25,64 @@ class obraController extends Controller
     public function insertar()
     {
 
+        $idTipoedificio = 0;
+        switch (request("tipoEdifio")){
+            case("piso"):
+                $idTipoedificio = 1;
+                break;
+
+            case("casa"):
+                $idTipoedificio = 11;
+                break;
+
+            case("local"):
+                $idTipoedificio = 21;
+                break;
+
+            case("garaje"):
+                $idTipoedificio = 31;
+                break;
+
+            case("trastero"):
+                $idTipoedificio = 41;
+                break;
+
+            case("edificio"):
+                $idTipoedificio = 51;
+                break;
+
+            case("otro"):
+                $idTipoedificio = 61;
+                break;
+        }
+
+        //Por defecto el valor es "En espera".
+        $idEstado = 1;
+
+        $idObra = 0;
+        switch (request("tipoObra")){
+            case ("nuevaconstruccion"):
+                $idObra = 1;
+                break;
+
+            case (""):
+                $idObra = 11;
+                break;
+        }
+
         //Tratar los dates.
         $obra  = new Obra(
             [
-                "FECHAINI" => request("dni"),
-                "FECHAFIN" => request("password"),
-                "DESCRIPCION" => request("nombre"),
-                "PLANO" => request("apellido"),
-                "IDESTADO" => request("fechaNac"),
-                "IDEDIFICIO" => request("provincias"),
-                "IDOBRA" => request("email"),
-                "IDUBICACION" => request("telefono"),
-                "IDSOLICITANTE" => request("telefono"),
-                "IDTRABAJADOR" => request("telefono"),
+                "FECHAINI" => request(""),
+                "FECHAFIN" => request(""),
+                "DESCRIPCION" => request("descripcion"),
+                "PLANO" => request("plano"),
+                "IDESTADO" => $idEstado,
+                "IDEDIFICIO" => $idTipoedificio,
+                "IDOBRA" => $idObra,
+                "IDUBICACION" => request(""),
+                "IDSOLICITANTE" => request(""),
+                "IDTRABAJADOR" => $_COOKIE['usuarioConectado'],
             ]
         );
 
