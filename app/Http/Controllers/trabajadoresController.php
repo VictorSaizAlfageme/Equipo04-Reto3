@@ -1,33 +1,25 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use App\Models\trabajador;
 use Illuminate\Http\Request;
-
 class trabajadoresController extends Controller
 {
-
     /*Retorna todas las filas de la tabla. (SELECT * FROM)*/
     public function listarTodos()
     {
-        $trabajadores = Trabajador::get();
-        return view("trabajadores", compact("trabajadores"));
+        $lista = Trabajador::get();
+        return view("listar", compact("lista"));
     }
-
     /*Retorna tan solo una fila concreta. (SELECT WHERE ID=x)*/
     public function listarConcreto($id)
     {
         return $trabajador = Trabajador::find($id);
     }
-
     /*Inserta un elemento en la tabla. (Los atributos se envían mediante POST)*/
     public function insertar()
     {
-
         $dis = (int)request("disponibilidad");
         $tipo = (int)request("tipo");
-
         $trabajador  = new Trabajador(
             [
                 "DNI" => request("dni"),
@@ -42,33 +34,25 @@ class trabajadoresController extends Controller
                 "IDTIPO" => $tipo
             ]
         );
-
         $trabajador->save();
     }
-
     public function iniciarSesion(){
         //FALTA LA ENCRIPTACIÓN
         $dni = request("dni");
         $pass = request("pass");
-
         $trabajadores = Trabajador::get();
-
         foreach ($trabajadores as $trabajador){
             if($dni == $trabajador->DNI && $pass == $trabajador->PASSWORD){
                 return view("index");
             }
         }
-
         return view("loginTrabajadores");
     }
-
     /*Abre el formulario crear*/
     public function formCrear()
     {
         $this->listarTodos();
     }
-
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -79,7 +63,6 @@ class trabajadoresController extends Controller
     {
         //
     }
-
     /**
      * Update the specified resource in storage.
      *
@@ -91,7 +74,6 @@ class trabajadoresController extends Controller
     {
         //
     }
-
     /**
      * Remove the specified resource from storage.
      *
@@ -103,3 +85,5 @@ class trabajadoresController extends Controller
         //
     }
 }
+
+
