@@ -11,7 +11,7 @@
                         <div class="text-center">
                             <h1 class="h4 text-gray-900 mb-4">Formulario de obra</h1>
                         </div>
-                        <form class="user" action="#" method="get">
+                        <form class="user" method="POST" id="formulario" action="{{route("obraRegistrar")}}">
                             <div class="form-group row">
                                 <div class="col-sm-6 mb-3 mb-sm-0">
                                     <select name="tipoEdificio" id="tipoEdifio" class="form-control form-control-user form-select">
