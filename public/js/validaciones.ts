@@ -13,6 +13,9 @@ $(document).ready(function (){
         $("#botonRegistroObra").click(validarDatosObra);
     }catch (error){}
 
+
+    //Aquí añadir con JQUERY que al pulsar ENTER se envíe el formulario.
+
 });
 
 function validarDatosRegistroSolicitante():void {
@@ -139,7 +142,7 @@ function validarNombre(){
     let nombre : string  = $(campo).val();
     let patron = RegExp("^[A-zÀ-ÿ]+([ ]+[A-zÀ-ÿ]+)*$");
     try{
-        if(!validarVacio(nombre)){
+        if(!validarVacio(nombre)){ 
             throw "Debes insertar tu nombre.";
         }
         if (!patron.test(nombre)){

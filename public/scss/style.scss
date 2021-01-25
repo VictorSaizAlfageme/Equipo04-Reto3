@@ -235,7 +235,6 @@ button.enviar {
     align-items: center;
 }
 
-
 input[type="number"]::-webkit-inner-spin-button {
      -webkit-appearance: none;
      margin: 0;
@@ -251,6 +250,53 @@ input[type="number"]::-webkit-inner-spin-button {
 
 .custom-file {
     height: 52px !important;
+}
+
+input[type=file].hidden{
+    color: transparent;
+}
+
+.img-thumbnail{
+    border-radius: 50%;
+}
+
+
+.page-link{
+    color: black;
+}
+.page-item.active .page-link{
+    background-color: #0f6848;
+    border-color: #0f6848;
+}
+.pagination{
+    justify-content: center;
+}
+
+.badge-dark{ //Valorando
+    background-color: #9ac4f8;
+}
+.badge-secondary{ //Aceptado
+    background-color: #ffec17;
+}
+.badge-info{ //Denegado
+    background-color: #ff9000;
+}
+.badge-light{ //En proceso
+    background-color: #ff5c9a;
+    color: white;
+}
+.badge-success{ //Finalizado
+    background-color: #affc41;
+}
+.badge{
+    color: black;
+}
+tr{
+    cursor: pointer;
+}
+h3{
+    text-align: center;
+    color: #157d6a;
 }
 
 @media (max-width: 600px) {

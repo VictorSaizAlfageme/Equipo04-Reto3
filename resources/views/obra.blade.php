@@ -1,15 +1,37 @@
 @extends('index')
 @section('content')
 
-    <div class="container">
-        <div class="card o-hidden border-0 shadow-lg my-5">
-            <div class="card-body p-0">
-                <!-- Nested Row within Card Body -->
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="p-5">
-                            <div class="text-center">
-                                <h1 class="h4 text-gray-900 mb-4">Formulario de obra</h1>
+<div class="container">
+    <div class="card o-hidden border-0 shadow-lg my-5">
+        <div class="card-body p-0">
+            <!-- Nested Row within Card Body -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="p-5">
+                        <div class="text-center">
+                            <h1 class="h4 text-gray-900 mb-4">Formulario de obra</h1>
+                        </div>
+                        <form class="user" method="POST" id="formulario" action="{{route("obraRegistrar")}}">
+                            <div class="form-group row">
+                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                    <select name="tipoEdificio" id="tipoEdifio" class="form-control form-control-user form-select">
+                                        <option class="select-title" disabled selected>Tipo de edificio</option>
+                                        <option value="piso">Piso</option>
+                                        <option value="casa">Casa</option>
+                                        <option value="local">Local</option>
+                                        <option value="garaje">garaje</option>
+                                        <option value="trastero">Trastero</option>
+                                        <option value="edificio">Edificio</option>
+                                        <option value="otro">Otro</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-6">
+                                    <select name="tipoObra" id="tipoObra" class="form-control form-control-user form-select">
+                                        <option class="select-title" disabled selected>Tipo de obra</option>
+                                        <option value="nuevaconstruccion">Nueva construcción</option>
+                                        <option value="reforma">Reforma</option>
+                                    </select>
+                                </div>
                             </div>
                             <form class="user" action="#" method="get">
                                 <div class="form-group row">
