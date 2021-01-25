@@ -69,7 +69,7 @@ class solicitantesController extends Controller
         return redirect()->route('inicioSesion');
     }
 
-    public function destroy(){
+    public function eliminar(){
         $a = Solicitante::where("ID", request("id"))->delete();
 
         $lista = Solicitante::get();

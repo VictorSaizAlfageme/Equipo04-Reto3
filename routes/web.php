@@ -43,7 +43,7 @@ Route::get("/trabajadoresListar", "trabajadoresController@listarTodos");
 Route::get("/solicitantesListar", "solicitantesController@listarTodos")->name("listarSolicitantes");
 
 Route::view("/solicitantesEliminar", "eliminar");
-Route::delete("/eliminandoSolicitante", "solicitantesController@destroy") ->name("eliminar");
+Route::delete("/eliminandoSolicitante", "solicitantesController@eliminar") ->name("eliminar");
 
 Route::get("/trabajadoresCrear", "trabajadoresController@formCrear")->name("registrarTrabajador");
 Route::post("/trabajadoresStore", "trabajadoresController@store")->name("trabajadores.store");

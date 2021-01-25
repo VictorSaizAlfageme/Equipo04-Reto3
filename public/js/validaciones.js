@@ -7,6 +7,7 @@ $(document).ready(function () {
         $("#botonRegistro").click(validarDatosRegistroSolicitante);
     }
     catch (error) { }
+    //Aquí añadir con JQUERY que al pulsar ENTER se envíe el formulario.
 });
 function validarDatosRegistroSolicitante() {
     idsCampos = ["#nombre", "#apellido", "#email", "#pass", "#pass2", "#fechaNac", "#telefono", "#dni", "#lugarNac"];
