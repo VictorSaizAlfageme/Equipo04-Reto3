@@ -20,6 +20,8 @@
     <link href="css/style.css" rel="stylesheet">
     <link href="css/dark.css" rel="stylesheet">
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/leaflet/1/leaflet.css" />
+
 </head><!-- Content Wrapper -->
 <body id="page-top">
 
@@ -324,6 +326,15 @@
 
 <!-- Page level custom scripts -->
 <script src="bootstrap/js/demo/bootstrap.js"></script>
+
+<script src="https://cdn.jsdelivr.net/leaflet/1/leaflet.js"></script>
+<script src="js/obra.js"></script>
+
+<script src="https://cdn.jsdelivr.net/instantsearch.js/2.10.1/instantsearch.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/places.js@1.19.0/dist/cdn/placesInstantsearchWidget.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBawL8VbstJDdU5397SUX7pEt9DslAwWgQ"></script>
+
+
 </body>
 
 </html>
