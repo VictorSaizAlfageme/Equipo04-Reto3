@@ -57,9 +57,13 @@
                                 <label for="exampleFormControlTextarea1" class="form-label">Comentario sobre la obra</label>
                                 <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                             </div>
+
                             <div class="mb-3">
-                                <label for="formFileSm" class="form-label">Introducir documento</label>
-                                <input class="form-control form-control-sm" id="formFileSm" type="file">
+                                <form action="/media" enctype="multipart/form-data" method="post">
+                                    {{ csrf_field() }}
+                                    <label for="formFileSm" class="form-label">Introducir documento</label>
+                                    <input class="form-control form-control-sm" id="formFileSm" type="file">
+                                </form>
                             </div>
                             <div class="form-group text-center">
                                 <button class="btn btn-primary">Añadir</button>
@@ -131,8 +135,7 @@
                     </div>
                     <div class="tab-pane fade" id="mapa" role="tabpanel" aria-labelledby="mapa-tab">
                         <div class="row">
-                            <input type="search" id="#form-address" class="form-control" placeholder="Where are you looking for a coffee?" />
-                            <div id="map-instantsearch-container"></div>
+                            <div id="map-example-container"></div>
                         </div>
                     </div>
                 </div>
