@@ -4,7 +4,11 @@ var idsCampos = [];
 $(document).ready(function () {
     //Asignamos la función correspondiente al formulario. El try
     try {
-        $("#botonRegistro").click(validarDatosRegistroSolicitante);
+        $("#botonRegistroSolicitante").click(validarDatosRegistroSolicitante);
+    }
+    catch (error) { }
+    try {
+        $("#botonRegistroObra").click(validarDatosObra);
     }
     catch (error) { }
 });
@@ -27,39 +31,40 @@ function validarDatosRegistroSolicitante() {
     if (mensajesError.length == 0) {
         $("#formulario").submit();
     }
-    /*
-    $.ajax({
-        type: "POST",
-        url: "prueba.php",
-        data:{usuario:$("#usuario").val(), email:$("#email").val()},
-        success: function (encontrado) {
-            //el servidor nos devolverá un string con algo del estilo: "true,false"
+}
+/*
+$.ajax({
+    type: "POST",
+    url: "prueba.php",
+    data:{usuario:$("#usuario").val(), email:$("#email").val()},
+    success: function (encontrado) {
+        //el servidor nos devolverá un string con algo del estilo: "true,false"
 
-            campos = encontrado.split(",");
+        campos = encontrado.split(",");
 
 
-            //revisamos email:
-            if (campos[1] == "false") {
-                mensajesError.push("Este email ya está en uso");
-                camposError.push("#email");
-            }
-            else{
-                validarEmail();
-            }
-
-            let enviar = comprobarYEstablecerEstilos();
-
-            if(enviar){
-                enviarFormulario();
-            }else{
-                quitarEstiloError();
-                hallarYEstablecerFocus();
-            }
-        },
-        error: function (xhr, status, err){
-            console.log("Problemas :" + status + err.toString());
+        //revisamos email:
+        if (campos[1] == "false") {
+            mensajesError.push("Este email ya está en uso");
+            camposError.push("#email");
         }
-    })
+        else{
+            validarEmail();
+        }
+
+        let enviar = comprobarYEstablecerEstilos();
+
+        if(enviar){
+            enviarFormulario();
+        }else{
+            quitarEstiloError();
+            hallarYEstablecerFocus();
+        }
+    },
+    error: function (xhr, status, err){
+        console.log("Problemas :" + status + err.toString());
+    }
+})
 
 
 
@@ -67,24 +72,45 @@ function validarDatosRegistroSolicitante() {
 
 
 function quitarEstiloError(){
-    for (let x =0;x<idsCampos.length;x++){
-        let id :string= idsCampos[x];
-        // @ts-ignore
-        let encontrado = camposError.find(c => c == id);
-        if (encontrado == undefined){
-            establecerEstiloNormal(id);
-        }
+for (let x =0;x<idsCampos.length;x++){
+    let id :string= idsCampos[x];
+    // @ts-ignore
+    let encontrado = camposError.find(c => c == id);
+    if (encontrado == undefined){
+        establecerEstiloNormal(id);
     }
+}
 
 }
 
 function enviarFormulario(){
-    $("#formularioRegistro").first().submit();
+$("#formularioRegistro").first().submit();
 }
 */
-    function comprobarYEstablecerEstilos() {
-        console.log(camposError);
+function validarDatosObra() {
+    idsCampos = ["#tipoEdificio", "#tipoObra", "#descripcion", "#form-address", "#form-city", "#form-zip", "#portal", "#numero", "#municipio", "#provincias", "#customFile"];
+    camposError = [];
+    mensajesError = [];
+    idsCampos.forEach(function (c) { return $(c).removeClass("buzz"); });
+    idsCampos.forEach(function (c) { return establecerEstiloNormal(c); });
+    validarTipoEdificio();
+    validarTipoObra();
+    validarDescripcion();
+    validarDireccion();
+    validarCiudad();
+    validarCodigoPostal();
+    validarPortal();
+    validarNumero();
+    validarMunicipio();
+    validarProvincias();
+    validarFichero();
+    comprobarYEstablecerEstilos();
+    if (mensajesError.length == 0) {
+        $("#formulario").submit();
     }
+}
+function comprobarYEstablecerEstilos() {
+    console.log(camposError);
     if (camposError.length > 0) {
         aplicarEstiloError();
     }
@@ -223,9 +249,9 @@ function validarDNI() {
 function validarFechaNac() {
     var campo = "#fechaNac";
     // @ts-ignore
-    var dni = $(campo).val();
+    var fechaNac = $(campo).val();
     try {
-        if (!validarVacio(dni)) {
+        if (!validarVacio(fechaNac)) {
             throw "Debes insertar tu fecha de nacimiento.";
         }
     }
@@ -237,11 +263,223 @@ function validarFechaNac() {
 function validarLugarNac() {
     var campo = "#lugarNac";
     // @ts-ignore
-    var dni = $(campo).val();
+    var lugarNac = $(campo).val();
     try {
-        if (dni == null) {
+        if (lugarNac == null) {
             throw "Debes seleccionar tu lugar de nacimiento.";
         }
+    }
+    catch (err) {
+        mensajesError.push(err);
+        camposError.push(campo);
+    }
+}
+function validarTipoEdificio() {
+    var campo = "#tipoEdificio";
+    // @ts-ignore
+    var tipoEdificio = $(campo).val();
+    try {
+        if (tipoEdificio == null) {
+            throw "Debes seleccionar un tipo de edificio.";
+        }
+    }
+    catch (err) {
+        mensajesError.push(err);
+        camposError.push(campo);
+    }
+}
+function validarTipoObra() {
+    var campo = "#tipoObra";
+    // @ts-ignore
+    var tipoObra = $(campo).val();
+    try {
+        if (tipoObra == null) {
+            throw "Debes seleccionar un tipo de obra.";
+        }
+    }
+    catch (err) {
+        mensajesError.push(err);
+        camposError.push(campo);
+    }
+}
+function validarDescripcion() {
+    var campo = "#descripcion";
+    // @ts-ignore
+    var descripcion = $(campo).val();
+    try {
+        if (!validarVacio(descripcion)) {
+            throw "Debes añadir una breve descripción de la obra.";
+        }
+        else {
+            if (descripcion.length > 500) {
+                throw "La descripcion debe ser mas breve.";
+            }
+        }
+    }
+    catch (err) {
+        mensajesError.push(err);
+        camposError.push(campo);
+    }
+}
+function validarDireccion() {
+    var campo = "#form-address";
+    // @ts-ignore
+    var direccion = $(campo).val();
+    try {
+        if (!validarVacio(direccion)) {
+            throw "Debes añadir una dirección.";
+        }
+    }
+    catch (err) {
+        mensajesError.push(err);
+        camposError.push(campo);
+    }
+}
+function validarCiudad() {
+    var campo = "#form-city";
+    // @ts-ignore
+    var ciudad = $(campo).val();
+    var patron = RegExp("^[0-9]{5}$");
+    try {
+        if (!validarVacio(ciudad)) {
+            throw "Debes añadir una ciudad.";
+        }
+        else {
+            if (!patron.test(ciudad)) {
+                throw "La ciudad no está disposible.";
+            }
+        }
+    }
+    catch (err) {
+        mensajesError.push(err);
+        camposError.push(campo);
+    }
+}
+function validarCodigoPostal() {
+    var campo = "#form-zip";
+    // @ts-ignore
+    var zip = $(campo).val();
+    var patron = RegExp("^[A-zÀ-ÿ\\-]+([ ]+[A-zÀ-ÿ\\-]+)*$");
+    try {
+        if (!validarVacio(zip)) {
+            throw "Debes añadir un código postal.";
+        }
+        else {
+            if (!patron.test(zip)) {
+                throw "El código postal debe tener 5 números.";
+            }
+        }
+    }
+    catch (err) {
+        mensajesError.push(err);
+        camposError.push(campo);
+    }
+}
+function validarPortal() {
+    var campo = "#portal";
+    // @ts-ignore
+    var portal = $(campo).val();
+    var patron = RegExp("^[0-9]+$");
+    try {
+        if (!validarVacio(portal)) {
+            throw "Debes añadir el portal de destino.";
+        }
+        else {
+            if (!patron.test(portal)) {
+                throw "El número del portal solo puede contener números.";
+            }
+        }
+    }
+    catch (err) {
+        mensajesError.push(err);
+        camposError.push(campo);
+    }
+}
+function validarNumero() {
+    var campo = "#numero";
+    // @ts-ignore
+    var numero = $(campo).val();
+    var patron = RegExp("^[0-9]+$");
+    try {
+        if (!validarVacio(numero)) {
+            throw "Debes añadir el número de destino.";
+        }
+        else {
+            if (!patron.test(numero)) {
+                throw "Solo puede contener números.";
+            }
+        }
+    }
+    catch (err) {
+        mensajesError.push(err);
+        camposError.push(campo);
+    }
+}
+function validarMunicipio() {
+    var campo = "#municipio";
+    // @ts-ignore
+    var municipio = $(campo).val();
+    var patron = RegExp("^[A-zÀ-ÿ\\-]+([ ]+[A-zÀ-ÿ\\-]+)*$");
+    try {
+        if (!validarVacio(municipio)) {
+            throw "Debes añadir un código postal.";
+        }
+        else {
+            if (!patron.test(municipio)) {
+                throw "El código postal debe tener 5 números.";
+            }
+        }
+    }
+    catch (err) {
+        mensajesError.push(err);
+        camposError.push(campo);
+    }
+}
+function validarProvincias() {
+    var campo = "#provincias";
+    // @ts-ignore
+    var provincias = $(campo).val();
+    try {
+        if (provincias == null) {
+            throw "Debes seleccionar una provincia.";
+        }
+    }
+    catch (err) {
+        mensajesError.push(err);
+        camposError.push(campo);
+    }
+}
+$(".custom-file-input").on("change", function () {
+    // @ts-ignore
+    var fileName = $(this).val().split("\\").pop();
+    if (fileName != "") {
+        $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+    }
+    else {
+        $(this).siblings(".custom-file-label").addClass("selected").html("Selecciona tu plano");
+    }
+});
+function validarFichero() {
+    var campo = "#customFile";
+    // @ts-ignore
+    var nombreArchivo = $(campo).val();
+    try {
+        if (nombreArchivo != "") {
+            var extension = nombreArchivo.substring(nombreArchivo.lastIndexOf('.'), nombreArchivo.length);
+            extension = extension.substring(1, extension.length);
+            if (extension == "jpg" || extension == "jpeg" || extension == "png") {
+                // @ts-ignore
+                if (document.querySelector("#customFile").files[0].size <= 1024 * 1024) {
+                }
+                else {
+                    throw "El archivo ha excedido el peso máximo";
+                }
+            }
+            else {
+                throw "Solo puedes subir archivos .jpg .jpeg .png.";
+            }
+        }
+        throw "Debes subir un plano";
     }
     catch (err) {
         mensajesError.push(err);
@@ -257,10 +495,18 @@ function aplicarEstiloError() {
     camposError.forEach(function (c) { return $(c).css("border", " red solid 1px"); });
     camposError.forEach(function (c) { return $(c).css("color", " red"); });
     camposError.forEach(function (c) { return $(c).addClass("buzz"); });
+    // @ts-ignore
+    if (camposError.find(function (c) { return c == "#customFile"; })) {
+        $(".custom-file").addClass("buzz");
+        $(".custom-file").css("border", " 1px solid red");
+        $(".custom-file-label").css("color", " red");
+    }
 }
 function establecerEstiloNormal(parametro) {
     $(parametro).css("color", " black");
     $(parametro).css("border", " 1px solid #d1d3e2");
+    $(".custom-file").css("border", " none");
+    $(".custom-file-label").css("color", " black");
 }
 function hallarYEstablecerFocus() {
     var focus = "";

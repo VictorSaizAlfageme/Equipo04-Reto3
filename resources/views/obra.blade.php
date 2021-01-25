@@ -37,7 +37,7 @@
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-12 mb-3 mb-sm-0">
-                                        <textarea class="descripcion form-control form-control-user"></textarea>
+                                        <textarea class="descripcion form-control form-control-user" id="descripcion" name="descripcion"></textarea>
                                     </div>
 
                                 </div>
@@ -57,7 +57,7 @@
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
                                         <input type="number" class="form-control form-control-user"
-                                               id="Portal" placeholder="Portal" name="portal">
+                                               id="portal" placeholder="Portal" name="portal">
                                     </div>
                                     <div class="col-sm-6">
                                         <input type="number" class="form-control form-control-user"
@@ -83,7 +83,7 @@
                                     </div>
                                 </div>
                                 <div class="custom-file form-control">
-                                    <input type="file" class="custom-file-input" id="customFile">
+                                    <input type="file" class="custom-file-input" id="customFile" name="plano">
                                     <label class="custom-file-label" for="customFile">Selecciona tu plano</label>
                                 </div>
                             </form>
@@ -91,17 +91,10 @@
                                 <span class="mt-3" id="mensajeErrorSpan"></span>
                             </div>
                             <hr>
-                            <div id="container d-flex">
-                                <div class="d-flex justify-content-center">
-                                    <button class="enviar ">
-                                <span class="circle btn-primary" aria-hidden="true">
-                                  <span class="icon arrow"></span>
-                                </span>
-                                        <span class="button-text">ENVIAR</span>
-                                    </button>
-                                </div>
 
-                            </div>
+                            <a id="botonRegistroObra" class="btn btn-primary btn-user btn-block registro-obra"> <!-- AQUÍ AÑADIR LAS VALIDACIONES -->
+                                ENVIAR
+                            </a>
                         </div>
                     </div>
                 </div>
