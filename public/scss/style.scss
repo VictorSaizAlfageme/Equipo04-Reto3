@@ -100,7 +100,7 @@ button {
     padding: 0;
     font-size: inherit;
     font-family: inherit;
-    &.learn-more {
+    &.enviar {
         width: 12rem;
         height: auto;
         .circle {
@@ -173,6 +173,18 @@ button {
     }
 }
 
+button.enviar {
+    outline: none;
+}
+
+.ap-cursor {
+    background-color: $nuvecolor;
+}
+
+.ap-input-icon, .ap-icon-clear, .ap-icon-pin {
+    display: none !important;
+}
+
 .descripcion {
     resize: none;
     border-radius: 30px !important;
@@ -221,6 +233,23 @@ button {
     height: 48px;
     display: flex;
     align-items: center;
+}
+
+input[type="number"]::-webkit-inner-spin-button {
+     -webkit-appearance: none;
+     margin: 0;
+ }
+
+.registro-obra {
+    border-radius: 50px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.custom-file {
+    height: 52px !important;
 }
 
 input[type=file].hidden{

@@ -82,11 +82,9 @@
                                     </select>
                                 </div>
                             </div>
-                            <a id="botonRegistro" class="btn btn-primary btn-user btn-block"> <!-- AQUÍ AÑADIR LAS VALIDACIONES -->
+                            <a id="botonRegistroSolicitante" class="btn btn-primary btn-user btn-block"> <!-- AQUÍ AÑADIR LAS VALIDACIONES -->
                                 REGISTRATE
                             </a>
-
-
                         </form>
                         <div id="mensajeError">
                             <span class="mt-3" id="mensajeErrorSpan">{!! session()->get('error') !!}</span>
