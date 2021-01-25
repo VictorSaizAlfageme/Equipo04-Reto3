@@ -1,3 +1,4 @@
+
 <?php
 
 use Illuminate\Support\Facades\Route;
@@ -13,15 +14,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
-
 Route::view("/index", "index")->name('paginaPrincipal');
 Route::view("/register", "register")->name('registro');
+Route::view("/perfilSolicitante", "perfilSolicitante")->name('perfilS');
+Route::view("/iTecnicos", "iTecnicos")->name("itecnicos");
+Route::view("/iCoordinadores", "iCoordinadores")->name("icoordinadores");
+Route::view("/iComentariosTecnico", "iComentariosTecnico")->name("icomentariostecnicos");
+Route::view("/obrasSolicitante", "obrasSolicitante")->name("obraS");
+
 /*
  * |================================================================|
  * |====Porfavor no tocar de aquí pa abajo; trabajo en progreso.====|
  * |================================================================|
  * */
+
 
 //CONTROLADORES
 
@@ -39,17 +45,17 @@ Route::post("/registrando", "solicitantesController@insertar")->name("solicitant
 Route::view("/obra", "obra")->name('obra');
 Route::post("/registrarObra", "obraController@insertar")->name("obraRegistrar");
 
-
-
 //PROVISIONALES (SOLO PARA DESARROLLO)
 Route::get("/trabajadoresListar", "trabajadoresController@listarTodos");
 Route::get("/solicitantesListar", "solicitantesController@listarTodos")->name("listarSolicitantes");
-
 Route::view("/solicitantesEliminar", "eliminar");
 Route::delete("/eliminandoSolicitante", "solicitantesController@eliminar") ->name("eliminar");
-
 Route::get("/trabajadoresCrear", "trabajadoresController@formCrear")->name("registrarTrabajador");
 Route::post("/trabajadoresStore", "trabajadoresController@store")->name("trabajadores.store");
 Route::get("/trabajadores/{id}", "trabajadoresController@listarConcreto");
 
-
+//PROVISIONALES
+Route::get("/trabajadoresListar", "trabajadoresController@listarTodos")->name("listarTrabajadores");
+Route::get("/trabajadoresCrear", "trabajadoresController@formCrear")->name("registrarTrabajador");
+Route::post("/trabajadoresStore", "trabajadoresController@store")->name("trabajadores.store");
+Route::get("/trabajadores/{id}", "trabajadoresController@listarConcreto");
