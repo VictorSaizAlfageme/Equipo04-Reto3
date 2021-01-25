@@ -21,6 +21,7 @@ class solicitantesController extends Controller
         return $solicitantes = Solicitante::find($id);
     }
 
+    /*Verifica los credenciales de inicio de sesión.*/
     public function iniciarSesion(){
         //FALTA LA ENCRIPTACIÓN
         $dni = request("dni");
@@ -69,16 +70,12 @@ class solicitantesController extends Controller
         return redirect()->route('inicioSesion');
     }
 
+    /*Elimina al usuario recibido por POST*/
     public function eliminar(){
-        $a = Solicitante::where("ID", request("id"))->delete();
+        Solicitante::where("ID", request("id"))->delete();
 
+        //Mostrar de nuevo la tabla con los datos
         $lista = Solicitante::get();
         return view("listar", compact("lista"));
-    }
-
-    /*Abre el formulario crear*/
-    public function formCrear()
-    {
-        return view("login");
     }
 }

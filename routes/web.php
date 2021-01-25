@@ -17,7 +17,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::view("/index", "index")->name('paginaPrincipal');
 Route::view("/register", "register")->name('registro');
-Route::view("/obra", "obra")->name('obra');
 /*
  * |================================================================|
  * |====Porfavor no tocar de aquí pa abajo; trabajo en progreso.====|
@@ -35,6 +34,10 @@ Route::view("/", "login")->name('inicioSesion');
 Route::post("/login", "solicitantesController@iniciarSesion")->name("solicitanteIniciarSesion");
 Route::view("/registro", "register")->name("solicitanteRegistro");
 Route::post("/registrando", "solicitantesController@insertar")->name("solicitanteRegistrar");
+
+//Obras
+Route::view("/obra", "obra")->name('obra');
+Route::post("/registrarObra", "obraController@insertar")->name("obraRegistrar");
 
 
 
