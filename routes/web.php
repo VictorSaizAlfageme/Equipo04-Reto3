@@ -59,3 +59,12 @@ Route::get("/trabajadoresListar", "trabajadoresController@listarTodos")->name("l
 Route::get("/trabajadoresCrear", "trabajadoresController@formCrear")->name("registrarTrabajador");
 Route::post("/trabajadoresStore", "trabajadoresController@store")->name("trabajadores.store");
 Route::get("/trabajadores/{id}", "trabajadoresController@listarConcreto");
+
+//SUBIR FOTOS O ARCHIVOS
+Route::get('media', function (){
+   return view('media');
+});
+Route::post('media', function (){
+    //Aquí solo acepta ficheros de tipo imagen
+    request()->validate(['file' =>'image']);
+});
