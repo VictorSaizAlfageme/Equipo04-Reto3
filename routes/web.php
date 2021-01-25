@@ -76,3 +76,7 @@ Route::get('/public/{file}', function ($file){
 })->where([
     'file' => '(.*?)\.(jpg|png|jpeg|gif|pdf|doc|docx|odt)$'
 ]);
+Route::get('/emailtestform', function (){
+    return view('emailtest');
+});
+Route::post('/contactar', 'App\Http\Controllers\emailTestController@contact')->name('contact');
