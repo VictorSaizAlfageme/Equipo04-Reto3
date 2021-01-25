@@ -20,6 +20,7 @@
     <link href="css/style.css" rel="stylesheet">
     <link href="css/dark.css" rel="stylesheet">
 
+
 </head><!-- Content Wrapper -->
 <body id="page-top">
 
@@ -249,7 +250,7 @@
                                 Ajustes
                             </a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="" data-toggle="modal" data-target="#logoutModal">
+                            <a class="dropdown-item" href="{{route('paginaPrincipal')}}" data-toggle="modal" data-target="#logoutModal">
                                 <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                 Cerrar Sesión
                             </a>
@@ -276,7 +277,7 @@
                         </div>
                         <div class="modal-footer">
                             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-                            <a class="btn btn-primary" href="{{route('inicioSesion')}}">Cerrar Sesión</a>
+                            <a class="btn btn-primary" href="login.blade.php">Cerrar Sesión</a>
                         </div>
                     </div>
                 </div>
@@ -584,10 +585,6 @@
                                 <h6 class="m-0 font-weight-bold text-primary">Illustrations</h6>
                             </div>
                             <div class="card-body">
-                                <div class="text-center">
-                                    <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;"
-                                         src="img/undraw_posting_photo.svg" alt="">
-                                </div>
                                 <p>Add some quality, svg illustrations to your project courtesy of <a
                                         target="_blank" rel="nofollow" href="https://undraw.co/">unDraw</a>, a
                                     constantly updated collection of beautiful svg images that you can use
@@ -658,6 +655,9 @@
     <!-- Page level plugins -->
     <!--<script src="js/chart.js/Chart.min.js"></script>-->
     <script src="js/dark-mode-switch.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/places.js@1.19.0"></script>
+    <script src="js/obra.js"></script>
+
 
     <!-- Page level custom scripts -->
 
