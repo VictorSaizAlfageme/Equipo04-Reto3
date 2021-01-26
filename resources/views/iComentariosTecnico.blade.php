@@ -14,7 +14,7 @@
                         <a class="nav-link" id="tecnico-tab" data-bs-toggle="tab" href="#tecnico" role="tab" aria-controls="tecnico" aria-selected="false">Técnico</a>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <a class="nav-link" id="mapa-tab" data-bs-toggle="tab" href="#mapa" role="tab" aria-controls="mapa" aria-selected="false">Mapa</a>
+                        <a class="nav-link" id="mapa-tab" onclick="mostrarMapa()" data-bs-toggle="tab" href="#mapa" role="tab" aria-controls="mapa" aria-selected="false">Mapa</a>
                     </li>
                 </ul>
                 <div class="tab-content" id="myTabContent">
@@ -133,13 +133,14 @@
                             </div>
                         </div>
                     </div>
-                    <div class="tab-pane fade" id="mapa" role="tabpanel" aria-labelledby="mapa-tab">
-                        <div class="row">
-                            <div id="map-example-container"></div>
+                    <div class="tab-pane fade active" id="mapa" role="tabpanel" aria-labelledby="mapa-tab">
+                        <div>
+                            <div id="mapid"></div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
 @endsection
