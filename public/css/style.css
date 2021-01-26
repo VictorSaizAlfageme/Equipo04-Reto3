@@ -10927,6 +10927,7 @@ form.user .btn-user {
   }
   100% {
     clip: rect(89px, 9999px, 73px, 0);
+
   }
 }
 .error:after {
@@ -10944,6 +10945,7 @@ form.user .btn-user {
 
 @keyframes noise-anim-2 {
   0% {
+
     clip: rect(79px, 9999px, 75px, 0);
   }
   5% {
@@ -11005,8 +11007,7 @@ form.user .btn-user {
   }
   100% {
     clip: rect(4px, 9999px, 14px, 0);
-  }
-}
+
 .error:before {
   content: attr(data-text);
   position: absolute;
@@ -11344,14 +11345,15 @@ input[type=file].hidden {
   color: black;
 }
 
-tr {
+.tr {
   cursor: pointer;
 }
 
-h3 {
+#titulo-3 {
   text-align: center;
   color: #157d6a;
 }
+
 
 .card-body {
   height: 400px;
@@ -11366,6 +11368,10 @@ h3 {
   display: flex;
   justify-content: center;
   flex-direction: column;
+
+#mapid {
+  height: 300px;
+
 }
 
 @media (max-width: 600px) {
