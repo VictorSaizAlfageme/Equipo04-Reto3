@@ -26,7 +26,8 @@
 [data-theme="dark"] span, [data-theme="dark"].sidebar-divider,
 [data-theme="dark"] .sidebar-heading , [data-theme="dark"] .collapse-header ,
 [data-theme="dark"] .collapse-item,  [data-theme="dark"] h1,
-[data-theme="dark"] h5,  [data-theme="dark"] .text-gray-800,  [data-theme="dark"] .tr{
+[data-theme="dark"] h5,  [data-theme="dark"] .text-gray-800,  [data-theme="dark"] tr
+{
     color: #ffffff !important;
 }
 
@@ -47,7 +48,9 @@
 }
 
 
-
+[data-theme="dark"] .badge{
+    color: black !important;
+}
 .dark-mode {
     display: flex;
     align-items: center;
