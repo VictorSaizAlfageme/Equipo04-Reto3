@@ -1,4 +1,4 @@
-@extends('index')
+@extends('layout')
 @section('content')
 
 <div class="container">
@@ -12,9 +12,14 @@
                             <h1 class="h4 text-gray-900 mb-4">Formulario de obra</h1>
                         </div>
                         <form class="user" method="POST" id="formulario" action="{{route("obraRegistrar")}}">
+                            @csrf
+
+                            <input type="hidden" name="longitud" id="longitud" value="">
+                            <input type="hidden" name="latitud" id="latitud" value="">
+
                             <div class="form-group row">
                                 <div class="col-sm-6 mb-3 mb-sm-0">
-                                    <select name="tipoEdificio" id="tipoEdifio" class="form-control form-control-user form-select">
+                                    <select name="tipoEdificio" id="tipoEdificio" class="form-control form-control-user form-select">
                                         <option class="select-title" disabled selected>Tipo de edificio</option>
                                         <option value="piso">Piso</option>
                                         <option value="casa">Casa</option>
@@ -33,31 +38,7 @@
                                     </select>
                                 </div>
                             </div>
-                            <form class="user" action="#" method="get">
-                                <div class="form-group row">
-                                    <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <select name="tipoEdificio" id="tipoEdificio"
-                                                class="form-control form-control-user form-select">
-                                            <option class="select-title" disabled selected>Tipo de edificio</option>
-                                            <option value="piso">Piso</option>
-                                            <option value="casa">Casa</option>
-                                            <option value="local">Local</option>
-                                            <option value="garaje">garaje</option>
-                                            <option value="trastero">Trastero</option>
-                                            <option value="edificio">Edificio</option>
-                                            <option value="otro">Otro</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <select name="tipoObra" id="tipoObra"
-                                                class="form-control form-control-user form-select">
-                                            <option class="select-title" disabled selected>Tipo de obra</option>
-                                            <option value="nuevaconstruccion">Nueva construcción</option>
-                                            <option value="reforma">Reforma</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="form-group row">
+                                                            <div class="form-group row">
                                     <div class="col-sm-12 mb-3 mb-sm-0">
                                         <textarea class="descripcion form-control form-control-user" id="descripcion" name="descripcion"></textarea>
                                     </div>
@@ -65,7 +46,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <input type="search" name="direccion" class="form-control form-control-user"
+                                    <input type="search" name="calle" class="form-control form-control-user"
                                            id="form-address" placeholder="Dirección"/>
                                 </div>
                                 <div class="form-group">
@@ -81,9 +62,13 @@
                                         <input type="number" class="form-control form-control-user"
                                                id="portal" placeholder="Portal" name="portal">
                                     </div>
-                                    <div class="col-sm-6">
+                                    <div class="col-sm-3">
                                         <input type="number" class="form-control form-control-user"
-                                               id="numero" placeholder="Número" name="numero">
+                                               id="numero" placeholder="Piso" name="piso">
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <input type="text" class="form-control form-control-user"
+                                               id="mano" placeholder="Mano" name="mano">
                                     </div>
                                 </div>
 
@@ -93,14 +78,14 @@
                                                id="municipio" placeholder="Municipio" name="municipio">
                                     </div>
                                     <div class="col-sm-6">
-                                        <select name="provincias" id="provincias"
+                                        <select name="provincia" id="provincias"
                                                 class="form-control form-control-user form-select">
                                             <option class="select-title" disabled selected>Selecciona tu provincia
                                             </option>
-                                            <option value="alava">Álava</option>
-                                            <option value="vizcaya">Vizcaya</option>
-                                            <option value="guipuzcoa">Guipúzcoa</option>
-                                            <option value="otro">Otro</option>
+                                            <option value="Alava">Álava</option>
+                                            <option value="Vizcaya">Vizcaya</option>
+                                            <option value="Guipuzcoa">Guipúzcoa</option>
+                                            <option value="Otro">Otro</option>
                                         </select>
                                     </div>
                                 </div>

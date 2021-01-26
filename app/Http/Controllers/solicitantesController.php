@@ -23,6 +23,7 @@ class solicitantesController extends Controller
 
     /*Verifica los credenciales de inicio de sesión.*/
     public function iniciarSesion(){
+
         //FALTA LA ENCRIPTACIÓN
         $dni = request("dni");
         $pass = request("pass");
@@ -31,6 +32,7 @@ class solicitantesController extends Controller
 
         foreach ($solicitantes as $solicitante){
             if($dni == $solicitante->DNI && $pass == $solicitante->PASSWORD){
+                setcookie("usuarioConectado", $solicitante->ID, strtotime("+1 year"));
                 return view("index");
             }
         }

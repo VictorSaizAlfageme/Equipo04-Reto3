@@ -13,6 +13,16 @@ $(document).ready(function () {
     catch (error) { }
     //Aquí añadir con JQUERY que al pulsar ENTER se envíe el formulario.
 });
+//Al presionar enter
+$(document).on('keypress', function (e) {
+    if (e.which == 13) {
+        try {
+            validarDatosRegistroSolicitante();
+            validarDatosObra();
+        }
+        catch (error) { }
+    }
+});
 function validarDatosRegistroSolicitante() {
     idsCampos = ["#nombre", "#apellido", "#email", "#pass", "#pass2", "#fechaNac", "#telefono", "#dni", "#lugarNac"];
     camposError = [];
@@ -89,7 +99,7 @@ $("#formularioRegistro").first().submit();
 }
 */
 function validarDatosObra() {
-    idsCampos = ["#tipoEdificio", "#tipoObra", "#descripcion", "#form-address", "#form-city", "#form-zip", "#portal", "#numero", "#municipio", "#provincias", "#customFile"];
+    idsCampos = ["#tipoEdificio", "#tipoObra", "#descripcion", "#form-address", "#form-city", "#form-zip", "#portal", "#numero", "#municipio", "#provincias", "#customFile", "#mano"];
     camposError = [];
     mensajesError = [];
     idsCampos.forEach(function (c) { return $(c).removeClass("buzz"); });
@@ -102,16 +112,17 @@ function validarDatosObra() {
     validarCodigoPostal();
     validarPortal();
     validarNumero();
+    validarMano();
     validarMunicipio();
     validarProvincias();
     validarFichero();
+    //Obtener latitud y longitud.
     comprobarYEstablecerEstilos();
     if (mensajesError.length == 0) {
         $("#formulario").submit();
     }
 }
 function comprobarYEstablecerEstilos() {
-    console.log(camposError);
     if (camposError.length > 0) {
         aplicarEstiloError();
     }
@@ -340,7 +351,7 @@ function validarCiudad() {
     var campo = "#form-city";
     // @ts-ignore
     var ciudad = $(campo).val();
-    var patron = RegExp("^[0-9]{5}$");
+    var patron = RegExp("^[A-zÀ-ÿ\-]+([ ]+[A-zÀ-ÿ\-]+)*$");
     try {
         if (!validarVacio(ciudad)) {
             throw "Debes añadir una ciudad.";
@@ -360,7 +371,7 @@ function validarCodigoPostal() {
     var campo = "#form-zip";
     // @ts-ignore
     var zip = $(campo).val();
-    var patron = RegExp("^[A-zÀ-ÿ\\-]+([ ]+[A-zÀ-ÿ\\-]+)*$");
+    var patron = RegExp("^([0-9]{5})$");
     try {
         if (!validarVacio(zip)) {
             throw "Debes añadir un código postal.";
@@ -400,15 +411,25 @@ function validarNumero() {
     var campo = "#numero";
     // @ts-ignore
     var numero = $(campo).val();
-    var patron = RegExp("^[0-9]+$");
+    var patron = RegExp("^[0-9/-]{0,2}$");
     try {
-        if (!validarVacio(numero)) {
-            throw "Debes añadir el número de destino.";
+        if (!patron.test(numero)) {
+            throw "Solo puede incluir carácteres numéricos.";
         }
-        else {
-            if (!patron.test(numero)) {
-                throw "Solo puede contener números.";
-            }
+    }
+    catch (err) {
+        mensajesError.push(err);
+        camposError.push(campo);
+    }
+}
+function validarMano() {
+    var campo = "#mano";
+    // @ts-ignore
+    var zip = $(campo).val();
+    var patron = RegExp("^([0-9a-zA-Z]{0,50})$");
+    try {
+        if (!patron.test(zip)) {
+            throw "Solo puede incluir carácteres alfanuméricos.";
         }
     }
     catch (err) {
@@ -480,7 +501,9 @@ function validarFichero() {
                 throw "Solo puedes subir archivos .jpg .jpeg .png.";
             }
         }
-        throw "Debes subir un plano";
+        else {
+            throw "Debes subir un plano";
+        }
     }
     catch (err) {
         mensajesError.push(err);

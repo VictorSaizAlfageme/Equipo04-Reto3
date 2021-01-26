@@ -21,29 +21,6 @@ class obraController extends Controller
         return $obra = Obra::find($id);
     }
 
-    /*Inserta un elemento en la tabla. (Los atributos se envían mediante POST)*/
-    public function insertar()
-    {
-
-        //Tratar los dates.
-        $obra  = new Obra(
-            [
-                "FECHAINI" => request("dni"),
-                "FECHAFIN" => request("password"),
-                "DESCRIPCION" => request("nombre"),
-                "PLANO" => request("apellido"),
-                "IDESTADO" => request("fechaNac"),
-                "IDEDIFICIO" => request("provincias"),
-                "IDOBRA" => request("email"),
-                "IDUBICACION" => request("telefono"),
-                "IDSOLICITANTE" => request("telefono"),
-                "IDTRABAJADOR" => request("telefono"),
-            ]
-        );
-
-        $obra->save();
-        return view("index");
-    }
 
     /*Elimina al usuario recibido por POST*/
     public function eliminar(){
