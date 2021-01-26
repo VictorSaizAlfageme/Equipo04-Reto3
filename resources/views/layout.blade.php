@@ -278,7 +278,7 @@
                         </div>
                         <div class="modal-footer">
                             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-                            <a class="btn btn-primary" href="../../../Equipo04-Reto3%20-%20copia/resources/views/login.blade.php">Cerrar Sesión</a>
+                            <a class="btn btn-primary" href="{{route('inicioSesion')}}">Cerrar Sesión</a>
                         </div>
                     </div>
                 </div>
@@ -314,6 +314,7 @@
 <script src="jquery/jquery.min.js"></script>
 <script src="js/bootstrap.bundle.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
+<script src="js/validaciones.js"></script>
 <!-- Core plugin JavaScript-->
 <script src="jquery-easing/jquery.easing.min.js"></script>
 
