@@ -38,7 +38,8 @@
                                     </select>
                                 </div>
                             </div>
-                                                            <div class="form-group row">
+                            
+                                <div class="form-group row">
                                     <div class="col-sm-12 mb-3 mb-sm-0">
                                         <textarea class="descripcion form-control form-control-user" id="descripcion" name="descripcion"></textarea>
                                     </div>

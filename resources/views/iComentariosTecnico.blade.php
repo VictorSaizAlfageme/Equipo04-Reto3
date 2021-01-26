@@ -14,7 +14,7 @@
                         <a class="nav-link" id="tecnico-tab" data-bs-toggle="tab" href="#tecnico" role="tab" aria-controls="tecnico" aria-selected="false">Técnico</a>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <a class="nav-link" id="mapa-tab" data-bs-toggle="tab" href="#mapa" role="tab" aria-controls="mapa" aria-selected="false">Mapa</a>
+                        <a class="nav-link" id="mapa-tab" onclick="mostrarMapa()" data-bs-toggle="tab" href="#mapa" role="tab" aria-controls="mapa" aria-selected="false">Mapa</a>
                     </li>
                 </ul>
                 <div class="tab-content" id="myTabContent">
@@ -57,9 +57,13 @@
                                 <label for="exampleFormControlTextarea1" class="form-label">Comentario sobre la obra</label>
                                 <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                             </div>
+
                             <div class="mb-3">
-                                <label for="formFileSm" class="form-label">Introducir documento</label>
-                                <input class="form-control form-control-sm" id="formFileSm" type="file">
+                                <form action="/media" enctype="multipart/form-data" method="post">
+                                    {{ csrf_field() }}
+                                    <label for="formFileSm" class="form-label">Introducir documento</label>
+                                    <input class="form-control form-control-sm" id="formFileSm" type="file">
+                                </form>
                             </div>
                             <div class="form-group text-center">
                                 <button class="btn btn-primary">Añadir</button>
@@ -129,14 +133,14 @@
                             </div>
                         </div>
                     </div>
-                    <div class="tab-pane fade" id="mapa" role="tabpanel" aria-labelledby="mapa-tab">
-                        <div class="row">
-                            <input type="search" id="#form-address" class="form-control" placeholder="Where are you looking for a coffee?" />
-                            <div id="map-instantsearch-container"></div>
+                    <div class="tab-pane fade active" id="mapa" role="tabpanel" aria-labelledby="mapa-tab">
+                        <div>
+                            <div id="mapid"></div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
 @endsection
