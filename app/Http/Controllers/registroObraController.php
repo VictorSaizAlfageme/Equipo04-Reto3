@@ -36,7 +36,7 @@ class registroObraController extends Controller
         //console.log("ID: " + $idUbicacion);
 
 
-        
+
 
         //CREAMOS LA OBRA AÑADIENDO LA FK DE LA UBICACIÓ
         $idTipoedificio = 0;

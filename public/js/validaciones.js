@@ -411,15 +411,10 @@ function validarNumero() {
     var campo = "#numero";
     // @ts-ignore
     var numero = $(campo).val();
-    var patron = RegExp("^[0-9]+$");
+    var patron = RegExp("^[0-9/-]{0,2}$");
     try {
-        if (!validarVacio(numero)) {
-            throw "Debes añadir el número de destino.";
-        }
-        else {
-            if (!patron.test(numero)) {
-                throw "Solo puede contener números.";
-            }
+        if (!patron.test(numero)) {
+            throw "Solo puede incluir carácteres numéricos.";
         }
     }
     catch (err) {
@@ -431,15 +426,10 @@ function validarMano() {
     var campo = "#mano";
     // @ts-ignore
     var zip = $(campo).val();
-    var patron = RegExp("^([0-9a-zA-Z]{1,50})$");
+    var patron = RegExp("^([0-9a-zA-Z]{0,50})$");
     try {
-        if (!validarVacio(zip)) {
-            throw "Debes añadir una mano.";
-        }
-        else {
-            if (!patron.test(zip)) {
-                throw "Solo puede incluir carácteres alfanuméricos.";
-            }
+        if (!patron.test(zip)) {
+            throw "Solo puede incluir carácteres alfanuméricos.";
         }
     }
     catch (err) {
@@ -495,30 +485,30 @@ function validarFichero() {
     var campo = "#customFile";
     // @ts-ignore
     var nombreArchivo = $(campo).val();
-    /*
-    try{
-        if (nombreArchivo != ""){
-            let extension = nombreArchivo.substring(nombreArchivo.lastIndexOf('.'), nombreArchivo.length);
-            extension = extension.substring(1,extension.length);
-
-
-            if (extension == "jpg" || extension == "jpeg" || extension == "png"){
+    try {
+        if (nombreArchivo != "") {
+            var extension = nombreArchivo.substring(nombreArchivo.lastIndexOf('.'), nombreArchivo.length);
+            extension = extension.substring(1, extension.length);
+            if (extension == "jpg" || extension == "jpeg" || extension == "png") {
                 // @ts-ignore
-                if(document.querySelector("#customFile").files[0].size <= 1024*1024){
-                }else{
+                if (document.querySelector("#customFile").files[0].size <= 1024 * 1024) {
+                }
+                else {
                     throw "El archivo ha excedido el peso máximo";
                 }
-            }else{
+            }
+            else {
                 throw "Solo puedes subir archivos .jpg .jpeg .png.";
             }
-
         }
-        throw "Debes subir un plano";
-    }catch(err){
+        else {
+            throw "Debes subir un plano";
+        }
+    }
+    catch (err) {
         mensajesError.push(err);
         camposError.push(campo);
     }
-                */
 }
 function validarVacio(valorCampo) {
     if (valorCampo == "")

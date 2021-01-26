@@ -118,6 +118,7 @@ function validarDatosObra():void {
     idsCampos.forEach(c => $(c).removeClass("buzz"));
     idsCampos.forEach(c => establecerEstiloNormal(c));
 
+
     validarTipoEdificio();
     validarTipoObra();
     validarDescripcion();
@@ -449,14 +450,10 @@ function validarNumero(){
     let campo:string = "#numero";
     // @ts-ignore
     let numero:string = $(campo).val();
-    let patron = RegExp("^[0-9]+$");
+    let patron = RegExp("^[0-9/-]{0,2}$");
     try {
-        if (!validarVacio(numero)) {
-            throw "Debes añadir el número de destino.";
-        } else {
-            if (!patron.test(numero)) {
-                throw "Solo puede contener números.";
-            }
+        if (!patron.test(numero)) {
+            throw "Solo puede incluir carácteres numéricos.";
         }
     }catch(err){
         mensajesError.push(err);
@@ -468,15 +465,13 @@ function validarMano(){
     let campo:string = "#mano";
     // @ts-ignore
     let zip:string = $(campo).val();
-    let patron = RegExp("^([0-9a-zA-Z]{1,50})$");
+    let patron = RegExp("^([0-9a-zA-Z]{0,50})$");
     try {
-        if (!validarVacio(zip)) {
-            throw "Debes añadir una mano.";
-        } else {
-            if (!patron.test(zip)) {
-                throw "Solo puede incluir carácteres alfanuméricos.";
-            }
+
+        if (!patron.test(zip)) {
+            throw "Solo puede incluir carácteres alfanuméricos.";
         }
+
     }catch(err){
 
         mensajesError.push(err);
@@ -537,7 +532,8 @@ function validarFichero(){
     let campo:string = "#customFile";
     // @ts-ignore
     let nombreArchivo:string = $(campo).val();
-    /*
+
+
     try{
         if (nombreArchivo != ""){
             let extension = nombreArchivo.substring(nombreArchivo.lastIndexOf('.'), nombreArchivo.length);
@@ -554,13 +550,14 @@ function validarFichero(){
                 throw "Solo puedes subir archivos .jpg .jpeg .png.";
             }
 
+        }else{
+            throw "Debes subir un plano";
         }
-        throw "Debes subir un plano";
     }catch(err){
         mensajesError.push(err);
         camposError.push(campo);
     }
-                */
+
 
 
 
