@@ -314,27 +314,24 @@
 <script src="jquery/jquery.min.js"></script>
 <script src="js/bootstrap.bundle.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
-<script src="js/validaciones.js"></script>
 <!-- Core plugin JavaScript-->
 <script src="jquery-easing/jquery.easing.min.js"></script>
-
 <!-- Custom scripts for all pages-->
 <script src="components/js/sb-admin-2.min.js"></script>
-
 <!-- Page level plugins -->
 <script src="js/chart.js/Chart.min.js"></script>
 <script src="js/dark-mode-switch.min.js"></script>
-
 <!-- Page level custom scripts -->
 <script src="bootstrap/js/demo/bootstrap.js"></script>
-
 <script src="https://cdn.jsdelivr.net/leaflet/1/leaflet.js"></script>
+<script src="js/validaciones.js"></script>
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+<script src="../node_modules/leaflet/src/Leaflet.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/places.js@1.19.0"></script>
 <script src="js/obra.js"></script>
-
-<script src="https://cdn.jsdelivr.net/instantsearch.js/2.10.1/instantsearch.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/places.js@1.19.0/dist/cdn/placesInstantsearchWidget.min.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBawL8VbstJDdU5397SUX7pEt9DslAwWgQ"></script>
-
+<!-- Make sure you put this AFTER Leaflet's CSS -->
+<script src="js/map.js"></script>
 
 </body>
 

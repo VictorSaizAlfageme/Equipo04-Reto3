@@ -13,7 +13,18 @@ $(document).ready(function (){
         $("#botonRegistroObra").click(validarDatosObra);
     }catch (error){}
 
+
     //Aquí añadir con JQUERY que al pulsar ENTER se envíe el formulario.
+});
+
+//Al presionar enter
+$(document).on('keypress',function(e) {
+    if(e.which == 13) {
+        try {
+            validarDatosRegistroSolicitante()
+            validarDatosObra()
+        }catch (error){}
+    }
 });
 
 function validarDatosRegistroSolicitante():void {
@@ -99,7 +110,7 @@ $("#formularioRegistro").first().submit();
 
 
 function validarDatosObra():void {
-    idsCampos = ["#tipoEdificio", "#tipoObra", "#descripcion", "#form-address", "#form-city", "#form-zip", "#portal", "#numero", "#municipio", "#provincias", "#customFile"];
+    idsCampos = ["#tipoEdificio", "#tipoObra", "#descripcion", "#form-address", "#form-city", "#form-zip", "#portal", "#numero", "#municipio", "#provincias", "#customFile", "#mano"];
 
 
     camposError = [];
@@ -107,7 +118,6 @@ function validarDatosObra():void {
     idsCampos.forEach(c => $(c).removeClass("buzz"));
     idsCampos.forEach(c => establecerEstiloNormal(c));
 
-/*
     validarTipoEdificio();
     validarTipoObra();
     validarDescripcion();
@@ -116,10 +126,13 @@ function validarDatosObra():void {
     validarCodigoPostal();
     validarPortal();
     validarNumero();
+    validarMano();
     validarMunicipio();
     validarProvincias();
     validarFichero();
-*/
+
+
+    //Obtener latitud y longitud.
 
 
     comprobarYEstablecerEstilos();
@@ -129,7 +142,6 @@ function validarDatosObra():void {
 }
 
 function comprobarYEstablecerEstilos(){
-    console.log(camposError)
 
     if (camposError.length>0){
         aplicarEstiloError();
@@ -376,7 +388,7 @@ function validarCiudad() {
     let campo: string = "#form-city";
     // @ts-ignore
     let ciudad: string = $(campo).val();
-    let patron = RegExp("^[0-9]{5}$");
+    let patron = RegExp("^[A-zÀ-ÿ\-]+([ ]+[A-zÀ-ÿ\-]+)*$");
     try{
         if (!validarVacio(ciudad)){
             throw "Debes añadir una ciudad.";
@@ -397,7 +409,7 @@ function validarCodigoPostal(){
     let campo:string = "#form-zip";
     // @ts-ignore
     let zip:string = $(campo).val();
-    let patron = RegExp("^[A-zÀ-ÿ\\-]+([ ]+[A-zÀ-ÿ\\-]+)*$");
+    let patron = RegExp("^([0-9]{5})$");
     try {
         if (!validarVacio(zip)) {
             throw "Debes añadir un código postal.";
@@ -447,6 +459,26 @@ function validarNumero(){
             }
         }
     }catch(err){
+        mensajesError.push(err);
+        camposError.push(campo);
+    }
+}
+
+function validarMano(){
+    let campo:string = "#mano";
+    // @ts-ignore
+    let zip:string = $(campo).val();
+    let patron = RegExp("^([0-9a-zA-Z]{1,50})$");
+    try {
+        if (!validarVacio(zip)) {
+            throw "Debes añadir una mano.";
+        } else {
+            if (!patron.test(zip)) {
+                throw "Solo puede incluir carácteres alfanuméricos.";
+            }
+        }
+    }catch(err){
+
         mensajesError.push(err);
         camposError.push(campo);
     }
@@ -505,10 +537,13 @@ function validarFichero(){
     let campo:string = "#customFile";
     // @ts-ignore
     let nombreArchivo:string = $(campo).val();
+    /*
     try{
         if (nombreArchivo != ""){
             let extension = nombreArchivo.substring(nombreArchivo.lastIndexOf('.'), nombreArchivo.length);
             extension = extension.substring(1,extension.length);
+
+
             if (extension == "jpg" || extension == "jpeg" || extension == "png"){
                 // @ts-ignore
                 if(document.querySelector("#customFile").files[0].size <= 1024*1024){
@@ -518,12 +553,15 @@ function validarFichero(){
             }else{
                 throw "Solo puedes subir archivos .jpg .jpeg .png.";
             }
+
         }
         throw "Debes subir un plano";
     }catch(err){
         mensajesError.push(err);
         camposError.push(campo);
     }
+                */
+
 
 
 }

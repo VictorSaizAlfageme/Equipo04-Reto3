@@ -12,7 +12,15 @@
         type: 'address'
     });
     placesAutocomplete.on('change', function resultSelected(e) {
+        //https://community.algolia.com/places/documentation#suggestions
+        coor = e.suggestion.latlng;
+
+        document.querySelector('#longitud').value = coor.lng;
+        document.querySelector('#latitud').value = coor.lat;
+
         document.querySelector('#form-city').value = e.suggestion.city || '';
         document.querySelector('#form-zip').value = e.suggestion.postcode || '';
+
+
     });
 })();

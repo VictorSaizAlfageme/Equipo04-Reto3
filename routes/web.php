@@ -43,7 +43,7 @@ Route::post("/registrando", "solicitantesController@insertar")->name("solicitant
 
 //Obras
 Route::view("/obra", "obra")->name('obra');
-Route::post("/registrarObra", "obraController@insertar")->name("obraRegistrar");
+Route::post("/registrarObra", "registroObraController@registrarObra")->name("obraRegistrar");
 
 //PROVISIONALES (SOLO PARA DESARROLLO)
 Route::get("/trabajadoresListar", "trabajadoresController@listarTodos");

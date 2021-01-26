@@ -10,5 +10,15 @@ class Ubicacion extends Model
     public $timestamps = false;
 
     protected $table = "UBICACIONES";
-    protected $fillable = ["LATITUD", "LONGITUD", "COOR", "CALLE", "NUMERO", "CODPOSTAL", "PISO", "MANO", "POBLACION", "MUNICIPIO", "PROVINCIA"];
+    protected $fillable = [
+        "LATITUD",
+        "LONGITUD",
+        "CALLE",
+        "NUMERO",
+        "CODPOSTAL",
+        "PISO",
+        "MANO",
+        "POBLACION",
+        "MUNICIPIO",
+        "PROVINCIA"];
 }
