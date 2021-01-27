@@ -45,14 +45,9 @@
 
             <!-- Divider -->
             <hr class="sidebar-divider">
-
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                ESTADÍSTICAS
-            </div>
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="../../../Equipo04-Reto3%20-%20copia/resources/views/index.blade.php">
+                <a class="nav-link" href="{{route('inicio')}}">
                     <i class="fas fa-fw fa-home"></i>
                     <span>Inicio</span></a>
             </li>
@@ -90,24 +85,24 @@
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link" href="../../../Equipo04-Reto3%20-%20copia/resources/views/charts.blade.php">
+                <a class="nav-link" href="../resources/views/charts.blade.php">
                     <i class="fas fa-fw fa-bell"></i>
-                    <span>Alertas</span>
+                    <span>Estadísticas</span>
                 </a>
             </li>
 
             <!-- Nav Item - Charts -->
             <li class="nav-item">
-                <a class="nav-link" href="../../../Equipo04-Reto3%20-%20copia/resources/views/charts.blade.php">
+                <a class="nav-link" href="../resources/views/charts.blade.php">
                     <i class="fas fa-fw fa-tools"></i>
                     <span>Técnicos</span></a>
             </li>
 
             <!-- Nav Item - Tables -->
             <li class="nav-item">
-                <a class="nav-link" href="../../../Equipo04-Reto3%20-%20copia/resources/views/tables.blade.php">
+                <a class="nav-link" href="{{route('obra')}}">
                     <i class="fas fa-fw fa-user-shield"></i>
-                    <span>Coordinadores</span></a>
+                    <span>Obras</span></a>
             </li>
 
             <!-- Divider -->

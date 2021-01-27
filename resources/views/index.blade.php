@@ -41,11 +41,6 @@
 
                 <!-- Divider -->
                 <hr class="sidebar-divider">
-
-                <!-- Heading -->
-                <div class="sidebar-heading">
-                    ESTADÍSTICAS
-                </div>
                 <!-- Nav Item - Dashboard -->
                 <li class="nav-item active">
                     <a class="nav-link" href="index.blade.php">

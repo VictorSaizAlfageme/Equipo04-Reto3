@@ -22,6 +22,7 @@ Route::view("/iTecnicos", "iTecnicos")->name("itecnicos");
 Route::view("/iCoordinadores", "iCoordinadores")->name("icoordinadores");
 Route::view("/iComentariosTecnico", "iComentariosTecnico")->name("icomentariostecnicos");
 Route::view("/obrasSolicitante", "obrasSolicitante")->name("obraS");
+Route::view("/inicio", "paginaInicial")->name("inicio");
 
 /*
  * |================================================================|

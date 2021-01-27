@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layoutCoordinadores')
 @section('content')
     <div class="container">
         <div class="row">
@@ -29,7 +29,7 @@
                     <tr id="demo" class="collapse cell-1 row-child">
                         <td colspan="2"><b>Último comentario:</b></td>
                         <td colspan="3">Estamos valorando tu solicitud</td>
-                        <td colspan="2"><button type="button" class="btn btn-primary">Contactar</button></td>
+                        <td colspan="2"><button type="button" class="btn btn-primary"><a href="{{route('icomentariostecnico')}}">Contactar</a></button></td>
                     </tr>
                     <tr class="cell-1" data-toggle="collapse" data-target="#demo-2">
                         <td class="text-center">1</td>
@@ -43,7 +43,7 @@
                     <tr id="demo-2" class="collapse cell-1 row-child">
                         <td colspan="2"><b>Último comentario:</b></td>
                         <td colspan="3">Hemos aceptado tu solicitud. Pronto tendrás noticias</td>
-                        <td colspan="2"><button type="button" class="btn btn-primary">Contactar</button></td>
+                        <td colspan="2"><button type="button" class="btn btn-primary"><a href="{{route('icomentariostecnico')}}">Contactar</a></button></td>
                     </tr>
                     <tr class="cell-1" data-toggle="collapse" data-target="#demo-3">
                         <td class="text-center">1</td>
@@ -57,7 +57,7 @@
                     <tr id="demo-3" class="collapse cell-1 row-child">
                         <td colspan="2"><b>Último comentario:</b></td>
                         <td colspan="3">Tu solicitud ha sido denegada. Para más información contacta con nosotros</td>
-                        <td colspan="2"><button type="button" class="btn btn-primary">Contactar</button></td>
+                        <td colspan="2"><button type="button" class="btn btn-primary"><a href="{{route('icomentariostecnico')}}">Contactar</a></button></td>
                     </tr>
                     <tr class="cell-1" data-toggle="collapse" data-target="#demo-4">
                         <td class="text-center">1</td>
@@ -71,7 +71,7 @@
                     <tr id="demo-4" class="collapse cell-1 row-child">
                         <td colspan="2"><b>Último comentario:</b></td>
                         <td colspan="3">¡¡Estamos con la obra!!</td>
-                        <td colspan="2"><button type="button" class="btn btn-primary">Contactar</button></td>
+                        <td colspan="2"><button type="button" class="btn btn-primary"><a href="{{route('icomentariostecnico')}}">Contactar</a></button></td>
                     </tr>
                     <tr class="cell-1" data-toggle="collapse" data-target="#demo-5">
                         <td class="text-center">1</td>
@@ -85,7 +85,7 @@
                     <tr id="demo-5" class="collapse cell-1 row-child">
                         <td colspan="2"><b>Último comentario:</b></td>
                         <td colspan="3">Hemos finalizado tu obra. ¡¡Disfrutala!!</td>
-                        <td colspan="2"><button type="button" class="btn btn-primary">Contactar</button></td>
+                        <td colspan="2"><button type="button" class="btn btn-primary"><a href="{{route('icomentariostecnico')}}">Contactar</a></button></td>
                     </tr>
                     </tbody>
                 </table>
