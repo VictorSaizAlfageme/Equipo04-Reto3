@@ -67,6 +67,9 @@
     font-size: 1em;
     text-align: center;
     width: 100%;
+    margin-top: 10px !important;
+    margin-bottom: 15px;
+
 }
 button {
     position: relative;
@@ -263,8 +266,50 @@ input[type=file].hidden{
     color: #157d6a;
 }
 
+
+.card-body{
+    height: 400px;
+}
+
+.bg-login-image{
+    height: 400px;
+}
+.pass-form{
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+@media (max-width: 600px) {
+
 #mapid {
     height: 300px;
+}
+  
+.tipoTrabajador{
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+
+}
+
+#mensajeError {
+    text-align: center;
+}
+
+.form-select {
+    width: 200px;
+    font-size: 0.8em;
+    border-radius: 50px;
+}
+
+.select{
+    justify-content: center;
+}
+
+.form-control {
+    color: black !important;
 }
 
 @media (max-width: 600px) {

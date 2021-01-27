@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'default' => env('MAIL_MAILER', 'smtp'),
+    'default' => env('MAIL_MAILER', 'sendmail'),
 
     /*
     |--------------------------------------------------------------------------
@@ -106,5 +106,7 @@ return [
             resource_path('views/vendor/mail'),
         ],
     ],
+
+
 
 ];
