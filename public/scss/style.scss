@@ -266,10 +266,27 @@ input[type=file].hidden{
     color: #157d6a;
 }
 
+
+.card-body{
+    height: 400px;
+}
+
+.bg-login-image{
+    height: 400px;
+}
+.pass-form{
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+@media (max-width: 600px) {
+
 #mapid {
     height: 300px;
 }
-
+  
 .tipoTrabajador{
     display: flex;
     align-items: center;
@@ -294,7 +311,6 @@ input[type=file].hidden{
 .form-control {
     color: black !important;
 }
-
 
 @media (max-width: 600px) {
     .vitoria2 {

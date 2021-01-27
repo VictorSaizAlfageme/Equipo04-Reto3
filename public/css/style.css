@@ -10942,71 +10942,6 @@ form.user .btn-user {
   animation: noise-anim 2s infinite linear alternate-reverse;
 }
 
-@keyframes noise-anim-2 {
-  0% {
-    clip: rect(75px, 9999px, 58px, 0);
-  }
-  5% {
-    clip: rect(61px, 9999px, 22px, 0);
-  }
-  10% {
-    clip: rect(75px, 9999px, 73px, 0);
-  }
-  15% {
-    clip: rect(57px, 9999px, 80px, 0);
-  }
-  20% {
-    clip: rect(73px, 9999px, 77px, 0);
-  }
-  25% {
-    clip: rect(65px, 9999px, 13px, 0);
-  }
-  30% {
-    clip: rect(6px, 9999px, 48px, 0);
-  }
-  35% {
-    clip: rect(63px, 9999px, 98px, 0);
-  }
-  40% {
-    clip: rect(28px, 9999px, 95px, 0);
-  }
-  45% {
-    clip: rect(37px, 9999px, 23px, 0);
-  }
-  50% {
-    clip: rect(56px, 9999px, 48px, 0);
-  }
-  55% {
-    clip: rect(12px, 9999px, 97px, 0);
-  }
-  60% {
-    clip: rect(53px, 9999px, 1px, 0);
-  }
-  65% {
-    clip: rect(12px, 9999px, 85px, 0);
-  }
-  70% {
-    clip: rect(75px, 9999px, 76px, 0);
-  }
-  75% {
-    clip: rect(56px, 9999px, 48px, 0);
-  }
-  80% {
-    clip: rect(74px, 9999px, 49px, 0);
-  }
-  85% {
-    clip: rect(6px, 9999px, 9px, 0);
-  }
-  90% {
-    clip: rect(79px, 9999px, 32px, 0);
-  }
-  95% {
-    clip: rect(42px, 9999px, 72px, 0);
-  }
-  100% {
-    clip: rect(18px, 9999px, 7px, 0);
-  }
-}
 .error:before {
   content: attr(data-text);
   position: absolute;
@@ -11355,8 +11290,24 @@ input[type=file].hidden {
   color: #157d6a;
 }
 
+
+.card-body {
+  height: 400px;
+}
+
+.bg-login-image {
+  height: 400px;
+}
+
+.pass-form {
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+
 #mapid {
   height: 300px;
+
 }
 
 .tipoTrabajador {

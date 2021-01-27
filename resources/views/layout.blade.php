@@ -28,7 +28,6 @@
     <link href="css/dark.css" rel="stylesheet">
 </head><!-- Content Wrapper -->
 <body id="page-top">
-
 <!-- Page Wrapper -->
 <div id="wrapper">
 
@@ -42,7 +41,7 @@
                 </div>
                 <div class="sidebar-brand-text mx-3">NUVE</div>
             </a>
-
+va
             <!-- Divider -->
             <hr class="sidebar-divider">
 
@@ -282,7 +281,7 @@
                         </div>
                         <div class="modal-footer">
                             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-                            <a class="btn btn-primary" href="{{route('inicioSesion')}}">Cerrar Sesión</a>
+                            <a id="cerrarSesion" class="btn btn-primary" href="{{route('inicioSesion')}}">Cerrar Sesión</a>
                         </div>
                     </div>
                 </div>
@@ -314,10 +313,13 @@
 </a>
 
 
+
 <!-- Bootstrap core JavaScript-->
 <script src="jquery/jquery.min.js"></script>
 <script src="js/bootstrap.bundle.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
+    <!--CERRAR LA SESION-->
+<script src="js/cerrarSesion.js"></script>
 <!-- Core plugin JavaScript-->
 <script src="jquery-easing/jquery.easing.min.js"></script>
 <!-- Custom scripts for all pages-->
@@ -338,6 +340,13 @@
 <!-- Make sure you put this AFTER Leaflet's CSS -->
 
 <script src="js/map.js"></script>
+
+<!--CERRAR SESION SI NO EXISTE EL COOKIE-->
+@if(!isset($_COOKIE["usuarioConectado"]))
+    <script>
+        document.location.href="{!! route('inicioSesion'); !!}";
+    </script>
+@endif
 
 </body>
 

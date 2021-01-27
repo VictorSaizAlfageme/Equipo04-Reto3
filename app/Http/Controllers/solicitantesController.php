@@ -33,7 +33,9 @@ class solicitantesController extends Controller
         foreach ($solicitantes as $solicitante){
             if($dni == $solicitante->DNI && $pass == $solicitante->PASSWORD){
                 setcookie("usuarioConectado", $solicitante->ID, strtotime("+1 year"));
-                return view("index");
+                setcookie("tipoUsuario", "0", strtotime("+1 year"));
+
+                return redirect()->route('paginaPrincipal');
             }
         }
 
@@ -70,6 +72,16 @@ class solicitantesController extends Controller
 
         $solicitante->save();
         return redirect()->route('inicioSesion');
+    }
+
+    public function cambiarContrasena(){
+        //La nueva contraseña de obtiene mediante POST
+        $solicitante = Solicitante::find($_COOKIE['usuarioConectado']);
+
+        $solicitante->update([
+            "PASSWORD" => "123456789",
+        ]);
+
     }
 
     /*Elimina al usuario recibido por POST*/

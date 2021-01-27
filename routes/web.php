@@ -17,11 +17,14 @@ use Illuminate\Support\Facades\Storage;
 
 Route::view("/index", "index")->name('paginaPrincipal');
 Route::view("/register", "register")->name('registro');
+Route::view("/perfilSolicitante", "perfilSolicitante")->name('perfil');
+
 Route::view("/iTecnicos", "iTecnicos")->name("itecnicos");
 Route::view("/iCoordinadores", "iCoordinadores")->name("icoordinadores");
 Route::view("/iComentariosTecnico", "iComentariosTecnico")->name("icomentariostecnicos");
 Route::view("/obrasSolicitante", "obrasSolicitante")->name("obras");
 Route::view("/registroTrabajadores", "registroTrabajadores")->name("registroTrabajadores");
+
 
 /*
  * |================================================================|
@@ -45,6 +48,8 @@ Route::view("/", "login")->name('inicioSesion');
 Route::post("/login", "solicitantesController@iniciarSesion")->name("solicitanteIniciarSesion");
 Route::view("/registro", "register")->name("solicitanteRegistro");
 Route::post("/registrando", "solicitantesController@insertar")->name("solicitanteRegistrar");
+Route::view("/solicitarContrasena", "iCambiarContrasena")->name("solicitarContrasena");
+Route::post("/solicitandoContrasena", "emailTestController@passwordChanges")->name("cambioContrasena");
 
 //Obras
 Route::view("/obra", "obra")->name('obra');
@@ -80,3 +85,7 @@ Route::get('/public/{file}', function ($file){
 })->where([
     'file' => '(.*?)\.(jpg|png|jpeg|gif|pdf|doc|docx|odt)$'
 ]);
+Route::get('/emailtestform', function (){
+    return view('emailtest');
+});
+Route::post('/contactar', 'App\Http\Controllers\emailTestController@contact')->name('contact');
