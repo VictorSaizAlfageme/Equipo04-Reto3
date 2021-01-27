@@ -88,7 +88,6 @@
                         </form>
                         <div id="mensajeError">
                             <span class="mt-3" id="mensajeErrorSpan">{!! session()->get('error') !!}</span>
-                            <span class="mt-3" id="mensajeErrorSpan"></span>
                         </div>
                         <hr>
                         <div class="text-center">

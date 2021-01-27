@@ -277,7 +277,7 @@
                         </div>
                         <div class="modal-footer">
                             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-                            <a class="btn btn-primary" href="{{route('inicioSesion')}}">Cerrar Sesión</a>
+                            <a id="cerrarSesion" class="btn btn-primary" href="{{route('inicioSesion')}}">Cerrar Sesión</a>
                         </div>
                     </div>
                 </div>
@@ -646,6 +646,9 @@
     <script src="jquery/jquery.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
 
+    <!--CERRAR LA SESION-->
+    <script src="js/cerrarSesion.js"></script>
+
     <!-- Core plugin JavaScript-->
     <script src="jquery-easing/jquery.easing.min.js"></script>
 
@@ -660,7 +663,12 @@
     <script src="js/validaciones.js"></script>
 
 
-    <!-- Page level custom scripts -->
+    <!--CERRAR SESION SI NO EXISTE EL COOKIE-->
+    @if(!isset($_COOKIE["usuarioConectado"]))
+        <script>
+            document.location.href="{!! route('inicioSesion'); !!}";
+        </script>
+    @endif
 
 </body>
 
