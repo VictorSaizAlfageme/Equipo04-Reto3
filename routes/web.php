@@ -17,11 +17,11 @@ use Illuminate\Support\Facades\Storage;
 
 Route::view("/index", "index")->name('paginaPrincipal');
 Route::view("/register", "register")->name('registro');
-Route::view("/perfilSolicitante", "perfilSolicitante")->name('perfilS');
 Route::view("/iTecnicos", "iTecnicos")->name("itecnicos");
 Route::view("/iCoordinadores", "iCoordinadores")->name("icoordinadores");
 Route::view("/iComentariosTecnico", "iComentariosTecnico")->name("icomentariostecnicos");
-Route::view("/obrasSolicitante", "obrasSolicitante")->name("obraS");
+Route::view("/obrasSolicitante", "obrasSolicitante")->name("obras");
+Route::view("/registroTrabajadores", "registroTrabajadores")->name("registroTrabajadores");
 
 /*
  * |================================================================|
@@ -31,10 +31,14 @@ Route::view("/obrasSolicitante", "obrasSolicitante")->name("obraS");
 
 
 //CONTROLADORES
+Route::post("/usuarioEditar", "perfilUsuarioController@usuarioEditar")->name("usuarioEditar");
+Route::get("/perfil", "perfilUsuarioController@usuarioSelect")->name('perfilUsuario');
 
 //TRABAJADORES
 Route::view("/trabajadores", "loginTrabajadores")->name("loginTrabajadores");
 Route::post("/trabajadorLogin", "trabajadoresController@iniciarSesion")->name("trabajadorIniciarSesion");
+Route::post("/registrarTrabajador", "registroTrabajadoresController@registrarTrabajador")->name("trabajadorRegistrar");
+
 
 //Solicitantes (Usuarios normales)
 Route::view("/", "login")->name('inicioSesion');

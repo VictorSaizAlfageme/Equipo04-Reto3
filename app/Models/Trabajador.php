@@ -10,5 +10,5 @@ class Trabajador extends Model
     public $timestamps = false;
 
     protected $table = "TRABAJADORES";
-    protected $fillable = ["DNI", "PASSWORD", "NOMBRE", "APELLIDO1", "APELLIDO2", "IMAGEN", "EMAIL", "TELEFONO", "DISPONIBILIDAD", "IDTIPO"];
+    protected $fillable = ["DNI", "PASSWORD", "NOMBRE", "APELLIDOS", "IMAGEN", "EMAIL", "TELEFONO", "DISPONIBILIDAD", "IDTIPO"];
 }
