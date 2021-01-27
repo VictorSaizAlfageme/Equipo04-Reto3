@@ -2,6 +2,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Storage;
 
 /*
 |--------------------------------------------------------------------------
@@ -59,3 +60,19 @@ Route::get("/trabajadoresListar", "trabajadoresController@listarTodos")->name("l
 Route::get("/trabajadoresCrear", "trabajadoresController@formCrear")->name("registrarTrabajador");
 Route::post("/trabajadoresStore", "trabajadoresController@store")->name("trabajadores.store");
 Route::get("/trabajadores/{id}", "trabajadoresController@listarConcreto");
+
+//SUBIR FOTOS O ARCHIVOS
+Route::get('media', function (){
+   return view('media');
+});
+Route::post('media', function (){
+    //Aquí solo acepta ficheros de tipo imagen
+    //request()->validate(['file' =>'image']);
+    request()->validate(['file' => '']);
+    return request()->file->storeAs('public'. request()->file->getClientOriginalName());
+});
+Route::get('/public/{file}', function ($file){
+    return Storage::response("public/$file");
+})->where([
+    'file' => '(.*?)\.(jpg|png|jpeg|gif|pdf|doc|docx|odt)$'
+]);
