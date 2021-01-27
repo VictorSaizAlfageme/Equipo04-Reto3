@@ -17,11 +17,11 @@ use Illuminate\Support\Facades\Storage;
 
 Route::view("/index", "index")->name('paginaPrincipal');
 Route::view("/register", "register")->name('registro');
-Route::view("/perfilSolicitante", "perfilSolicitante")->name('perfilS');
+Route::view("/perfilSolicitante", "perfilSolicitante")->name('perfil');
 Route::view("/iTecnicos", "iTecnicos")->name("itecnicos");
 Route::view("/iCoordinadores", "iCoordinadores")->name("icoordinadores");
 Route::view("/iComentariosTecnico", "iComentariosTecnico")->name("icomentariostecnicos");
-Route::view("/obrasSolicitante", "obrasSolicitante")->name("obraS");
+Route::view("/obrasSolicitante", "obrasSolicitante")->name("obras");
 
 /*
  * |================================================================|
