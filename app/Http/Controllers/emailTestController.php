@@ -9,16 +9,15 @@ use Mail;
 
 class emailTestController extends Controller
 {
-    public function passwordChanges(Request $request){
-        request()->validate([
-            'email' => 'required|email',
-        ]);
+    public function passwordChanges($pass){
+
+    return $pass;
 
         $subject = "Recuperación de contraseña";
         //$for = "correo_que_recibira_el_mensaje";
         $for = $request['email'];
 
-        Mail::send('email.email',$request->all(), function($msj) use($subject,$for){
+        Mail::send('email.email/',$request->all(), function($msj) use($subject,$for){
             $msj->from("nuve.info@gmail.com","Empresa NUVE");
             $msj->subject($subject);
             $msj->to($for);

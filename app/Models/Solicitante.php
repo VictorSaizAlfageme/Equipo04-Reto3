@@ -10,5 +10,5 @@ class Solicitante extends Model
     public $timestamps = false;
 
     protected $table = "SOLICITANTES";
-    protected $fillable = ["DNI", "PASSWORD", "NOMBRE", "APELLIDO", "FECHANAC", "LUGARNAC", "EMAIL", "TELEFONO"];
+    protected $fillable = ["DNI", "PASSWORD", "NOMBRE", "APELLIDOS", "FECHANAC", "LUGARNAC", "EMAIL", "TELEFONO"];
 }

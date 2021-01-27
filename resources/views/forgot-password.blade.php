@@ -44,13 +44,13 @@
                                         <h1 class="h4 text-gray-900 mb-2">¿Has olvidado tu contraseña?</h1>
                                         <p class="mb-4">Introduce tu dirección de correo electrónico que usaste para registrarte. Te enviaremos un correo electrónico con tu nueva contraseña!</p>
                                     </div>
-                                    <form class="user">
+                                    <form class="user" method="POST" id="formulario" action="{{route("editarContrasena")}}">
                                         <div class="form-group">
                                             <input type="email" class="form-control form-control-user"
-                                                id="exampleInputEmail" aria-describedby="emailHelp"
+                                                id="email"
                                                 placeholder="Dirección de correo">
                                         </div>
-                                        <a href="login.blade.php" class="btn btn-primary btn-user btn-block">
+                                        <a class="btn btn-primary btn-user btn-block" id="botonRecuperarContrasena">
                                             ENVIAR
                                         </a>
                                     </form>

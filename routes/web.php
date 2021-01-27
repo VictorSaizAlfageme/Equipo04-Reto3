@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Storage;
 
 Route::view("/index", "index")->name('paginaPrincipal');
 Route::view("/register", "register")->name('registro');
-Route::view("/perfilSolicitante", "perfilSolicitante")->name('perfil');
+//Route::view("/perfilSolicitante", "perfilSolicitante")->name('perfil');
 
 Route::view("/iTecnicos", "iTecnicos")->name("itecnicos");
 Route::view("/iCoordinadores", "iCoordinadores")->name("icoordinadores");
@@ -36,6 +36,8 @@ Route::view("/registroTrabajadores", "registroTrabajadores")->name("registroTrab
 //CONTROLADORES
 Route::post("/usuarioEditar", "perfilUsuarioController@usuarioEditar")->name("usuarioEditar");
 Route::get("/perfil", "perfilUsuarioController@usuarioSelect")->name('perfilUsuario');
+Route::post("/editarContrasena", "perfilUsuarioController@editarContrasena")->name("editarContrasena");
+Route::post("/recuperarContrasena", "perfilUsuarioController@recuperarContrasena")->name("recuperarContrasena");
 
 //TRABAJADORES
 Route::view("/trabajadores", "loginTrabajadores")->name("loginTrabajadores");

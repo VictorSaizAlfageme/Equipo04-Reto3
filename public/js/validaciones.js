@@ -20,7 +20,11 @@ $(document).ready(function () {
     }
     catch (error) { }
     try {
-        $("#botonCancelarEditarPerfil").click(cancelarEditarPerfil);
+        $("#botonActualizarContrasena").click(validarContrasenaUsuario);
+    }
+    catch (error) { }
+    try {
+        $("#botonActualizarContrasena").click(validarCorreoUsuario);
     }
     catch (error) { }
     //Aquí añadir con JQUERY que al pulsar ENTER se envíe el formulario.
@@ -31,6 +35,10 @@ $(document).on('keypress', function (e) {
         try {
             validarDatosRegistroSolicitante();
             validarDatosObra();
+            validarDatosTrabajador();
+            validarDatosUsuario();
+            validarContrasenaUsuario();
+            validarCorreoUsuario();
         }
         catch (error) { }
     }
@@ -45,7 +53,6 @@ function validarDatosRegistroSolicitante() {
     validarApellido();
     validarEmail();
     validarPass();
-    validarPass2();
     validarTelefono();
     validarDNI();
     validarFechaNac();
@@ -167,9 +174,29 @@ function validarDatosUsuario() {
         $("#formulario").submit();
     }
 }
-function cancelarEditarPerfil() {
-    event.preventDefault();
-    $(location).attr('href', "#");
+function validarContrasenaUsuario() {
+    idsCampos = ["#pass", "#pass2"];
+    camposError = [];
+    mensajesError = [];
+    idsCampos.forEach(function (c) { return $(c).removeClass("buzz"); });
+    idsCampos.forEach(function (c) { return establecerEstiloNormal(c); });
+    validarPass();
+    comprobarYEstablecerEstilos();
+    if (mensajesError.length == 0) {
+        $("#formulario2").submit();
+    }
+}
+function validarCorreoUsuario() {
+    idsCampos = ["#email"];
+    camposError = [];
+    mensajesError = [];
+    idsCampos.forEach(function (c) { return $(c).removeClass("buzz"); });
+    idsCampos.forEach(function (c) { return establecerEstiloNormal(c); });
+    validarEmail();
+    comprobarYEstablecerEstilos();
+    if (mensajesError.length == 0) {
+        $("#formulario").submit();
+    }
 }
 function comprobarYEstablecerEstilos() {
     if (camposError.length > 0) {
@@ -221,8 +248,13 @@ function validarPass() {
         if (!validarVacio(pass)) {
             throw "Debes añadir una contraseña.";
         }
-        if (!patron.test(pass)) {
-            throw "la contraseña debe tener 6 caracteres: mayúscula, minúscula y número.";
+        else {
+            if (!patron.test(pass)) {
+                throw "la contraseña debe tener 6 caracteres: mayúscula, minúscula y número.";
+            }
+            else {
+                validarPass2();
+            }
         }
     }
     catch (err) {
@@ -241,7 +273,7 @@ function validarPass2() {
             throw "Debes repetir la contraseña.";
         }
         if (pass2 != pass) {
-            throw "las contraseñas no coinciden.";
+            throw "Las contraseñas no coinciden.";
         }
     }
     catch (err) {
@@ -624,5 +656,12 @@ $('input').focus(function (event) {
     else {
         $("#mensajeErrorSpan").text(mensajesError[index]);
         $("#mensajeError").css("display", "flex");
+    }
+    if (index == -1) {
+        $("#mensajeError2").css("display", "none");
+    }
+    else {
+        $("#mensajeErrorSpan2").text(mensajesError[index]);
+        $("#mensajeError2").css("display", "flex");
     }
 });

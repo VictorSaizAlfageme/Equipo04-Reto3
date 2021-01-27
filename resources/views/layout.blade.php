@@ -41,7 +41,6 @@
                 </div>
                 <div class="sidebar-brand-text mx-3">NUVE</div>
             </a>
-va
             <!-- Divider -->
             <hr class="sidebar-divider">
 

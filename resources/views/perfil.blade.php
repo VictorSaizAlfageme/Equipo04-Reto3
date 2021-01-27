@@ -25,31 +25,31 @@
                             <div class="form-group row">
                                 <label for="dniMostrar" class="col-4"> DNI:</label>
                                 <div class="col-8">
-                                    <input type="text" class="form-control" id="dniMostrar" value="72844606H" disabled>
+                                    <input type="text" class="form-control text-muted" id="dniMostrar" value="{{$usuario -> DNI}}" disabled>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="nombreMostrar" class="col-4"> Nombre:</label>
                                 <div class="col-8">
-                                    <input type="text" class="form-control" id="nombreMostrar" value="Urko" disabled>
+                                    <input type="text" class="form-control text-muted" id="nombreMostrar" value="{{$usuario -> NOMBRE}}" disabled>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="apellidosMostrar" class="col-4"> Apellidos:</label>
                                 <div class="col-8">
-                                    <input type="text" class="form-control" id="apellidosMostrar" value="Ruiz de Gordejuela" disabled>
+                                    <input type="text" class="form-control text-muted" id="apellidosMostrar" value="{{$usuario -> APELLIDOS}}" disabled>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="emailMostrar" class="col-4"> Dirección de correo:</label>
                                 <div class="col-8">
-                                    <input type="text" class="form-control" id="emailMostrar" value="urko.ruizdegordejuela@ikasle.egibide.org" disabled>
+                                    <input type="text" class="form-control text-muted" id="emailMostrar" value="{{$usuario -> EMAIL}}" disabled>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="telefonoMostrar" class="col-4"> Telefono:</label>
                                 <div class="col-8">
-                                    <input type="text" class="form-control" id="telefonoMostrar" value="622898920" disabled>
+                                    <input type="text" class="form-control text-muted" id="telefonoMostrar" value="{{$usuario -> TELEFONO}}" disabled>
                                 </div>
                             </div>
                         </div>
@@ -57,7 +57,8 @@
                 </div>
                 <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                     <form class="user" method="POST" id="formulario" action="{{route("usuarioEditar")}}">
-                    <div class="row">
+                        @csrf
+                        <div class="row">
                         <!--<div class="col-4">
                             <img class="img-thumbnail" src="img/undraw_profile.svg" alt="">
                             <div>
@@ -69,25 +70,25 @@
                             <div class="form-group row">
                                 <label for="nombre" class="col-4"> Nombre:</label>
                                 <div class="col-8">
-                                    <input type="text" class="form-control" id="nombre" value="Urko">
+                                    <input type="text" class="form-control text-dark" id="nombre" name="nombre" value="{{$usuario -> NOMBRE}}">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="apellido" class="col-4"> Apellidos:</label>
                                 <div class="col-8">
-                                    <input type="text" class="form-control" id="apellido" value="Ruiz de Gordejuela">
+                                    <input type="text" class="form-control text-dark " id="apellido" name="apellido" value="{{$usuario -> APELLIDOS}}">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="email" class="col-4"> Dirección de correo:</label>
                                 <div class="col-8">
-                                    <input type="text" class="form-control" id="email" value="urko.ruizdegordejuela@ikasle.egibide.org">
+                                    <input type="text" class="form-control text-dark" id="email" name="email" value="{{$usuario -> EMAIL}}">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="telefono" class="col-4"> Telefono:</label>
                                 <div class="col-8">
-                                    <input type="text" class="form-control" id="telefono" value="622898920">
+                                    <input type="text" class="form-control text-dark" id="telefono" name="telefono" value="622898920">
                                 </div>
                             </div>
                             <div id="mensajeError">
@@ -96,7 +97,6 @@
 
                             <div class="form-group text-center">
                                 <a class="btn btn-primary" id="botonActualizarPerfil">Actualizar</a>
-                                <button class="btn btn-secondary">Cancelar</button>
                             </div>
                         </div>
                     </div>
@@ -106,22 +106,28 @@
                     <div class="col-md-7 offset-md-3">
                         <h3 class="text-center">Cambio de Clave</h3>
                         <br>
-                        <div class="form-group row">
-                            <label for="contraseña" class="col-6">Nueva contraseña:</label>
-                            <div class="col-6">
-                                <input type="password" class="form-control">
+                        <form class="user" method="POST" id="formulario2" action="{{route("editarContrasena")}}">
+                            @csrf
+                            <div class="form-group row">
+                                <label for="contraseña" class="col-6">Nueva contraseña:</label>
+                                <div class="col-6">
+                                    <input type="password" id="pass" name="pass" class="form-control">
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="recontraseña" class="col-6">Repite la contraseña:</label>
-                            <div class="col-6">
-                                <input type="password" class="form-control">
+                            <div class="form-group row">
+                                <label for="recontraseña" class="col-6">Repite la contraseña:</label>
+                                <div class="col-6">
+                                    <input type="password" id="pass2" name="pass2" class="form-control">
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group text-center">
-                            <button class="btn btn-primary">Actualizar</button>
-                            <button class="btn btn-secondary">Cancelar</button>
-                        </div>
+                            <div id="mensajeError2">
+                                <span class="mt-3" id="mensajeErrorSpan2">{!! session()->get('error') !!}</span>
+                            </div>
+
+                            <div class="form-group text-center">
+                                <a class="btn btn-primary" id="botonActualizarContrasena">Cambiar contraseña</a>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>

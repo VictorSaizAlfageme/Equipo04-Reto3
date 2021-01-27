@@ -22,7 +22,11 @@ $(document).ready(function (){
     }catch (error){}
 
     try {
-        $("#botonCancelarEditarPerfil").click(cancelarEditarPerfil);
+        $("#botonActualizarContrasena").click(validarContrasenaUsuario);
+    }catch (error){}
+
+    try {
+        $("#botonActualizarContrasena").click(validarCorreoUsuario);
     }catch (error){}
 
 
@@ -33,8 +37,12 @@ $(document).ready(function (){
 $(document).on('keypress',function(e) {
     if(e.which == 13) {
         try {
-            validarDatosRegistroSolicitante()
-            validarDatosObra()
+            validarDatosRegistroSolicitante();
+            validarDatosObra();
+            validarDatosTrabajador();
+            validarDatosUsuario();
+            validarContrasenaUsuario();
+            validarCorreoUsuario();
         }catch (error){}
     }
 });
@@ -52,7 +60,6 @@ function validarDatosRegistroSolicitante():void {
     validarApellido();
     validarEmail();
     validarPass();
-    validarPass2();
     validarTelefono();
     validarDNI();
     validarFechaNac();
@@ -202,9 +209,39 @@ function validarDatosUsuario():void {
     }
 }
 
-function cancelarEditarPerfil():void {
-    event.preventDefault();
-    $(location).attr('href',"#");
+
+function  validarContrasenaUsuario():void {
+    idsCampos = ["#pass", "#pass2"];
+
+
+    camposError = [];
+    mensajesError = [];
+    idsCampos.forEach(c => $(c).removeClass("buzz"));
+    idsCampos.forEach(c => establecerEstiloNormal(c));
+
+    validarPass();
+
+    comprobarYEstablecerEstilos();
+    if (mensajesError.length == 0) {
+        $("#formulario2").submit()
+    }
+}
+
+function validarCorreoUsuario():void {
+    idsCampos = ["#email"];
+
+
+    camposError = [];
+    mensajesError = [];
+    idsCampos.forEach(c => $(c).removeClass("buzz"));
+    idsCampos.forEach(c => establecerEstiloNormal(c));
+
+    validarEmail();
+
+    comprobarYEstablecerEstilos();
+    if (mensajesError.length == 0) {
+        $("#formulario").submit()
+    }
 }
 
 function comprobarYEstablecerEstilos(){
@@ -261,11 +298,16 @@ function validarPass(){
     try{
         if(!validarVacio(pass)){
             throw "Debes añadir una contraseña.";
+        } else {
+            if (!patron.test(pass)){
+                throw "la contraseña debe tener 6 caracteres: mayúscula, minúscula y número.";
+            } else {
+                validarPass2();
+            }
         }
-        if (!patron.test(pass)){
-            throw "la contraseña debe tener 6 caracteres: mayúscula, minúscula y número.";
-        }
+
     }
+
     catch(err){
         mensajesError.push(err);
         camposError.push(campo);
@@ -284,7 +326,7 @@ function validarPass2(){
             throw "Debes repetir la contraseña.";
         }
         if (pass2!=pass) {
-            throw "las contraseñas no coinciden.";
+            throw "Las contraseñas no coinciden.";
         }
     }
     catch(err){
@@ -698,5 +740,12 @@ $('input').focus(function (event){
     }else{
         $("#mensajeErrorSpan").text(mensajesError[index]);
         $("#mensajeError").css("display","flex");
+    }
+
+    if (index == -1){
+        $("#mensajeError2").css("display","none");
+    }else{
+        $("#mensajeErrorSpan2").text(mensajesError[index]);
+        $("#mensajeError2").css("display","flex");
     }
 })

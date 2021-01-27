@@ -63,7 +63,7 @@
 .select-title {
     font-weight: bolder;
 }
-#mensajeErrorSpan {
+#mensajeErrorSpan , #mensajeErrorSpan2  {
     font-size: 1em;
     text-align: center;
     width: 100%;
@@ -272,21 +272,24 @@ input[type=file].hidden{
 }
 
 .bg-login-image{
-    height: 400px;
+    height: 500px;
+}
+
+.login-form {
+    height: 500px;
 }
 .pass-form{
-    height: 400px;
+    height: 500px;
     display: flex;
     justify-content: center;
     flex-direction: column;
 }
 
-@media (max-width: 600px) {
-
 #mapid {
-    height: 300px;
-}
-  
+     height: 300px;
+ }
+
+
 .tipoTrabajador{
     display: flex;
     align-items: center;
@@ -294,7 +297,7 @@ input[type=file].hidden{
 
 }
 
-#mensajeError {
+#mensajeError,#mensajeError2 {
     text-align: center;
 }
 
@@ -312,8 +315,17 @@ input[type=file].hidden{
     color: black !important;
 }
 
+.card {
+    height: 500px;
+}
+
 @media (max-width: 600px) {
+
+
+
+
     .vitoria2 {
         display: none;
     }
 }
+

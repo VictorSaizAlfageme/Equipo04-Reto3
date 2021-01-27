@@ -44,20 +44,22 @@
                                 <div class="text-center">
                                     <h1 class="h4 text-gray-900 mb-4">Recuperar contraseña</h1>
                                 </div>
-                                <form class="user" id="formulario" method="POST" action="{{route("cambioContrasena")}}">
+                                <form class="user" method="POST" id="formulario" action="{{route("editarContrasena")}}">
                                     @csrf
                                     <div class="form-group">
                                         <input type="email" class="form-control form-control-user"
-                                               id="exampleInputEmail" aria-describedby="emailHelp"
-                                               placeholder="Email" name="email">
+                                               id="email" placeholder="Email" name="email">
 
                                         <input type="hidden" id="password" name="password">
                                     </div>
+                                    <div id="mensajeError2">
+                                        <span class="mt-3" id="mensajeErrorSpan2">{!! session()->get('error') !!}</span>
+                                    </div>
 
 
-                                    <button class="btn btn-primary btn-user btn-block">
+                                    <a class="btn btn-primary btn-user btn-block" id="botonRecuperarContrasena">
                                         ENVIAR
-                                    </button>
+                                    </a>
                                 </form>
                             </div>
                         </div>
@@ -80,5 +82,6 @@
 
 <!-- Custom scripts for all pages-->
 <script src="boostrap/js/sb-admin-2.min.js"></script>
+<script src="js/validaciones.js"></script>
 
 </body>
