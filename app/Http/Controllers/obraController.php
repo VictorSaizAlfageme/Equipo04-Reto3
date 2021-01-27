@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Obra;
+use App\Models\Ubicacion;
 use Illuminate\Http\Request;
 
 class obraController extends Controller
@@ -11,8 +12,13 @@ class obraController extends Controller
     /*Retorna todas las filas de la tabla. (SELECT * FROM)*/
     public function listarTodos()
     {
-        $lista = Obra::get();
-        return view("listar", compact("lista"));
+        $listaObras = Obra::get();
+        $listaUbicaciones = Ubicacion::get();
+
+        return view('iTecnicos', [
+            'listaObras' => $listaObras,
+            'listaUbicaciones' => $listaUbicaciones
+        ]);
     }
 
     /*Retorna tan solo una fila concreta. (SELECT WHERE ID=x)*/

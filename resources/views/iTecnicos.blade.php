@@ -18,81 +18,83 @@
                     </tr>
                     </thead>
                     <tbody class="table-body">
-                    <tr class="cell-1 tr" data-toggle="collapse" data-target="#demo">
-                        <td class="text-center">1</td>
-                        <td><b>09485</b></td>
-                        <td>Reparación</td>
-                        <td><span class="badge badge-dark">Valorando</span></td>
-                        <td>20/01/2021</td>
-                        <td>Sin definir</td>
-                        <td class="table-elipse" data-toggle="collapse" data-target="#demo"><i class="fas fa-angle-down"></i></td>
-                    </tr>
-                    <tr id="demo" class="collapse cell-1 row-child tr">
-                        <td colspan="2"><b>C/ Francia N12 3C</b></td>
-                        <td colspan="1"><button type="button" class="btn btn-warning">Más información</button></td>
-                        <td colspan="2"><button type="button" class="btn btn-secondary">Añadir comentarios</button></td>
-                        <td colspan="2"><button type="button" class="btn btn-primary">Contactar</button></td>
-                    </tr>
-                    <tr class="cell-1 tr" data-toggle="collapse" data-target="#demo-2">
-                        <td class="text-center">1</td>
-                        <td><b>14435</b></td>
-                        <td>Reparación</td>
-                        <td><span class="badge badge-secondary">Aceptado</span></td>
-                        <td>20/01/2021</td>
-                        <td>Sin definir</td>
-                        <td class="table-elipse" data-toggle="collapse" data-target="#demo"><i class="fas fa-angle-down"></i></td>
-                    </tr>
-                    <tr id="demo-2" class="collapse cell-1 row-child tr">
-                        <td colspan="2"><b>C/ Donosti N8 Bajo</b></td>
-                        <td colspan="1"><button type="button" class="btn btn-warning">Más información</button></td>
-                        <td colspan="2"><button type="button" class="btn btn-secondary">Añadir comentarios</button></td>
-                        <td colspan="2"><button type="button" class="btn btn-primary">Contactar</button></td>
-                    </tr>
-                    <tr class="cell-1 tr" data-toggle="collapse" data-target="#demo-3">
-                        <td class="text-center">1</td>
-                        <td><b>4533</b>2</td>
-                        <td>Reparación</td>
-                        <td><span class="badge badge-info">Denegado</span></td>
-                        <td>20/01/2021</td>
-                        <td>Sin definir</td>
-                        <td class="table-elipse" data-toggle="collapse" data-target="#demo"><i class="fas fa-angle-down"></i></td>
-                    </tr>
-                    <tr id="demo-3" class="collapse cell-1 row-child tr">
-                        <td colspan="2"><b>C/ Zapateria N34</b></td>
-                        <td colspan="1"><button type="button" class="btn btn-warning">Más información</button></td>
-                        <td colspan="2"><button type="button" class="btn btn-secondary">Añadir comentarios</button></td>
-                        <td colspan="2"><button type="button" class="btn btn-primary">Contactar</button></td>
-                    </tr>
-                    <tr class="cell-1 tr" data-toggle="collapse" data-target="#demo-4">
-                        <td class="text-center">1</td>
-                        <td><b>87957</b></td>
-                        <td>Reparación</td>
-                        <td><span class="badge badge-light">En proceso</span></td>
-                        <td>20/01/2021</td>
-                        <td>Sin definir</td>
-                        <td class="table-elipse" data-toggle="collapse" data-target="#demo"><i class="fas fa-angle-down"></i></td>
-                    </tr>
-                    <tr id="demo-4" class="collapse cell-1 row-child tr">
-                        <td colspan="2">C/ Nieves Cano N23</td>
-                        <td colspan="1"><button type="button" class="btn btn-warning">Más información</button></td>
-                        <td colspan="2"><button type="button" class="btn btn-secondary">Añadir comentarios</button></td>
-                        <td colspan="2"><button type="button" class="btn btn-primary">Contactar</button></td>
-                    </tr>
-                    <tr class="cell-1 tr" data-toggle="collapse" data-target="#demo-5">
-                        <td class="text-center">1</td>
-                        <td><b>34543</b></td>
-                        <td>Reparación</td>
-                        <td><span class="badge badge-success">Finalizado</span></td>
-                        <td>20/01/2021</td>
-                        <td>Sin definir</td>
-                        <td class="table-elipse" data-toggle="collapse" data-target="#demo"><i class="fas fa-angle-down"></i></td>
-                    </tr>
-                    <tr id="demo-5" class="collapse cell-1 row-child tr">
-                        <td colspan="2"><b>C/ Ibaiondo N1 1B</b></td>
-                        <td colspan="1"><button type="button" class="btn btn-warning">Más información</button></td>
-                        <td colspan="2"><button type="button" class="btn btn-secondary">Añadir comentarios</button></td>
-                        <td colspan="2"><button type="button" class="btn btn-primary">Contactar</button></td>
-                    </tr>
+
+
+                    @foreach($listaObras as $obra)
+
+                        <!--TUPLAS-->
+                        <tr class="cell-1 tr" data-toggle="collapse" data-target="#id{{$obra->ID}}">
+                            <td class="text-center">1</td>
+
+                            <td><b>{{ $obra->ID }}</b></td>
+
+                            @switch($obra->IDOBRA)
+                                @case("1")
+                                <td>Construcción</td>
+                                @break
+                                @case("11")
+                                <td>Reforma</td>
+                                @break
+                            @endswitch
+
+                            @switch($obra->IDESTADO)
+                                @case("1")
+                                <td><span class="badge badge-dark">En espera</span></td>
+                                @break
+
+                                @case("11")
+                                <td><span class="badge badge-secondary">Aceptado</span></td>
+
+                                @break
+
+                                @case("21")
+                                <td><span class="badge badge-info">Denegado</span></td>
+                                @break
+
+                                @case("31")
+                                <td><span class="badge badge-light">En proceso</span></td>
+                                @break
+
+                                @case("41")
+                                <td><span class="badge badge-light">En proceso</span></td>
+                                @break
+
+                                @case("51")
+                                <td><span class="badge badge-success">Finalizado</span></td>
+                                @break
+                            @endswitch
+
+                            @if($obra->FECHAINI == "")
+                                <td>Sin definir</td>
+                            @else
+                                <td>{{ $obra->FECHAINI }}</td>
+                            @endif
+
+                            @if($obra->FECHAFIN == "")
+                                <td>Sin definir</td>
+                            @else
+                                <td>{{ $obra->FECHAINI }}</td>
+                            @endif
+
+                            <td class="table-elipse" data-toggle="collapse" data-target="#id{{$obra->ID}}"><i class="fas fa-angle-down"></i></td>
+                        </tr>
+
+                        <!--DESPLEGABLE-->
+
+                        <tr id="id{{$obra->ID}}" class="collapse cell-1 row-child tr">
+                            @foreach($listaUbicaciones as $ubi)
+                                @if($ubi->ID == $obra->ID)
+                                    <td colspan="2"><b>C/ {{$ubi->CALLE}}</b></td>
+                                @endif
+                            @endforeach
+                            <td colspan="1"><button type="button" class="btn btn-warning">Más información</button></td>
+                            <td colspan="2"><button type="button" class="btn btn-secondary">Añadir comentarios</button></td>
+                            <td colspan="2"><button type="button" class="btn btn-primary">Contactar</button></td>
+                        </tr>
+
+                    @endforeach
+
+
                     </tbody>
                 </table>
             </div>
