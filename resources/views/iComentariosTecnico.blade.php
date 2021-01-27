@@ -62,7 +62,7 @@
                                 <form action="/media" enctype="multipart/form-data" method="post">
                                     {{ csrf_field() }}
                                     <label for="formFileSm" class="form-label">Introducir documento</label>
-                                    <input class="form-control form-control-sm" id="formFileSm" type="file">
+                                    <input class="form-control form-control-sm" id="formFileSm" type="file" name="file">
                                 </form>
                             </div>
                             <div class="form-group text-center">

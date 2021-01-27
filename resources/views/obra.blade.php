@@ -2,16 +2,14 @@
 @section('content')
 
 <div class="container">
-    <div class="card o-hidden border-0 shadow-lg my-5">
-        <div class="card-body p-0">
-            <!-- Nested Row within Card Body -->
+
             <div class="row">
                 <div class="col-lg-12">
                     <div class="p-5">
                         <div class="text-center">
                             <h1 class="h4 text-gray-900 mb-4">Formulario de obra</h1>
                         </div>
-                        <form class="user" method="POST" id="formulario" action="{{route("obraRegistrar")}}">
+                        <form class="user" enctype="multipart/form-data" method="POST" id="formulario" action="{{route("obraRegistrar")}}">
                             @csrf
 
                             <input type="hidden" name="longitud" id="longitud" value="">
@@ -91,6 +89,7 @@
                                     </div>
                                 </div>
                                 <div class="custom-file form-control">
+                                    {{csrf_field()}}
                                     <input type="file" class="custom-file-input" id="customFile" name="plano">
                                     <label class="custom-file-label" for="customFile">Selecciona tu plano</label>
                                 </div>
@@ -106,8 +105,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
+
     </div>
 
 @endsection
