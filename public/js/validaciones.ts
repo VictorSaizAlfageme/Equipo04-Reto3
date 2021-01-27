@@ -13,6 +13,18 @@ $(document).ready(function (){
         $("#botonRegistroObra").click(validarDatosObra);
     }catch (error){}
 
+    try {
+        $("#botonRegistroTrabajador").click(validarDatosTrabajador);
+    }catch (error){}
+
+    try {
+        $("#botonActualizarPerfil").click(validarDatosUsuario);
+    }catch (error){}
+
+    try {
+        $("#botonCancelarEditarPerfil").click(cancelarEditarPerfil);
+    }catch (error){}
+
 
     //Aquí añadir con JQUERY que al pulsar ENTER se envíe el formulario.
 });
@@ -140,6 +152,59 @@ function validarDatosObra():void {
     if (mensajesError.length == 0) {
         $("#formulario").submit()
     }
+}
+
+
+function validarDatosTrabajador():void {
+    idsCampos = ["#nombre", "#apellido", "#email", "#pass",  "#dni", "#telefono"];
+
+
+    camposError = [];
+    mensajesError = [];
+    idsCampos.forEach(c => $(c).removeClass("buzz"));
+    idsCampos.forEach(c => establecerEstiloNormal(c));
+
+    validarTipoTrabajador();
+    validarNombre();
+    validarApellido();
+    validarEmail();
+    validarPass();
+    validarDNI();
+    validarTelefono();
+
+    comprobarYEstablecerEstilos();
+    if (mensajesError.length == 0) {
+        $("#formulario").submit()
+    }
+}
+
+
+
+
+
+function validarDatosUsuario():void {
+    idsCampos = ["#dni", "#nombre", "#apellidos", "#email", "#telefono"];
+
+
+    camposError = [];
+    mensajesError = [];
+    idsCampos.forEach(c => $(c).removeClass("buzz"));
+    idsCampos.forEach(c => establecerEstiloNormal(c));
+
+    validarNombre();
+    validarApellido();
+    validarEmail();
+    validarTelefono();
+
+    comprobarYEstablecerEstilos();
+    if (mensajesError.length == 0) {
+        $("#formulario").submit()
+    }
+}
+
+function cancelarEditarPerfil():void {
+    event.preventDefault();
+    $(location).attr('href',"#");
 }
 
 function comprobarYEstablecerEstilos(){
@@ -327,6 +392,21 @@ function validarTipoEdificio(){
     try{
         if (tipoEdificio == null){
             throw "Debes seleccionar un tipo de edificio.";
+        }
+    }
+    catch(err){
+        mensajesError.push(err);
+        camposError.push(campo);
+    }
+}
+
+function validarTipoTrabajador(){
+    let campo:string = "#tipoTrabajador";
+    // @ts-ignore
+    let tipoTrabajador:string = $(campo).val();
+    try{
+        if (tipoTrabajador == null){
+            throw "Debes seleccionar un tipo de trabajador.";
         }
     }
     catch(err){

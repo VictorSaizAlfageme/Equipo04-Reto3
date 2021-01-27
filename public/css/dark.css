@@ -46,6 +46,9 @@
     background-color: #0d483e;
 }
 
+[data-theme="dark"] table .badge {
+    color: black !important;
+}
 
 
 .dark-mode {
