@@ -65,6 +65,8 @@ Route::delete("/eliminandoSolicitante", "solicitantesController@eliminar") ->nam
 Route::get("/trabajadoresCrear", "trabajadoresController@formCrear")->name("registrarTrabajador");
 Route::post("/trabajadoresStore", "trabajadoresController@store")->name("trabajadores.store");
 Route::get("/trabajadores/{id}", "trabajadoresController@listarConcreto");
+Route::view("/rt", "registroTrabajadores")->name("rt");
+
 
 //SUBIR FOTOS O ARCHIVOS
 Route::get('media', function (){
