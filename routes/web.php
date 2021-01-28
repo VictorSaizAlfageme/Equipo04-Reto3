@@ -24,7 +24,7 @@ Route::view("/iCoordinadores", "iCoordinadores")->name("icoordinadores");
 Route::view("/iComentariosTecnico", "iComentariosTecnico")->name("icomentariostecnicos");
 Route::view("/obrasSolicitante", "obrasSolicitante")->name("obras");
 Route::view("/registroTrabajadores", "registroTrabajadores")->name("registroTrabajadores");
-
+Route::view("/inicio", "paginaInicial")->name("inicio");
 
 /*
  * |================================================================|
@@ -90,3 +90,4 @@ Route::get('/emailtestform', function (){
     return view('emailtest');
 });
 Route::post('/contactar', 'App\Http\Controllers\emailTestController@contact')->name('contact');
+Route::get('/ver','App\Http\Controllers\UploadsController@verArchivo')->name('ver');

@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layoutCoordinadores')
 @section('content')
     <h3 id="titulo-3">OBRAS ASIGNADAS</h3>
     <div class="container">

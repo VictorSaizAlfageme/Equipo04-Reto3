@@ -268,11 +268,11 @@ input[type=file].hidden{
 
 
 .card-body{
-    height: 400px;
+    height: auto;
 }
 
 .bg-login-image{
-    height: 400px;
+    height: 500px;
 }
 .pass-form{
     height: 400px;
@@ -280,7 +280,6 @@ input[type=file].hidden{
     justify-content: center;
     flex-direction: column;
 }
-
 
 
 #mapid {
@@ -318,6 +317,11 @@ input[type=file].hidden{
     }
 }
 
+
 .card-body{
     height: auto;
+}
+
+.text-welcome{
+    font-size: 15px;
 }
