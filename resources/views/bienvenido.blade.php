@@ -1,3 +1,5 @@
+@extends('layoutSolicitante')
+@section('content')
 <div class="col-12 row">
     <div class="col-12"><h1 class="fw-weight-bolder text-center">BIENVENIDO</h1></div>
     <div class="col-6 text-welcome">
@@ -13,3 +15,4 @@
     </div>
 
 </div>
+@endsection

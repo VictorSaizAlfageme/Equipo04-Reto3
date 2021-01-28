@@ -45,7 +45,7 @@ class solicitantesController extends Controller
     {
 
         //ENCRIPTACIÓN
-        $encriptada = password_hash(request("password"), PASSWORD_DEFAULT);
+        $encriptada = password_hash(request("pass"), PASSWORD_DEFAULT);
 
 
         $solicitante  = new Solicitante(
@@ -67,6 +67,12 @@ class solicitantesController extends Controller
             if($elemento->DNI == request("dni")){
                 return back()->with('error', 'El DNI ya está en uso.');
             }
+            if($elemento->EMAIL == request("email")){
+                return back()->with('error', 'El email ya está en uso.');
+            }
+            if($elemento->TELEFONO == request("telefono")){
+                return back()->with('error', 'El número de telefono ya está en uso.');
+            }
         }
 
 
@@ -74,15 +80,6 @@ class solicitantesController extends Controller
         return redirect()->route('inicioSesion');
     }
 
-    public function cambiarContrasena(){
-        //La nueva contraseña de obtiene mediante POST
-        $solicitante = Solicitante::find($_COOKIE['usuarioConectado']);
-
-        $solicitante->update([
-            "PASSWORD" => "123456789",
-        ]);
-
-    }
 
     /*Elimina al usuario recibido por POST*/
     public function eliminar(){

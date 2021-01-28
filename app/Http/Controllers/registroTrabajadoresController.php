@@ -12,11 +12,14 @@ class registroTrabajadoresController extends Controller
     function registrarTrabajador()
     {
 
+        $encriptada = password_hash(request("pass"), PASSWORD_DEFAULT);
+
+
         //CREAMOS UN TRABAJADOR
         $trabajador = new Trabajador(
             [
                 "DNI" => request("dni"),
-                "PASSWORD" => request("password"),
+                "PASSWORD" => $encriptada,
                 "NOMBRE" => request("nombre"),
                 "APELLIDOS" => request("apellido"),
                 "IMAGEN" => "FOTO",
@@ -31,6 +34,12 @@ class registroTrabajadoresController extends Controller
         foreach ($lista as $elemento){
             if($elemento->DNI == request("dni")){
                 return back()->with('error', 'El DNI ya está en uso.');
+            }
+            if($elemento->EMAIL == request("email")){
+                return back()->with('error', 'El email ya está en uso.');
+            }
+            if($elemento->TELEFONO == request("telefono")){
+                return back()->with('error', 'El número de telefono ya está en uso.');
             }
         }
 

@@ -56,12 +56,6 @@
                                                id="exampleInputPassword" placeholder="Contraseña"
                                                name="pass">
                                     </div>
-                                    <div class="form-group">
-                                        <div class="custom-control custom-checkbox small">
-                                            <input type="checkbox" class="custom-control-input" id="customCheck">
-                                            <label class="custom-control-label" for="customCheck">Recuérdame</label>
-                                        </div>
-                                    </div>
                                     <a class="btn btn-primary btn-user btn-block" onclick="document.getElementById('formulario').submit()">
                                         INICIAR SESIÓN
                                     </a>
