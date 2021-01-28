@@ -268,11 +268,11 @@ input[type=file].hidden{
 
 
 .card-body{
-    height: 400px;
+    height: 500px;
 }
 
 .bg-login-image{
-    height: 400px;
+    height: 500px;
 }
 .pass-form{
     height: 400px;
@@ -281,12 +281,11 @@ input[type=file].hidden{
     flex-direction: column;
 }
 
-@media (max-width: 600px) {
 
 #mapid {
     height: 300px;
 }
-  
+
 .tipoTrabajador{
     display: flex;
     align-items: center;
@@ -316,4 +315,8 @@ input[type=file].hidden{
     .vitoria2 {
         display: none;
     }
+}
+
+.card-register{
+    height: 650px !important;
 }
