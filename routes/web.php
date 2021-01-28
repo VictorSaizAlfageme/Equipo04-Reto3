@@ -51,7 +51,7 @@ Route::post("/login", "solicitantesController@iniciarSesion")->name("solicitante
 Route::view("/registro", "register")->name("solicitanteRegistro");
 Route::post("/registrando", "solicitantesController@insertar")->name("solicitanteRegistrar");
 Route::view("/solicitarContrasena", "iCambiarContrasena")->name("solicitarContrasena");
-Route::post("/solicitandoContrasena", "emailTestController@passwordChanges")->name("cambioContrasena");
+//Route::post("/solicitandoContrasena", "emailTestController@passwordChanges")->name("cambioContrasena");
 
 //Obras
 Route::view("/obra", "obra")->name('obra');

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Solicitante;
 use App\Models\Trabajador;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 
 class perfilUsuarioController extends Controller
 {
@@ -42,6 +43,8 @@ class perfilUsuarioController extends Controller
             $tipoUsuario = "Trabajadores";
         }
 
+
+
         $usuario = DB::table($tipoUsuario)->update([
             "NOMBRE" => request("nombre"),
             "APELLIDOS" => request("apellido"),
@@ -54,31 +57,6 @@ class perfilUsuarioController extends Controller
 
     function editarContrasena()
     {
-
-        //FALTA LA ENCRIPTACIÓN
-        $email = request("email");
-
-        $solicitantes = Solicitante::get();
-
-        $pass = substr(md5(uniqid()), 0, 10);
-
-        return $pass;
-
-        foreach ($solicitantes as $usuario){
-            if($email == $usuario->EMAIL ){
-                $usuario = DB::table("Solicitante")->update([
-                    "PASSWORD" => $pass,
-                ]);
-                return redirect()->route('cambioContrasena', $pass);
-            }
-        }
-
-        return redirect()->route('solicitarContrasena');
-    }
-
-    function recuperarContrasena()
-    {
-
         $tipoUsuario = "";
 
         if ($_COOKIE['tipoUsuario'] == "0") {
@@ -88,12 +66,49 @@ class perfilUsuarioController extends Controller
             $usuario = Trabajador::find($_COOKIE['usuarioConectado']);
             $tipoUsuario = "Trabajadores";
         }
+        $encriptada = password_hash(request("pass"), PASSWORD_DEFAULT);
 
-        $usuario = DB::table($tipoUsuario)->update([
-            "PASSWORD" => request("pass"),
+        $usuario = DB::table($tipoUsuario)->where('ID', $usuario->ID)->update([
+            "PASSWORD" => $encriptada,
         ]);
 
         return redirect()->route('perfilUsuario');
+
+    }
+
+    function recuperarContrasena(Request $request)
+    {
+
+        //FALTA LA ENCRIPTACIÓN
+        $email = request("email");
+        $pass = request("pass");
+
+        $solicitantes = Solicitante::get();
+
+        $encriptada = password_hash(request("pass"), PASSWORD_DEFAULT);
+
+
+        foreach ($solicitantes as $usuario){
+            if($email == $usuario->EMAIL ){
+                $usuario = DB::table("Solicitantes")->where('ID', $usuario->ID)->update([
+                    "PASSWORD" => $pass,
+                ]);
+
+                $subject = "Recuperación de contraseña";
+                //$for = "correo_que_recibira_el_mensaje";
+
+                $for = $request['email'];
+
+                Mail::send('email.email', request()->all(), function($msj) use($subject,$email){
+                    $msj->from("nuve.info@gmail.com","Empresa NUVE");
+                    $msj->subject($subject);
+                    $msj->to($email);
+                });
+
+                return redirect('/');
+            }
+        }
+        return back()->with('error', 'El correo no existe.');
     }
 
 }

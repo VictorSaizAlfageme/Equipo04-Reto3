@@ -4,7 +4,7 @@ var mensajesError:Array<string> =[]; //array donde se guarda el mensaje de error
 var idsCampos:Array<string> = [];
 
 $(document).ready(function (){
-    //Asignamos la función correspondiente al formulario. El try
+    //Asignamos la función correspondiente al formulario.
     try {
         $("#botonRegistroSolicitante").click(validarDatosRegistroSolicitante);
     }catch (error){}
@@ -26,11 +26,9 @@ $(document).ready(function (){
     }catch (error){}
 
     try {
-        $("#botonActualizarContrasena").click(validarCorreoUsuario);
+        $("#botonRecuperarContrasena").click(validarCorreoUsuario);
     }catch (error){}
 
-
-    //Aquí añadir con JQUERY que al pulsar ENTER se envíe el formulario.
 });
 
 //Al presionar enter
@@ -228,6 +226,7 @@ function  validarContrasenaUsuario():void {
 }
 
 function validarCorreoUsuario():void {
+
     idsCampos = ["#email"];
 
 
@@ -237,6 +236,10 @@ function validarCorreoUsuario():void {
     idsCampos.forEach(c => establecerEstiloNormal(c));
 
     validarEmail();
+    var pass:String = generarContrasena();
+    // @ts-ignore
+    $("#pass").val(pass);
+
 
     comprobarYEstablecerEstilos();
     if (mensajesError.length == 0) {
@@ -244,6 +247,19 @@ function validarCorreoUsuario():void {
     }
 }
 
+function  generarContrasena():String {
+    var caracteres:Array<string> = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","0","1","2","3","4","5","6","7","8","9"];
+    var numeroAleatorio:number = 3;
+    var pass:String = "";
+
+    // paso 2 - escribir x caracteres
+
+    for(var i = 0; i<8; i++){
+        numeroAleatorio = parseInt(String(Math.random() * caracteres.length));
+        pass += caracteres[numeroAleatorio];
+    }
+    return pass;
+}
 function comprobarYEstablecerEstilos(){
 
     if (camposError.length>0){

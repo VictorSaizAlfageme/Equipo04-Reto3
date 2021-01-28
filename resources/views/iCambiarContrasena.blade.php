@@ -44,16 +44,16 @@
                                 <div class="text-center">
                                     <h1 class="h4 text-gray-900 mb-4">Recuperar contraseña</h1>
                                 </div>
-                                <form class="user" method="POST" id="formulario" action="{{route("editarContrasena")}}">
+                                <form class="user" method="POST" id="formulario" action="{{route("recuperarContrasena")}}">
                                     @csrf
                                     <div class="form-group">
                                         <input type="email" class="form-control form-control-user"
                                                id="email" placeholder="Email" name="email">
 
-                                        <input type="hidden" id="password" name="password">
+                                        <input type="hidden" id="pass" name="pass">
                                     </div>
-                                    <div id="mensajeError2">
-                                        <span class="mt-3" id="mensajeErrorSpan2">{!! session()->get('error') !!}</span>
+                                    <div id="mensajeError">
+                                        <span class="mt-3" id="mensajeErrorSpan">{!! session()->get('error') !!}</span>
                                     </div>
 
 
@@ -74,14 +74,13 @@
 </div>
 
 <!-- Bootstrap core JavaScript-->
-<script src="vendor/jquery/jquery.min.js"></script>
-<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
+<script src="jquery/jquery.min.js"></script>
+<!--<script src="../vendor/bootstrap/bootstrap.bundle.min.js"></script>-->
 <!-- Core plugin JavaScript-->
-<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-
+<script src="jquery-easing/jquery.easing.min.js"></script>
 <!-- Custom scripts for all pages-->
 <script src="boostrap/js/sb-admin-2.min.js"></script>
 <script src="js/validaciones.js"></script>
 
 </body>
+</html>

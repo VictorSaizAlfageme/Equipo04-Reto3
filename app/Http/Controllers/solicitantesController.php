@@ -53,7 +53,7 @@ class solicitantesController extends Controller
                 "DNI" => request("dni"),
                 "PASSWORD" => request("password"),
                 "NOMBRE" => request("nombre"),
-                "APELLIDO" => request("apellido"),
+                "APELLIDOS" => request("apellido"),
                 "FECHANAC" => request("fechaNac"),
                 "LUGARNAC" => request("provincias"),
                 "EMAIL" => request("email"),
@@ -66,6 +66,12 @@ class solicitantesController extends Controller
         foreach ($lista as $elemento){
             if($elemento->DNI == request("dni")){
                 return back()->with('error', 'El DNI ya está en uso.');
+            }
+            if($elemento->EMAIL == request("email")){
+                return back()->with('error', 'El email ya está en uso.');
+            }
+            if($elemento->TELEFONO == request("telefono")){
+                return back()->with('error', 'El número de telefono ya está en uso.');
             }
         }
 
