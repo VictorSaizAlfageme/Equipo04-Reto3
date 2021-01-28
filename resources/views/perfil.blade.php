@@ -1,4 +1,12 @@
-@extends('layoutCoordinadores')
+@if($_COOKIE["tipoUsuario"] == "0")
+    @extends('layoutSolicitante')
+@else
+    @if($_COOKIE['tipoTrabajador'] = "1")
+        @extends('layoutTecnicos')
+    @else
+        @extends('layoutCoordinadores')
+@endif
+
 @section('content')
 <div class="container">
     <div class="row">
