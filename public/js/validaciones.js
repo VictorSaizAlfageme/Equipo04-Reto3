@@ -2,7 +2,7 @@ var camposError = []; //array para guardar aquellos campos que no pasen validaci
 var mensajesError = []; //array donde se guarda el mensaje de error de cada campo erróneo
 var idsCampos = [];
 $(document).ready(function () {
-    //Asignamos la función correspondiente al formulario. El try
+    //Asignamos la función correspondiente al formulario.
     try {
         $("#botonRegistroSolicitante").click(validarDatosRegistroSolicitante);
     }
@@ -20,10 +20,13 @@ $(document).ready(function () {
     }
     catch (error) { }
     try {
-        $("#botonCancelarEditarPerfil").click(cancelarEditarPerfil);
+        $("#botonActualizarContrasena").click(validarContrasenaUsuario);
     }
     catch (error) { }
-    //Aquí añadir con JQUERY que al pulsar ENTER se envíe el formulario.
+    try {
+        $("#botonRecuperarContrasena").click(validarCorreoUsuario);
+    }
+    catch (error) { }
 });
 //Al presionar enter
 $(document).on('keypress', function (e) {
@@ -31,6 +34,10 @@ $(document).on('keypress', function (e) {
         try {
             validarDatosRegistroSolicitante();
             validarDatosObra();
+            validarDatosTrabajador();
+            validarDatosUsuario();
+            validarContrasenaUsuario();
+            validarCorreoUsuario();
         }
         catch (error) { }
     }
@@ -45,7 +52,6 @@ function validarDatosRegistroSolicitante() {
     validarApellido();
     validarEmail();
     validarPass();
-    validarPass2();
     validarTelefono();
     validarDNI();
     validarFechaNac();
@@ -167,9 +173,43 @@ function validarDatosUsuario() {
         $("#formulario").submit();
     }
 }
-function cancelarEditarPerfil() {
-    event.preventDefault();
-    $(location).attr('href', "#");
+function validarContrasenaUsuario() {
+    idsCampos = ["#pass", "#pass2"];
+    camposError = [];
+    mensajesError = [];
+    idsCampos.forEach(function (c) { return $(c).removeClass("buzz"); });
+    idsCampos.forEach(function (c) { return establecerEstiloNormal(c); });
+    validarPass();
+    comprobarYEstablecerEstilos();
+    if (mensajesError.length == 0) {
+        $("#formulario2").submit();
+    }
+}
+function validarCorreoUsuario() {
+    idsCampos = ["#email"];
+    camposError = [];
+    mensajesError = [];
+    idsCampos.forEach(function (c) { return $(c).removeClass("buzz"); });
+    idsCampos.forEach(function (c) { return establecerEstiloNormal(c); });
+    validarEmail();
+    var pass = generarContrasena();
+    // @ts-ignore
+    $("#pass").val(pass);
+    comprobarYEstablecerEstilos();
+    if (mensajesError.length == 0) {
+        $("#formulario").submit();
+    }
+}
+function generarContrasena() {
+    var caracteres = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+    var numeroAleatorio = 3;
+    var pass = "";
+    // paso 2 - escribir x caracteres
+    for (var i = 0; i < 8; i++) {
+        numeroAleatorio = parseInt(String(Math.random() * caracteres.length));
+        pass += caracteres[numeroAleatorio];
+    }
+    return pass;
 }
 function comprobarYEstablecerEstilos() {
     if (camposError.length > 0) {
@@ -221,8 +261,13 @@ function validarPass() {
         if (!validarVacio(pass)) {
             throw "Debes añadir una contraseña.";
         }
-        if (!patron.test(pass)) {
-            throw "la contraseña debe tener 6 caracteres: mayúscula, minúscula y número.";
+        else {
+            if (!patron.test(pass)) {
+                throw "la contraseña debe tener 6 caracteres: mayúscula, minúscula y número.";
+            }
+            else {
+                validarPass2();
+            }
         }
     }
     catch (err) {
@@ -241,7 +286,7 @@ function validarPass2() {
             throw "Debes repetir la contraseña.";
         }
         if (pass2 != pass) {
-            throw "las contraseñas no coinciden.";
+            throw "Las contraseñas no coinciden.";
         }
     }
     catch (err) {
@@ -624,5 +669,12 @@ $('input').focus(function (event) {
     else {
         $("#mensajeErrorSpan").text(mensajesError[index]);
         $("#mensajeError").css("display", "flex");
+    }
+    if (index == -1) {
+        $("#mensajeError2").css("display", "none");
+    }
+    else {
+        $("#mensajeErrorSpan2").text(mensajesError[index]);
+        $("#mensajeError2").css("display", "flex");
     }
 });

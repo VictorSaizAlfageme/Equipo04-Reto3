@@ -36,6 +36,8 @@ Route::view("/inicio", "bienvenido")->name("inicio");
 //CONTROLADORES
 Route::post("/usuarioEditar", "perfilUsuarioController@usuarioEditar")->name("usuarioEditar");
 Route::get("/perfil", "perfilUsuarioController@usuarioSelect")->name('perfilUsuario');
+Route::post("/editarContrasena", "perfilUsuarioController@editarContrasena")->name("editarContrasena");
+Route::post("/recuperarContrasena", "perfilUsuarioController@recuperarContrasena")->name("recuperarContrasena");
 
 //TRABAJADORES
 Route::view("/trabajadores", "loginTrabajadores")->name("loginTrabajadores");
@@ -49,7 +51,6 @@ Route::post("/login", "solicitantesController@iniciarSesion")->name("solicitante
 Route::view("/registro", "register")->name("solicitanteRegistro");
 Route::post("/registrando", "solicitantesController@insertar")->name("solicitanteRegistrar");
 Route::view("/solicitarContrasena", "iCambiarContrasena")->name("solicitarContrasena");
-Route::post("/solicitandoContrasena", "emailTestController@passwordChanges")->name("cambioContrasena");
 
 //Obras
 Route::view("/obra", "obra")->name('obra');
@@ -61,12 +62,6 @@ Route::get("/trabajadoresListar", "trabajadoresController@listarTodos");
 Route::get("/solicitantesListar", "solicitantesController@listarTodos")->name("listarSolicitantes");
 Route::view("/solicitantesEliminar", "eliminar");
 Route::delete("/eliminandoSolicitante", "solicitantesController@eliminar") ->name("eliminar");
-Route::get("/trabajadoresCrear", "trabajadoresController@formCrear")->name("registrarTrabajador");
-Route::post("/trabajadoresStore", "trabajadoresController@store")->name("trabajadores.store");
-Route::get("/trabajadores/{id}", "trabajadoresController@listarConcreto");
-
-//PROVISIONALES
-Route::get("/trabajadoresListar", "trabajadoresController@listarTodos")->name("listarTrabajadores");
 Route::get("/trabajadoresCrear", "trabajadoresController@formCrear")->name("registrarTrabajador");
 Route::post("/trabajadoresStore", "trabajadoresController@store")->name("trabajadores.store");
 Route::get("/trabajadores/{id}", "trabajadoresController@listarConcreto");

@@ -28,15 +28,14 @@ class trabajadoresController extends Controller
         $dis = (int)request("disponibilidad");
         $tipo = (int)request("tipo");
 
-        $encriptada = password_hash(request("password"), PASSWORD_DEFAULT);
+        $encriptada = password_hash(request("pass"), PASSWORD_DEFAULT);
 
         $trabajador  = new Trabajador(
             [
                 "DNI" => request("dni"),
                 "PASSWORD" => $encriptada,
                 "NOMBRE" => request("nombre"),
-                "APELLIDO1" => request("apellido1"),
-                "APELLIDO2" => request("apellido2"),
+                "APELLIDOS" => request("apellidos"),
                 "IMAGEN" => request("imagen"),
                 "EMAIL" => request("email"),
                 "TELEFONO" => request("telefono"),
