@@ -71,10 +71,10 @@
                      data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Ordenadas:</h6>
-                        <a class="collapse-item" href="../../../Equipo04-Reto3%20-%20copia/resources/views/utilities-color.blade.php">Semanalmente</a>
-                        <a class="collapse-item" href="../../../Equipo04-Reto3%20-%20copia/resources/views/utilities-border.blade.php">Mensualmente</a>
-                        <a class="collapse-item" href="utilities-animation.blade.php">Anualmente</a>
-                        <a class="collapse-item" href="../../../Equipo04-Reto3%20-%20copia/resources/views/utilities-other.blade.php">Historicamente</a>
+                        <a class="collapse-item" href="{{route('paginaPrincipal')}}">Semanalmente</a>
+                        <a class="collapse-item" href="{{route('paginaPrincipal')}}">Mensualmente</a>
+                        <a class="collapse-item" href="{{route('paginaPrincipal')}}">Anualmente</a>
+                        <a class="collapse-item" href="{{route('paginaPrincipal')}}">Historicamente</a>
                     </div>
                 </div>
             </li>
@@ -176,56 +176,7 @@
                             <label class="custom-control-label" for="darkSwitch"><i class="fas fa-fw fa-moon"></i></label>
                         </div>
                     </li>
-                    <!-- Nav Item - Alerts -->
-                    <li class="nav-item dropdown no-arrow mx-1">
-                        <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
-                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="fas fa-bell fa-fw"></i>
-                            <!-- Counter - Alerts -->
-                            <span class="badge badge-danger badge-counter">3+</span>
-                        </a>
-                        <!-- Dropdown - Alerts -->
-                        <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                             aria-labelledby="alertsDropdown">
-                            <h6 class="dropdown-header notificacion">
-                                NOTIFICACIONES
-                            </h6>
-                            <a class="dropdown-item d-flex align-items-center" href="#">
-                                <div class="mr-3">
-                                    <div class="icon-circle bg-primary">
-                                        <i class="fas fa-file-alt text-white"></i>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="small text-gray-500">December 12, 2019</div>
-                                    <span class="font-weight-bold">A new monthly report is ready to download!</span>
-                                </div>
-                            </a>
-                            <a class="dropdown-item d-flex align-items-center" href="#">
-                                <div class="mr-3">
-                                    <div class="icon-circle bg-success">
-                                        <i class="fas fa-donate text-white"></i>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="small text-gray-500">December 7, 2019</div>
-                                    $290.29 has been deposited into your account!
-                                </div>
-                            </a>
-                            <a class="dropdown-item d-flex align-items-center" href="#">
-                                <div class="mr-3">
-                                    <div class="icon-circle bg-warning">
-                                        <i class="fas fa-exclamation-triangle text-white"></i>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="small text-gray-500">December 2, 2019</div>
-                                    Spending Alert: We've noticed unusually high spending for your account.
-                                </div>
-                            </a>
-                            <a class="dropdown-item text-center small text-gray-500" href="#">Mostrar todas.</a>
-                        </div>
-                    </li>
+
 
 
                     <div class="topbar-divider d-none d-sm-block"></div>
@@ -244,10 +195,6 @@
                             <a class="dropdown-item" href="#">
                                 <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                 Perfil
-                            </a>
-                            <a class="dropdown-item" href="#">
-                                <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                Ajustes
                             </a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="{{route('paginaPrincipal')}}" data-toggle="modal" data-target="#logoutModal">

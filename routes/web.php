@@ -74,7 +74,7 @@ Route::post('media', function (){
     //Aquí solo acepta ficheros de tipo imagen
     //request()->validate(['file' =>'image']);
     request()->validate(['file' => '']);
-    return request()->file->storeAs('public'. request()->file->getClientOriginalName());
+    return request()->file->store('public'. request()->file->getClientOriginalName());
 });
 Route::get('/public/{file}', function ($file){
     return Storage::response("public/$file");
