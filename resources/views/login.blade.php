@@ -39,7 +39,7 @@
                     <div class="row">
                         <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
                         <div class="col-lg-6">
-                            <div class="p-5">
+                            <div class="p-5 login-form">
                                 <div class="text-center">
                                     <h1 class="h4 text-gray-900 mb-4">Bienvenid@!</h1>
                                 </div>
@@ -54,19 +54,13 @@
                                         <input type="password" class="form-control form-control-user"
                                                id="exampleInputPassword" placeholder="Contraseña" name="pass">
                                     </div>
-                                    <div class="form-group">
-                                        <div class="custom-control custom-checkbox small">
-                                            <input type="checkbox" class="custom-control-input" id="customCheck">
-                                            <label class="custom-control-label" for="customCheck">Recuérdame</label>
-                                        </div>
-                                    </div>
                                     <a class="btn btn-primary btn-user btn-block" onclick="document.getElementById('formulario').submit()">
                                         INICIAR SESIÓN
                                     </a>
                                 </form>
                                 <hr>
                                 <div class="text-center">
-                                    <a class="small" href="{{route('solicitarContrasena')}}">¿Se te ha olvidado la contraseña?</a>
+                                    <a class="small" href="forgot-password.html">¿Se te ha olvidado la contraseña?</a>
                                 </div>
                                 <div class="text-center">
                                     <small>¿No tienes cuenta? </small><a class="small" href="{{route("solicitanteRegistro")}}">Registrate aquí.</a>
@@ -92,5 +86,6 @@
 
 <!-- Custom scripts for all pages-->
 <script src="boostrap/js/sb-admin-2.min.js"></script>
+<script src="js/validaciones.js"></script>
 
 </body>
