@@ -41,6 +41,8 @@ Route::get("/perfil", "perfilUsuarioController@usuarioSelect")->name('perfilUsua
 Route::view("/trabajadores", "loginTrabajadores")->name("loginTrabajadores");
 Route::post("/trabajadorLogin", "trabajadoresController@iniciarSesion")->name("trabajadorIniciarSesion");
 Route::post("/registrarTrabajador", "registroTrabajadoresController@registrarTrabajador")->name("trabajadorRegistrar");
+Route::get("/listadoTrabajadores", "trabajadoresController@listarTodos")->name('listadoTrabajadores');
+
 
 
 //Solicitantes (Usuarios normales)
@@ -57,16 +59,8 @@ Route::post("/registrarObra", "registroObraController@registrarObra")->name("obr
 Route::get("/listadoObras", "obraController@listarTodos")->name('listadoObras');
 
 //PROVISIONALES (SOLO PARA DESARROLLO)
-Route::get("/trabajadoresListar", "trabajadoresController@listarTodos");
-Route::get("/solicitantesListar", "solicitantesController@listarTodos")->name("listarSolicitantes");
 Route::view("/solicitantesEliminar", "eliminar");
 Route::delete("/eliminandoSolicitante", "solicitantesController@eliminar") ->name("eliminar");
-Route::get("/trabajadoresCrear", "trabajadoresController@formCrear")->name("registrarTrabajador");
-Route::post("/trabajadoresStore", "trabajadoresController@store")->name("trabajadores.store");
-Route::get("/trabajadores/{id}", "trabajadoresController@listarConcreto");
-
-//PROVISIONALES
-Route::get("/trabajadoresListar", "trabajadoresController@listarTodos")->name("listarTrabajadores");
 Route::get("/trabajadoresCrear", "trabajadoresController@formCrear")->name("registrarTrabajador");
 Route::post("/trabajadoresStore", "trabajadoresController@store")->name("trabajadores.store");
 Route::get("/trabajadores/{id}", "trabajadoresController@listarConcreto");
