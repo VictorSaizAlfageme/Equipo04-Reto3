@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\Obra;
 use App\Models\Ubicacion;
+use App\Models\Solicitante;
 use Illuminate\Http\Request;
 
 class obraController extends Controller
@@ -24,7 +25,17 @@ class obraController extends Controller
     /*Retorna tan solo una fila concreta. (SELECT WHERE ID=x)*/
     public function listarConcreto($id)
     {
-        return $obra = Obra::find($id);
+        $obra = Obra::find($id);
+        $ubicacion = Ubicacion::find($obra->IDUBICACION);
+        $solicitante = Solicitante::find($obra->IDSOLICITANTE);
+
+        return view('datosObra', [
+            'obra' => $obra,
+            'ubicacion' => $ubicacion,
+            'solicitante' => $solicitante
+        ]);
+
+
     }
 
 

@@ -56,6 +56,9 @@ Route::view("/solicitarContrasena", "iCambiarContrasena")->name("solicitarContra
 Route::view("/obra", "obra")->name('obra');
 Route::post("/registrarObra", "registroObraController@registrarObra")->name("obraRegistrar");
 Route::get("/listadoObras", "obraController@listarTodos")->name('listadoObras');
+Route::get("/datosObra/{id}", "obraController@listarConcreto")->name("datosObra");
+Route::view("/datosObra/", "datosObra")->name("datosObra");
+
 
 //PROVISIONALES (SOLO PARA DESARROLLO)
 Route::get("/trabajadoresListar", "trabajadoresController@listarTodos");

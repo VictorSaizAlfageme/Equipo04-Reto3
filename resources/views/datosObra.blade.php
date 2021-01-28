@@ -24,94 +24,104 @@
                             <div class="form-group row">
                                 <label for="nobra" class="col-6">Nº Obra</label>
                                 <div class="col-6">
-                                    <input type="text" class="form-control" value="96298" id="nobra" disabled>
+                                    <input type="text" class="form-control" value="{{$obra -> ID}}" id="nobra" disabled>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="tobra" class="col-6">Tipo de obra</label>
                                 <div class="col-6">
-                                    <input type="text" class="form-control" value="Reparación" id="tobra" disabled>
+                                    <input type="text" class="form-control" value="{{$obra -> ID}}" id="tobra" disabled>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="tedificio" class="col-6">Tipo de edificio</label>
+                                <div class="col-6">
+                                    <input type="text" class="form-control" value="{{$obra -> ID}}" id="tedificio" disabled>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="tobra" class="col-6">Fecha inicio</label>
                                 <div class="col-4">
-                                    <input type="date" class="form-control" id="fiobra">
+                                    <input type="date" class="form-control" id="fiobra" value="{{$obra -> FECHAINI ?? ""}}">
                                 </div>
                                 <button class="btn btn-primary  col-1" type="button"><i class="fas fa-check"></i></button>
                             </div>
                             <div class="form-group row">
                                 <label for="tobra" class="col-6">Fecha fin</label>
                                 <div class="col-4">
-                                    <input type="date" class="form-control" id="ffobra">
+                                    <input type="date" class="form-control" id="ffobra" value="{{$obra -> FECHAFIN ?? ""}}">
                                 </div>
                                 <button class="btn btn-primary  col-1" type="button"><i class="fas fa-check"></i></button>
+                            </div>
+                            <div class="form-group row">
+                                <label for="descripcion" class="col-4">Descripcion</label>
+                                <div class="col-8">
+                                    <textarea style="resize: none" type="text" class="form-control"  id="descripcion" disabled>{{$obra -> DESCRIPCION}}</textarea>
+                                </div>
                             </div>
 
                             <div class="mb-3">
                                 <p>Comentarios anteriores</p>
                                 <input class="form-control" type="text" placeholder="Tuberia rota" aria-label="readonly input example" readonly> <br>
-                                <input class="form-control" type="text" placeholder="Suelo hecho" aria-label="readonly input example" readonly> <br>
-                                <input class="form-control" type="text" placeholder="Paredes demolidas" aria-label="readonly input example" readonly> <br>
-                                <input class="form-control" type="text" placeholder="Jardín plantado" aria-label="readonly input example" readonly> <br>
-                                <label for="exampleFormControlTextarea1" class="form-label">Comentario sobre la obra</label>
-                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                <
                             </div>
 
+                            <form class="comentario" enctype="multipart/form-data"method="POST" id="formulario" action="{{route("usuarioEditar")}}">
+                                {{ csrf_field() }}
+                                <label for="comentario" class="form-label">Comentario sobre la obra</label>
+                                <textarea class="form-control" id="comentario" rows="3"></textarea>
+
+
                             <div class="mb-3">
-                                <form action="/media" enctype="multipart/form-data" method="post">
-                                    {{ csrf_field() }}
+
                                     <label for="formFileSm" class="form-label">Introducir documento</label>
                                     <input class="form-control form-control-sm" id="formFileSm" type="file" name="file">
-                                </form>
+
                             </div>
                             <div class="form-group text-center">
                                 <button class="btn btn-primary">Añadir</button>
                                 <button class="btn btn-secondary">Cancelar</button>
                             </div>
+                            </form>
                         </div>
                     </div>
                     <div class="tab-pane fade" id="contacto" role="tabpanel" aria-labelledby="contactos-tab">
                         <div class="row">
                             <div class="form-group row">
-                                <label for="nobra" class="col-6">Nº Obra</label>
+                                <label for="nsolicitante" class="col-6">Nº Solicitante</label>
                                 <div class="col-6">
-                                    <input type="text" class="form-control" value="96298" id="nobra-contacto" disabled>
+                                    <input type="text" class="form-control" value="{{$solicitante -> ID}}" id="nsolicitante" disabled>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="tobra" class="col-6">Nº Solicitante</label>
+                                <label for="dniSolicitante" class="col-6">Nombre</label>
                                 <div class="col-6">
-                                    <input type="text" class="form-control" value="09823" id="nsobra-contacto" disabled>
+                                    <input type="text" class="form-control" value="{{$solicitante -> DNI}}" id="dniSolicitante" disabled>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="tobra" class="col-6">Nombre</label>
-                                <div class="col-4">
-                                    <input type="text" class="form-control" value="Naia" id="nomobra-contacto" disabled>
+                                <label for="nombreSolicitante" class="col-6">Nombre</label>
+                                <div class="col-6">
+                                    <input type="text" class="form-control" value="{{$solicitante -> NOMBRE}}" id="nombreSolicitante" disabled>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="tobra" class="col-6">Apellidos</label>
-                                <div class="col-4">
-                                    <input type="text" class="form-control" value="Ibañez de Garayo" id="apeobra-contacto" disabled>
+                                <label for="apeSolicitante" class="col-6">Apellidos</label>
+                                <div class="col-6">
+                                    <input type="text" class="form-control" value="{{$solicitante -> APELLIDOS}}" id="apeSolicitante" disabled>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="tobra" class="col-6">Teléfono</label>
-                                <div class="col-4">
-                                    <input type="text" class="form-control" value="666666666" id="tobra-contacto" disabled>
+                                <label for="telSolicitante" class="col-6">Teléfono</label>
+                                <div class="col-6">
+                                    <input type="text" class="form-control" value="{{$solicitante -> TELEFONO}}" id="telSolicitante" disabled>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="tobra" class="col-6">Email</label>
-                                <div class="col-4">
-                                    <input type="yexy" class="form-control" value="naia.ibanezdegarayo@ikasle.egibide.org" id="emailobra-contacto" disabled>
+                                <label for="emailSolicitante" class="col-6">Email</label>
+                                <div class="col-6">
+                                    <input type="yexy" class="form-control" value="{{$solicitante -> EMAIL}}" id="emailSolicitante" disabled>
                                 </div>
-                            </div>
-
-                            <div class="form-group text-center">
-                                <button class="btn btn-primary">Contactar</button>
                             </div>
                         </div>
                     </div>
@@ -136,6 +146,49 @@
                     <div class="tab-pane fade active" id="mapa" role="tabpanel" aria-labelledby="mapa-tab">
                         <div>
                             <div id="mapid"></div>
+                        </div>
+
+                        <div class="row mt-5">
+                            <div class="form-group row">
+                                <label for="calle" class="col-6">Calle</label>
+                                <div class="col-6">
+                                    <input type="text" class="form-control" value="96298" id="calle" disabled>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="poblacion" class="col-6">Población</label>
+                                <div class="col-6">
+                                    <input type="text" class="form-control" value="96298" id="poblacion" disabled>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="cpos" class="col-6">Código postal</label>
+                                <div class="col-6">
+                                    <input type="text" class="form-control" value="96298" id="cpos" disabled>
+                                </div>
+                            </div>
+
+                            <div class="form-group row d-flex justify-content-center">
+                                <div class="form-group col-4 row">
+                                    <label for="numero" class="col-4">Número</label>
+                                    <div class="col-8">
+                                        <input type="text" class="form-control" value="96298" id="numero" disabled>
+                                    </div>
+                                </div>
+                                <div class="form-group col-4 row">
+                                    <label for="piso" class="col-4">Piso</label>
+                                    <div class="col-8">
+                                        <input type="text" class="form-control" value="96298" id="piso" disabled>
+                                    </div>
+                                </div>
+                                <div class="form-group col-4 row">
+                                    <label for="mano" class="col-4">Mano</label>
+                                    <div class="col-8">
+                                        <input type="text" class="form-control" value="96298" id="mano" disabled>
+                                    </div>
+                                </div>
+
+                            </div>
                         </div>
                     </div>
                 </div>
