@@ -44,20 +44,22 @@
                                 <div class="text-center">
                                     <h1 class="h4 text-gray-900 mb-4">Recuperar contraseña</h1>
                                 </div>
-                                <form class="user" id="formulario" method="POST" action="{{route("cambioContrasena")}}">
+                                <form class="user" method="POST" id="formulario" action="{{route("recuperarContrasena")}}">
                                     @csrf
                                     <div class="form-group">
                                         <input type="email" class="form-control form-control-user"
-                                               id="exampleInputEmail" aria-describedby="emailHelp"
-                                               placeholder="Email" name="email">
+                                               id="email" placeholder="Email" name="email">
 
-                                        <input type="hidden" id="password" name="password">
+                                        <input type="hidden" id="pass" name="pass">
+                                    </div>
+                                    <div id="mensajeError">
+                                        <span class="mt-3" id="mensajeErrorSpan">{!! session()->get('error') !!}</span>
                                     </div>
 
 
-                                    <button class="btn btn-primary btn-user btn-block">
+                                    <a class="btn btn-primary btn-user btn-block" id="botonRecuperarContrasena">
                                         ENVIAR
-                                    </button>
+                                    </a>
                                 </form>
                             </div>
                         </div>
@@ -72,13 +74,13 @@
 </div>
 
 <!-- Bootstrap core JavaScript-->
-<script src="vendor/jquery/jquery.min.js"></script>
-<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
+<script src="jquery/jquery.min.js"></script>
+<!--<script src="../vendor/bootstrap/bootstrap.bundle.min.js"></script>-->
 <!-- Core plugin JavaScript-->
-<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-
+<script src="jquery-easing/jquery.easing.min.js"></script>
 <!-- Custom scripts for all pages-->
 <script src="boostrap/js/sb-admin-2.min.js"></script>
+<script src="js/validaciones.js"></script>
 
 </body>
+</html>

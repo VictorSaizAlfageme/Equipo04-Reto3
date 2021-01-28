@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layoutSolicitante')
 @section('content')
 
     <div class="container">
@@ -42,7 +42,7 @@
                                 <div class="form-group row">
                                     <div class="col-12">
                                         <input type="password" class="pass form-control form-control-user"
-                                               id="pass" placeholder="Contraseña" name="password">
+                                               id="pass" placeholder="Contraseña" name="pass">
                                     </div>
                                 </div>
                                 <div class="form-group row">

@@ -15,19 +15,16 @@
     <!-- Custom fonts for this template-->
     <link href="fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <!-- Custom styles for this template-->
-    <!-- CSS only -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/leaflet/1/leaflet.css" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-          integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-          crossorigin=""/>
 
+    <!-- Custom styles for this template-->
     <link href="css/style.css" rel="stylesheet">
     <link href="css/dark.css" rel="stylesheet">
+
+
+
 </head><!-- Content Wrapper -->
 <body id="page-top">
+
 <!-- Page Wrapper -->
 <div id="wrapper">
 
@@ -35,23 +32,18 @@
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
         <div class="left-column">
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="../../../Equipo04-Reto3%20-%20copia/resources/views/index.blade.php">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.blade.php">
                 <div class="sidebar-brand-icon">
-                    <img class="logo" src="img/logo.png">
+                    <img class="logo" src="img/logo.png" href="{{route('inicio')}}">
                 </div>
                 <div class="sidebar-brand-text mx-3">NUVE</div>
             </a>
-va
+
             <!-- Divider -->
             <hr class="sidebar-divider">
-
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                ESTADÍSTICAS
-            </div>
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="../../../Equipo04-Reto3%20-%20copia/resources/views/index.blade.php">
+                <a class="nav-link" href="{{route('inicio')}}">
                     <i class="fas fa-fw fa-home"></i>
                     <span>Inicio</span></a>
             </li>
@@ -75,10 +67,10 @@ va
                      data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Ordenadas:</h6>
-                        <a class="collapse-item" href="../../../Equipo04-Reto3%20-%20copia/resources/views/utilities-color.blade.php">Semanalmente</a>
-                        <a class="collapse-item" href="../../../Equipo04-Reto3%20-%20copia/resources/views/utilities-border.blade.php">Mensualmente</a>
+                        <a class="collapse-item" href="utilities-color.blade.php">Semanalmente</a>
+                        <a class="collapse-item" href="utilities-border.blade.php">Mensualmente</a>
                         <a class="collapse-item" href="utilities-animation.blade.php">Anualmente</a>
-                        <a class="collapse-item" href="../../../Equipo04-Reto3%20-%20copia/resources/views/utilities-other.blade.php">Historicamente</a>
+                        <a class="collapse-item" href="utilities-other.blade.php">Historicamente</a>
                     </div>
                 </div>
             </li>
@@ -89,7 +81,7 @@ va
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link" href="../../../Equipo04-Reto3%20-%20copia/resources/views/charts.blade.php">
+                <a class="nav-link" href="charts.blade.php">
                     <i class="fas fa-fw fa-bell"></i>
                     <span>Alertas</span>
                 </a>
@@ -97,17 +89,11 @@ va
 
             <!-- Nav Item - Charts -->
             <li class="nav-item">
-                <a class="nav-link" href="../../../Equipo04-Reto3%20-%20copia/resources/views/charts.blade.php">
+                <a class="nav-link" href="{{route('obras')}}">
                     <i class="fas fa-fw fa-tools"></i>
-                    <span>Técnicos</span></a>
+                    <span>Obras</span></a>
             </li>
 
-            <!-- Nav Item - Tables -->
-            <li class="nav-item">
-                <a class="nav-link" href="../../../Equipo04-Reto3%20-%20copia/resources/views/tables.blade.php">
-                    <i class="fas fa-fw fa-user-shield"></i>
-                    <span>Coordinadores</span></a>
-            </li>
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
@@ -254,7 +240,7 @@ va
                                 Ajustes
                             </a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="{{route('paginaPrincipal')}}" data-toggle="modal" data-target="#logoutModal">
+                            <a class="dropdown-item" href="{{route('inicioSesion')}}" data-toggle="modal" data-target="#logoutModal">
                                 <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                 Cerrar Sesión
                             </a>
@@ -281,13 +267,17 @@ va
                         </div>
                         <div class="modal-footer">
                             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-                            <a id="cerrarSesion" class="btn btn-primary" href="{{route('inicioSesion')}}">Cerrar Sesión</a>
+                            <a class="btn btn-primary" href="{{route('inicioSesion')}}">Cerrar Sesión</a>
                         </div>
                     </div>
                 </div>
             </div>
             <!-- End of Topbar -->
-        @yield('content')
+        @include('bienvenido')
+
+
+        <!-- End of Main Content -->
+
 
         <!-- Footer -->
         <footer class="sticky-footer bg-white">
@@ -313,42 +303,27 @@ va
 </a>
 
 
-
 <!-- Bootstrap core JavaScript-->
 <script src="jquery/jquery.min.js"></script>
 <script src="js/bootstrap.bundle.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-    <!--CERRAR LA SESION-->
-<script src="js/cerrarSesion.js"></script>
+
 <!-- Core plugin JavaScript-->
 <script src="jquery-easing/jquery.easing.min.js"></script>
+
 <!-- Custom scripts for all pages-->
 <script src="components/js/sb-admin-2.min.js"></script>
+
 <!-- Page level plugins -->
-<script src="js/chart.js/Chart.min.js"></script>
+<!--<script src="js/chart.js/Chart.min.js"></script>-->
 <script src="js/dark-mode-switch.min.js"></script>
-<!-- Page level custom scripts -->
-<script src="bootstrap/js/demo/bootstrap.js"></script>
-<script src="https://cdn.jsdelivr.net/leaflet/1/leaflet.js"></script>
-
 <script src="js/validaciones.js"></script>
-<!-- JavaScript Bundle with Popper -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
-<script src="../node_modules/leaflet/src/Leaflet.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/places.js@1.19.0"></script>
-<script src="js/obra.js"></script>
-<!-- Make sure you put this AFTER Leaflet's CSS -->
 
-<script src="js/map.js"></script>
 
-<!--CERRAR SESION SI NO EXISTE EL COOKIE-->
-@if(!isset($_COOKIE["usuarioConectado"]))
-    <script>
-        document.location.href="{!! route('inicioSesion'); !!}";
-    </script>
-@endif
+<!-- Page level custom scripts -->
 
 </body>
 
 </html>
+
+
 

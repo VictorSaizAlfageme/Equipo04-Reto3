@@ -24,7 +24,7 @@ Route::view("/iCoordinadores", "iCoordinadores")->name("icoordinadores");
 Route::view("/iComentariosTecnico", "iComentariosTecnico")->name("icomentariostecnicos");
 Route::view("/obrasSolicitante", "obrasSolicitante")->name("obras");
 Route::view("/registroTrabajadores", "registroTrabajadores")->name("registroTrabajadores");
-
+Route::view("/inicio", "bienvenido")->name("inicio");
 
 /*
  * |================================================================|
@@ -36,6 +36,8 @@ Route::view("/registroTrabajadores", "registroTrabajadores")->name("registroTrab
 //CONTROLADORES
 Route::post("/usuarioEditar", "perfilUsuarioController@usuarioEditar")->name("usuarioEditar");
 Route::get("/perfil", "perfilUsuarioController@usuarioSelect")->name('perfilUsuario');
+Route::post("/editarContrasena", "perfilUsuarioController@editarContrasena")->name("editarContrasena");
+Route::post("/recuperarContrasena", "perfilUsuarioController@recuperarContrasena")->name("recuperarContrasena");
 
 //TRABAJADORES
 Route::view("/trabajadores", "loginTrabajadores")->name("loginTrabajadores");
@@ -51,7 +53,6 @@ Route::post("/login", "solicitantesController@iniciarSesion")->name("solicitante
 Route::view("/registro", "register")->name("solicitanteRegistro");
 Route::post("/registrando", "solicitantesController@insertar")->name("solicitanteRegistrar");
 Route::view("/solicitarContrasena", "iCambiarContrasena")->name("solicitarContrasena");
-Route::post("/solicitandoContrasena", "emailTestController@passwordChanges")->name("cambioContrasena");
 
 //Obras
 Route::view("/obra", "obra")->name('obra');
@@ -84,3 +85,4 @@ Route::get('/emailtestform', function (){
     return view('emailtest');
 });
 Route::post('/contactar', 'App\Http\Controllers\emailTestController@contact')->name('contact');
+Route::get('/ver','App\Http\Controllers\UploadsController@verArchivo')->name('ver');
