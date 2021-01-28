@@ -281,12 +281,12 @@ input[type=file].hidden{
     flex-direction: column;
 }
 
-@media (max-width: 600px) {
+
 
 #mapid {
     height: 300px;
 }
-  
+
 .tipoTrabajador{
     display: flex;
     align-items: center;
@@ -316,4 +316,8 @@ input[type=file].hidden{
     .vitoria2 {
         display: none;
     }
+}
+
+.card-body{
+    height: auto;
 }
