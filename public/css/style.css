@@ -10866,6 +10866,7 @@ form.user .btn-user {
 
 @keyframes noise-anim {
   0% {
+
     clip: rect(68px, 9999px, 35px, 0);
   }
   5% {
@@ -10924,6 +10925,7 @@ form.user .btn-user {
   }
   95% {
     clip: rect(32px, 9999px, 54px, 0);
+
   }
   100% {
     clip: rect(41px, 9999px, 52px, 0);
@@ -11005,6 +11007,7 @@ form.user .btn-user {
   }
   100% {
     clip: rect(20px, 9999px, 51px, 0);
+
   }
 }
 .error:before {
@@ -11403,6 +11406,11 @@ input[type=file].hidden {
     display: none;
   }
 }
+
+.card-body {
+  height: auto;
+}
+
 .text-welcome {
   font-size: 15px;
 }
