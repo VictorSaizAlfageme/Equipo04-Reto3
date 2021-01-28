@@ -24,14 +24,12 @@ class solicitantesController extends Controller
     /*Verifica los credenciales de inicio de sesión.*/
     public function iniciarSesion(){
 
-        //FALTA LA ENCRIPTACIÓN
         $dni = request("dni");
-        $pass = request("pass");
-
         $solicitantes = Solicitante::get();
 
         foreach ($solicitantes as $solicitante){
-            if($dni == $solicitante->DNI && $pass == $solicitante->PASSWORD){
+
+            if($dni == $solicitante->DNI && password_verify(request("pass"), $solicitante->PASSWORD)){
                 setcookie("usuarioConectado", $solicitante->ID, strtotime("+1 year"));
                 setcookie("tipoUsuario", "0", strtotime("+1 year"));
 
@@ -46,14 +44,16 @@ class solicitantesController extends Controller
     public function insertar()
     {
 
-        //Tratar los dates.
+        //ENCRIPTACIÓN
+        $encriptada = password_hash(request("password"), PASSWORD_DEFAULT);
+
 
         $solicitante  = new Solicitante(
             [
                 "DNI" => request("dni"),
-                "PASSWORD" => request("password"),
+                "PASSWORD" => $encriptada,
                 "NOMBRE" => request("nombre"),
-                "APELLIDO" => request("apellido"),
+                "APELLIDOS" => request("apellido"),
                 "FECHANAC" => request("fechaNac"),
                 "LUGARNAC" => request("provincias"),
                 "EMAIL" => request("email"),
