@@ -89,7 +89,7 @@
 
             <!-- Nav Item - Charts -->
             <li class="nav-item">
-                <a class="nav-link" href="rou">
+                <a class="nav-link" href="{{route('obras')}}">
                     <i class="fas fa-fw fa-tools"></i>
                     <span>Obras</span></a>
             </li>

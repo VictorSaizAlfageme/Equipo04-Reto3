@@ -45,6 +45,10 @@
                                     <button class="btn btn-primary btn-user btn-block">
                                         ENVIAR
                                     </button>
+                                    <hr>
+                                    <div class="text-center">
+                                        <small>¿Te has acordado ya de la contraseña? </small><a class="small" href="{{route('inicioSesion')}}">Inicia sesión.</a>
+                                    </div>
                                 </form>
                             </div>
                         </div>

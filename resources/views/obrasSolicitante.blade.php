@@ -1,4 +1,4 @@
-@extends('layoutCoordinadores')
+@extends('layoutSolicitante')
 @section('content')
     <div class="container">
         <div class="row">

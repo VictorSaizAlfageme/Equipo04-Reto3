@@ -35,20 +35,15 @@
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
         <div class="left-column">
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="../../../Equipo04-Reto3%20-%20copia/resources/views/index.blade.php">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{route('inicio')}}">
                 <div class="sidebar-brand-icon">
                     <img class="logo" src="img/logo.png">
                 </div>
                 <div class="sidebar-brand-text mx-3">NUVE</div>
             </a>
-va
             <!-- Divider -->
             <hr class="sidebar-divider">
 
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                ESTADÍSTICAS
-            </div>
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
                 <a class="nav-link" href="../../../Equipo04-Reto3%20-%20copia/resources/views/index.blade.php">
@@ -93,13 +88,6 @@ va
                     <i class="fas fa-fw fa-bell"></i>
                     <span>Alertas</span>
                 </a>
-            </li>
-
-            <!-- Nav Item - Charts -->
-            <li class="nav-item">
-                <a class="nav-link" href="../../../Equipo04-Reto3%20-%20copia/resources/views/charts.blade.php">
-                    <i class="fas fa-fw fa-tools"></i>
-                    <span>Técnicos</span></a>
             </li>
 
             <!-- Nav Item - Tables -->
