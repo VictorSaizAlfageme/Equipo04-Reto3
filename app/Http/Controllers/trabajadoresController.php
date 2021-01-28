@@ -28,10 +28,12 @@ class trabajadoresController extends Controller
         $dis = (int)request("disponibilidad");
         $tipo = (int)request("tipo");
 
+        $encriptada = password_hash(request("password"), PASSWORD_DEFAULT);
+
         $trabajador  = new Trabajador(
             [
                 "DNI" => request("dni"),
-                "PASSWORD" => request("password"),
+                "PASSWORD" => $encriptada,
                 "NOMBRE" => request("nombre"),
                 "APELLIDO1" => request("apellido1"),
                 "APELLIDO2" => request("apellido2"),
@@ -49,12 +51,11 @@ class trabajadoresController extends Controller
     public function iniciarSesion(){
         //FALTA LA ENCRIPTACIÓN
         $dni = request("dni");
-        $pass = request("pass");
 
         $trabajadores = Trabajador::get();
 
         foreach ($trabajadores as $trabajador){
-            if($dni == $trabajador->DNI && $pass == $trabajador->PASSWORD){
+            if($dni == $trabajador->DNI && password_verify(request("pass"), $trabajador->PASSWORD)){
                 setcookie("usuarioConectado", $trabajador->ID, strtotime("+1 year"));
                 setcookie("tipoUsuario", "1", strtotime("+1 year"));
 
