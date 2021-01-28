@@ -1,7 +1,7 @@
 @if($_COOKIE["tipoUsuario"] == "0")
     @extends('layoutSolicitante')
 @else
-    @if($_COOKIE['tipoTrabajador'] = "1")
+    @if($_COOKIE['tipoTrabajador'] = "11")
         @extends('layoutTecnicos')
     @else
         @extends('layoutCoordinadores')
