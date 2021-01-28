@@ -22,7 +22,7 @@
 <body class="bg-gradient-primary">
 <div class="container">
     <div class="card o-hidden border-0 shadow-lg my-5">
-        <div class="card-body p-0">
+        <div class="card-body p-0 card-register">
             <!-- Nested Row within Card Body -->
             <div class="row">
                 <div class="col-lg-5 d-none d-lg-block bg-login-image"></div>
@@ -91,10 +91,10 @@
                         </div>
                         <hr>
                         <div class="text-center">
-                            <a class="small" href="forgot-password.html">¿Se te ha olvidado la contraseña?</a>
+                            <a class="small" href="{{route('solicitarContrasena')}}">¿Se te ha olvidado la contraseña?</a>
                         </div>
                         <div class="text-center">
-                            <small>¿Ya tienes cuenta? </small><a class="small" href="login.html">Inicia sesión.</a>
+                            <small>¿Ya tienes cuenta? </small><a class="small" href="{{route('inicioSesion')}}">Inicia sesión.</a>
                         </div>
                     </div>
                 </div>
