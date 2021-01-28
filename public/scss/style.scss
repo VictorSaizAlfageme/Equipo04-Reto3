@@ -268,7 +268,7 @@ input[type=file].hidden{
 
 
 .card-body{
-    height: 500px;
+    height: auto;
 }
 
 .bg-login-image{
@@ -317,6 +317,6 @@ input[type=file].hidden{
     }
 }
 
-.card-register{
-    height: 650px !important;
+.text-welcome{
+    font-size: 15px;
 }

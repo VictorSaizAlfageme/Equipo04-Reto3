@@ -36,7 +36,7 @@
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
         <div class="left-column">
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="../../../Equipo04-Reto3%20-%20copia/resources/views/index.blade.php">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{route('inicio')}}">
                 <div class="sidebar-brand-icon">
                     <img class="logo" src="img/logo.png">
                 </div>
@@ -85,7 +85,7 @@
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link" href="../resources/views/charts.blade.php">
+                <a class="nav-link" href="{{route('paginaPrincipal')}}">
                     <i class="fas fa-fw fa-bell"></i>
                     <span>Estadísticas</span>
                 </a>
@@ -307,6 +307,8 @@
 <script src="js/bootstrap.min.js"></script>
 <!-- Core plugin JavaScript-->
 <script src="jquery-easing/jquery.easing.min.js"></script>
+<!--CERRAR LA SESION-->
+<script src="js/cerrarSesion.js"></script>
 <!-- Custom scripts for all pages-->
 <script src="components/js/sb-admin-2.min.js"></script>
 <!-- Page level plugins -->
@@ -325,7 +327,11 @@
 <!-- Make sure you put this AFTER Leaflet's CSS -->
 
 <script src="js/map.js"></script>
-
+@if(!isset($_COOKIE["usuarioConectado"]))
+    <script>
+        document.location.href="{!! route('inicioSesion'); !!}";
+    </script>
+@endif
 </body>
 
 </html>

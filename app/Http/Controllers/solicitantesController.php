@@ -33,7 +33,7 @@ class solicitantesController extends Controller
                 setcookie("usuarioConectado", $solicitante->ID, strtotime("+1 year"));
                 setcookie("tipoUsuario", "0", strtotime("+1 year"));
 
-                return redirect()->route('paginaPrincipal');
+                return redirect()->route('inicio');
             }
         }
 
