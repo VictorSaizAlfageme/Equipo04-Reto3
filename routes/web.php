@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Storage;
 
 Route::view("/index", "index")->name('paginaPrincipal');
 Route::view("/register", "register")->name('registro');
-Route::view("/perfilSolicitante", "perfilSolicitante")->name('perfil');
+Route::view("/perfil", "perfil")->name('perfil');
 
 Route::view("/iTecnicos", "iTecnicos")->name("itecnicos");
 Route::view("/iCoordinadores", "iCoordinadores")->name("icoordinadores");
@@ -25,6 +25,7 @@ Route::view("/iComentariosTecnico", "iComentariosTecnico")->name("icomentarioste
 Route::view("/obrasSolicitante", "obrasSolicitante")->name("obras");
 Route::view("/registroTrabajadores", "registroTrabajadores")->name("registroTrabajadores");
 Route::view("/inicio", "bienvenido")->name("inicio");
+Route::view("/inicioTrabajadores", "bienvenidoTrabajadores")->name("inicioTrabajadores");
 
 /*
  * |================================================================|
@@ -74,7 +75,7 @@ Route::post('media', function (){
     //Aquí solo acepta ficheros de tipo imagen
     //request()->validate(['file' =>'image']);
     request()->validate(['file' => '']);
-    return request()->file->storeAs('public'. request()->file->getClientOriginalName());
+    return request()->file->store('public'. request()->file->getClientOriginalName());
 });
 Route::get('/public/{file}', function ($file){
     return Storage::response("public/$file");

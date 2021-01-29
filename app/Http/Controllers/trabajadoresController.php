@@ -59,7 +59,7 @@ class trabajadoresController extends Controller
                 setcookie("tipoUsuario", "1", strtotime("+1 year"));
                 setcookie("tipoTrabajador", $trabajador->IDTIPO, strtotime("+1 year"));
 
-                return redirect()->route('inicio');
+                return redirect()->route('inicioTrabajadores');
             }
         }
 

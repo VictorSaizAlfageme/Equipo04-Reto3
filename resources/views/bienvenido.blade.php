@@ -1,8 +1,8 @@
 @extends('layoutSolicitante')
 @section('content')
 <div class="col-12 row">
-    <div class="col-12"><h1 class="fw-weight-bolder text-center">BIENVENIDO</h1></div>
-    <div class="col-6 text-welcome">
+    <div class="col-12 py-2"><h1 class="fw-weight-bolder text-center">BIENVENIDO</h1></div>
+    <div class="col-6 text-welcome py-5">
         <p class="font-weight-lighter fs-6">En nombre de NUVE, les damos la más sincera bienvenida a nuestra página web, en la que, esperamos, encontrarán toda la información que necesiten acerca de nuestras actividades.</p>
         <br>
         <p class="font-weight-lighter fs-6">Esta web quiere ser también testigo del crecimiento de NUVE, desde sus orígenes hasta su incursión en aquellos sectores demandados por la sociedad.</p>
