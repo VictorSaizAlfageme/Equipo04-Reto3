@@ -24,8 +24,8 @@
           integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
           crossorigin=""/>
 
-    <link href="css/style.css" rel="stylesheet">
-    <link href="css/dark.css" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
+    <link href="/css/dark.css" rel="stylesheet">
 </head><!-- Content Wrapper -->
 <body id="page-top">
 <!-- Page Wrapper -->
@@ -37,7 +37,7 @@
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{route('inicio')}}">
                 <div class="sidebar-brand-icon">
-                    <img class="logo" src="img/logo.png">
+                    <img class="logo" src="/img/logo.png">
                 </div>
                 <div class="sidebar-brand-text mx-3">NUVE</div>
             </a>
