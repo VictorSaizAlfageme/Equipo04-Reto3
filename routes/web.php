@@ -45,7 +45,7 @@ Route::view("/trabajadores", "loginTrabajadores")->name("loginTrabajadores");
 Route::post("/trabajadorLogin", "trabajadoresController@iniciarSesion")->name("trabajadorIniciarSesion");
 Route::post("/registrarTrabajador", "registroTrabajadoresController@registrarTrabajador")->name("trabajadorRegistrar");
 Route::get("/listadoTrabajadores", "trabajadoresController@listarTodos")->name('listadoTrabajadores');
-
+Route::post("/datosTrabajador", "trabajadoresController@listarConcreto")->name("datosTrabajador");
 
 
 //Solicitantes (Usuarios normales)

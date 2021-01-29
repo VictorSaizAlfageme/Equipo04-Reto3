@@ -25,11 +25,11 @@ class trabajadoresController extends Controller
     }
 
     /*Retorna tan solo una fila concreta. (SELECT WHERE ID=x)*/
-    public function listarConcreto($id)
+    public function listarConcreto()
     {
-        $trabajador = Trabajador::find($id);
+        $trabajador = Trabajador::find(request("id"));
 
-        return view('loginTrabajadores', [
+        return view('datosPerfil', [
             'trabajador' => $trabajador
         ]);
     }
