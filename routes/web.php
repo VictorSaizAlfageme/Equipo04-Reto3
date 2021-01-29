@@ -70,20 +70,7 @@ Route::view("/rt", "registroTrabajadores")->name("rt");
 
 
 //SUBIR FOTOS O ARCHIVOS
-Route::get('media', function (){
-   return view('media');
-});
-Route::post('media', function (){
-    //Aquí solo acepta ficheros de tipo imagen
-    //request()->validate(['file' =>'image']);
-    request()->validate(['file' => '']);
-    return request()->file->store('public'. request()->file->getClientOriginalName());
-});
-Route::get('/public/{file}', function ($file){
-    return Storage::response("public/$file");
-})->where([
-    'file' => '(.*?)\.(jpg|png|jpeg|gif|pdf|doc|docx|odt)$'
-]);
+
 Route::get('/emailtestform', function (){
     return view('emailtest');
 });
