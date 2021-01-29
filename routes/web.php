@@ -59,6 +59,13 @@ Route::view("/solicitarContrasena", "iCambiarContrasena")->name("solicitarContra
 Route::view("/obra", "obra")->name('obra');
 Route::post("/registrarObra", "registroObraController@registrarObra")->name("obraRegistrar");
 Route::get("/listadoObras", "obraController@listarTodos")->name('listadoObras');
+Route::get("/datosObra{id}", "obraController@listarConcreto")->name("datosObra");
+Route::get("/cambiarFecha", "obraController@cambiarFecha")->name("cambiarFecha");
+Route::get("/cambiarFechaFin", "obraController@cambiarFechaFin")->name("cambiarFechaFin");
+Route::post("/agregarComentario", "obraController@agregarComentario")->name("agregarComentario");
+
+
+
 
 //PROVISIONALES (SOLO PARA DESARROLLO)
 Route::view("/solicitantesEliminar", "eliminar");
