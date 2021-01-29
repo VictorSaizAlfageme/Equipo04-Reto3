@@ -32,6 +32,7 @@ class solicitantesController extends Controller
             if($dni == $solicitante->DNI && password_verify(request("pass"), $solicitante->PASSWORD)){
                 setcookie("usuarioConectado", $solicitante->ID, strtotime("+1 year"));
                 setcookie("tipoUsuario", "0", strtotime("+1 year"));
+                setcookie("nombreUsuario", $solicitante->NOMBRE, strtotime("+1 year"));
 
                 return redirect()->route('inicio');
             }

@@ -81,15 +81,17 @@
 
                         <!--DESPLEGABLE-->
 
-                        <tr id="id{{$obra->ID}}" class="collapse cell-1 row-child tr">
+                        <tr id="id{{$obra->ID}}" class="menuDesplegable collapse cell-1 row-child tr">
                             @foreach($listaUbicaciones as $ubi)
                                 @if($ubi->ID == $obra->ID)
                                     <td colspan="2"><b>C/ {{$ubi->CALLE}}</b></td>
                                 @endif
                             @endforeach
-                            <td colspan="1"><button type="button" class="btn btn-warning">Más información</button></td>
-                                <td colspan="2"><button type="button" class="btn btn-secondary"><a href="{{route('icomentariostecnicos')}}">Añadir comentarios</a></button></td>
-                                <td colspan="2"><button type="button" class="btn btn-primary"><a href="{{route('icomentariostecnicos')}}">Contactar</a></button></td>
+                                <form method="POST" action="{{route("datosObra")}}" id="formMasInformacion">
+                                    @csrf
+                                    <input type="hidden" name="id" value="{{$obra->ID}}">
+                                    <td colspan="1"><input type="submit" value="Más información" class="btn btn-primary"></td>
+                                </form>
                         </tr>
 
                     @endforeach
@@ -100,4 +102,18 @@
             </div>
         </div>
     </div>
+
+
+    <style>
+        /**¡NO MOVER A STYLE SIN CAMBIAR LOS SELECTORES! -Eric **/
+        a{
+            color: white;
+        }
+        a:hover{
+            text-decoration: none;
+            color: white;
+        }
+
+    </style>
+
 @endsection

@@ -9,6 +9,8 @@
         <br>
         <p class="font-weight-lighter fs-6">Pero el objetivo principal de este canal de comunicación es plasmar los <b>valores</b> que nos respaldan: el compromiso social, la máxima calidad y la voluntad de servicio, así como nuestro interés por todas aquellas ventajas que nos ofrece la tecnología. Todo ello tiene una presencia destacada en esta página web y en nuestras propias decisiones.</p>
         <figcaption class="blockquote-footer font-weight-lighter">Victor Saiz, Eric Martínez y Naia Ibañez de Garayo</figcaption>
+        <br>
+        <figcaption style="font-size: 8px" class="blockquote-footer font-weight-lighter">Un agradecimiento especial a Urko, sin ti éste proyecto no hubiera sido posible.</figcaption>
     </div>
     <div class="col-6 align-self-center">
         <img src="img/vitoria.jpg" class="img-fluid">

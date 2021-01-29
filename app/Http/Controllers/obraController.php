@@ -31,9 +31,9 @@ class obraController extends Controller
     }
 
     /*Retorna tan solo una fila concreta. (SELECT WHERE ID=x)*/
-    public function listarConcreto($id)
+    public function listarConcreto()
     {
-        $obra = Obra::find($id);
+        $obra = Obra::find(request("id"));
         $ubicacion = Ubicacion::find($obra->IDUBICACION);
         $solicitante = Solicitante::find($obra->IDSOLICITANTE);
         $tipoObra = TipoObra::find($obra->IDOBRA);
