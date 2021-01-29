@@ -169,13 +169,13 @@ function validarDatosTrabajador():void {
     idsCampos.forEach(c => $(c).removeClass("buzz"));
     idsCampos.forEach(c => establecerEstiloNormal(c));
 
-    validarTipoTrabajador();
-    validarNombre();
-    validarApellido();
-    validarEmail();
-    validarPass();
-    validarDNI();
-    validarTelefono();
+    //validarTipoTrabajador();
+    //validarNombre();
+    //validarApellido();
+    //validarEmail();
+    //validarPass();
+    //validarDNI();
+    //validarTelefono();
 
     comprobarYEstablecerEstilos();
     if (mensajesError.length == 0) {
@@ -459,6 +459,7 @@ function validarTipoEdificio(){
 }
 
 function validarTipoTrabajador(){
+
     let campo:string = "#tipoTrabajador";
     // @ts-ignore
     let tipoTrabajador:string = $(campo).val();
@@ -471,6 +472,8 @@ function validarTipoTrabajador(){
         mensajesError.push(err);
         camposError.push(campo);
     }
+
+
 }
 
 function validarTipoObra(){
