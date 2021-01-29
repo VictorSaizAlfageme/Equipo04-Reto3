@@ -88,8 +88,8 @@
                                 @endif
                             @endforeach
                             <td colspan="1"><button type="button" class="btn btn-warning">Más información</button></td>
-                            <td colspan="2"><button type="button" class="btn btn-secondary">Añadir comentarios</button></td>
-                            <td colspan="2"><button type="button" class="btn btn-primary">Contactar</button></td>
+                                <td colspan="2"><button type="button" class="btn btn-secondary"><a href="{{route('icomentariostecnicos')}}">Añadir comentarios</a></button></td>
+                                <td colspan="2"><button type="button" class="btn btn-primary"><a href="{{route('icomentariostecnicos')}}">Contactar</a></button></td>
                         </tr>
 
                     @endforeach

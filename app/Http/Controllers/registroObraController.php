@@ -84,6 +84,10 @@ class registroObraController extends Controller
                 break;
         }
 
+        $plano = request("plano");
+        $nombre = $idObra;
+        $plano->storeAs('public',$nombre . "." . $plano->extension());
+        $url = $nombre . "." . $plano->extension();
 
         //Tratar los dates.
         $obra  = new Obra(
@@ -91,7 +95,7 @@ class registroObraController extends Controller
                 "FECHAINI" => request(""),
                 "FECHAFIN" => request(""),
                 "DESCRIPCION" => request("descripcion"),
-                "PLANO" => request("plano"),
+                "PLANO" => $url,
                 "IDESTADO" => $idEstado,
                 "IDEDIFICIO" => $idTipoedificio,
                 "IDOBRA" => $idObra,
@@ -100,7 +104,6 @@ class registroObraController extends Controller
                 "IDTRABAJADOR" => null,
             ]
         );
-
         $obra->save();
         return view("index");
     }

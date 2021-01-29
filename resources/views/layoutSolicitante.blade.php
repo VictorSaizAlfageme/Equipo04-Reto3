@@ -59,6 +59,13 @@
                     <i class="fas fa-fw fa-user-shield"></i>
                     <span>Obras</span></a>
             </li>
+            <hr class="sidebar-divider">
+            <!-- Nav Item - Tables -->
+            <li class="nav-item">
+                <a class="nav-link" href="{{route('obra')}}">
+                    <i class="fas fa-fw fa-user-shield"></i>
+                    <span>Solicitar obra</span></a>
+            </li>
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
@@ -146,7 +153,8 @@
                         <!-- Dropdown - User Information -->
                         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                              aria-labelledby="userDropdown">
-                            <a class="dropdown-item" href="{{route('perfilUsuario')}}">
+                            <!-- route('perfil')}} -->
+                            <a class="dropdown-item" href="">
                                 <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                 Perfil
                             </a>
@@ -239,11 +247,7 @@
 <script src="js/map.js"></script>
 
 <!--CERRAR SESION SI NO EXISTE EL COOKIE-->
-@if(!isset($_COOKIE["usuarioConectado"]))
-    <script>
-        document.location.href="{!! route('inicioSesion'); !!}";
-    </script>
-@endif
+
 
 </body>
 

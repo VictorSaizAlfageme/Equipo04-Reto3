@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Storage;
 
 Route::view("/index", "index")->name('paginaPrincipal');
 Route::view("/register", "register")->name('registro');
-Route::view("/perfilSolicitante", "perfilSolicitante")->name('perfil');
+Route::view("/perfil", "perfil")->name('perfil');
 
 Route::view("/iTecnicos", "iTecnicos")->name("itecnicos");
 Route::view("/iCoordinadores", "iCoordinadores")->name("icoordinadores");
@@ -25,6 +25,7 @@ Route::view("/iComentariosTecnico", "iComentariosTecnico")->name("icomentarioste
 Route::view("/obrasSolicitante", "obrasSolicitante")->name("obras");
 Route::view("/registroTrabajadores", "registroTrabajadores")->name("registroTrabajadores");
 Route::view("/inicio", "bienvenido")->name("inicio");
+Route::view("/inicioTrabajadores", "bienvenidoTrabajadores")->name("inicioTrabajadores");
 
 /*
  * |================================================================|
@@ -43,6 +44,8 @@ Route::post("/recuperarContrasena", "perfilUsuarioController@recuperarContrasena
 Route::view("/trabajadores", "loginTrabajadores")->name("loginTrabajadores");
 Route::post("/trabajadorLogin", "trabajadoresController@iniciarSesion")->name("trabajadorIniciarSesion");
 Route::post("/registrarTrabajador", "registroTrabajadoresController@registrarTrabajador")->name("trabajadorRegistrar");
+Route::get("/listadoTrabajadores", "trabajadoresController@listarTodos")->name('listadoTrabajadores');
+
 
 
 //Solicitantes (Usuarios normales)
@@ -68,29 +71,16 @@ Route::get("/eliminarTecnico", "obraController@eliminarTecnico")->name("eliminar
 
 
 //PROVISIONALES (SOLO PARA DESARROLLO)
-Route::get("/trabajadoresListar", "trabajadoresController@listarTodos");
-Route::get("/solicitantesListar", "solicitantesController@listarTodos")->name("listarSolicitantes");
 Route::view("/solicitantesEliminar", "eliminar");
 Route::delete("/eliminandoSolicitante", "solicitantesController@eliminar") ->name("eliminar");
 Route::get("/trabajadoresCrear", "trabajadoresController@formCrear")->name("registrarTrabajador");
 Route::post("/trabajadoresStore", "trabajadoresController@store")->name("trabajadores.store");
 Route::get("/trabajadores/{id}", "trabajadoresController@listarConcreto");
+Route::view("/rt", "registroTrabajadores")->name("rt");
+
 
 //SUBIR FOTOS O ARCHIVOS
-Route::get('media', function (){
-   return view('media');
-});
-Route::post('media', function (){
-    //Aquí solo acepta ficheros de tipo imagen
-    //request()->validate(['file' =>'image']);
-    request()->validate(['file' => '']);
-    return request()->file->storeAs('public'. request()->file->getClientOriginalName());
-});
-Route::get('/public/{file}', function ($file){
-    return Storage::response("public/$file");
-})->where([
-    'file' => '(.*?)\.(jpg|png|jpeg|gif|pdf|doc|docx|odt)$'
-]);
+
 Route::get('/emailtestform', function (){
     return view('emailtest');
 });
