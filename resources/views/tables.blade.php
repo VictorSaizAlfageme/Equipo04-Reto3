@@ -10,29 +10,37 @@
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                 <tr>
-                    <th>Name</th>
-                    <th>Position</th>
-                    <th>Office</th>
-                    <th>Age</th>
-                    <th>Start date</th>
-                    <th>Salary</th>
+                    <th>DNI</th>
+                    <th>Nombre</th>
+                    <th>Apellidos</th>
+                    <th>Email</th>
+                    <th>Teléfono</th>
+                    <th>Disponibilidad</th>
+                    <th>Cargo</th>
                 </tr>
                 </thead>
 
                 <tbody>
                 @foreach($listaTrabajadores as $trabajador)
                     <tr>
-                        <td>$trabajador-></td>
+                        <td>{{$trabajador->DNI}}</td>
+                        <td>{{$trabajador->NOMBRE}}</td>
+                        <td>{{$trabajador->APELLIDOS}}</td>
+                        <td>{{$trabajador->EMAIL}}</td>
+                        <td>{{$trabajador->TELEFONO}}</td>
+                        @if($trabajador->DISPONIBILIDAD == 1)
+                            <td>Disponible</td>
+                        @else
+                            <td>Ocupado</td>
+                        @endif
+
+                        @if($trabajador->IDTIPO == 1)
+                            <td>Coordinador</td>
+                        @else
+                            <td>Técnico</td>
+                        @endif
                     </tr>
                 @endforeach
-                <tr>
-                    <td>Tiger Nixon</td>
-                    <td>System Architect</td>
-                    <td>Edinburgh</td>
-                    <td>61</td>
-                    <td>2011/04/25</td>
-                    <td>$320,800</td>
-                </tr>
 
                 </tbody>
             </table>
