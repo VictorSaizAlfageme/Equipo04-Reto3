@@ -1,4 +1,4 @@
-@extends('layoutSolicitante')
+@extends('layoutCoordinadores')
 @section('content')
 
     <div class="container">
@@ -72,5 +72,8 @@
             </div>
         </div>
     </div>
+
+
+    <script src="js/validaciones.js"></script>
 
 @endsection

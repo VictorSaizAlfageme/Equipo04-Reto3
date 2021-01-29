@@ -91,10 +91,10 @@
                         </div>
                         <hr>
                         <div class="text-center">
-                            <a class="small" href="forgot-password.html">¿Se te ha olvidado la contraseña?</a>
+                            <a class="small" href="{{route('solicitarContrasena')}}">¿Se te ha olvidado la contraseña?</a>
                         </div>
                         <div class="text-center">
-                            <small>¿Ya tienes cuenta? </small><a class="small" href="login.html">Inicia sesión.</a>
+                            <small>¿Ya tienes cuenta? </small><a class="small" href="{{route('inicioSesion')}}">Inicia sesión.</a>
                         </div>
                     </div>
                 </div>

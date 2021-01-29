@@ -11,8 +11,17 @@ class trabajadoresController extends Controller
     /*Retorna todas las filas de la tabla. (SELECT * FROM)*/
     public function listarTodos()
     {
-        $lista = Trabajador::get();
-        return view("listar", compact("lista"));
+        /*
+        $trabajadores = Trabajador::get();
+
+        return view('tables', [
+            'listaTrabajadores' => $trabajadores
+        ]);
+        */
+
+        $listaTrabajadores = Trabajador::simplePaginate(10);
+        return view("tables", ["listaTrabajadores"=>$listaTrabajadores]);
+
     }
 
     /*Retorna tan solo una fila concreta. (SELECT WHERE ID=x)*/
@@ -63,7 +72,7 @@ class trabajadoresController extends Controller
                 setcookie("tipoUsuario", "1", strtotime("+1 year"));
                 setcookie("tipoTrabajador", $trabajador->IDTIPO, strtotime("+1 year"));
 
-                return redirect()->route('inicio');
+                return redirect()->route('inicioTrabajadores');
             }
         }
 
