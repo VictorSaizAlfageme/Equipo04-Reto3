@@ -1,4 +1,4 @@
-@extends('layoutCoordinadores')
+@extends('layoutSolicitante')
 @section('content')
     <div class="container">
         <div class="row">
@@ -8,13 +8,13 @@
                         <a class="nav-link active" id="comentarios-tab" data-bs-toggle="tab" href="#comentarios" role="tab" aria-controls="comentarios" aria-selected="true">Comentarios</a>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <a class="nav-link" id="contacto-tab" data-bs-toggle="tab" href="#contacto" role="tab" aria-controls="contacto" aria-selected="false">Contacto</a>
+                        <a class="nav-link" id="contacto-tab" data-bs-toggle="tab" href="#contacto" role="tab" aria-controls="contacto" aria-selected="false">Solicitante</a>
                     </li>
                     <li class="nav-item" role="presentation">
                         <a class="nav-link" id="tecnico-tab" data-bs-toggle="tab" href="#tecnico" role="tab" aria-controls="tecnico" aria-selected="false">Técnico</a>
                     </li>
-                    <li class="nav-item" role="presentation">
-                        <a class="nav-link" id="mapa-tab" onclick="mostrarMapa()" data-bs-toggle="tab" href="#mapa" role="tab" aria-controls="mapa" aria-selected="false">Mapa</a>
+                    <li class="nav-item" role="presentation"  onclick="mostrarMarcadorMapa({{$ubicacion -> LATITUD}}, {{$ubicacion -> LONGITUD}})">
+                        <a class="nav-link" id="mapa-tab" data-bs-toggle="tab" href="#mapa" role="tab" aria-controls="mapa" aria-selected="false">Mapa</a>
                     </li>
                 </ul>
                 <div class="tab-content" id="myTabContent">
@@ -39,20 +39,27 @@
                                     <input type="text" class="form-control" value="{{$obra -> ID}}" id="tedificio" disabled>
                                 </div>
                             </div>
-                            <div class="form-group row">
-                                <label for="tobra" class="col-6">Fecha inicio</label>
-                                <div class="col-4">
-                                    <input type="date" class="form-control" id="fiobra" value="{{$obra -> FECHAINI ?? ""}}">
+
+                            <form class="fecha" method="GET" action="{{route("cambiarFecha")}}">
+                                @csrf
+                                <div class="form-group row">
+                                    <label for="tobra" class="col-4 col-md-6">Fecha inicio</label>
+                                    <div class="col-6 col-md-4">
+                                        <input type="date" class="form-control" id="fiobra" name="fechaIni" value="{{$obra -> FECHAINI}}">
+
+                                    </div>
                                 </div>
-                                <button class="btn btn-primary  col-1" type="button"><i class="fas fa-check"></i></button>
-                            </div>
-                            <div class="form-group row">
-                                <label for="tobra" class="col-6">Fecha fin</label>
-                                <div class="col-4">
-                                    <input type="date" class="form-control" id="ffobra" value="{{$obra -> FECHAFIN ?? ""}}">
+                                <input type="hidden" class="form-control" id="idobra" name="id" value="{{$obra -> ID}}">
+                                <div class="form-group row">
+
+                                    <label for="tobra" class="col-4 col-md-6">Fecha fin</label>
+                                    <div class="col-6 col-md-4">
+                                        <input type="date" class="form-control" id="ffobra" name="fechaFin" value="{{$obra -> FECHAFIN ?? ""}}">
+
+                                    </div>
+                                    <button class="btn btn-primary  col-1" type="submit"><i class="fas fa-check"></i></button>
                                 </div>
-                                <button class="btn btn-primary  col-1" type="button"><i class="fas fa-check"></i></button>
-                            </div>
+                            </form>
                             <div class="form-group row">
                                 <label for="descripcion" class="col-4">Descripcion</label>
                                 <div class="col-8">
@@ -63,25 +70,24 @@
                             <div class="mb-3">
                                 <p>Comentarios anteriores</p>
                                 <input class="form-control" type="text" placeholder="Tuberia rota" aria-label="readonly input example" readonly> <br>
-                                <
                             </div>
 
-                            <form class="comentario" enctype="multipart/form-data"method="POST" id="formulario" action="{{route("usuarioEditar")}}">
+                            <form class="comentario" enctype="multipart/form-data" method="POST" id="formulario" action="{{route("agregarComentario")}}">
                                 {{ csrf_field() }}
-                                <label for="comentario" class="form-label">Comentario sobre la obra</label>
-                                <textarea class="form-control" id="comentario" rows="3"></textarea>
 
+                                    <label for="comentario" class="form-label">Comentario sobre la obra</label>
+                                    <textarea class="form-control comentario" id="comentario" rows="3" name="comentario"></textarea>
 
-                            <div class="mb-3">
+                                <div class="mb-3">
+                                        <label for="formFileSm" class="form-label">Introducir documento</label>
+                                        <input class="form-control form-control-sm" id="customFile" type="file" name="file">
+                                </div>
+                                <input type="hidden" class="form-control" id="idobra2" name="id2" value="{{$obra -> ID}}">
+                                <div id="mensajeError2">
+                                    <span class="mt-3" id="mensajeErrorSpan2"></span>
+                                </div>
+                                <a class="btn btn-primary d-flex justify-content-center mb-4" id="botonAnadirComentario">Añadir comentario</a>
 
-                                    <label for="formFileSm" class="form-label">Introducir documento</label>
-                                    <input class="form-control form-control-sm" id="formFileSm" type="file" name="file">
-
-                            </div>
-                            <div class="form-group text-center">
-                                <button class="btn btn-primary">Añadir</button>
-                                <button class="btn btn-secondary">Cancelar</button>
-                            </div>
                             </form>
                         </div>
                     </div>
@@ -152,19 +158,19 @@
                             <div class="form-group row">
                                 <label for="calle" class="col-6">Calle</label>
                                 <div class="col-6">
-                                    <input type="text" class="form-control" value="96298" id="calle" disabled>
+                                    <input type="text" class="form-control" value="{{$ubicacion -> CALLE}}" id="calle" disabled>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="poblacion" class="col-6">Población</label>
                                 <div class="col-6">
-                                    <input type="text" class="form-control" value="96298" id="poblacion" disabled>
+                                    <input type="text" class="form-control" value="{{$ubicacion -> POBLACION}}" id="poblacion" disabled>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="cpos" class="col-6">Código postal</label>
                                 <div class="col-6">
-                                    <input type="text" class="form-control" value="96298" id="cpos" disabled>
+                                    <input type="text" class="form-control" value="{{$ubicacion -> CODPOSTAL}}" id="cpos" disabled>
                                 </div>
                             </div>
 
@@ -172,19 +178,19 @@
                                 <div class="form-group col-4 row">
                                     <label for="numero" class="col-4">Número</label>
                                     <div class="col-8">
-                                        <input type="text" class="form-control" value="96298" id="numero" disabled>
+                                        <input type="text" class="form-control" value="{{$ubicacion -> NUMERO}}" id="numero" disabled>
                                     </div>
                                 </div>
                                 <div class="form-group col-4 row">
                                     <label for="piso" class="col-4">Piso</label>
                                     <div class="col-8">
-                                        <input type="text" class="form-control" value="96298" id="piso" disabled>
+                                        <input type="text" class="form-control" value="{{$ubicacion -> PISO}}" id="piso" disabled>
                                     </div>
                                 </div>
                                 <div class="form-group col-4 row">
                                     <label for="mano" class="col-4">Mano</label>
                                     <div class="col-8">
-                                        <input type="text" class="form-control" value="96298" id="mano" disabled>
+                                        <input type="text" class="form-control" value="{{$ubicacion -> MANO}}" id="mano" disabled>
                                     </div>
                                 </div>
 
