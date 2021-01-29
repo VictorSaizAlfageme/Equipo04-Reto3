@@ -60,7 +60,7 @@
                                 </form>
                                 <hr>
                                 <div class="text-center">
-                                    <a class="small" href="forgot-password.html">¿Se te ha olvidado la contraseña?</a>
+                                    <a class="small" href="{{route('solicitarContrasena')}}">¿Se te ha olvidado la contraseña?</a>
                                 </div>
                                 <div class="text-center">
                                     <small>¿No tienes cuenta? </small><a class="small" href="{{route("solicitanteRegistro")}}">Registrate aquí.</a>

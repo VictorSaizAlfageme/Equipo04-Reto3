@@ -29,6 +29,10 @@ $(document).ready(function (){
         $("#botonRecuperarContrasena").click(validarCorreoUsuario);
     }catch (error){}
 
+    try {
+        $("#botonAnadirComentario").click(anadirComentario);
+    }catch (error){}
+
 });
 
 //Al presionar enter
@@ -41,6 +45,7 @@ $(document).on('keypress',function(e) {
             validarDatosUsuario();
             validarContrasenaUsuario();
             validarCorreoUsuario();
+            anadirComentario();
         }catch (error){}
     }
 });
@@ -260,6 +265,28 @@ function  generarContrasena():String {
     }
     return pass;
 }
+
+function anadirComentario():void {
+
+    idsCampos = ["#comentario", "#file"];
+
+
+    camposError = [];
+    mensajesError = [];
+    idsCampos.forEach(c => $(c).removeClass("buzz"));
+    idsCampos.forEach(c => establecerEstiloNormal(c));
+
+    validarComentario();
+    validarFichero();
+
+    comprobarYEstablecerEstilos();
+    if (mensajesError.length == 0) {
+        $("#formulario").submit()
+    }
+}
+
+
+
 function comprobarYEstablecerEstilos(){
 
     if (camposError.length>0){
@@ -692,16 +719,34 @@ function validarFichero(){
             }
 
         }else{
-            throw "Debes subir un plano";
+            throw "Debes subir un archivo";
         }
+
     }catch(err){
         mensajesError.push(err);
         camposError.push(campo);
     }
 
+}
 
-
-
+function validarComentario(){
+    let campo:string = "#comentario";
+    // @ts-ignore
+    let comentario:string = $(campo).val();
+    try{
+        if (!validarVacio(comentario)){
+            throw "No puedes dejar vacío el campo de comentario.";
+        }
+        else{
+            if (comentario.length>255){
+                throw "El cometario debe ser más breve.";
+            }
+        }
+    }
+    catch(err){
+        mensajesError.push(err);
+        camposError.push(campo);
+    }
 }
 
 function validarVacio(valorCampo){

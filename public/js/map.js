@@ -1,3 +1,9 @@
 
-var map = L.map('mapid').setView([42.846841, -2.670996], 13);
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', ).addTo(map);
+
+function mostrarMarcadorMapa(lat, lng){
+    var map = L.map('mapid').setView([lat, lng], 11);
+
+    L.marker([lat, lng],{draggable: false}).addTo(map);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', ).addTo(map);
+
+}

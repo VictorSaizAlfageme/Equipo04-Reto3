@@ -27,7 +27,11 @@ class trabajadoresController extends Controller
     /*Retorna tan solo una fila concreta. (SELECT WHERE ID=x)*/
     public function listarConcreto($id)
     {
-        return $trabajador = Trabajador::find($id);
+        $trabajador = Trabajador::find($id);
+
+        return view('loginTrabajadores', [
+            'trabajador' => $trabajador
+        ]);
     }
 
     /*Inserta un elemento en la tabla. (Los atributos se envían mediante POST)*/
@@ -68,7 +72,7 @@ class trabajadoresController extends Controller
                 setcookie("tipoUsuario", "1", strtotime("+1 year"));
                 setcookie("tipoTrabajador", $trabajador->IDTIPO, strtotime("+1 year"));
 
-                return redirect()->route('inicio');
+                return redirect()->route('inicioTrabajadores');
             }
         }
 
