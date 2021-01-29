@@ -146,13 +146,13 @@ function validarDatosTrabajador() {
     mensajesError = [];
     idsCampos.forEach(function (c) { return $(c).removeClass("buzz"); });
     idsCampos.forEach(function (c) { return establecerEstiloNormal(c); });
-    validarTipoTrabajador();
-    validarNombre();
-    validarApellido();
-    validarEmail();
-    validarPass();
-    validarDNI();
-    validarTelefono();
+    //validarTipoTrabajador();
+    //validarNombre();
+    //validarApellido();
+    //validarEmail();
+    //validarPass();
+    //validarDNI();
+    //validarTelefono();
     comprobarYEstablecerEstilos();
     if (mensajesError.length == 0) {
         $("#formulario").submit();

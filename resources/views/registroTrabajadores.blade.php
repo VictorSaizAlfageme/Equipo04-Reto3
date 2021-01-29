@@ -73,4 +73,7 @@
         </div>
     </div>
 
+
+    <script src="js/validaciones.js"></script>
+
 @endsection
