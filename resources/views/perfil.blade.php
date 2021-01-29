@@ -1,14 +1,15 @@
-
-@if($_COOKIE["tipoUsuario"] == "0")
-    @extends('layoutSolicitante')
-@else
-    @if($_COOKIE['tipoTrabajador'] == "11")
-        @extends('layoutTecnicos')
-    @else
-        @extends('layoutCoordinadores')
-@endif
+@extends('layoutSolicitante')
 
 @section('content')
+    @if(Cookie::get('tipoUsuario') == "0")
+        <h1>Solicitante</h1>
+    @else
+        @if(Cookie::get('tipoTrabajador') == "11")
+            <h1>Tecnico</h1>
+        @else
+            <h1>Coordinador</h1>
+        @endif
+    @endif
 <div class="container">
     <div class="row">
         <div class="col-md-12 offsset-md-2">

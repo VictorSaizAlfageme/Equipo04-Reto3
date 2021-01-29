@@ -82,15 +82,12 @@
             <!-- Divider -->
             <hr class="sidebar-divider">
 
-
-            <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link" href="{{route('paginaPrincipal')}}">
+                <a class="nav-link" href="{{route('registroTrabajadores')}}">
                     <i class="fas fa-fw fa-bell"></i>
-                    <span>Estadísticas</span>
+                    <span>Trabajadores</span>
                 </a>
             </li>
-
             <!-- Nav Item - Charts -->
             <li class="nav-item">
                 <a class="nav-link" href="../resources/views/charts.blade.php">
@@ -100,7 +97,7 @@
 
             <!-- Nav Item - Tables -->
             <li class="nav-item">
-                <a class="nav-link" href="{{route('obra')}}">
+                <a class="nav-link" href="{{route('listadoObras')}}">
                     <i class="fas fa-fw fa-user-shield"></i>
                     <span>Obras</span></a>
             </li>

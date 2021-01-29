@@ -60,6 +60,11 @@
                                     <a class="btn btn-primary btn-user btn-block" id="botonRecuperarContrasena">
                                         ENVIAR
                                     </a>
+                                    <hr>
+                                    <div class="text-center">
+                                        <small>¿Ya te has acordado de la contraseña? </small><a class="small" href="{{route('inicioSesion')}}">Inicia sesión.</a>
+                                    </div>
+
                                 </form>
                             </div>
                         </div>
