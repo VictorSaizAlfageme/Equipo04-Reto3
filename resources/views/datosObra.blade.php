@@ -30,13 +30,13 @@
                             <div class="form-group row">
                                 <label for="tobra" class="col-6">Tipo de obra</label>
                                 <div class="col-6">
-                                    <input type="text" class="form-control" value="{{$obra -> ID}}" id="tobra" disabled>
+                                    <input type="text" class="form-control" value="{{$tipoObra -> NOMBRE}}" id="tobra" disabled>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="tedificio" class="col-6">Tipo de edificio</label>
                                 <div class="col-6">
-                                    <input type="text" class="form-control" value="{{$obra -> ID}}" id="tedificio" disabled>
+                                    <input type="text" class="form-control" value="{{$tipoEdificio -> NOMBRE}}" id="tedificio" disabled>
                                 </div>
                             </div>
 
@@ -49,7 +49,7 @@
 
                                     </div>
                                 </div>
-                                <input type="hidden" class="form-control" id="idobra" name="id" value="{{$obra -> ID}}">
+                                <input type="hidden" class="form-control" name="id" value="{{$obra -> ID}}">
                                 <div class="form-group row">
 
                                     <label for="tobra" class="col-4 col-md-6">Fecha fin</label>
@@ -67,22 +67,47 @@
                                 </div>
                             </div>
 
-                            <div class="mb-3">
+
+                            <form class="fecha" method="GET" action="{{route("cambiarEstado")}}">
+                                @csrf
+                                <div class="form-group row">
+                                    <label for="estadoObra" class="col-4 col-md-6">Estado</label>
+                                    <div class="col-6 col-md-4">
+                                        <select style="width: 100%;" name="estadoObra" class="form-control form-select form-estado" id="estadoObra">
+                                            <option value="{{$estadoObra -> ID}}">{{$estadoObra -> NOMBRE}}</option>
+                                            @foreach($listaEstados as $estado)
+                                                @if($estadoObra -> NOMBRE != $estado -> NOMBRE)
+                                                    <option value="{{$estado -> ID}}">{{$estado -> NOMBRE}}</option>
+                                                @endif
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    <input type="hidden" class="form-control" name="id2" value="{{$obra -> ID}}">
+                                    <button class="btn btn-primary col-1" type="submit"><i class="fas fa-check"></i></button>
+
+                                </div>
+                            </form>
+
+                                <div class="mb-3">
                                 <p>Comentarios anteriores</p>
-                                <input class="form-control" type="text" placeholder="Tuberia rota" aria-label="readonly input example" readonly> <br>
+                                    @foreach($comentarios as $comentario)
+                                        <small class="d-flex justify-content-end">{{$comentario->FECHA}}</small>
+                                        <input style="color: black" class="form-control" type="text" value="{{$comentario->TEXTO}}" aria-label="readonly input example" readonly> <br>
+                                        <img class="img-fluid d-flex justify-content-center" src="{{$comentario->MULTIMEDIA}}">
+                                    @endforeach
                             </div>
 
                             <form class="comentario" enctype="multipart/form-data" method="POST" id="formulario" action="{{route("agregarComentario")}}">
                                 {{ csrf_field() }}
 
-                                    <label for="comentario" class="form-label">Comentario sobre la obra</label>
-                                    <textarea class="form-control comentario" id="comentario" rows="3" name="comentario"></textarea>
+                                    <h3 class="form-label">Comentario sobre la obra</h3>
+                                    <textarea style="resize: none" class="form-control comentario" id="comentario" rows="3" name="comentario"></textarea>
 
-                                <div class="mb-3">
-                                        <label for="formFileSm" class="form-label">Introducir documento</label>
+                                <div class="mb-3 mt-4">
+                                        <h3 class="form-label">Introducir foto</h3>
                                         <input class="form-control form-control-sm" id="customFile" type="file" name="file">
                                 </div>
-                                <input type="hidden" class="form-control" id="idobra2" name="id2" value="{{$obra -> ID}}">
+                                <input type="hidden" class="form-control"  name="id3" value="{{$obra -> ID}}">
                                 <div id="mensajeError2">
                                     <span class="mt-3" id="mensajeErrorSpan2"></span>
                                 </div>
@@ -100,7 +125,7 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="dniSolicitante" class="col-6">Nombre</label>
+                                <label for="dniSolicitante" class="col-6">DNI</label>
                                 <div class="col-6">
                                     <input type="text" class="form-control" value="{{$solicitante -> DNI}}" id="dniSolicitante" disabled>
                                 </div>
@@ -132,22 +157,69 @@
                         </div>
                     </div>
                     <div class="tab-pane fade" id="tecnico" role="tabpanel" aria-labelledby="tecnico-tab">
-                        <div class="row">
+
+                        @if($obra -> IDTRABAJADOR == NULL)
+                        <form class="fecha" method="GET" action="{{route("asignarTecnico")}}">
+                            @csrf
                             <div class="form-group row">
-                                <label for="nobra" class="col-6">Técnico asignado:</label>
-                                <div class="col-6">
-                                    <select class="form-select" aria-label="Default select example">
-                                        <option selected>Asignar un técnico</option>
-                                        <option value="1">Técnico 1</option>
-                                        <option value="2">Técnico 2</option>
-                                        <option value="3">Técnico 3</option>
+                                <label for="tecnico" class="col-4 col-md-6">Técnico:</label>
+                                <div class="col-6 col-md-4">
+                                    <select style="width: 100%;" name="tecnico" class="form-control form-select form-estado" id="tecnico">
+                                        @foreach($listaTecnicos as $tecnico)
+                                            @if($tecnico -> DISPONIBILIDAD == 1)
+                                                <option value="{{$tecnico -> ID}}">{{$tecnico -> NOMBRE}}</option>
+                                            @endif
+                                            @endforeach
                                     </select>
                                 </div>
+                                <input type="hidden" class="form-control" name="id4" value="{{$obra -> ID}}">
+
                             </div>
-                            <div class="form-group text-center">
-                                <button class="btn btn-primary">Asignar</button>
+                            <button class="btn btn-primary col-12" type="submit">Asignar tecnico</button>
+
+                        </form>
+                        @else
+                            <div class="row">
+                                <div class="form-group row">
+                                    <label for="dniTecnico" class="col-6">DNI</label>
+                                    <div class="col-6">
+                                        <input type="text" class="form-control" value="{{$tecnicoAsignado -> DNI}}" id="dniTecnico" disabled>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="nombreTecnico" class="col-6">Nombre</label>
+                                    <div class="col-6">
+                                        <input type="text" class="form-control" value="{{$tecnicoAsignado -> NOMBRE}}" id="nombreTecnico" disabled>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="apellidosTecnico" class="col-6">Apellidos</label>
+                                    <div class="col-6">
+                                        <input type="text" class="form-control" value="{{$tecnicoAsignado -> APELLIDOS}}" id="apellidosTecnico" disabled>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="emailTecnico" class="col-6">Email</label>
+                                    <div class="col-6">
+                                        <input type="text" class="form-control" value="{{$tecnicoAsignado -> EMAIL}}" id="emailTecnico" disabled>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="telTecnico" class="col-6">Teléfono</label>
+                                    <div class="col-6">
+                                        <input type="text" class="form-control" value="{{$tecnicoAsignado -> TELEFONO}}" id="telTecnico" disabled>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
+                            <form class="comentario" enctype="multipart/form-data" method="GET" id="formulario" action="{{route("eliminarTecnico")}}">
+                                {{ csrf_field() }}
+
+                                <button type="submit" class="btn btn-primary d-flex justify-content-center col-12" id="botonDesignarTecnico">Eliminar técnico</button>
+                                <input type="hidden" class="form-control"  name="id5" value="{{$obra -> ID}}">
+
+                            </form>
+                        @endif
+
                     </div>
                     <div class="tab-pane fade active" id="mapa" role="tabpanel" aria-labelledby="mapa-tab">
                         <div>

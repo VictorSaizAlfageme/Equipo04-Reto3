@@ -277,7 +277,7 @@ function anadirComentario():void {
     idsCampos.forEach(c => establecerEstiloNormal(c));
 
     validarComentario();
-    validarFichero();
+    validarFoto();
 
     comprobarYEstablecerEstilos();
     if (mensajesError.length == 0) {
@@ -719,8 +719,36 @@ function validarFichero(){
             }
 
         }else{
-            throw "Debes subir un archivo";
+            throw "Debes subir un plano para poder enviar la solicitud.";
         }
+
+    }catch(err){
+        mensajesError.push(err);
+        camposError.push(campo);
+    }
+
+}
+
+function validarFoto(){
+
+    let campo:string = "#customFile";
+    // @ts-ignore
+    let nombreArchivo:string = $(campo).val();
+
+    try{
+        if (nombreArchivo != ""){
+            let extension = nombreArchivo.substring(nombreArchivo.lastIndexOf('.'), nombreArchivo.length);
+            extension = extension.substring(1,extension.length);
+
+            if (extension == "jpg" || extension == "jpeg" || extension == "png"){
+                // @ts-ignore
+                if(document.querySelector("#customFile").files[0].size <= 1024*1024){
+                }else{
+                    throw "El archivo ha excedido el peso máximo";
+                }
+            }else{
+                throw "Solo puedes subir archivos .jpg .jpeg .png.";
+            }}
 
     }catch(err){
         mensajesError.push(err);
@@ -795,6 +823,27 @@ function hallarYEstablecerFocus(){
 }
 
 $('input').focus(function (event){
+    //buscar id del campo en el array de los camposError y obtener poisición
+    let id = "#"+event.target.id;
+    // @ts-ignore
+    let index = camposError.findIndex(c => c == id);
+    if (index == -1){
+        $("#mensajeError").css("display","none");
+    }else{
+        $("#mensajeErrorSpan").text(mensajesError[index]);
+        $("#mensajeError").css("display","flex");
+    }
+
+    if (index == -1){
+        $("#mensajeError2").css("display","none");
+    }else{
+        $("#mensajeErrorSpan2").text(mensajesError[index]);
+        $("#mensajeError2").css("display","flex");
+    }
+})
+
+
+$('textarea').focus(function (event){
     //buscar id del campo en el array de los camposError y obtener poisición
     let id = "#"+event.target.id;
     // @ts-ignore
