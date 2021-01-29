@@ -244,7 +244,8 @@
     <i class="fas fa-angle-up"></i>
 </a>
 
-
+<!-- Vue.js -->
+<script src="https :// cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <!-- Bootstrap core JavaScript-->
 <script src="jquery/jquery.min.js"></script>
 <script src="js/bootstrap.bundle.min.js"></script>
