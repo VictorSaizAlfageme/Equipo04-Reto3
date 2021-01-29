@@ -14,32 +14,36 @@
                     <th>Nombre</th>
                     <th>Apellidos</th>
                     <th>Email</th>
-                    <th>Teléfono</th>
                     <th>Disponibilidad</th>
                     <th>Cargo</th>
+                    <th>Mas detalles</th>
                 </tr>
                 </thead>
 
                 <tbody>
                 @foreach($listaTrabajadores as $trabajador)
-                    <tr>
-                        <td>{{$trabajador["DNI"]}}</td>
-                        <td>{{$trabajador["NOMBRE"]}}</td>
-                        <td>{{$trabajador["APELLIDOS"]}}</td>
-                        <td>{{$trabajador["EMAIL"]}}</td>
-                        <td>{{$trabajador["TELEFONO"]}}</td>
-                        @if($trabajador["DISPONIBILIDAD"] == 1)
-                            <td>Disponible</td>
-                        @else
-                            <td>Ocupado</td>
-                        @endif
+                    <form method="POST" action="{{route("datosTrabajador")}}" id="formMasInformacion">
+                        @csrf
+                            <tr>
+                                <td>{{$trabajador["DNI"]}}</td>
+                                <td>{{$trabajador["NOMBRE"]}}</td>
+                                <td>{{$trabajador["APELLIDOS"]}}</td>
+                                <td>{{$trabajador["EMAIL"]}}</td>
+                                @if($trabajador["DISPONIBILIDAD"] == 1)
+                                    <td>Disponible</td>
+                                @else
+                                    <td>Ocupado</td>
+                                @endif
 
-                        @if($trabajador["IDTIPO"] == 1)
-                            <td>Coordinador</td>
-                        @else
-                            <td>Técnico</td>
-                        @endif
-                    </tr>
+                                @if($trabajador["IDTIPO"] == 1)
+                                    <td>Coordinador</td>
+                                @else
+                                    <td>Técnico</td>
+                                @endif
+                                <input name="id" type="hidden" value="{{$trabajador["ID"]}}">
+                                <td colspan="1"><input type="submit" value="Mas detalles" class="btn btn-primary"></td>
+                            </tr>
+                    </form>
                 @endforeach
                 </tbody>
             </table>
