@@ -119,6 +119,7 @@
       <excludeFolder url="file://$MODULE_DIR$/public/fontawesome-free/scss" />
       <excludeFolder url="file://$MODULE_DIR$/public/fontawesome-free/svgs" />
       <excludeFolder url="file://$MODULE_DIR$/public/fontawesome-free/js" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/laravel/ui" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
