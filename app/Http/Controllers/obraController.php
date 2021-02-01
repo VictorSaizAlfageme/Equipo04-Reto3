@@ -148,14 +148,23 @@ class obraController extends Controller
         date_default_timezone_set ('Europe/Madrid');
         $now = new DateTime();
 
+
+        $id = request("id3");
+        $plano = request('plano');
+        $nombre = $id;
+        $plano->storeAs('public'. $nombre . "." . $plano->extension());
+        $url = $nombre . "." . $plano->extension();
+
         $comentario  = new Comentario(
             [
                 "FECHA" => $now,
                 "TEXTO" => request("comentario"),
-                "MULTIMEDIA" => request("file"),
-                "IDOBRA" => request("id3")
+                "MULTIMEDIA" => $url,
+                "IDOBRA" => $id
             ]
         );
+
+
 
         $comentario->save();
 

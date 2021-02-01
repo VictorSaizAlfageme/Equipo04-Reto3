@@ -55,7 +55,7 @@
             <hr class="sidebar-divider">
             <!-- Nav Item - Tables -->
             <li class="nav-item">
-                <a class="nav-link" href="{{route('obras')}}">
+                <a class="nav-link" href="{{route('itecnicos')}}">
                     <i class="fas fa-fw fa-user-shield"></i>
                     <span>Obras</span></a>
             </li>
