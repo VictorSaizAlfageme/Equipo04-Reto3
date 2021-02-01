@@ -66,7 +66,8 @@ class obraController extends Controller
         $id = request("id");
 
         $obra = DB::table("obras")->where('ID', $id)->update([
-            "FECHAINI" => request("fechaIni")
+            "FECHAINI" => request("fechaIni"),
+            "FECHAFIN" => request("fechaFin")
         ]);
 
         return redirect()->back();

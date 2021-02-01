@@ -40,7 +40,7 @@
                                 </div>
                             </div>
 
-                            <form class="fecha" method="GET" action="{{route("cambiarFecha")}}">
+                            <form class="fecha" method="POST" action="{{route("cambiarFecha")}}">
                                 @csrf
                                 <div class="form-group row">
                                     <label for="tobra" class="col-4 col-md-6">Fecha inicio</label>
@@ -68,7 +68,7 @@
                             </div>
 
 
-                            <form class="fecha" method="GET" action="{{route("cambiarEstado")}}">
+                            <form class="fecha" method="POST" action="{{route("cambiarEstado")}}">
                                 @csrf
                                 <div class="form-group row">
                                     <label for="estadoObra" class="col-4 col-md-6">Estado</label>
