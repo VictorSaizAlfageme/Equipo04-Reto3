@@ -237,7 +237,7 @@
 <!-- Make sure you put this AFTER Leaflet's CSS -->
 
 <script src="js/map.js"></script>
-
+<script src="js/webComponent.js"></script>
 <!--CERRAR SESION SI NO EXISTE EL COOKIE-->
 
 

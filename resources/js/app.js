@@ -6,11 +6,7 @@
 
 require('./bootstrap');
 
-<<<<<<< Updated upstream
 window.Vue = require('vue');
-=======
-window.Vue = require('vue').default;
->>>>>>> Stashed changes
 
 /**
  * The following block of code may be used to automatically register your

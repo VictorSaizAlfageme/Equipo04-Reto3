@@ -10866,7 +10866,8 @@ form.user .btn-user {
 
 @keyframes noise-anim {
   0% {
-    clip: rect(86px, 9999px, 39px, 0);
+
+    clip: rect(79px, 9999px, 87px, 0);
   }
   5% {
     clip: rect(25px, 9999px, 46px, 0);
@@ -10927,6 +10928,7 @@ form.user .btn-user {
   }
   100% {
     clip: rect(83px, 9999px, 58px, 0);
+
   }
 }
 .error:after {
@@ -10944,6 +10946,9 @@ form.user .btn-user {
 
 @keyframes noise-anim-2 {
   0% {
+    clip: rect(74px, 9999px, 26px, 0);
+  }
+  5% {
     clip: rect(60px, 9999px, 15px, 0);
   }
   5% {
@@ -11005,6 +11010,7 @@ form.user .btn-user {
   }
   100% {
     clip: rect(26px, 9999px, 8px, 0);
+
   }
 }
 .error:before {
@@ -11435,6 +11441,14 @@ input[type=file].hidden {
   font-size: 15px;
 }
 
+footer-fijado {
+  position: fixed;
+  bottom: 0;
+  width: 80%;
+}
+
+@media (max-width: 600px) {
+
 .mas-info {
   text-align: end;
 }
@@ -11447,6 +11461,7 @@ input[type=file].hidden {
   .table-elipse {
     border-top: none !important;
   }
+
 
   .vitoria2 {
     display: none;
