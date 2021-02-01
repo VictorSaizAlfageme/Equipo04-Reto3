@@ -82,16 +82,18 @@
                         <!--DESPLEGABLE-->
 
                         <tr id="id{{$obra->ID}}" class="menuDesplegable collapse cell-1 row-child tr">
+
                             @foreach($listaUbicaciones as $ubi)
-                                @if($ubi->ID == $obra->ID)
+                                @if($ubi->ID == $obra->IDUBICACION)
                                     <td colspan="2"><b>C/ {{$ubi->CALLE}}</b></td>
                                 @endif
                             @endforeach
-                                <form method="POST" action="{{route("datosObra")}}" id="formMasInformacion">
-                                    @csrf
-                                    <input type="hidden" name="id" value="{{$obra->ID}}">
-                                    <td colspan="1"><input type="submit" value="Más información" class="btn btn-primary"></td>
-                                </form>
+
+                            <form method="POST" action="{{route("datosObra")}}" id="formMasInformacion">
+                                @csrf
+                                <input type="hidden" name="id" value="{{$obra->ID}}">
+                                <td colspan="1"><input type="submit" value="Más información" class="btn btn-primary"></td>
+                            </form>
                         </tr>
 
                     @endforeach
