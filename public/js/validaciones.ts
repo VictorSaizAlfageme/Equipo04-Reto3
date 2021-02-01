@@ -29,6 +29,10 @@ $(document).ready(function (){
         $("#botonRecuperarContrasena").click(validarCorreoUsuario);
     }catch (error){}
 
+    try {
+        $("#botonAnadirComentario").click(anadirComentario);
+    }catch (error){}
+
 });
 
 //Al presionar enter
@@ -41,6 +45,7 @@ $(document).on('keypress',function(e) {
             validarDatosUsuario();
             validarContrasenaUsuario();
             validarCorreoUsuario();
+            anadirComentario();
         }catch (error){}
     }
 });
@@ -260,6 +265,28 @@ function  generarContrasena():String {
     }
     return pass;
 }
+
+function anadirComentario():void {
+
+    idsCampos = ["#comentario", "#file"];
+
+
+    camposError = [];
+    mensajesError = [];
+    idsCampos.forEach(c => $(c).removeClass("buzz"));
+    idsCampos.forEach(c => establecerEstiloNormal(c));
+
+    validarComentario();
+    validarFoto();
+
+    comprobarYEstablecerEstilos();
+    if (mensajesError.length == 0) {
+        $("#formulario").submit()
+    }
+}
+
+
+
 function comprobarYEstablecerEstilos(){
 
     if (camposError.length>0){
@@ -692,16 +719,62 @@ function validarFichero(){
             }
 
         }else{
-            throw "Debes subir un plano";
+            throw "Debes subir un plano para poder enviar la solicitud.";
         }
+
     }catch(err){
         mensajesError.push(err);
         camposError.push(campo);
     }
 
+}
 
+function validarFoto(){
 
+    let campo:string = "#customFile";
+    // @ts-ignore
+    let nombreArchivo:string = $(campo).val();
 
+    try{
+        if (nombreArchivo != ""){
+            let extension = nombreArchivo.substring(nombreArchivo.lastIndexOf('.'), nombreArchivo.length);
+            extension = extension.substring(1,extension.length);
+
+            if (extension == "jpg" || extension == "jpeg" || extension == "png"){
+                // @ts-ignore
+                if(document.querySelector("#customFile").files[0].size <= 1024*1024){
+                }else{
+                    throw "El archivo ha excedido el peso máximo";
+                }
+            }else{
+                throw "Solo puedes subir archivos .jpg .jpeg .png.";
+            }}
+
+    }catch(err){
+        mensajesError.push(err);
+        camposError.push(campo);
+    }
+
+}
+
+function validarComentario(){
+    let campo:string = "#comentario";
+    // @ts-ignore
+    let comentario:string = $(campo).val();
+    try{
+        if (!validarVacio(comentario)){
+            throw "No puedes dejar vacío el campo de comentario.";
+        }
+        else{
+            if (comentario.length>255){
+                throw "El cometario debe ser más breve.";
+            }
+        }
+    }
+    catch(err){
+        mensajesError.push(err);
+        camposError.push(campo);
+    }
 }
 
 function validarVacio(valorCampo){
@@ -750,6 +823,27 @@ function hallarYEstablecerFocus(){
 }
 
 $('input').focus(function (event){
+    //buscar id del campo en el array de los camposError y obtener poisición
+    let id = "#"+event.target.id;
+    // @ts-ignore
+    let index = camposError.findIndex(c => c == id);
+    if (index == -1){
+        $("#mensajeError").css("display","none");
+    }else{
+        $("#mensajeErrorSpan").text(mensajesError[index]);
+        $("#mensajeError").css("display","flex");
+    }
+
+    if (index == -1){
+        $("#mensajeError2").css("display","none");
+    }else{
+        $("#mensajeErrorSpan2").text(mensajesError[index]);
+        $("#mensajeError2").css("display","flex");
+    }
+})
+
+
+$('textarea').focus(function (event){
     //buscar id del campo en el array de los camposError y obtener poisición
     let id = "#"+event.target.id;
     // @ts-ignore

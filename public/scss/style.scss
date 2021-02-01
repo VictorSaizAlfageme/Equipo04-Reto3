@@ -40,6 +40,14 @@
     padding: 0 16px !important;
     height: 50px;
 }
+
+.form-estado {
+    padding: 0 0 0 10px !important;
+    height: 38px;
+    border-radius: 0.35rem !important;
+    font-family: inherit;
+    font-size: 1rem;
+}
 .buzz {
     animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
     transform: translate3d(0, 0, 0);
@@ -71,6 +79,15 @@
     margin-bottom: 15px;
 
 }
+
+.formulario-div {
+    align-self: center;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
 button {
     position: relative;
     display: inline-block;
@@ -276,7 +293,8 @@ input[type=file].hidden{
 }
 
 .login-form {
-    height: 500px;
+    height: 100%;
+    width: 100%;
 }
 .pass-form{
     height: 500px;
@@ -330,12 +348,29 @@ input[type=file].hidden{
 .text-welcome{
     font-size: 15px;
 }
+
 footer-fijado{
     position: fixed;
     bottom: 0;
     width: 80%;
 }
 @media (max-width: 600px) {
+
+
+.mas-info {
+    text-align: end;
+}
+
+@media (max-width: 700px) {
+
+    .hidden {
+        display: none;
+    }
+
+    .table-elipse {
+        border-top: none !important;
+    }
+
     .vitoria2 {
         display: none;
     }

@@ -27,6 +27,10 @@ $(document).ready(function () {
         $("#botonRecuperarContrasena").click(validarCorreoUsuario);
     }
     catch (error) { }
+    try {
+        $("#botonAnadirComentario").click(anadirComentario);
+    }
+    catch (error) { }
 });
 //Al presionar enter
 $(document).on('keypress', function (e) {
@@ -38,6 +42,7 @@ $(document).on('keypress', function (e) {
             validarDatosUsuario();
             validarContrasenaUsuario();
             validarCorreoUsuario();
+            anadirComentario();
         }
         catch (error) { }
     }
@@ -210,6 +215,19 @@ function generarContrasena() {
         pass += caracteres[numeroAleatorio];
     }
     return pass;
+}
+function anadirComentario() {
+    idsCampos = ["#comentario", "#file"];
+    camposError = [];
+    mensajesError = [];
+    idsCampos.forEach(function (c) { return $(c).removeClass("buzz"); });
+    idsCampos.forEach(function (c) { return establecerEstiloNormal(c); });
+    validarComentario();
+    validarFoto();
+    comprobarYEstablecerEstilos();
+    if (mensajesError.length == 0) {
+        $("#formulario").submit();
+    }
 }
 function comprobarYEstablecerEstilos() {
     if (camposError.length > 0) {
@@ -610,7 +628,52 @@ function validarFichero() {
             }
         }
         else {
-            throw "Debes subir un plano";
+            throw "Debes subir un plano para poder enviar la solicitud.";
+        }
+    }
+    catch (err) {
+        mensajesError.push(err);
+        camposError.push(campo);
+    }
+}
+function validarFoto() {
+    var campo = "#customFile";
+    // @ts-ignore
+    var nombreArchivo = $(campo).val();
+    try {
+        if (nombreArchivo != "") {
+            var extension = nombreArchivo.substring(nombreArchivo.lastIndexOf('.'), nombreArchivo.length);
+            extension = extension.substring(1, extension.length);
+            if (extension == "jpg" || extension == "jpeg" || extension == "png") {
+                // @ts-ignore
+                if (document.querySelector("#customFile").files[0].size <= 1024 * 1024) {
+                }
+                else {
+                    throw "El archivo ha excedido el peso máximo";
+                }
+            }
+            else {
+                throw "Solo puedes subir archivos .jpg .jpeg .png.";
+            }
+        }
+    }
+    catch (err) {
+        mensajesError.push(err);
+        camposError.push(campo);
+    }
+}
+function validarComentario() {
+    var campo = "#comentario";
+    // @ts-ignore
+    var comentario = $(campo).val();
+    try {
+        if (!validarVacio(comentario)) {
+            throw "No puedes dejar vacío el campo de comentario.";
+        }
+        else {
+            if (comentario.length > 255) {
+                throw "El cometario debe ser más breve.";
+            }
         }
     }
     catch (err) {
@@ -659,6 +722,26 @@ function hallarYEstablecerFocus() {
     $(focus).focus();
 }
 $('input').focus(function (event) {
+    //buscar id del campo en el array de los camposError y obtener poisición
+    var id = "#" + event.target.id;
+    // @ts-ignore
+    var index = camposError.findIndex(function (c) { return c == id; });
+    if (index == -1) {
+        $("#mensajeError").css("display", "none");
+    }
+    else {
+        $("#mensajeErrorSpan").text(mensajesError[index]);
+        $("#mensajeError").css("display", "flex");
+    }
+    if (index == -1) {
+        $("#mensajeError2").css("display", "none");
+    }
+    else {
+        $("#mensajeErrorSpan2").text(mensajesError[index]);
+        $("#mensajeError2").css("display", "flex");
+    }
+});
+$('textarea').focus(function (event) {
     //buscar id del campo en el array de los camposError y obtener poisición
     var id = "#" + event.target.id;
     // @ts-ignore

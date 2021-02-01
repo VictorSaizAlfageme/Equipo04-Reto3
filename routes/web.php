@@ -45,7 +45,7 @@ Route::view("/trabajadores", "loginTrabajadores")->name("loginTrabajadores");
 Route::post("/trabajadorLogin", "trabajadoresController@iniciarSesion")->name("trabajadorIniciarSesion");
 Route::post("/registrarTrabajador", "registroTrabajadoresController@registrarTrabajador")->name("trabajadorRegistrar");
 Route::get("/listadoTrabajadores", "trabajadoresController@listarTodos")->name('listadoTrabajadores');
-
+Route::post("/datosTrabajador", "trabajadoresController@listarConcreto")->name("datosTrabajador");
 
 
 //Solicitantes (Usuarios normales)
@@ -59,6 +59,14 @@ Route::view("/solicitarContrasena", "iCambiarContrasena")->name("solicitarContra
 Route::view("/obra", "obra")->name('obra');
 Route::post("/registrarObra", "registroObraController@registrarObra")->name("obraRegistrar");
 Route::get("/listadoObras", "obraController@listarTodos")->name('listadoObras');
+Route::post("/datosObra", "obraController@listarConcreto")->name("datosObra");
+Route::post("/cambiarFecha", "obraController@cambiarFecha")->name("cambiarFecha");
+Route::get("/cambiarFechaFin", "obraController@cambiarFechaFin")->name("cambiarFechaFin");
+Route::post("/agregarComentario", "obraController@agregarComentario")->name("agregarComentario");
+Route::post("/cambiarEstado", "obraController@cambiarEstado")->name("cambiarEstado");
+Route::post("/asignarTecnico", "obraController@asignarTecnico")->name("asignarTecnico");
+Route::post("/eliminarTecnico", "obraController@eliminarTecnico")->name("eliminarTecnico");
+
 
 //PROVISIONALES (SOLO PARA DESARROLLO)
 Route::view("/solicitantesEliminar", "eliminar");

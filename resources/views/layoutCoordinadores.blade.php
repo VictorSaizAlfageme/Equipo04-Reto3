@@ -182,7 +182,7 @@
                     <li class="nav-item dropdown no-arrow">
                         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="mr-2 d-none d-lg-inline text-gray-600 small">Admin</span>
+                            <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{$_COOKIE["nombreUsuario"]}}</span>
                             <img class="img-profile rounded-circle"
                                  src="img/undraw_profile.svg">
                         </a>
@@ -269,8 +269,18 @@
 <script src="../node_modules/leaflet/src/Leaflet.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/places.js@1.19.0"></script>
 <script src="js/obra.js"></script>
+
 <!-- Make sure you put this AFTER Leaflet's CSS -->
 <script src="js/webComponent.js"></script>
+
+<!-- Estadisticas -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
+<script src="js/chart-area-demo.js"></script>
+<script src="js/chart-bar-demo.js"></script>
+<script src="js/chart-pie-demo.js"></script>
+
+
+
 <script src="js/map.js"></script>
 @if(!isset($_COOKIE["usuarioConectado"]))
     <script>

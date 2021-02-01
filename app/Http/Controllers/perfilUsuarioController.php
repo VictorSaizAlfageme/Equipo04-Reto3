@@ -45,7 +45,7 @@ class perfilUsuarioController extends Controller
 
 
 
-        $usuario = DB::table($tipoUsuario)->update([
+        $usuario = DB::table($tipoUsuario)->where('ID', $usuario->ID)->update([
             "NOMBRE" => request("nombre"),
             "APELLIDOS" => request("apellido"),
             "EMAIL" => request("email"),
