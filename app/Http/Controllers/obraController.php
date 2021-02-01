@@ -34,6 +34,7 @@ class obraController extends Controller
     /*Retorna tan solo una fila concreta. (SELECT WHERE ID=x)*/
     public function listarConcreto()
     {
+
         $obra = Obra::find(request("id"));
         $ubicacion = Ubicacion::find($obra->IDUBICACION);
         $solicitante = Solicitante::find($obra->IDSOLICITANTE);
@@ -42,8 +43,10 @@ class obraController extends Controller
         $listaEstados = Estado::get();
         $estadoObra = Estado::find($obra->IDESTADO);
         $comentarios = Comentario::get()->where('IDOBRA', $obra->ID);
-        $listaTecnicos = Trabajador::get()->where('IDTIPO', 11);;
+        $listaTecnicos = Trabajador::get()->where('IDTIPO', 11);
         $tecnicoAsignado = Trabajador::find($obra->IDTRABAJADOR);
+
+
 
 
         return view('datosObra', [
@@ -71,7 +74,33 @@ class obraController extends Controller
             "FECHAFIN" => request("fechaFin")
         ]);
 
-        return redirect()->route('listadoObras');
+        //VOLVER A CARGAR LA PÁGINA
+        $obra = Obra::find(request("id"));
+        $ubicacion = Ubicacion::find($obra->IDUBICACION);
+        $solicitante = Solicitante::find($obra->IDSOLICITANTE);
+        $tipoObra = TipoObra::find($obra->IDOBRA);
+        $tipoEdificio = TipoEdificio::find($obra->IDEDIFICIO);
+        $listaEstados = Estado::get();
+        $estadoObra = Estado::find($obra->IDESTADO);
+        $comentarios = Comentario::get()->where('IDOBRA', $obra->ID);
+        $listaTecnicos = Trabajador::get()->where('IDTIPO', 11);
+        $tecnicoAsignado = Trabajador::find($obra->IDTRABAJADOR);
+
+
+
+
+        return view('datosObra', [
+            'obra' => $obra,
+            'ubicacion' => $ubicacion,
+            'solicitante' => $solicitante,
+            'tipoObra' => $tipoObra,
+            'tipoEdificio' => $tipoEdificio,
+            'listaEstados' => $listaEstados,
+            'estadoObra' => $estadoObra,
+            'comentarios' => $comentarios,
+            'listaTecnicos' => $listaTecnicos,
+            'tecnicoAsignado' => $tecnicoAsignado
+        ]);
     }
 
     public function cambiarEstado(){
@@ -82,7 +111,34 @@ class obraController extends Controller
             "IDESTADO" => request("estadoObra")
         ]);
 
-        return redirect()->route('listadoObras');
+
+        $obra = Obra::find(request("id2"));
+        $ubicacion = Ubicacion::find($obra->IDUBICACION);
+        $solicitante = Solicitante::find($obra->IDSOLICITANTE);
+        $tipoObra = TipoObra::find($obra->IDOBRA);
+        $tipoEdificio = TipoEdificio::find($obra->IDEDIFICIO);
+        $listaEstados = Estado::get();
+        $estadoObra = Estado::find($obra->IDESTADO);
+        $comentarios = Comentario::get()->where('IDOBRA', $obra->ID);
+        $listaTecnicos = Trabajador::get()->where('IDTIPO', 11);
+        $tecnicoAsignado = Trabajador::find($obra->IDTRABAJADOR);
+
+
+
+
+        return view('datosObra', [
+            'obra' => $obra,
+            'ubicacion' => $ubicacion,
+            'solicitante' => $solicitante,
+            'tipoObra' => $tipoObra,
+            'tipoEdificio' => $tipoEdificio,
+            'listaEstados' => $listaEstados,
+            'estadoObra' => $estadoObra,
+            'comentarios' => $comentarios,
+            'listaTecnicos' => $listaTecnicos,
+            'tecnicoAsignado' => $tecnicoAsignado
+        ]);
+
     }
 
 
@@ -116,9 +172,35 @@ class obraController extends Controller
         ]);
 
         //VOLVER A CARGAR LA PÁGINA
-        return redirect()->route('listadoObras');
+        $obra = Obra::find(request("id4"));
+        $ubicacion = Ubicacion::find($obra->IDUBICACION);
+        $solicitante = Solicitante::find($obra->IDSOLICITANTE);
+        $tipoObra = TipoObra::find($obra->IDOBRA);
+        $tipoEdificio = TipoEdificio::find($obra->IDEDIFICIO);
+        $listaEstados = Estado::get();
+        $estadoObra = Estado::find($obra->IDESTADO);
+        $comentarios = Comentario::get()->where('IDOBRA', $obra->ID);
+        $listaTecnicos = Trabajador::get()->where('IDTIPO', 11);
+        $tecnicoAsignado = Trabajador::find($obra->IDTRABAJADOR);
+
+
+
+
+        return view('datosObra', [
+            'obra' => $obra,
+            'ubicacion' => $ubicacion,
+            'solicitante' => $solicitante,
+            'tipoObra' => $tipoObra,
+            'tipoEdificio' => $tipoEdificio,
+            'listaEstados' => $listaEstados,
+            'estadoObra' => $estadoObra,
+            'comentarios' => $comentarios,
+            'listaTecnicos' => $listaTecnicos,
+            'tecnicoAsignado' => $tecnicoAsignado
+        ]);
 
     }
+
     public function eliminarTecnico(){
 
         $id = request("id5");
@@ -127,7 +209,33 @@ class obraController extends Controller
             "IDTRABAJADOR" => NULL
         ]);
 
-        return redirect()->route('listadoObras');
+        //VOLVER A CARGAR LA PÁGINA
+        $obra = Obra::find(request("id5"));
+        $ubicacion = Ubicacion::find($obra->IDUBICACION);
+        $solicitante = Solicitante::find($obra->IDSOLICITANTE);
+        $tipoObra = TipoObra::find($obra->IDOBRA);
+        $tipoEdificio = TipoEdificio::find($obra->IDEDIFICIO);
+        $listaEstados = Estado::get();
+        $estadoObra = Estado::find($obra->IDESTADO);
+        $comentarios = Comentario::get()->where('IDOBRA', $obra->ID);
+        $listaTecnicos = Trabajador::get()->where('IDTIPO', 11);
+        $tecnicoAsignado = Trabajador::find($obra->IDTRABAJADOR);
+
+
+
+
+        return view('datosObra', [
+            'obra' => $obra,
+            'ubicacion' => $ubicacion,
+            'solicitante' => $solicitante,
+            'tipoObra' => $tipoObra,
+            'tipoEdificio' => $tipoEdificio,
+            'listaEstados' => $listaEstados,
+            'estadoObra' => $estadoObra,
+            'comentarios' => $comentarios,
+            'listaTecnicos' => $listaTecnicos,
+            'tecnicoAsignado' => $tecnicoAsignado
+        ]);
     }
 
 
