@@ -79,6 +79,15 @@
     margin-bottom: 15px;
 
 }
+
+.formulario-div {
+    align-self: center;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
 button {
     position: relative;
     display: inline-block;
@@ -284,7 +293,8 @@ input[type=file].hidden{
 }
 
 .login-form {
-    height: 500px;
+    height: 100%;
+    width: 100%;
 }
 .pass-form{
     height: 500px;

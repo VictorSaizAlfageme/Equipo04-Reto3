@@ -60,14 +60,12 @@ Route::view("/obra", "obra")->name('obra');
 Route::post("/registrarObra", "registroObraController@registrarObra")->name("obraRegistrar");
 Route::get("/listadoObras", "obraController@listarTodos")->name('listadoObras');
 Route::post("/datosObra", "obraController@listarConcreto")->name("datosObra");
-Route::get("/cambiarFecha", "obraController@cambiarFecha")->name("cambiarFecha");
+Route::post("/cambiarFecha", "obraController@cambiarFecha")->name("cambiarFecha");
 Route::get("/cambiarFechaFin", "obraController@cambiarFechaFin")->name("cambiarFechaFin");
 Route::post("/agregarComentario", "obraController@agregarComentario")->name("agregarComentario");
-Route::get("/cambiarEstado", "obraController@cambiarEstado")->name("cambiarEstado");
+Route::post("/cambiarEstado", "obraController@cambiarEstado")->name("cambiarEstado");
 Route::get("/asignarTecnico", "obraController@asignarTecnico")->name("asignarTecnico");
 Route::get("/eliminarTecnico", "obraController@eliminarTecnico")->name("eliminarTecnico");
-
-
 
 
 //PROVISIONALES (SOLO PARA DESARROLLO)
