@@ -159,7 +159,7 @@
                     <div class="tab-pane fade" id="tecnico" role="tabpanel" aria-labelledby="tecnico-tab">
 
                         @if($obra -> IDTRABAJADOR == NULL)
-                        <form class="fecha" method="GET" action="{{route("asignarTecnico")}}">
+                        <form class="fecha" method="POST" action="{{route("asignarTecnico")}}">
                             @csrf
                             <div class="form-group row">
                                 <label for="tecnico" class="col-4 col-md-6">Técnico:</label>
@@ -169,7 +169,7 @@
                                             @if($tecnico -> DISPONIBILIDAD == 1)
                                                 <option value="{{$tecnico -> ID}}">{{$tecnico -> NOMBRE}}</option>
                                             @endif
-                                            @endforeach
+                                        @endforeach
                                     </select>
                                 </div>
                                 <input type="hidden" class="form-control" name="id4" value="{{$obra -> ID}}">
@@ -211,8 +211,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <form class="comentario" enctype="multipart/form-data" method="GET" id="formulario" action="{{route("eliminarTecnico")}}">
-                                {{ csrf_field() }}
+                            <form class="comentario" enctype="multipart/form-data" method="POST" id="formulario" action="{{route("eliminarTecnico")}}">
+                                @csrf
 
                                 <button type="submit" class="btn btn-primary d-flex justify-content-center col-12" id="botonDesignarTecnico">Eliminar técnico</button>
                                 <input type="hidden" class="form-control"  name="id5" value="{{$obra -> ID}}">
