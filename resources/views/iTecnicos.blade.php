@@ -8,12 +8,12 @@
                 <table class="table">
                     <thead>
                     <tr class="tr">
-                        <th class="text-center">Nº</th>
-                        <th>COD. OBRA</th>
+                        <th class="hidden">Nº</th>
+                        <th class="hidden">COD. OBRA</th>
                         <th>TIPO DE OBRA</th>
                         <th>ESTADO</th>
-                        <th>FECHA INICIO</th>
-                        <th>FECHA FIN</th>
+                        <th class="hidden">FECHA INICIO</th>
+                        <th class="hidden">FECHA FIN</th>
                         <th></th>
                     </tr>
                     </thead>
@@ -24,9 +24,9 @@
 
                         <!--TUPLAS-->
                         <tr class="cell-1 tr" data-toggle="collapse" data-target="#id{{$obra->ID}}">
-                            <td class="text-center">1</td>
+                            <td class="text-center hidden">1</td>
 
-                            <td><b>{{ $obra->ID }}</b></td>
+                            <td class="hidden"><b>{{ $obra->ID }}</b></td>
 
                             @switch($obra->IDOBRA)
                                 @case("1")
@@ -65,15 +65,15 @@
                             @endswitch
 
                             @if($obra->FECHAINI == "")
-                                <td>Sin definir</td>
+                                <td class="hidden">Sin definir</td>
                             @else
-                                <td>{{ $obra->FECHAINI }}</td>
+                                <td class="hidden">{{ $obra->FECHAINI }}</td>
                             @endif
 
                             @if($obra->FECHAFIN == "")
-                                <td>Sin definir</td>
+                                <td class="hidden">Sin definir</td>
                             @else
-                                <td>{{ $obra->FECHAINI }}</td>
+                                <td class="hidden">{{ $obra->FECHAINI }}</td>
                             @endif
 
                             <td class="table-elipse" data-toggle="collapse" data-target="#id{{$obra->ID}}"><i class="fas fa-angle-down"></i></td>
@@ -85,14 +85,14 @@
 
                             @foreach($listaUbicaciones as $ubi)
                                 @if($ubi->ID == $obra->IDUBICACION)
-                                    <td colspan="2"><b>C/ {{$ubi->CALLE}}</b></td>
+                                    <td class="hidden" colspan="3"><b>C/ {{$ubi->CALLE}}</b></td>
                                 @endif
                             @endforeach
-
+                                <td colspan="1" class="hidden"></td>
                             <form method="POST" action="{{route("datosObra")}}" id="formMasInformacion">
                                 @csrf
                                 <input type="hidden" name="id" value="{{$obra->ID}}">
-                                <td colspan="1"><input type="submit" value="Más información" class="btn btn-primary"></td>
+                                <td colspan="3" class="mas-info"><input type="submit" value="Más información" class="btn btn-primary"></td>
                             </form>
                         </tr>
 
