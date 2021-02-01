@@ -330,12 +330,12 @@ input[type=file].hidden{
 .text-welcome{
     font-size: 15px;
 }
-
+#footer-fijado{
+    position: fixed;
+    bottom: 0;
+    width: 80%;
+}
 @media (max-width: 600px) {
-
-
-
-
     .vitoria2 {
         display: none;
     }

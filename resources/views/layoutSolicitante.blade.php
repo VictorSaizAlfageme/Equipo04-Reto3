@@ -235,7 +235,7 @@
 <script src="https://cdn.jsdelivr.net/npm/places.js@1.19.0"></script>
 <script src="js/obra.js"></script>
 <!-- Make sure you put this AFTER Leaflet's CSS -->
-
+<script src="js/webComponent.js"></script>
 <script src="js/map.js"></script>
 
 <!--CERRAR SESION SI NO EXISTE EL COOKIE-->
