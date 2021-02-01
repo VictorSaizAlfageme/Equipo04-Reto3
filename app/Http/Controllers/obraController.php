@@ -15,6 +15,7 @@ use DateTimeZone;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use DateTime;
+use Symfony\Component\Routing\Annotation\Route;
 
 class obraController extends Controller
 {
@@ -70,8 +71,7 @@ class obraController extends Controller
             "FECHAFIN" => request("fechaFin")
         ]);
 
-        return redirect()->back();
-
+        return redirect()->route('listadoObras');
     }
 
     public function cambiarEstado(){
@@ -82,8 +82,7 @@ class obraController extends Controller
             "IDESTADO" => request("estadoObra")
         ]);
 
-        return redirect()->back();
-
+        return redirect()->route('listadoObras');
     }
 
 
@@ -112,11 +111,12 @@ class obraController extends Controller
 
         $id = request("id4");
 
-        $obra = DB::table("obras")->where('ID', $id)->update([
+        $obraUpdate = DB::table("obras")->where('ID', $id)->update([
             "IDTRABAJADOR" => request("tecnico")
         ]);
 
-        return redirect()->back();
+        //VOLVER A CARGAR LA PÁGINA
+        return redirect()->route('listadoObras');
 
     }
     public function eliminarTecnico(){
@@ -127,8 +127,7 @@ class obraController extends Controller
             "IDTRABAJADOR" => NULL
         ]);
 
-        return redirect()->back();
-
+        return redirect()->route('listadoObras');
     }
 
 

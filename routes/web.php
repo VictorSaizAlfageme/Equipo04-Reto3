@@ -64,8 +64,8 @@ Route::post("/cambiarFecha", "obraController@cambiarFecha")->name("cambiarFecha"
 Route::get("/cambiarFechaFin", "obraController@cambiarFechaFin")->name("cambiarFechaFin");
 Route::post("/agregarComentario", "obraController@agregarComentario")->name("agregarComentario");
 Route::post("/cambiarEstado", "obraController@cambiarEstado")->name("cambiarEstado");
-Route::get("/asignarTecnico", "obraController@asignarTecnico")->name("asignarTecnico");
-Route::get("/eliminarTecnico", "obraController@eliminarTecnico")->name("eliminarTecnico");
+Route::post("/asignarTecnico", "obraController@asignarTecnico")->name("asignarTecnico");
+Route::post("/eliminarTecnico", "obraController@eliminarTecnico")->name("eliminarTecnico");
 
 
 //PROVISIONALES (SOLO PARA DESARROLLO)
