@@ -271,9 +271,8 @@
 <script src="js/obra.js"></script>
 <!-- Estadisticas -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
-<script src="js/chart-area-demo.js"></script>
-<script src="js/chart-bar-demo.js"></script>
-<script src="js/chart-pie-demo.js"></script>
+<script src="js/chart-area-demo.js"></script> <!--La gráfica-->
+<script src="js/chart-pie-demo.js"></script> <!--La rueda-->
 
 
 <script src="js/map.js"></script>
