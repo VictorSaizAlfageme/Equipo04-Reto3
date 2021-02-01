@@ -34,7 +34,8 @@ Route::view("/inicioTrabajadores", "bienvenidoTrabajadores")->name("inicioTrabaj
  * */
 
 
-//CONTROLADORES
+//EXTRAS
+Route::get("/estadisticas", "estadisticasController@cargarEstadisticas")->name('cargarEstadisticas');
 Route::post("/usuarioEditar", "perfilUsuarioController@usuarioEditar")->name("usuarioEditar");
 Route::get("/perfil", "perfilUsuarioController@usuarioSelect")->name('perfilUsuario');
 Route::post("/editarContrasena", "perfilUsuarioController@editarContrasena")->name("editarContrasena");
