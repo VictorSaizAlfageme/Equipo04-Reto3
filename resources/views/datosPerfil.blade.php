@@ -1,13 +1,11 @@
-@extends('layoutSolicitante')
-
 @section('content')
     @if(Cookie::get('tipoUsuario') == "0")
-        <h1>Solicitante</h1>
+        @extends('layoutSolicitante')
     @else
         @if(Cookie::get('tipoTrabajador') == "11")
-            <h1 class="d-flex justify-content-center">Tecnico</h1>
+            @extends('layoutTecnicos')
         @else
-            <h1 class="d-flex justify-content-center">Coordinador</h1>
+            @extends('layoutCoordinadores')
         @endif
     @endif
 <div class="container">

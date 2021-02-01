@@ -1,5 +1,21 @@
-@extends('layoutSolicitante')
 @section('content')
+
+    @if ($_COOKIE["tipoUsuario"] === "0")
+        @php $plantilla =  'layoutSolicitante'
+        @endphp
+    @else
+        @if ($_COOKIE["tipoTrabajador"] === "11")
+            @php $plantilla =  'layoutTecnicos'
+            @endphp
+        @else
+
+            @php $plantilla =  'layoutCoordinador'
+            @endphp
+        @endif
+    @endif
+
+
+    @extends($plantilla)
 <div class="col-12 row">
     <div class="col-12 py-2"><h1 class="fw-weight-bolder text-center">BIENVENIDO</h1></div>
     <div class="col-6 text-welcome py-5">
@@ -10,7 +26,6 @@
         <p class="font-weight-lighter fs-6">Pero el objetivo principal de este canal de comunicación es plasmar los <b>valores</b> que nos respaldan: el compromiso social, la máxima calidad y la voluntad de servicio, así como nuestro interés por todas aquellas ventajas que nos ofrece la tecnología. Todo ello tiene una presencia destacada en esta página web y en nuestras propias decisiones.</p>
         <figcaption class="blockquote-footer font-weight-lighter">Victor Saiz, Eric Martínez y Naia Ibañez de Garayo</figcaption>
         <br>
-        <figcaption style="font-size: 8px" class="blockquote-footer font-weight-lighter">Un agradecimiento especial a Urko, sin ti éste proyecto no hubiera sido posible.</figcaption>
     </div>
     <div class="col-6 align-self-center">
         <img src="img/vitoria.jpg" class="img-fluid">

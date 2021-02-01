@@ -10,6 +10,10 @@ $(document).ready(function (){
     }catch (error){}
 
     try {
+        $("#botonLogIn").click(iniciarSesion);
+    }catch (error){}
+
+    try {
         $("#botonRegistroObra").click(validarDatosObra);
     }catch (error){}
 
@@ -46,9 +50,16 @@ $(document).on('keypress',function(e) {
             validarContrasenaUsuario();
             validarCorreoUsuario();
             anadirComentario();
+            iniciarSesion()
         }catch (error){}
     }
 });
+
+function iniciarSesion():void {
+
+    $("#formulario").submit()
+
+}
 
 function validarDatosRegistroSolicitante():void {
     idsCampos = ["#nombre", "#apellido", "#email", "#pass", "#pass2", "#fechaNac", "#telefono", "#dni", "#lugarNac"];
@@ -174,13 +185,13 @@ function validarDatosTrabajador():void {
     idsCampos.forEach(c => $(c).removeClass("buzz"));
     idsCampos.forEach(c => establecerEstiloNormal(c));
 
-    //validarTipoTrabajador();
-    //validarNombre();
-    //validarApellido();
-    //validarEmail();
-    //validarPass();
-    //validarDNI();
-    //validarTelefono();
+    validarTipoTrabajador();
+    validarNombre();
+    validarApellido();
+    validarEmail();
+    validarPass();
+    validarDNI();
+    validarTelefono();
 
     comprobarYEstablecerEstilos();
     if (mensajesError.length == 0) {

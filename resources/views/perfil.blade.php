@@ -1,13 +1,11 @@
-@extends('layoutSolicitante')
-
 @section('content')
     @if(Cookie::get('tipoUsuario') == "0")
-        <h1>Solicitante</h1>
+        @extends('layoutSolicitante')
     @else
         @if(Cookie::get('tipoTrabajador') == "11")
-            <h1>Tecnico</h1>
+            @extends('layoutTecnicos')
         @else
-            <h1>Coordinador</h1>
+            @extends('layoutCoordinadores')
         @endif
     @endif
 <div class="container">
@@ -28,9 +26,6 @@
                 <br>
                 <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                     <div class="row">
-                        <!--<div class="col-4">
-                            <img class="img-thumbnail" src="img/undraw_profile.svg" alt="">
-                        </div>-->
                         <div class="col-12">
                             <div class="form-group row">
                                 <label for="dniMostrar" class="col-4"> DNI:</label>

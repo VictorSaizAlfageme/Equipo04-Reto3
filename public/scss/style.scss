@@ -337,9 +337,6 @@ input[type=file].hidden{
     color: black !important;
 }
 
-.card {
-    height: 500px;
-}
 
 .card-body{
     height: auto;
@@ -352,6 +349,11 @@ input[type=file].hidden{
 .mas-info {
     text-align: end;
 }
+
+#provincias {
+    width: 100%;
+}
+
 
 @media (max-width: 700px) {
 

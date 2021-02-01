@@ -1,5 +1,14 @@
-@extends('layoutCoordinadores')
 @section('content')
+
+    @if(Cookie::get('tipoUsuario') == "0")
+        @extends('layoutSolicitante')
+    @else
+        @if(Cookie::get('tipoTrabajador') == "11")
+            @extends('layoutTecnicos')
+        @else
+            @extends('layoutCoordinadores')
+        @endif
+    @endif
     <div class="col-12 row">
         <div class="col-12 py-2"><h1 class="fw-weight-bolder text-center">BIENVENIDO</h1></div>
         <div class="col-6 text-welcome py-5">
