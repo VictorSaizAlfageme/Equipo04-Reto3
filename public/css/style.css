@@ -11427,6 +11427,14 @@ input[type=file].hidden {
   font-size: 15px;
 }
 
+footer-fijado {
+  position: fixed;
+  bottom: 0;
+  width: 80%;
+}
+
+@media (max-width: 600px) {
+
 .mas-info {
   text-align: end;
 }
@@ -11459,6 +11467,7 @@ input[type=file].hidden {
   .table-elipse {
     border-top: none !important;
   }
+
 
   .vitoria2 {
     display: none;
