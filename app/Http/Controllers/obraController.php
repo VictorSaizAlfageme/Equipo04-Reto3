@@ -35,13 +35,13 @@ class obraController extends Controller
     public function listarObrasTecnico()
     {
 
-        $tecnico = Solicitante::get()->where('ID', $_COOKIE['usuarioConectado']);
-        $obrasSolicitantes = Obra::get()->where('IDTRABAJADOR', $tecnico);
+        $tecnico = Trabajador::get()->where('ID', $_COOKIE['usuarioConectado']);
+        $obrasTecnicos = Obra::get()->where('IDTRABAJADOR', $tecnico[1]["ID"]);
         $listaUbicaciones = Ubicacion::get();
 
         return view('listaObrasTecnico', [
             'listaUbicaciones' => $listaUbicaciones,
-            'listaTecnicos' => $obrasSolicitantes
+            'listaTecnicos' => $obrasTecnicos
         ]);
 
     }
@@ -49,9 +49,8 @@ class obraController extends Controller
 
     public function listarObrasSolicitante()
     {
-
         $solicitante = Solicitante::get()->where('ID', $_COOKIE['usuarioConectado']);
-        $obrasSolicitantes = Obra::get()->where('IDSOLICITANTE', $solicitante);
+        $obrasSolicitantes = Obra::get()->where('IDSOLICITANTE', $solicitante[1]["ID"]);
 
         return view('listaObrasSolicitante', [
             'listaSolicitantes' => $obrasSolicitantes

@@ -8,10 +8,6 @@ $(document).ready(function () {
     }
     catch (error) { }
     try {
-        $("#botonLogIn").click(iniciarSesion);
-    }
-    catch (error) { }
-    try {
         $("#botonRegistroObra").click(validarDatosObra);
     }
     catch (error) { }
@@ -47,7 +43,6 @@ $(document).on('keypress', function (e) {
             validarContrasenaUsuario();
             validarCorreoUsuario();
             anadirComentario();
-            iniciarSesion();
         }
         catch (error) { }
     }

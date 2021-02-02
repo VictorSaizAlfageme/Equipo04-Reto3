@@ -58,7 +58,7 @@
 
                 <a class="nav-link" href="{{route('listadoObrasSolicitante')}}">
 
-                    <i class="fas fa-fw fa-user-shield"></i>
+                    <i class="fas fa-fw fa-hard-hat"></i>
                     <span>Obras</span></a>
             </li>
             <hr class="sidebar-divider">
@@ -147,7 +147,7 @@
                                 Perfil
                             </a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="{{route('paginaPrincipal')}}" data-toggle="modal" data-target="#logoutModal">
+                            <a class="dropdown-item" href="{{route('inicio')}}" data-toggle="modal" data-target="#logoutModal">
                                 <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                 Cerrar Sesión
                             </a>

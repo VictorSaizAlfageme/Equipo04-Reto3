@@ -37,9 +37,15 @@ class solicitantesController extends Controller
         $dni = request("dni");
         $solicitantes = Solicitante::get();
 
+
         foreach ($solicitantes as $solicitante){
 
-            if($dni == $solicitante->DNI ){
+
+            //$dni == $solicitante->DNI && password_verify(request("pass"), $solicitante->PASSWORD)
+            if($dni == $solicitante->DNI){
+
+
+
                 setcookie("usuarioConectado", $solicitante->ID, strtotime("+1 year"));
                 setcookie("tipoUsuario", "0", strtotime("+1 year"));
                 setcookie("nombreUsuario", $solicitante->NOMBRE, strtotime("+1 year"));
@@ -94,7 +100,8 @@ class solicitantesController extends Controller
 
     /*Elimina al usuario recibido por POST*/
     public function eliminar(){
-        Solicitante::where("ID", request("id"))->delete();
+        $solicitante = Solicitante::find(request("id"));
+        Solicitante::delete()->where("ID", $solicitante->ID);
 
         //Mostrar de nuevo la tabla con los datos
         $listaSolicitantes = Solicitante::simplePaginate(10);
