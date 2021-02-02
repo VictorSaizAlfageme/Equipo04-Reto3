@@ -9,7 +9,7 @@
             @endphp
         @else
 
-            @php $plantilla =  'layoutCoordinador'
+            @php $plantilla =  'layoutCoordinadores'
             @endphp
         @endif
     @endif

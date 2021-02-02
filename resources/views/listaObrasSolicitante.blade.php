@@ -4,7 +4,7 @@
         @extends('layoutSolicitante')
     @else
         <script>
-            document.location.href="{!! route('index'); !!}";
+            document.location.href="{!! route('paginaPrincipal'); !!}";
         </script>
     @endif
     <h3 id="titulo-3">OBRAS ASIGNADAS</h3>

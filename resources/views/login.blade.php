@@ -48,14 +48,14 @@
                                     @csrf
                                     <div class="form-group">
                                         <input type="text" class="form-control form-control-user"
-                                               id="exampleInputEmail" aria-describedby="emailHelp"
+                                               id="dni" aria-describedby="emailHelp"
                                                placeholder="DNI" name="dni">
                                     </div>
                                     <div class="form-group">
                                         <input type="password" class="form-control form-control-user"
                                                id="exampleInputPassword" placeholder="Contraseña" name="pass">
                                     </div>
-                                    <a class="btn btn-primary btn-user btn-block" onclick="document.getElementById('formulario').submit()">
+                                    <a id="botonIniciarSesion" class="btn btn-primary btn-user btn-block">
                                         INICIAR SESIÓN
                                     </a>
                                 </form>
@@ -80,6 +80,14 @@
                 <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>            </svg></a></div>
 </div>
 
+
+<!-- Bootstrap core JavaScript-->
+<script src="jquery/jquery.min.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+
+
+
 <!-- Bootstrap core JavaScript-->
 <script src="vendor/jquery/jquery.min.js"></script>
 <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -89,6 +97,6 @@
 
 <!-- Custom scripts for all pages-->
 <script src="boostrap/js/sb-admin-2.min.js"></script>
-<script src="js/validaciones.js"></script>
+<script src="js/loginEnter.js"></script>
 
 </body>
