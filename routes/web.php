@@ -25,7 +25,6 @@ Route::view("/iComentariosTecnico", "iComentariosTecnico")->name("icomentarioste
 Route::view("/obrasSolicitante", "obrasSolicitante")->name("obras");
 Route::view("/registroTrabajadores", "registroTrabajadores")->name("registroTrabajadores");
 Route::view("/inicio", "bienvenido")->name("inicio");
-Route::view("/inicioTrabajadores", "bienvenidoTrabajadores")->name("inicioTrabajadores");
 
 /*
  * |================================================================|
@@ -34,7 +33,8 @@ Route::view("/inicioTrabajadores", "bienvenidoTrabajadores")->name("inicioTrabaj
  * */
 
 
-//CONTROLADORES
+//EXTRAS
+Route::get("/estadisticas", "estadisticasController@cargarEstadisticas")->name('cargarEstadisticas');
 Route::post("/usuarioEditar", "perfilUsuarioController@usuarioEditar")->name("usuarioEditar");
 Route::get("/perfil", "perfilUsuarioController@usuarioSelect")->name('perfilUsuario');
 Route::post("/editarContrasena", "perfilUsuarioController@editarContrasena")->name("editarContrasena");
@@ -59,6 +59,9 @@ Route::view("/solicitarContrasena", "iCambiarContrasena")->name("solicitarContra
 Route::view("/obra", "obra")->name('obra');
 Route::post("/registrarObra", "registroObraController@registrarObra")->name("obraRegistrar");
 Route::get("/listadoObras", "obraController@listarTodos")->name('listadoObras');
+Route::get("/listadoObrasTecnico", "obraController@listarObrasTecnico")->name('listadoObrasTecnico');
+Route::get("/listadoObrasSolicitante", "obraController@listarObrasSolicitante")->name('listadoObrasSolicitante');
+
 Route::post("/datosObra", "obraController@listarConcreto")->name("datosObra");
 Route::post("/cambiarFecha", "obraController@cambiarFecha")->name("cambiarFecha");
 Route::get("/cambiarFechaFin", "obraController@cambiarFechaFin")->name("cambiarFechaFin");

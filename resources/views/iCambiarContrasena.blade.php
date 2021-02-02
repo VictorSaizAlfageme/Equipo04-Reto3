@@ -52,8 +52,8 @@
 
                                         <input type="hidden" id="pass" name="pass">
                                     </div>
-                                    <div id="mensajeError">
-                                        <span class="mt-3" id="mensajeErrorSpan">{!! session()->get('error') !!}</span>
+                                    <div class="mt-3" id="mensajeError">
+                                        <span  id="mensajeErrorSpan">{!! session()->get('error') !!}</span>
                                     </div>
 
 
@@ -62,7 +62,7 @@
                                     </a>
                                     <hr>
                                     <div class="text-center">
-                                        <small>¿Ya te has acordado de la contraseña? </small><a class="small" href="{{route('inicioSesion')}}">Inicia sesión.</a>
+                                        <small>¿No te has olvidado de la contraseña? </small><a class="small" href="{{route('inicioSesion')}}">Inicia sesión.</a>
                                     </div>
 
                                 </form>

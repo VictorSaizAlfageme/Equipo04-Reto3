@@ -56,10 +56,14 @@
                                                id="exampleInputPassword" placeholder="Contraseña"
                                                name="pass">
                                     </div>
-                                    <a class="btn btn-primary btn-user btn-block" onclick="document.getElementById('formulario').submit()">
+                                    <a class="btn btn-primary btn-user btn-block" id="botonLogIn">
                                         INICIAR SESIÓN
                                     </a>
                                 </form>
+                                <hr>
+                                <div class="text-center mt-3">
+                                    <small>¿No eres un trabajador? </small><a class="small" href="{{route("inicioSesion")}}">Haz click aquí.</a>
+                                </div>
 
                             </div>
                         </div>
