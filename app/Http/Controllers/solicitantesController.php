@@ -40,8 +40,10 @@ class solicitantesController extends Controller
 
         foreach ($solicitantes as $solicitante){
 
+
             //$dni == $solicitante->DNI && password_verify(request("pass"), $solicitante->PASSWORD)
             if($dni == $solicitante->DNI){
+
 
 
                 setcookie("usuarioConectado", $solicitante->ID, strtotime("+1 year"));
