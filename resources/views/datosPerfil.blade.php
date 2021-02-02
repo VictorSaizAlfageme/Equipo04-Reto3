@@ -1,13 +1,13 @@
 @section('content')
-    @if(Cookie::get('tipoUsuario') == "0")
-        @extends('layoutSolicitante')
+
+    @if ($_COOKIE["tipoTrabajador"] === "1")
+        @extends('layoutCoordinador')
     @else
-        @if(Cookie::get('tipoTrabajador') == "11")
-            @extends('layoutTecnicos')
-        @else
-            @extends('layoutCoordinadores')
-        @endif
+        <script>
+            document.location.href="{!! route('index'); !!}";
+        </script>
     @endif
+
 <div class="container">
     <div class="row">
         <div class="col-md-12 offsset-md-2">

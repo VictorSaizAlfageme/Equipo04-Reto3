@@ -1,13 +1,21 @@
 @section('content')
-    @if(Cookie::get('tipoUsuario') == "0")
-        @extends('layoutSolicitante')
+
+    @if ($_COOKIE["tipoUsuario"] === "0")
+        @php $plantilla =  'layoutSolicitante'
+        @endphp
     @else
-        @if(Cookie::get('tipoTrabajador') == "11")
-            @extends('layoutTecnicos')
+        @if ($_COOKIE["tipoTrabajador"] === "11")
+            @php $plantilla =  'layoutTecnicos'
+            @endphp
         @else
-            @extends('layoutCoordinadores')
+
+            @php $plantilla =  'layoutCoordinador'
+            @endphp
         @endif
     @endif
+
+
+    @extends($plantilla)
 <div class="container">
     <div class="row">
         <div class="col-md-12 offsset-md-2">
@@ -64,13 +72,6 @@
                     <form class="user" method="POST" id="formulario" action="{{route("usuarioEditar")}}">
                         @csrf
                         <div class="row">
-                        <!--<div class="col-4">
-                            <img class="img-thumbnail" src="img/undraw_profile.svg" alt="">
-                            <div>
-                                <br>
-                                <input class="form-control-sm hidden" id="newImage" type="file"/>
-                            </div>
-                        </div>-->
                         <div class="col-12">
                             <div class="form-group row">
                                 <label for="nombre" class="col-4"> Nombre:</label>

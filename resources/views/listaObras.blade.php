@@ -1,5 +1,13 @@
-@extends('layoutCoordinadores')
+
 @section('content')
+
+    @if ($_COOKIE["tipoTrabajador"] === "1")
+        @extends('layoutCoordinador')
+    @else
+        <script>
+            document.location.href="{!! route('index'); !!}";
+        </script>
+    @endif
     <h3 id="titulo-3">OBRAS ASIGNADAS</h3>
     <div class="container">
         <div class="row">

@@ -1,5 +1,24 @@
-@extends('layoutSolicitante')
+
 @section('content')
+
+
+    @if ($_COOKIE["tipoUsuario"] === "0")
+        <script>
+            document.location.href="{!! route('index'); !!}";
+        </script>
+    @else
+        @if ($_COOKIE["tipoTrabajador"] === "11")
+            @php $plantilla =  'layoutTecnicos'
+            @endphp
+        @else
+
+            @php $plantilla =  'layoutCoordinador'
+            @endphp
+        @endif
+    @endif
+
+
+    @extends($plantilla)
     <div class="container">
         <div class="row">
             <div class="col-md-12 offsset-md-2">
@@ -59,7 +78,9 @@
                                         <input type="date" class="form-control" id="ffobra" name="fechaFin" value="{{$obra -> FECHAFIN ?? ""}}">
 
                                     </div>
+                                    @if(Cookie::get('tipoTrabajador') == "1")
                                     <button class="btn btn-primary  col-1" type="submit"><i class="fas fa-check"></i></button>
+                                    @endif
                                 </div>
                             </form>
                             <div class="form-group row">
@@ -85,8 +106,9 @@
                                         </select>
                                     </div>
                                     <input type="hidden" class="form-control" name="id2" value="{{$obra -> ID}}">
+                                    @if(Cookie::get('tipoTrabajador') == "1")
                                     <button class="btn btn-primary col-1" type="submit"><i class="fas fa-check"></i></button>
-
+                                    @endif
                                 </div>
                             </form>
 

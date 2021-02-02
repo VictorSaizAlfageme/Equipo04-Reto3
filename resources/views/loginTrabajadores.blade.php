@@ -60,6 +60,10 @@
                                         INICIAR SESIÓN
                                     </a>
                                 </form>
+                                <hr>
+                                <div class="text-center mt-3">
+                                    <small>¿No eres un trabajador? </small><a class="small" href="{{route("inicioSesion")}}">Haz click aquí.</a>
+                                </div>
 
                             </div>
                         </div>

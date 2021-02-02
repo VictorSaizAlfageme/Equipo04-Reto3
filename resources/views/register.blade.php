@@ -24,7 +24,7 @@
     <div class="card o-hidden border-0 shadow-lg my-5 card-registro">
         <div class="card-body p-0">
             <!-- Nested Row within Card Body -->
-            <div class="row">
+            <div class="row d-flex align-items-center">
                 <div class="col-lg-5 d-none d-lg-block bg-login-image"></div>
                 <div class="col-lg-7">
                     <div class="p-5">
@@ -86,8 +86,8 @@
                                 REGISTRATE
                             </a>
                         </form>
-                        <div id="mensajeError">
-                            <span class="mt-3" id="mensajeErrorSpan">{!! session()->get('error') !!}</span>
+                        <div class="mt-3" id="mensajeError">
+                            <span  id="mensajeErrorSpan">{!! session()->get('error') !!}</span>
                         </div>
                         <hr>
                         <div class="text-center">

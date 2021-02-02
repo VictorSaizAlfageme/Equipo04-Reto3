@@ -307,10 +307,6 @@ input[type=file].hidden{
     height: 300px;
 }
 
-.card-registro {
-    height: 650px!important;
-}
-
 
 .tipoTrabajador{
     display: flex;
@@ -352,6 +348,22 @@ input[type=file].hidden{
 
 #provincias {
     width: 100%;
+}
+
+.circulo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    width: 65px;
+    height: 65px;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    background: #ffffff;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
 }
 
 

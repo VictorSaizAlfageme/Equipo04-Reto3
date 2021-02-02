@@ -1,5 +1,12 @@
-@extends("layoutCoordinadores")
-@section("content")
+@section('content')
+
+    @if ($_COOKIE["tipoTrabajador"] === "1")
+        @extends('layoutCoordinador')
+    @else
+        <script>
+            document.location.href="{!! route('index'); !!}";
+        </script>
+    @endif
 
     <div class="card-body">
         <div class="table-responsive">
