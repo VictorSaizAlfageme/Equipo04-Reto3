@@ -1,5 +1,24 @@
-@extends('layoutSolicitante')
+
 @section('content')
+
+
+    @if ($_COOKIE["tipoUsuario"] === "0")
+        <script>
+            document.location.href="{!! route('index'); !!}";
+        </script>
+    @else
+        @if ($_COOKIE["tipoTrabajador"] === "11")
+            @php $plantilla =  'layoutTecnicos'
+            @endphp
+        @else
+
+            @php $plantilla =  'layoutCoordinador'
+            @endphp
+        @endif
+    @endif
+
+
+    @extends($plantilla)
     <div class="container">
         <div class="row">
             <div class="col-md-12 offsset-md-2">
@@ -10,9 +29,11 @@
                     <li class="nav-item" role="presentation">
                         <a class="nav-link" id="contacto-tab" data-bs-toggle="tab" href="#contacto" role="tab" aria-controls="contacto" aria-selected="false">Solicitante</a>
                     </li>
+                    @if(Cookie::get('tipoTrabajador') == "1")
                     <li class="nav-item" role="presentation">
                         <a class="nav-link" id="tecnico-tab" data-bs-toggle="tab" href="#tecnico" role="tab" aria-controls="tecnico" aria-selected="false">Técnico</a>
                     </li>
+                    @endif
                     <li class="nav-item" role="presentation"  onclick="mostrarMarcadorMapa({{$ubicacion -> LATITUD}}, {{$ubicacion -> LONGITUD}})">
                         <a class="nav-link" id="mapa-tab" data-bs-toggle="tab" href="#mapa" role="tab" aria-controls="mapa" aria-selected="false">Mapa</a>
                     </li>
@@ -57,7 +78,9 @@
                                         <input type="date" class="form-control" id="ffobra" name="fechaFin" value="{{$obra -> FECHAFIN ?? ""}}">
 
                                     </div>
+                                    @if(Cookie::get('tipoTrabajador') == "1")
                                     <button class="btn btn-primary  col-1" type="submit"><i class="fas fa-check"></i></button>
+                                    @endif
                                 </div>
                             </form>
                             <div class="form-group row">
@@ -83,8 +106,9 @@
                                         </select>
                                     </div>
                                     <input type="hidden" class="form-control" name="id2" value="{{$obra -> ID}}">
+                                    @if(Cookie::get('tipoTrabajador') == "1")
                                     <button class="btn btn-primary col-1" type="submit"><i class="fas fa-check"></i></button>
-
+                                    @endif
                                 </div>
                             </form>
 
@@ -98,15 +122,16 @@
                             </div>
 
                             <form class="comentario" enctype="multipart/form-data" method="POST" id="formulario" action="{{route("agregarComentario")}}">
-                                {{ csrf_field() }}
+                                @csrf
 
                                     <h3 class="form-label">Comentario sobre la obra</h3>
                                     <textarea style="resize: none" class="form-control comentario" id="comentario" rows="3" name="comentario"></textarea>
-
-                                <div class="mb-3 mt-4">
-                                        <h3 class="form-label">Introducir foto</h3>
-                                        <input class="form-control form-control-sm" id="customFile" type="file" name="file">
+                                <div class="espacio"></div>
+                                <div class="custom-file form-control">
+                                    <input type="file" class="custom-file-input" id="customFile" name="plano">
+                                    <label class="custom-file-label" for="customFile">Selecciona tu plano</label>
                                 </div>
+                                <div class="espacio"></div>
                                 <input type="hidden" class="form-control"  name="id3" value="{{$obra -> ID}}">
                                 <div id="mensajeError2">
                                     <span class="mt-3" id="mensajeErrorSpan2"></span>

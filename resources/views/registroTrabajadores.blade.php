@@ -1,5 +1,13 @@
-@extends('layoutCoordinadores')
+
 @section('content')
+
+    @if ($_COOKIE["tipoTrabajador"] === "1")
+        @extends('layoutCoordinador')
+    @else
+        <script>
+            document.location.href="{!! route('index'); !!}";
+        </script>
+    @endif
 
     <div class="container">
         <div class="card o-hidden border-0 shadow-lg my-5">

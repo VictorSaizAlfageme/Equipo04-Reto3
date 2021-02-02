@@ -45,7 +45,7 @@
             <hr class="sidebar-divider">
 
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" href="{{route('inicio')}}">
                     <i class="fas fa-fw fa-home"></i>
                     <span>Inicio</span></a>
@@ -55,7 +55,9 @@
             <hr class="sidebar-divider">
             <!-- Nav Item - Tables -->
             <li class="nav-item">
-                <a class="nav-link" href="{{route('obras')}}">
+
+                <a class="nav-link" href="{{route('listadoObrasSolicitante')}}">
+
                     <i class="fas fa-fw fa-user-shield"></i>
                     <span>Obras</span></a>
             </li>
@@ -91,20 +93,6 @@
                     <i class="fa fa-bars"></i>
                 </button>
 
-                <!-- Topbar Search -->
-                <form
-                    class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                    <div class="input-group">
-                        <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
-                               aria-label="Search" aria-describedby="basic-addon2">
-                        <div class="input-group-append">
-                            <button class="btn btn-primary" type="button">
-                                <i class="fas fa-search fa-sm"></i>
-                            </button>
-                        </div>
-                    </div>
-                </form>
-
                 <!-- Topbar Navbar -->
                 <ul class="navbar-nav ml-auto">
 
@@ -134,7 +122,7 @@
                     <li class="dark-mode nav-item dropdown">
                         <label class="mb-0" for="darkSwitch"><i class="fas fa-fw fa-sun m-2"></i></label>
                         <div class="custom-control custom-switch">
-                            <input type="checkbox" class="custom-control-input" id="darkSwitch" checked/>
+                            <input type="checkbox" class="custom-control-input" id="darkSwitch"/>
                             <label class="custom-control-label" for="darkSwitch"><i class="fas fa-fw fa-moon"></i></label>
                         </div>
                     </li>
@@ -154,7 +142,7 @@
                         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                              aria-labelledby="userDropdown">
                             <!-- route('perfil')}} -->
-                            <a class="dropdown-item" href="">
+                            <a class="dropdown-item" href="{{route('perfilUsuario')}}">
                                 <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                 Perfil
                             </a>
@@ -237,7 +225,7 @@
 <!-- Make sure you put this AFTER Leaflet's CSS -->
 
 <script src="js/map.js"></script>
-
+<script src="js/webComponent.js"></script>
 <!--CERRAR SESION SI NO EXISTE EL COOKIE-->
 
 

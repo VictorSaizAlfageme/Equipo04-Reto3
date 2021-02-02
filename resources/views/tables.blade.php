@@ -1,15 +1,18 @@
-@extends("layoutCoordinadores")
-@section("content")
+@section('content')
 
-<div class="card shadow mb-4">
-    <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">Trabajadores</h6>
-    </div>
+    @if ($_COOKIE["tipoTrabajador"] === "1")
+        @extends('layoutCoordinador')
+    @else
+        <script>
+            document.location.href="{!! route('index'); !!}";
+        </script>
+    @endif
+
     <div class="card-body">
         <div class="table-responsive">
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
-                <tr>
+                <tr class="tr">
                     <th>DNI</th>
                     <th>Nombre</th>
                     <th>Apellidos</th>
@@ -24,7 +27,7 @@
                 @foreach($listaTrabajadores as $trabajador)
                     <form method="POST" action="{{route("datosTrabajador")}}" id="formMasInformacion">
                         @csrf
-                            <tr>
+                            <tr class="tr">
                                 <td>{{$trabajador["DNI"]}}</td>
                                 <td>{{$trabajador["NOMBRE"]}}</td>
                                 <td>{{$trabajador["APELLIDOS"]}}</td>
@@ -59,7 +62,6 @@
             {{$listaTrabajadores->links()}}
         </spans>
     </div>
-</div>
 
 <style>
     .w-5{
