@@ -25,10 +25,38 @@ class obraController extends Controller
         $listaObras = Obra::get();
         $listaUbicaciones = Ubicacion::get();
 
-        return view('iTecnicos', [
+        return view('listaObras', [
             'listaObras' => $listaObras,
             'listaUbicaciones' => $listaUbicaciones
         ]);
+
+    }
+
+    public function listarObrasTecnico()
+    {
+
+        $tecnico = Solicitante::get()->where('ID', $_COOKIE['usuarioConectado']);
+        $obrasSolicitantes = Obra::get()->where('IDTRABAJADOR', $tecnico);
+        $listaUbicaciones = Ubicacion::get();
+
+        return view('listaObrasTecnico', [
+            'listaUbicaciones' => $listaUbicaciones,
+            'listaTecnicos' => $obrasSolicitantes
+        ]);
+
+    }
+
+
+    public function listarObrasSolicitante()
+    {
+
+        $solicitante = Solicitante::get()->where('ID', $_COOKIE['usuarioConectado']);
+        $obrasSolicitantes = Obra::get()->where('IDSOLICITANTE', $solicitante);
+
+        return view('listaObrasSolicitante', [
+            'listaSolicitantes' => $obrasSolicitantes
+        ]);
+
     }
 
     /*Retorna tan solo una fila concreta. (SELECT WHERE ID=x)*/

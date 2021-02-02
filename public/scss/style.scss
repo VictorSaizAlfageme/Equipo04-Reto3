@@ -307,10 +307,6 @@ input[type=file].hidden{
     height: 300px;
 }
 
-.card-registro {
-    height: 650px!important;
-}
-
 
 .tipoTrabajador{
     display: flex;
@@ -337,9 +333,6 @@ input[type=file].hidden{
     color: black !important;
 }
 
-.card {
-    height: 500px;
-}
 
 .card-body{
     height: auto;
@@ -360,6 +353,27 @@ footer-fijado{
 .mas-info {
     text-align: end;
 }
+
+#provincias {
+    width: 100%;
+}
+
+.circulo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    width: 65px;
+    height: 65px;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    background: #ffffff;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+
 
 @media (max-width: 700px) {
 

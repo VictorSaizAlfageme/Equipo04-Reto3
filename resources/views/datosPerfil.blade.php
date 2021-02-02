@@ -1,15 +1,13 @@
-@extends('layoutSolicitante')
-
 @section('content')
-    @if(Cookie::get('tipoUsuario') == "0")
-        <h1>Solicitante</h1>
+
+    @if ($_COOKIE["tipoTrabajador"] === "1")
+        @extends('layoutCoordinador')
     @else
-        @if(Cookie::get('tipoTrabajador') == "11")
-            <h1 class="d-flex justify-content-center">Tecnico</h1>
-        @else
-            <h1 class="d-flex justify-content-center">Coordinador</h1>
-        @endif
+        <script>
+            document.location.href="{!! route('index'); !!}";
+        </script>
     @endif
+
 <div class="container">
     <div class="row">
         <div class="col-md-12 offsset-md-2">

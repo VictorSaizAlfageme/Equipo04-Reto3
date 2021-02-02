@@ -1,5 +1,24 @@
-@extends('layoutSolicitante')
+
 @section('content')
+
+
+    @if ($_COOKIE["tipoUsuario"] === "0")
+        <script>
+            document.location.href="{!! route('index'); !!}";
+        </script>
+    @else
+        @if ($_COOKIE["tipoTrabajador"] === "11")
+            @php $plantilla =  'layoutTecnicos'
+            @endphp
+        @else
+
+            @php $plantilla =  'layoutCoordinador'
+            @endphp
+        @endif
+    @endif
+
+
+    @extends($plantilla)
     <div class="container">
         <div class="row">
             <div class="col-md-12 offsset-md-2">
@@ -10,9 +29,11 @@
                     <li class="nav-item" role="presentation">
                         <a class="nav-link" id="contacto-tab" data-bs-toggle="tab" href="#contacto" role="tab" aria-controls="contacto" aria-selected="false">Solicitante</a>
                     </li>
+                    @if(Cookie::get('tipoTrabajador') == "1")
                     <li class="nav-item" role="presentation">
                         <a class="nav-link" id="tecnico-tab" data-bs-toggle="tab" href="#tecnico" role="tab" aria-controls="tecnico" aria-selected="false">Técnico</a>
                     </li>
+                    @endif
                     <li class="nav-item" role="presentation"  onclick="mostrarMarcadorMapa({{$ubicacion -> LATITUD}}, {{$ubicacion -> LONGITUD}})">
                         <a class="nav-link" id="mapa-tab" data-bs-toggle="tab" href="#mapa" role="tab" aria-controls="mapa" aria-selected="false">Mapa</a>
                     </li>
@@ -57,7 +78,9 @@
                                         <input type="date" class="form-control" id="ffobra" name="fechaFin" value="{{$obra -> FECHAFIN ?? ""}}">
 
                                     </div>
+                                    @if(Cookie::get('tipoTrabajador') == "1")
                                     <button class="btn btn-primary  col-1" type="submit"><i class="fas fa-check"></i></button>
+                                    @endif
                                 </div>
                             </form>
                             <div class="form-group row">
@@ -83,8 +106,9 @@
                                         </select>
                                     </div>
                                     <input type="hidden" class="form-control" name="id2" value="{{$obra -> ID}}">
+                                    @if(Cookie::get('tipoTrabajador') == "1")
                                     <button class="btn btn-primary col-1" type="submit"><i class="fas fa-check"></i></button>
-
+                                    @endif
                                 </div>
                             </form>
 

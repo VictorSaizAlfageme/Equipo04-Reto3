@@ -7,7 +7,7 @@
                 <div class="col-lg-12">
                     <div class="p-5">
                         <div class="text-center">
-                            <h1 class="h4 text-gray-900 mb-4">Formulario de obra</h1>
+                            <h1 class="h2 text-gray-900 mb-4">Formulario de obra</h1>
                         </div>
                         <form class="user" enctype="multipart/form-data" method="POST" id="formulario" action="{{route("obraRegistrar")}}">
                             @csrf
@@ -16,8 +16,8 @@
                             <input type="hidden" name="latitud" id="latitud" value="">
 
                             <div class="form-group row">
-                                <div class="col-sm-6 mb-3 mb-sm-0">
-                                    <select name="tipoEdificio" id="tipoEdificio" class="form-control form-control-user form-select">
+                                <div class="col-6">
+                                    <select name="tipoEdificio" id="tipoEdificio" class="form-control form-control-user form-select w-100">
                                         <option class="select-title" disabled selected>Tipo de edificio</option>
                                         <option value="piso">Piso</option>
                                         <option value="casa">Casa</option>
@@ -28,8 +28,8 @@
                                         <option value="otro">Otro</option>
                                     </select>
                                 </div>
-                                <div class="col-sm-6">
-                                    <select name="tipoObra" id="tipoObra" class="form-control form-control-user form-select">
+                                <div class="col-6">
+                                    <select name="tipoObra" id="tipoObra" class="form-control form-control-user form-select w-100">
                                         <option class="select-title" disabled selected>Tipo de obra</option>
                                         <option value="nuevaconstruccion">Nueva construcción</option>
                                         <option value="reforma">Reforma</option>
@@ -94,8 +94,8 @@
                                     <label class="custom-file-label" for="customFile">Selecciona tu plano</label>
                                 </div>
                             </form>
-                            <div id="mensajeError">
-                                <span class="mt-3" id="mensajeErrorSpan"></span>
+                            <div class="mt-3" id="mensajeError">
+                                <span class="" id="mensajeErrorSpan"></span>
                             </div>
                             <hr>
 
