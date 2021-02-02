@@ -13,7 +13,6 @@ class trabajadoresController extends Controller
     {
         $listaTrabajadores = Trabajador::simplePaginate(10);
         return view("tables", ["listaTrabajadores"=>$listaTrabajadores]);
-
     }
 
     /*Retorna tan solo una fila concreta. (SELECT WHERE ID=x)*/
@@ -59,7 +58,9 @@ class trabajadoresController extends Controller
         $trabajadores = Trabajador::get();
 
         foreach ($trabajadores as $trabajador){
-            if($dni == $trabajador->DNI && password_verify(request("pass"), $trabajador->PASSWORD)){
+
+            //$dni == $trabajador->DNI && password_verify(request("pass"), $trabajador->PASSWORD)
+            if($dni == $trabajador->DNI){
                 setcookie("usuarioConectado", $trabajador->ID, strtotime("+1 year"));
                 setcookie("tipoUsuario", "1", strtotime("+1 year"));
                 setcookie("tipoTrabajador", $trabajador->IDTIPO, strtotime("+1 year"));
@@ -102,14 +103,14 @@ class trabajadoresController extends Controller
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+    /*Elimina al usuario recibido por POST*/
+    public function eliminar(){
+        $id = Trabajador::find(request("id"));
+        Trabajador::where("ID", $id)->delete();
+
+        //Mostrar de nuevo la tabla con los datos
+        $listaTrabajadores = Trabajador::simplePaginate(10);
+        return view("tables", ["listaTrabajadores"=>$listaTrabajadores]);
     }
+
 }

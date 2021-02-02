@@ -4,7 +4,7 @@
 
     @if ($_COOKIE["tipoUsuario"] === "0")
         <script>
-            document.location.href="{!! route('paginaPrincipal'); !!}";
+            document.location.href="{!! route('inicio'); !!}";
         </script>
     @else
         @if ($_COOKIE["tipoTrabajador"] === "11")
@@ -29,7 +29,7 @@
                     <li class="nav-item" role="presentation">
                         <a class="nav-link" id="contacto-tab" data-bs-toggle="tab" href="#contacto" role="tab" aria-controls="contacto" aria-selected="false">Solicitante</a>
                     </li>
-                    @if(Cookie::get('tipoTrabajador') == "1")
+                    @if($_COOKIE['tipoTrabajador'] == "1")
                     <li class="nav-item" role="presentation">
                         <a class="nav-link" id="tecnico-tab" data-bs-toggle="tab" href="#tecnico" role="tab" aria-controls="tecnico" aria-selected="false">Técnico</a>
                     </li>
@@ -78,7 +78,7 @@
                                         <input type="date" class="form-control" id="ffobra" name="fechaFin" value="{{$obra -> FECHAFIN ?? ""}}">
 
                                     </div>
-                                    @if(Cookie::get('tipoTrabajador') == "1")
+                                    @if($_COOKIE['tipoTrabajador'] == "1")
                                     <button class="btn btn-primary  col-1" type="submit"><i class="fas fa-check"></i></button>
                                     @endif
                                 </div>
@@ -106,9 +106,7 @@
                                         </select>
                                     </div>
                                     <input type="hidden" class="form-control" name="id2" value="{{$obra -> ID}}">
-                                    @if(Cookie::get('tipoTrabajador') == "1")
                                     <button class="btn btn-primary col-1" type="submit"><i class="fas fa-check"></i></button>
-                                    @endif
                                 </div>
                             </form>
 

@@ -105,6 +105,6 @@ class registroObraController extends Controller
             ]
         );
         $obra->save();
-        return view("index");
+        return view("bienvenido");
     }
 }
