@@ -56,8 +56,7 @@
                                                id="exampleInputPassword" placeholder="Contraseña"
                                                name="pass">
                                     </div>
-
-                                    <a id="botonIniciarSesion" class="btn btn-primary btn-user btn-block">
+                                    <a class="btn btn-primary btn-user btn-block" onclick="document.getElementById('formulario').submit()">
 
                                         INICIAR SESIÓN
                                     </a>

@@ -6,7 +6,7 @@
         @endif
     @else
         <script>
-            document.location.href="{!! route('index'); !!}";
+            document.location.href="{!! route('paginaPrincipal'); !!}";
         </script>
     @endif
 
