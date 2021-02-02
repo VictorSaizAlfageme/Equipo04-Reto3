@@ -104,7 +104,7 @@
                                     <textarea style="resize: none" class="form-control comentario" id="comentario" rows="3" name="comentario"></textarea>
                                 <div class="espacio"></div>
                                 <div class="custom-file form-control">
-                                    <input type="file" class="custom-file-input" id="customFile" name="plano">
+                                    <input type="file" class="custom-file-input" id="customFile" name="plano" value="{{$comentario -> plano}}">
                                     <label class="custom-file-label" for="customFile">Selecciona tu plano</label>
                                 </div>
                                 <div class="espacio"></div>
