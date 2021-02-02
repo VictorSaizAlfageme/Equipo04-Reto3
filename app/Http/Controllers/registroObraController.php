@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 
 class registroObraController extends Controller
 {
-    function registrarObra(){
+    function registrarObra(Request $request){
 
 
         //CREAMOS UNA UBICACION
@@ -85,9 +85,9 @@ class registroObraController extends Controller
         }
 
         $plano = request("plano");
-        $nombre = $idObra;
-        $plano->storeAs('public',$nombre . "." . $plano->extension());
-        $url = $nombre . "." . $plano->extension();
+        $archivo = $request->file("plano");
+        $nombreHash = $request->file("plano")->hashName();
+        $archivo->move('img/planos/' , $nombreHash);
 
         //Tratar los dates.
         $obra  = new Obra(
@@ -95,7 +95,7 @@ class registroObraController extends Controller
                 "FECHAINI" => request(""),
                 "FECHAFIN" => request(""),
                 "DESCRIPCION" => request("descripcion"),
-                "PLANO" => $url,
+                "PLANO" => "/img/planos/" . $nombreHash,
                 "IDESTADO" => $idEstado,
                 "IDEDIFICIO" => $idTipoedificio,
                 "IDOBRA" => $idObra,
@@ -105,6 +105,6 @@ class registroObraController extends Controller
             ]
         );
         $obra->save();
-        return view("index");
+        return view("bienvenido");
     }
 }

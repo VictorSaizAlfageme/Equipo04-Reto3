@@ -9,6 +9,6 @@ class TipoEdificio extends Model
 {
     public $timestamps = false;
 
-    protected $table = "TIPOOBRA";
+    protected $table = "TIPOEDIFICIO";
     protected $fillable = ["ID", "NOMBRE"];
 }

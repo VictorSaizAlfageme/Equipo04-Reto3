@@ -4,7 +4,7 @@
         @extends('layoutCoordinadores')
     @else
         <script>
-            document.location.href="{!! route('paginaPrincipal'); !!}";
+            document.location.href="{!! route('inicio'); !!}";
         </script>
     @endif
 
@@ -18,7 +18,7 @@
                     <th class="hidden">Apellidos</th>
                     <th class="hidden">Email</th>
                     <th class="hidden">Telefono</th>
-                    <th>Mas detalles</th>
+                    <th>Más detalles</th>
                     <th></th>
                 </tr>
                 </thead>
@@ -36,7 +36,7 @@
                                 <form method="POST" action="{{route("datosSolicitante")}}" id="formMasInformacion">
                                     @csrf
                                     <input name="id" type="hidden" value="{{$solicitante["ID"]}}">
-                                    <td colspan="1"><input type="submit" value="Mas detalles" class="btn btn-primary"></td>
+                                    <td colspan="1"><input type="submit" value="Más detalles" class="btn btn-primary"></td>
                                 </form>
                                 <form method="POST" action="{{route("borrarSolicitante")}}" id="formularioBorrar">
                                     @csrf
