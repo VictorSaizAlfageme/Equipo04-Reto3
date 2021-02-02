@@ -122,15 +122,16 @@
                             </div>
 
                             <form class="comentario" enctype="multipart/form-data" method="POST" id="formulario" action="{{route("agregarComentario")}}">
-                                {{ csrf_field() }}
+                                @csrf
 
                                     <h3 class="form-label">Comentario sobre la obra</h3>
                                     <textarea style="resize: none" class="form-control comentario" id="comentario" rows="3" name="comentario"></textarea>
-
-                                <div class="mb-3 mt-4">
-                                        <h3 class="form-label">Introducir foto</h3>
-                                        <input class="form-control form-control-sm" id="customFile" type="file" name="file">
+                                <div class="espacio"></div>
+                                <div class="custom-file form-control">
+                                    <input type="file" class="custom-file-input" id="customFile" name="plano">
+                                    <label class="custom-file-label" for="customFile">Selecciona tu plano</label>
                                 </div>
+                                <div class="espacio"></div>
                                 <input type="hidden" class="form-control"  name="id3" value="{{$obra -> ID}}">
                                 <div id="mensajeError2">
                                     <span class="mt-3" id="mensajeErrorSpan2"></span>
