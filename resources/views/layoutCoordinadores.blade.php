@@ -57,7 +57,7 @@
 
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link" href="{{route('registroTrabajadores')}}">
+                <a class="nav-link" href="{{route('cargarEstadisticas')}}">
                     <i class="fas fa-fw fa-chart-bar"></i>
                     <span>Estadísticas</span>
                 </a>
@@ -79,10 +79,18 @@
                     <span>Técnicos</span></a>
             </li>
 
+            <!-- Nav Item - Charts -->
+            <li class="nav-item">
+                <a class="nav-link" href="{{route('listadoSolicitantes')}}">
+                    <i class="fas fa-fw fa-user-friends"></i>
+                    <span>Clientes</span></a>
+            </li>
+
+
             <!-- Nav Item - Tables -->
             <li class="nav-item">
                 <a class="nav-link" href="{{route('listadoObras')}}">
-                    <i class="fas fa-fw fa-user-shield"></i>
+                    <i class="fas fa-fw fa-hard-hat"></i>
                     <span>Obras</span></a>
             </li>
 

@@ -11,8 +11,9 @@ class solicitantesController extends Controller
     /*Retorna todas las filas de la tabla. (SELECT * FROM)*/
     public function listarTodos()
     {
-        $lista = Solicitante::get();
-        return view("listar", compact("lista"));
+        $listaSolicitantes = Solicitante::simplePaginate(10);
+        return view("tablesSolicitantes", ["listaSolicitantes"=>$listaSolicitantes]);
+
     }
 
     /*Retorna tan solo una fila concreta. (SELECT WHERE ID=x)*/
@@ -20,6 +21,15 @@ class solicitantesController extends Controller
     {
         return $solicitantes = Solicitante::find($id);
     }
+    public function datosSolicitante()
+    {
+        $solicitante = Solicitante::find(request("id"));
+
+        return view('datosPerfilSolicitante', [
+            'solicitante' => $solicitante
+        ]);
+    }
+
 
     /*Verifica los credenciales de inicio de sesión.*/
     public function iniciarSesion(){
@@ -87,7 +97,8 @@ class solicitantesController extends Controller
         Solicitante::where("ID", request("id"))->delete();
 
         //Mostrar de nuevo la tabla con los datos
-        $lista = Solicitante::get();
-        return view("listar", compact("lista"));
+        $listaSolicitantes = Solicitante::simplePaginate(10);
+        return view("tablesSolicitantes", ["listaSolicitantes"=>$listaSolicitantes]);
+
     }
 }
