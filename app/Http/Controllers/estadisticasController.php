@@ -54,6 +54,7 @@ class estadisticasController extends Controller
 
             $d = date_parse_from_format("Y-m-d", $obra->FECHAINI);
 
+
             switch ($d["month"]){
                 case 1:
                     $ene ++;
