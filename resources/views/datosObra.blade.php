@@ -78,9 +78,8 @@
                                         <input type="date" class="form-control" id="ffobra" name="fechaFin" value="{{$obra -> FECHAFIN ?? ""}}">
 
                                     </div>
-                                    @if($_COOKIE['tipoTrabajador'] == "1")
                                     <button class="btn btn-primary  col-1" type="submit"><i class="fas fa-check"></i></button>
-                                    @endif
+
                                 </div>
                             </form>
                             <div class="form-group row">
