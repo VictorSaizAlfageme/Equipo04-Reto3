@@ -39,10 +39,13 @@ class solicitantesController extends Controller
 
         return var_dump(password_verify("12345Abcde", $solicitante->PASSWORD));
 
+
         if(empty($solicitante)){
             return redirect()->route('inicioSesion');
         }else{
             if(password_verify(request("pass"), $solicitante->PASSWORD)){
+
+
 
                 setcookie("usuarioConectado", $solicitante->ID, strtotime("+1 year"));
                 setcookie("tipoUsuario", "0", strtotime("+1 year"));
