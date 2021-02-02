@@ -354,6 +354,18 @@ input[type=file].hidden{
     width: 100%;
 }
 
+footer-fijado{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: inherit;
+    text-align: center;
+    background-color: white;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    
+}
+
 .circulo {
     display: flex;
     justify-content: center;
