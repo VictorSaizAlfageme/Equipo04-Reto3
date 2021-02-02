@@ -11428,9 +11428,10 @@ input[type=file].hidden {
 }
 
 .footer-fijado {
-  position: fixed;
-  bottom: 0;
-  width: 80%;
+    position: fixed;
+    bottom: 0;
+    width: 80%;
+}
 
 .mas-info {
   text-align: end;
