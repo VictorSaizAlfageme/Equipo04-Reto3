@@ -10927,6 +10927,7 @@ form.user .btn-user {
   }
   100% {
     clip: rect(1px, 9999px, 8px, 0);
+
   }
 }
 .error:after {
@@ -11005,6 +11006,7 @@ form.user .btn-user {
   }
   100% {
     clip: rect(22px, 9999px, 14px, 0);
+
   }
 }
 .error:before {
@@ -11438,6 +11440,17 @@ input[type=file].hidden {
 
 #provincias {
   width: 100%;
+}
+
+footer-fijado {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: inherit;
+  text-align: center;
+  background-color: white;
+  padding-top: 25px;
+  padding-bottom: 25px;
 }
 
 .circulo {
