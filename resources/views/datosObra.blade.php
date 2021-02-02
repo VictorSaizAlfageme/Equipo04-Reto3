@@ -90,9 +90,11 @@
                                 </div>
                             </div>
 
+                            <div class="form-group row">
+                                <label for="descargarPlano" class="col-4 col-md-6">Plano de la obra</label>
+                                <a class="btn btn-primary col-3 offset-1" href="{{asset($obra->PLANO)}}" download>Descargar plano</a>
+                            </div>
 
-                            <label for="descargarPlano" class="col-4 col-md-6">Plano de la obra</label>
-                            <a class="btn btn-primary col-4" href="{{asset($obra->PLANO)}}" download>Descargar plano</a>
                             <form class="fecha" method="POST" action="{{route("cambiarEstado")}}">
                                 @csrf
                                 <div class="form-group row">
@@ -126,17 +128,16 @@
 
                                     <h3 class="form-label">Comentario sobre la obra</h3>
                                     <textarea style="resize: none" class="form-control comentario" id="comentario" rows="3" name="comentario"></textarea>
-                                <div class="espacio"></div>
-                                <div class="custom-file form-control">
+                                <div class="custom-file form-control mt-3">
                                     <input type="file" class="custom-file-input" id="customFile" name="plano">
                                     <label class="custom-file-label" for="customFile">Selecciona tu plano</label>
                                 </div>
-                                <div class="espacio"></div>
+
                                 <input type="hidden" class="form-control"  name="id3" value="{{$obra -> ID}}">
-                                <div id="mensajeError2">
-                                    <span class="mt-3" id="mensajeErrorSpan2"></span>
+                                <div class="mt-3" id="mensajeError2">
+                                    <span  id="mensajeErrorSpan2"></span>
                                 </div>
-                                <a class="btn btn-primary d-flex justify-content-center mb-4" id="botonAnadirComentario">Añadir comentario</a>
+                                <a class="btn btn-primary d-flex justify-content-center mb-4 mt-3" id="botonAnadirComentario">Añadir comentario</a>
 
                             </form>
                         </div>
