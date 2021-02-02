@@ -54,6 +54,9 @@ Route::post("/login", "solicitantesController@iniciarSesion")->name("solicitante
 Route::view("/registro", "register")->name("solicitanteRegistro");
 Route::post("/registrando", "solicitantesController@insertar")->name("solicitanteRegistrar");
 Route::view("/solicitarContrasena", "iCambiarContrasena")->name("solicitarContrasena");
+Route::get("/listadoSolicitantes", "solicitantesController@listarTodos")->name('listadoSolicitantes');
+Route::post("/datosSolicitante", "solicitantesController@datosSolicitante")->name("datosSolicitante");
+Route::post("/borrarSolicitante", "solicitantesController@eliminar")->name("borrarSolicitante");
 
 //Obras
 Route::view("/obra", "obra")->name('obra');

@@ -4,7 +4,7 @@
 
     @if ($_COOKIE["tipoUsuario"] === "0")
         <script>
-            document.location.href="{!! route('index'); !!}";
+            document.location.href="{!! route('paginaPrincipal'); !!}";
         </script>
     @else
         @if ($_COOKIE["tipoTrabajador"] === "11")
@@ -12,7 +12,7 @@
             @endphp
         @else
 
-            @php $plantilla =  'layoutCoordinador'
+            @php $plantilla =  'layoutCoordinadores'
             @endphp
         @endif
     @endif
