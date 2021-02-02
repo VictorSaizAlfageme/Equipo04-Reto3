@@ -143,32 +143,60 @@ class obraController extends Controller
 
 
 
-    public function agregarComentario(){
+    public function agregarComentario(Request $request){
 
         date_default_timezone_set ('Europe/Madrid');
         $now = new DateTime();
 
 
+
+
         $id = request("id3");
-        $plano = request('plano');
-        $nombre = $id;
-        $plano->storeAs('public'. $nombre . "." . $plano->extension());
-        $url = $nombre . "." . $plano->extension();
+        $plano = $request->file("plano");
+        $nombreHash = $request->file("plano")->hashName();
+        $plano->move('img/planos/' , $nombreHash);
 
         $comentario  = new Comentario(
             [
                 "FECHA" => $now,
                 "TEXTO" => request("comentario"),
-                "MULTIMEDIA" => $url,
+                "MULTIMEDIA" => "/img/planos/" . $nombreHash,
                 "IDOBRA" => $id
             ]
         );
 
 
-
         $comentario->save();
 
-        return redirect()->back();
+
+
+
+        $obra = Obra::find(request("id3"));
+        $ubicacion = Ubicacion::find($obra->IDUBICACION);
+        $solicitante = Solicitante::find($obra->IDSOLICITANTE);
+        $tipoObra = TipoObra::find($obra->IDOBRA);
+        $tipoEdificio = TipoEdificio::find($obra->IDEDIFICIO);
+        $listaEstados = Estado::get();
+        $estadoObra = Estado::find($obra->IDESTADO);
+        $comentarios = Comentario::get()->where('IDOBRA', $obra->ID);
+        $listaTecnicos = Trabajador::get()->where('IDTIPO', 11);
+        $tecnicoAsignado = Trabajador::find($obra->IDTRABAJADOR);
+
+
+
+
+        return view('datosObra', [
+            'obra' => $obra,
+            'ubicacion' => $ubicacion,
+            'solicitante' => $solicitante,
+            'tipoObra' => $tipoObra,
+            'tipoEdificio' => $tipoEdificio,
+            'listaEstados' => $listaEstados,
+            'estadoObra' => $estadoObra,
+            'comentarios' => $comentarios,
+            'listaTecnicos' => $listaTecnicos,
+            'tecnicoAsignado' => $tecnicoAsignado
+        ]);
 
     }
 
