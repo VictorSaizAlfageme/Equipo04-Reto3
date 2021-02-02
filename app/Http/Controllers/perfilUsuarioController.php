@@ -91,7 +91,7 @@ class perfilUsuarioController extends Controller
         foreach ($solicitantes as $usuario){
             if($email == $usuario->EMAIL ){
                 $usuario = DB::table("Solicitantes")->where('ID', $usuario->ID)->update([
-                    "PASSWORD" => $pass,
+                    "PASSWORD" => $encriptada,
                 ]);
 
                 $subject = "Recuperación de contraseña";
