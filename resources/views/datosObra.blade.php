@@ -91,6 +91,8 @@
                             </div>
 
 
+                            <label for="descargarPlano" class="col-4 col-md-6">Plano de la obra</label>
+                            <a class="btn btn-primary col-4" href="{{asset($obra->PLANO)}}" download>Descargar plano</a>
                             <form class="fecha" method="POST" action="{{route("cambiarEstado")}}">
                                 @csrf
                                 <div class="form-group row">
