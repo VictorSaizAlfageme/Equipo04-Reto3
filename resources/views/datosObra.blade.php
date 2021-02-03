@@ -43,20 +43,20 @@
                     <div class="tab-pane fade show active" id="comentarios" role="tabpanel" aria-labelledby="comentarios-tab">
                         <div class="row">
                             <div class="form-group row">
-                                <label for="nobra" class="col-6">Nº Obra</label>
-                                <div class="col-6">
+                                <label for="nobra" class="col-4">Nº Obra</label>
+                                <div class="col-8">
                                     <input type="text" class="form-control" value="{{$obra -> ID}}" id="nobra" disabled>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="tobra" class="col-6">Tipo de obra</label>
-                                <div class="col-6">
+                                <label for="tobra" class="col-4">Tipo de obra</label>
+                                <div class="col-8">
                                     <input type="text" class="form-control" value="{{$tipoObra -> NOMBRE}}" id="tobra" disabled>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="tedificio" class="col-6">Tipo de edificio</label>
-                                <div class="col-6">
+                                <label for="tedificio" class="col-4">Tipo de edificio</label>
+                                <div class="col-8">
                                     <input type="text" class="form-control" value="{{$tipoEdificio -> NOMBRE}}" id="tedificio" disabled>
                                 </div>
                             </div>
@@ -64,8 +64,8 @@
                             <form class="fecha" method="POST" action="{{route("cambiarFecha")}}">
                                 @csrf
                                 <div class="form-group row">
-                                    <label for="tobra" class="col-4 col-md-6">Fecha inicio</label>
-                                    <div class="col-6 col-md-4">
+                                    <label for="tobra" class="col-3 col-md-6">Fecha inicio</label>
+                                    <div class="col-7 col-md-4">
                                         <input type="date" class="form-control" id="fiobra" name="fechaIni" value="{{$obra -> FECHAINI}}">
 
                                     </div>
@@ -73,12 +73,12 @@
                                 <input type="hidden" class="form-control" name="id" value="{{$obra -> ID}}">
                                 <div class="form-group row">
 
-                                    <label for="tobra" class="col-4 col-md-6">Fecha fin</label>
-                                    <div class="col-6 col-md-4">
+                                    <label for="tobra" class="col-3 col-md-6">Fecha fin</label>
+                                    <div class="col-7 col-md-4">
                                         <input type="date" class="form-control" id="ffobra" name="fechaFin" value="{{$obra -> FECHAFIN ?? ""}}">
 
                                     </div>
-                                    <button class="btn btn-primary  col-1" type="submit"><i class="fas fa-check"></i></button>
+                                    <button class="btn btn-primary  col-2 col-md-1" type="submit"><i class="fas fa-check"></i></button>
 
                                 </div>
                             </form>
@@ -91,14 +91,14 @@
 
                             <div class="form-group row">
                                 <label for="descargarPlano" class="col-4 col-md-6">Plano de la obra</label>
-                                <a class="btn btn-primary col-3 offset-1" href="{{asset($obra->PLANO)}}" download>Descargar plano</a>
+                                <a class="btn btn-primary col-5  col-md-3 offset-1" href="{{asset($obra->PLANO)}}" download>Descargar plano</a>
                             </div>
 
                             <form class="fecha" method="POST" action="{{route("cambiarEstado")}}">
                                 @csrf
                                 <div class="form-group row">
-                                    <label for="estadoObra" class="col-4 col-md-6">Estado</label>
-                                    <div class="col-6 col-md-4">
+                                    <label for="estadoObra" class="col-3 col-md-6">Estado</label>
+                                    <div class="col-7 col-md-4">
                                         <select style="width: 100%;" name="estadoObra" class="form-control form-select form-estado" id="estadoObra">
                                             <option value="{{$estadoObra -> ID}}">{{$estadoObra -> NOMBRE}}</option>
                                             @foreach($listaEstados as $estado)
@@ -109,7 +109,7 @@
                                         </select>
                                     </div>
                                     <input type="hidden" class="form-control" name="id2" value="{{$obra -> ID}}">
-                                    <button class="btn btn-primary col-1" type="submit"><i class="fas fa-check"></i></button>
+                                    <button class="btn btn-primary col-2 col-md-1" type="submit"><i class="fas fa-check"></i></button>
                                 </div>
                             </form>
 
@@ -118,7 +118,10 @@
                                     @foreach($comentarios as $comentario)
                                         <small class="d-flex justify-content-end">{{$comentario->FECHA}}</small>
                                         <input style="color: black" class="form-control" type="text" value="{{$comentario->TEXTO}}" aria-label="readonly input example" readonly> <br>
-                                        <img class="img-fluid d-flex justify-content-center" src="{{$comentario->MULTIMEDIA}}">
+                                        <div class="d-flex justify-content-center">
+                                            <img class="img-fluid " src="{{$comentario->MULTIMEDIA}}">
+                                        </div>
+
                                     @endforeach
                             </div>
 
