@@ -1,15 +1,13 @@
-@extends('layoutSolicitante')
-
 @section('content')
-    @if(Cookie::get('tipoUsuario') == "0")
-        <h1>Solicitante</h1>
+
+    @if ($_COOKIE["tipoTrabajador"] === "1")
+        @extends('layoutCoordinadores')
     @else
-        @if(Cookie::get('tipoTrabajador') == "11")
-            <h1 class="d-flex justify-content-center">Tecnico</h1>
-        @else
-            <h1 class="d-flex justify-content-center">Coordinador</h1>
-        @endif
+        <script>
+            document.location.href="{!! route('inicio'); !!}";
+        </script>
     @endif
+
 <div class="container">
     <div class="row">
         <div class="col-md-12 offsset-md-2">
@@ -22,9 +20,6 @@
                 <br>
                 <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                     <div class="row">
-                        <!--<div class="col-4">
-                            <img class="img-thumbnail" src="img/undraw_profile.svg" alt="">
-                        </div>-->
                         <div class="col-12">
                             <div class="form-group row">
                                 <label for="dniMostrar" class="col-4"> DNI:</label>
@@ -64,15 +59,6 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-
-                </div>
-                <div class="tab-pane fade" id="epass" role="tabpanel" aria-labelledby="epass-tab">
-                    <div class="col-md-7 offset-md-3">
-                        <h3 class="text-center">Cambio de Clave</h3>
-                        <br>
                     </div>
                 </div>
             </div>

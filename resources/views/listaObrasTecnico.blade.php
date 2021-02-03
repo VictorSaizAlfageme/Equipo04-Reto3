@@ -1,5 +1,15 @@
-@extends('layoutCoordinadores')
 @section('content')
+
+    @if ($_COOKIE["tipoUsuario"] === "1")
+        @if ($_COOKIE["tipoTrabajador"] === "11")
+            @extends('layoutTecnicos')
+        @endif
+    @else
+        <script>
+            document.location.href="{!! route('inicio'); !!}";
+        </script>
+    @endif
+
     <h3 id="titulo-3">OBRAS ASIGNADAS</h3>
     <div class="container">
         <div class="row">
@@ -8,7 +18,6 @@
                 <table class="table">
                     <thead>
                     <tr class="tr">
-                        <th class="hidden">Nº</th>
                         <th class="hidden">COD. OBRA</th>
                         <th>TIPO DE OBRA</th>
                         <th>ESTADO</th>
@@ -19,12 +28,10 @@
                     </thead>
                     <tbody class="table-body">
 
-
-                    @foreach($listaObras as $obra)
+                    @foreach($listaTecnicos as $obra)
 
                         <!--TUPLAS-->
                         <tr class="cell-1 tr" data-toggle="collapse" data-target="#id{{$obra->ID}}">
-                            <td class="text-center hidden">1</td>
 
                             <td class="hidden"><b>{{ $obra->ID }}</b></td>
 
@@ -88,7 +95,7 @@
                                     <td class="hidden" colspan="3"><b>C/ {{$ubi->CALLE}}</b></td>
                                 @endif
                             @endforeach
-                                <td colspan="1" class="hidden"></td>
+                            <td colspan="1" class="hidden"></td>
                             <form method="POST" action="{{route("datosObra")}}" id="formMasInformacion">
                                 @csrf
                                 <input type="hidden" name="id" value="{{$obra->ID}}">
@@ -96,26 +103,19 @@
                             </form>
                         </tr>
 
-                    @endforeach
 
+
+                    @endforeach
 
                     </tbody>
                 </table>
             </div>
+
+            <spans>
+                {{$listaTecnicos->links()}}
+            </spans>
         </div>
     </div>
 
-
-    <style>
-        /**¡NO MOVER A STYLE SIN CAMBIAR LOS SELECTORES! -Eric **/
-        a{
-            color: white;
-        }
-        a:hover{
-            text-decoration: none;
-            color: white;
-        }
-
-    </style>
 
 @endsection

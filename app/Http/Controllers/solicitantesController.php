@@ -11,8 +11,9 @@ class solicitantesController extends Controller
     /*Retorna todas las filas de la tabla. (SELECT * FROM)*/
     public function listarTodos()
     {
-        $lista = Solicitante::get();
-        return view("listar", compact("lista"));
+        $listaSolicitantes = Solicitante::simplePaginate(10);
+        return view("tablesSolicitantes", ["listaSolicitantes"=>$listaSolicitantes]);
+
     }
 
     /*Retorna tan solo una fila concreta. (SELECT WHERE ID=x)*/
@@ -20,25 +21,48 @@ class solicitantesController extends Controller
     {
         return $solicitantes = Solicitante::find($id);
     }
+    public function datosSolicitante()
+    {
+        $solicitante = Solicitante::find(request("id"));
+
+        return view('datosPerfilSolicitante', [
+            'solicitante' => $solicitante
+        ]);
+    }
+
 
     /*Verifica los credenciales de inicio de sesión.*/
     public function iniciarSesion(){
 
         $dni = request("dni");
-        $solicitantes = Solicitante::get();
+        $solicitante = Solicitante::get()->where("DNI", $dni)->first();
 
-        foreach ($solicitantes as $solicitante){
+        if(empty($solicitante)){
+            return back()->with('error', 'Dni y/o contraseña de cuenta incorrectos');
+        }else{
+            if(password_verify(request("pass"), $solicitante->PASSWORD)){
 
-            if($dni == $solicitante->DNI && password_verify(request("pass"), $solicitante->PASSWORD)){
                 setcookie("usuarioConectado", $solicitante->ID, strtotime("+1 year"));
                 setcookie("tipoUsuario", "0", strtotime("+1 year"));
                 setcookie("nombreUsuario", $solicitante->NOMBRE, strtotime("+1 year"));
 
                 return redirect()->route('inicio');
+            }else{
+                $lista = Solicitante::get();
+                foreach ($lista as $elemento){
+                    if($elemento->DNI == request("dni")){
+                        return back()->with('error', 'Dni y/o contraseña de cuenta incorrectos');
+                    }
+                    if($elemento->PASS == request("pass")){
+                        return back()->with('error', 'Dni y/o contraseña de cuenta incorrectos');
+                    }
+                }
+
+                return redirect()->route('inicioSesion');
             }
         }
 
-        return redirect()->route('inicioSesion');
+
     }
 
     /*Inserta un elemento en la tabla. (Los atributos se envían mediante POST)*/
@@ -47,7 +71,6 @@ class solicitantesController extends Controller
 
         //ENCRIPTACIÓN
         $encriptada = password_hash(request("pass"), PASSWORD_DEFAULT);
-
 
         $solicitante  = new Solicitante(
             [
@@ -84,10 +107,12 @@ class solicitantesController extends Controller
 
     /*Elimina al usuario recibido por POST*/
     public function eliminar(){
-        Solicitante::where("ID", request("id"))->delete();
+        $solicitante = Solicitante::find(request("id"));
+        Solicitante::delete()->where("ID", $solicitante->ID);
 
         //Mostrar de nuevo la tabla con los datos
-        $lista = Solicitante::get();
-        return view("listar", compact("lista"));
+        $listaSolicitantes = Solicitante::simplePaginate(10);
+        return view("tablesSolicitantes", ["listaSolicitantes"=>$listaSolicitantes]);
+
     }
 }

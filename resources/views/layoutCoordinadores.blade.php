@@ -46,7 +46,7 @@
             <!-- Divider -->
             <hr class="sidebar-divider">
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" href="{{route('inicio')}}">
                     <i class="fas fa-fw fa-home"></i>
                     <span>Inicio</span></a>
@@ -55,28 +55,12 @@
             <!-- Divider -->
             <hr class="sidebar-divider">
 
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                ESTADÍSTICAS
-            </div>
-
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-                   aria-expanded="true" aria-controls="collapseUtilities">
-                    <i class="fas fa-fw fa-chart-area"></i>
+                <a class="nav-link" href="{{route('cargarEstadisticas')}}">
+                    <i class="fas fa-fw fa-chart-bar"></i>
                     <span>Estadísticas</span>
                 </a>
-                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
-                     data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Ordenadas:</h6>
-                        <a class="collapse-item" href="{{route('paginaPrincipal')}}">Semanalmente</a>
-                        <a class="collapse-item" href="{{route('paginaPrincipal')}}">Mensualmente</a>
-                        <a class="collapse-item" href="{{route('paginaPrincipal')}}">Anualmente</a>
-                        <a class="collapse-item" href="{{route('paginaPrincipal')}}">Historicamente</a>
-                    </div>
-                </div>
             </li>
 
             <!-- Divider -->
@@ -84,21 +68,29 @@
 
             <li class="nav-item">
                 <a class="nav-link" href="{{route('registroTrabajadores')}}">
-                    <i class="fas fa-fw fa-bell"></i>
-                    <span>Trabajadores</span>
+                    <i class="fas fa-fw fa-user"></i>
+                    <span>Añadir trabajador</span>
                 </a>
             </li>
             <!-- Nav Item - Charts -->
             <li class="nav-item">
-                <a class="nav-link" href="../resources/views/charts.blade.php">
+                <a class="nav-link" href="{{route('listadoTrabajadores')}}">
                     <i class="fas fa-fw fa-tools"></i>
                     <span>Técnicos</span></a>
             </li>
 
+            <!-- Nav Item - Charts -->
+            <li class="nav-item">
+                <a class="nav-link" href="{{route('listadoSolicitantes')}}">
+                    <i class="fas fa-fw fa-user-friends"></i>
+                    <span>Clientes</span></a>
+            </li>
+
+
             <!-- Nav Item - Tables -->
             <li class="nav-item">
                 <a class="nav-link" href="{{route('listadoObras')}}">
-                    <i class="fas fa-fw fa-user-shield"></i>
+                    <i class="fas fa-fw fa-hard-hat"></i>
                     <span>Obras</span></a>
             </li>
 
@@ -122,54 +114,17 @@
             <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
                 <!-- Sidebar Toggle (Topbar) -->
-                <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3 menu-desplegable">
                     <i class="fa fa-bars"></i>
                 </button>
 
-                <!-- Topbar Search -->
-                <form
-                    class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                    <div class="input-group">
-                        <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
-                               aria-label="Search" aria-describedby="basic-addon2">
-                        <div class="input-group-append">
-                            <button class="btn btn-primary" type="button">
-                                <i class="fas fa-search fa-sm"></i>
-                            </button>
-                        </div>
-                    </div>
-                </form>
 
                 <!-- Topbar Navbar -->
                 <ul class="navbar-nav ml-auto">
-
-                    <!-- Nav Item - Search Dropdown (Visible Only XS) -->
-                    <li class="nav-item dropdown no-arrow d-sm-none">
-                        <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
-                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="fas fa-search fa-fw"></i>
-                        </a>
-                        <!-- Dropdown - Messages -->
-                        <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
-                             aria-labelledby="searchDropdown">
-                            <form class="form-inline mr-auto w-100 navbar-search">
-                                <div class="input-group">
-                                    <input type="text" class="form-control bg-light border-0 small"
-                                           placeholder="Buscador" aria-label="Search"
-                                           aria-describedby="basic-addon2">
-                                    <div class="input-group-append">
-                                        <button class="btn btn-primary" type="button">
-                                            <i class="fas fa-search fa-sm"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </li>
                     <li class="dark-mode nav-item dropdown">
                         <label class="mb-0" for="darkSwitch"><i class="fas fa-fw fa-sun m-2"></i></label>
                         <div class="custom-control custom-switch">
-                            <input type="checkbox" class="custom-control-input" id="darkSwitch" checked/>
+                            <input type="checkbox" class="custom-control-input" id="darkSwitch"/>
                             <label class="custom-control-label" for="darkSwitch"><i class="fas fa-fw fa-moon"></i></label>
                         </div>
                     </li>
@@ -189,12 +144,12 @@
                         <!-- Dropdown - User Information -->
                         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                              aria-labelledby="userDropdown">
-                            <a class="dropdown-item" href="#">
+                            <a class="dropdown-item" href="{{route('perfilUsuario')}}">
                                 <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                 Perfil
                             </a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="{{route('paginaPrincipal')}}" data-toggle="modal" data-target="#logoutModal">
+                            <a class="dropdown-item" href="{{route('inicio')}}" data-toggle="modal" data-target="#logoutModal">
                                 <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                 Cerrar Sesión
                             </a>
@@ -269,11 +224,15 @@
 <script src="../node_modules/leaflet/src/Leaflet.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/places.js@1.19.0"></script>
 <script src="js/obra.js"></script>
+
+<!-- Make sure you put this AFTER Leaflet's CSS -->
+<script src="js/webComponent.js"></script>
+
 <!-- Estadisticas -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
-<script src="js/chart-area-demo.js"></script>
-<script src="js/chart-bar-demo.js"></script>
-<script src="js/chart-pie-demo.js"></script>
+<script src="js/chart-area-demo.js"></script> <!--La gráfica-->
+<script src="js/chart-pie-demo.js"></script> <!--La rueda-->
+
 
 
 <script src="js/map.js"></script>

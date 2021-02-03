@@ -22,13 +22,45 @@ class obraController extends Controller
     /*Retorna todas las filas de la tabla. (SELECT * FROM)*/
     public function listarTodos()
     {
-        $listaObras = Obra::get();
-        $listaUbicaciones = Ubicacion::get();
 
-        return view('iTecnicos', [
-            'listaObras' => $listaObras,
+        $listaObras = Obra::simplePaginate(10);
+        $listaUbicaciones = Ubicacion::get();
+        return view("listaObras", [
+            "listaObras"=>$listaObras,
             'listaUbicaciones' => $listaUbicaciones
         ]);
+
+
+    }
+
+    public function listarObrasTecnico()
+    {
+
+        $tecnico = Trabajador::get()->where('ID', $_COOKIE['usuarioConectado']);
+        $listaTecnicos = DB::table("obras")->where('IDTRABAJADOR', $tecnico->ID)->simplePaginate(10);
+
+        $listaUbicaciones = Ubicacion::get();
+
+        return view("listaObrasTecnico", [
+            "listaTecnicos"=>$listaTecnicos,
+            'listaUbicaciones' => $listaUbicaciones
+        ]);
+
+    }
+
+
+    public function listarObrasSolicitante()
+    {
+        $solicitante = Solicitante::get()->where('ID', $_COOKIE['usuarioConectado']);
+        $listaSolicitantes = DB::table("obras")->where('IDSOLICITANTE', $solicitante["1"]["ID"])->simplePaginate(10);
+
+        $listaUbicaciones = Ubicacion::get();
+
+        return view("listaObrasSolicitante", [
+            "listaSolicitantes"=>$listaSolicitantes,
+            'listaUbicaciones' => $listaUbicaciones
+        ]);
+
     }
 
     /*Retorna tan solo una fila concreta. (SELECT WHERE ID=x)*/
@@ -143,23 +175,65 @@ class obraController extends Controller
 
 
 
-    public function agregarComentario(){
+    public function agregarComentario(Request $request){
 
         date_default_timezone_set ('Europe/Madrid');
         $now = new DateTime();
+
+
+
+
+        $id = request("id3");
+        $plano = $request->file("plano");
+        if($request->file("plano") != ""){
+            $nombreHash = $request->file("plano")->hashName();
+            $plano->move('img/planos/' , $nombreHash);
+            $ruta = "/img/planos/" . $nombreHash;
+        }
+
+
 
         $comentario  = new Comentario(
             [
                 "FECHA" => $now,
                 "TEXTO" => request("comentario"),
-                "MULTIMEDIA" => request("file"),
-                "IDOBRA" => request("id3")
+                "MULTIMEDIA" => $ruta ?? "",
+                "IDOBRA" => $id
             ]
         );
 
+
         $comentario->save();
 
-        return redirect()->back();
+
+
+
+        $obra = Obra::find(request("id3"));
+        $ubicacion = Ubicacion::find($obra->IDUBICACION);
+        $solicitante = Solicitante::find($obra->IDSOLICITANTE);
+        $tipoObra = TipoObra::find($obra->IDOBRA);
+        $tipoEdificio = TipoEdificio::find($obra->IDEDIFICIO);
+        $listaEstados = Estado::get();
+        $estadoObra = Estado::find($obra->IDESTADO);
+        $comentarios = Comentario::get()->where('IDOBRA', $obra->ID);
+        $listaTecnicos = Trabajador::get()->where('IDTIPO', 11);
+        $tecnicoAsignado = Trabajador::find($obra->IDTRABAJADOR);
+
+
+
+
+        return view('datosObra', [
+            'obra' => $obra,
+            'ubicacion' => $ubicacion,
+            'solicitante' => $solicitante,
+            'tipoObra' => $tipoObra,
+            'tipoEdificio' => $tipoEdificio,
+            'listaEstados' => $listaEstados,
+            'estadoObra' => $estadoObra,
+            'comentarios' => $comentarios,
+            'listaTecnicos' => $listaTecnicos,
+            'tecnicoAsignado' => $tecnicoAsignado
+        ]);
 
     }
 

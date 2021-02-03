@@ -24,7 +24,7 @@
     <div class="card o-hidden border-0 shadow-lg my-5 card-registro">
         <div class="card-body p-0">
             <!-- Nested Row within Card Body -->
-            <div class="row">
+            <div class="row d-flex align-items-center">
                 <div class="col-lg-5 d-none d-lg-block bg-login-image"></div>
                 <div class="col-lg-7">
                     <div class="p-5">
@@ -50,7 +50,7 @@
                             <div class="form-group row">
                                 <div class="col-sm-6 mb-3 mb-sm-0">
                                     <input type="password" class="pass form-control form-control-user"
-                                           id="pass" placeholder="Contraseña" name="password">
+                                           id="pass" placeholder="Contraseña" name="pass">
                                 </div>
                                 <div class="col-sm-6">
                                     <input type="password" class="form-control form-control-user"
@@ -86,8 +86,8 @@
                                 REGISTRATE
                             </a>
                         </form>
-                        <div id="mensajeError">
-                            <span class="mt-3" id="mensajeErrorSpan">{!! session()->get('error') !!}</span>
+                        <div class="mt-3" id="mensajeError">
+                            <span  id="mensajeErrorSpan">{!! session()->get('error') !!}</span>
                         </div>
                         <hr>
                         <div class="text-center">
@@ -110,5 +110,62 @@
 <!-- Custom scripts for all pages-->
 <script src="boostrap/js/sb-admin-2.min.js"></script>
 <script src="js/validaciones.js"></script>
+
+<!--FAKER-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Faker/3.1.0/faker.min.js"></script>
+
+<script> //SCRIPT QUE AUTOCOMPLETA LOS CAMPOS
+    /*
+    $(document).ready(function (){
+        faker.locale = "es";
+        var randomCard = faker.helpers.createCard();
+
+        $("#nombre").val(faker.name.firstName());
+        $("#apellido").val(faker.name.lastName());
+        $("#email").val(faker.internet.email());
+        $("#pass").val("12345Abcde");
+        $("#pass2").val("12345Abcde");
+
+        fecha  = randomDate();
+        var today = fecha.toISOString().split('T')[0];
+        $("#fechaNac").val(today);
+
+        $("#telefono").val(faker.phone.phoneNumber());
+        $("#dni").val(rand_dni());
+
+
+
+    });
+
+    function randomDate() {
+        start = new Date(1950, 1, 1);
+        end = new Date(1995, 12, 31);
+        return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()))
+    }
+
+    //Funciones para generar DNI https://gist.github.com/vitoo/7e5360c66a68a2836f67ff41ac892f4b#file-dni_spain-js-L3
+    function formatNumberLength(num, length) {
+        var r = "" + num;
+        while ( r.length < length ) {
+            r = "0" + r;
+        }
+        return r;
+    }
+
+    function charDNI(dni) {
+        var chain = "TRWAGMYFPDXBNJZSQVHLCKET";
+        var pos = dni % 23;
+        var letter = chain.substring( pos, pos + 1 );
+        return letter;
+    }
+
+    function rand_dni() {
+        num = Math.floor( ( Math.random() * 100000000 ) );
+        sNum = formatNumberLength( num, 8 );
+        return sNum + charDNI( sNum );
+    }
+*/
+</script>
+
 </body>
 </html>

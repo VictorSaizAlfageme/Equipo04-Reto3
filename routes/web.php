@@ -15,7 +15,6 @@ use Illuminate\Support\Facades\Storage;
 |
 */
 
-Route::view("/index", "index")->name('paginaPrincipal');
 Route::view("/register", "register")->name('registro');
 Route::view("/perfil", "perfil")->name('perfil');
 
@@ -25,7 +24,6 @@ Route::view("/iComentariosTecnico", "iComentariosTecnico")->name("icomentarioste
 Route::view("/obrasSolicitante", "obrasSolicitante")->name("obras");
 Route::view("/registroTrabajadores", "registroTrabajadores")->name("registroTrabajadores");
 Route::view("/inicio", "bienvenido")->name("inicio");
-Route::view("/inicioTrabajadores", "bienvenidoTrabajadores")->name("inicioTrabajadores");
 
 /*
  * |================================================================|
@@ -34,7 +32,8 @@ Route::view("/inicioTrabajadores", "bienvenidoTrabajadores")->name("inicioTrabaj
  * */
 
 
-//CONTROLADORES
+//EXTRAS
+Route::get("/estadisticas", "estadisticasController@cargarEstadisticas")->name('cargarEstadisticas');
 Route::post("/usuarioEditar", "perfilUsuarioController@usuarioEditar")->name("usuarioEditar");
 Route::get("/perfil", "perfilUsuarioController@usuarioSelect")->name('perfilUsuario');
 Route::post("/editarContrasena", "perfilUsuarioController@editarContrasena")->name("editarContrasena");
@@ -46,6 +45,7 @@ Route::post("/trabajadorLogin", "trabajadoresController@iniciarSesion")->name("t
 Route::post("/registrarTrabajador", "registroTrabajadoresController@registrarTrabajador")->name("trabajadorRegistrar");
 Route::get("/listadoTrabajadores", "trabajadoresController@listarTodos")->name('listadoTrabajadores');
 Route::post("/datosTrabajador", "trabajadoresController@listarConcreto")->name("datosTrabajador");
+Route::post("/borrarTrabajador", "trabajadoresController@eliminar")->name("borrarTrabajador");
 
 
 //Solicitantes (Usuarios normales)
@@ -54,11 +54,17 @@ Route::post("/login", "solicitantesController@iniciarSesion")->name("solicitante
 Route::view("/registro", "register")->name("solicitanteRegistro");
 Route::post("/registrando", "solicitantesController@insertar")->name("solicitanteRegistrar");
 Route::view("/solicitarContrasena", "iCambiarContrasena")->name("solicitarContrasena");
+Route::get("/listadoSolicitantes", "solicitantesController@listarTodos")->name('listadoSolicitantes');
+Route::post("/datosSolicitante", "solicitantesController@datosSolicitante")->name("datosSolicitante");
+Route::post("/borrarSolicitante", "solicitantesController@eliminar")->name("borrarSolicitante");
 
 //Obras
 Route::view("/obra", "obra")->name('obra');
 Route::post("/registrarObra", "registroObraController@registrarObra")->name("obraRegistrar");
 Route::get("/listadoObras", "obraController@listarTodos")->name('listadoObras');
+Route::get("/listadoObrasTecnico", "obraController@listarObrasTecnico")->name('listadoObrasTecnico');
+Route::get("/listadoObrasSolicitante", "obraController@listarObrasSolicitante")->name('listadoObrasSolicitante');
+
 Route::post("/datosObra", "obraController@listarConcreto")->name("datosObra");
 Route::post("/cambiarFecha", "obraController@cambiarFecha")->name("cambiarFecha");
 Route::get("/cambiarFechaFin", "obraController@cambiarFechaFin")->name("cambiarFechaFin");
@@ -84,3 +90,4 @@ Route::get('/emailtestform', function (){
 });
 Route::post('/contactar', 'App\Http\Controllers\emailTestController@contact')->name('contact');
 Route::get('/ver','App\Http\Controllers\UploadsController@verArchivo')->name('ver');
+

@@ -1,5 +1,13 @@
-@extends('layoutCoordinadores')
+
 @section('content')
+
+    @if ($_COOKIE["tipoTrabajador"] === "1")
+        @extends('layoutCoordinadores')
+    @else
+        <script>
+            document.location.href="{!! route('inicio'); !!}";
+        </script>
+    @endif
 
     <div class="container">
         <div class="card o-hidden border-0 shadow-lg my-5">
@@ -73,7 +81,58 @@
         </div>
     </div>
 
+    <!-- Bootstrap core JavaScript-->
+    <script src="jquery/jquery.min.js"></script>
+    <!--<script src="../vendor/bootstrap/bootstrap.bundle.min.js"></script>-->
+    <!-- Core plugin JavaScript-->
+    <script src="jquery-easing/jquery.easing.min.js"></script>
 
-    <script src="js/validaciones.js"></script>
+    <!--FAKER-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Faker/3.1.0/faker.min.js"></script>
+
+    <script> //SCRIPT QUE AUTOCOMPLETA LOS CAMPOS
+/*
+        $(document).ready(function (){
+            faker.locale = "es";
+            var randomCard = faker.helpers.createCard();
+
+            $("#nombre").val(faker.name.firstName());
+            $("#apellido").val(faker.name.lastName());
+            $("#email").val(faker.internet.email());
+            $("#pass").val("12345Abcde");
+            $("#dni").val(rand_dni());
+            $("#telefono").val(faker.phone.phoneNumber());
+
+        });
+
+        function randomDate() {
+            start = new Date(1950, 1, 1);
+            end = new Date(1995, 12, 31);
+            return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()))
+        }
+
+        //Funciones para generar DNI https://gist.github.com/vitoo/7e5360c66a68a2836f67ff41ac892f4b#file-dni_spain-js-L3
+        function formatNumberLength(num, length) {
+            var r = "" + num;
+            while ( r.length < length ) {
+                r = "0" + r;
+            }
+            return r;
+        }
+
+        function charDNI(dni) {
+            var chain = "TRWAGMYFPDXBNJZSQVHLCKET";
+            var pos = dni % 23;
+            var letter = chain.substring( pos, pos + 1 );
+            return letter;
+        }
+
+        function rand_dni() {
+            num = Math.floor( ( Math.random() * 100000000 ) );
+            sNum = formatNumberLength( num, 8 );
+            return sNum + charDNI( sNum );
+        }
+*/
+    </script>
 
 @endsection

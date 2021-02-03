@@ -47,7 +47,7 @@
                                     @csrf
                                     <div class="form-group">
                                         <input type="text" class="form-control form-control-user"
-                                               id="exampleInputEmail" aria-describedby="emailHelp"
+                                               id="dni" aria-describedby="emailHelp"
                                                name="dni"
                                                placeholder="DNI">
                                     </div>
@@ -57,9 +57,17 @@
                                                name="pass">
                                     </div>
                                     <a class="btn btn-primary btn-user btn-block" onclick="document.getElementById('formulario').submit()">
+
                                         INICIAR SESIÓN
                                     </a>
                                 </form>
+                                <div class="mt-3" id="mensajeError">
+                                    <span  id="mensajeErrorSpan">{!! session()->get('error') !!}</span>
+                                </div>
+                                <hr>
+                                <div class="text-center mt-3">
+                                    <small>¿No eres un trabajador? </small><a class="small" href="{{route("inicioSesion")}}">Haz click aquí.</a>
+                                </div>
 
                             </div>
                         </div>
@@ -74,6 +82,11 @@
 </div>
 
 <!-- Bootstrap core JavaScript-->
+<script src="jquery/jquery.min.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+
+<!-- Bootstrap core JavaScript-->
 <script src="vendor/jquery/jquery.min.js"></script>
 <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
@@ -82,5 +95,6 @@
 
 <!-- Custom scripts for all pages-->
 <script src="boostrap/js/sb-admin-2.min.js"></script>
+<script src="js/loginEnter.js"></script>
 
 </body>

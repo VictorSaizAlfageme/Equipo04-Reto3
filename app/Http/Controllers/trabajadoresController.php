@@ -11,17 +11,8 @@ class trabajadoresController extends Controller
     /*Retorna todas las filas de la tabla. (SELECT * FROM)*/
     public function listarTodos()
     {
-        /*
-        $trabajadores = Trabajador::get();
-
-        return view('tables', [
-            'listaTrabajadores' => $trabajadores
-        ]);
-        */
-
         $listaTrabajadores = Trabajador::simplePaginate(10);
         return view("tables", ["listaTrabajadores"=>$listaTrabajadores]);
-
     }
 
     /*Retorna tan solo una fila concreta. (SELECT WHERE ID=x)*/
@@ -61,30 +52,38 @@ class trabajadoresController extends Controller
     }
 
     public function iniciarSesion(){
-        //FALTA LA ENCRIPTACIÓN
         $dni = request("dni");
+        $trabajador = Trabajador::get()->where("DNI", $dni)->first();
 
-        $trabajadores = Trabajador::get();
 
-        foreach ($trabajadores as $trabajador){
-            if($dni == $trabajador->DNI && password_verify(request("pass"), $trabajador->PASSWORD)){
+        if(empty($trabajador)){
+            return back()->with('error', 'Dni y/o contraseña de cuenta incorrectos');
+        }else{
+            if(password_verify(request("pass"), $trabajador->PASSWORD)){
+
                 setcookie("usuarioConectado", $trabajador->ID, strtotime("+1 year"));
                 setcookie("tipoUsuario", "1", strtotime("+1 year"));
                 setcookie("tipoTrabajador", $trabajador->IDTIPO, strtotime("+1 year"));
                 setcookie("nombreUsuario", $trabajador->NOMBRE, strtotime("+1 year"));
+                return redirect()->route('inicio');
+            }else{
+                $lista = Trabajador::get();
+                foreach ($lista as $elemento){
+                    if($elemento->DNI == request("dni")){
+                        return back()->with('error', 'Dni y/o contraseña de cuenta incorrectos');
+                    }
+                    if($elemento->PASS == request("pass")){
+                        return back()->with('error', 'Dni y/o contraseña de cuenta incorrectos');
+                    }
+                }
 
-                return redirect()->route('inicioTrabajadores');
+                return redirect()->route('inicioSesion');
             }
         }
-
-        return view("loginTrabajadores");
     }
 
-    /*Abre el formulario crear*/
-    public function formCrear()
-    {
-        $this->listarTodos();
-    }
+
+
 
 
     /**
@@ -110,14 +109,14 @@ class trabajadoresController extends Controller
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+    /*Elimina al usuario recibido por POST*/
+    public function eliminar(){
+        $id = Trabajador::find(request("id"));
+        Trabajador::where("ID", $id)->delete();
+
+        //Mostrar de nuevo la tabla con los datos
+        $listaTrabajadores = Trabajador::simplePaginate(10);
+        return view("tables", ["listaTrabajadores"=>$listaTrabajadores]);
     }
+
 }

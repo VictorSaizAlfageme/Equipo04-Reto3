@@ -1,15 +1,21 @@
-@extends('layoutSolicitante')
-
 @section('content')
-    @if(Cookie::get('tipoUsuario') == "0")
-        <h1>Solicitante</h1>
+
+    @if ($_COOKIE["tipoUsuario"] === "0")
+        @php $plantilla =  'layoutSolicitante'
+        @endphp
     @else
-        @if(Cookie::get('tipoTrabajador') == "11")
-            <h1>Tecnico</h1>
+        @if ($_COOKIE["tipoTrabajador"] === "11")
+            @php $plantilla =  'layoutTecnicos'
+            @endphp
         @else
-            <h1>Coordinador</h1>
+
+            @php $plantilla =  'layoutCoordinadores'
+            @endphp
         @endif
     @endif
+
+
+    @extends($plantilla)
 <div class="container">
     <div class="row">
         <div class="col-md-12 offsset-md-2">
@@ -28,9 +34,6 @@
                 <br>
                 <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                     <div class="row">
-                        <!--<div class="col-4">
-                            <img class="img-thumbnail" src="img/undraw_profile.svg" alt="">
-                        </div>-->
                         <div class="col-12">
                             <div class="form-group row">
                                 <label for="dniMostrar" class="col-4"> DNI:</label>
@@ -69,13 +72,6 @@
                     <form class="user" method="POST" id="formulario" action="{{route("usuarioEditar")}}">
                         @csrf
                         <div class="row">
-                        <!--<div class="col-4">
-                            <img class="img-thumbnail" src="img/undraw_profile.svg" alt="">
-                            <div>
-                                <br>
-                                <input class="form-control-sm hidden" id="newImage" type="file"/>
-                            </div>
-                        </div>-->
                         <div class="col-12">
                             <div class="form-group row">
                                 <label for="nombre" class="col-4"> Nombre:</label>
