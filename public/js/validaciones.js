@@ -155,7 +155,7 @@ function validarDatosTrabajador() {
     validarNombre();
     validarApellido();
     validarEmail();
-    validarPass();
+    //validarPass();
     validarDNI();
     validarTelefono();
     comprobarYEstablecerEstilos();
@@ -274,7 +274,7 @@ function validarPass() {
     var campo = "#pass";
     // @ts-ignore
     var pass = $(campo).val();
-    var patron = RegExp("^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{6,}$");
+    var patron = RegExp("^(a-zA-Z0-9){5,30}$");
     try {
         if (!validarVacio(pass)) {
             throw "Debes añadir una contraseña.";

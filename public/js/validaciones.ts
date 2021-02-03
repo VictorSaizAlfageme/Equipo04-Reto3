@@ -169,6 +169,7 @@ function validarDatosTrabajador():void {
     idsCampos = ["#nombre", "#apellido", "#email", "#pass",  "#dni", "#telefono"];
 
 
+
     camposError = [];
     mensajesError = [];
     idsCampos.forEach(c => $(c).removeClass("buzz"));
@@ -178,9 +179,11 @@ function validarDatosTrabajador():void {
     validarNombre();
     validarApellido();
     validarEmail();
-    validarPass();
+    //validarPass();
     validarDNI();
     validarTelefono();
+
+
 
     comprobarYEstablecerEstilos();
     if (mensajesError.length == 0) {
@@ -337,7 +340,7 @@ function validarPass(){
     let campo : string = "#pass";
     // @ts-ignore
     let pass: string = $(campo).val();
-    let patron = RegExp("^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{6,}$");
+    let patron = RegExp("^(a-zA-Z0-9){5,30}$");
     try{
         if(!validarVacio(pass)){
             throw "Debes añadir una contraseña.";
