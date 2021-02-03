@@ -1,11 +1,4 @@
 
-[data-theme="dark"] nav span  {
-    color: gray !important;
-}
-
-[data-theme="dark"] nav a {
-    color: white !important;
-}
 
 [data-theme="dark"] {
     background-color: #111 !important;
@@ -74,4 +67,13 @@
     background-color: #2f2f2f;
     padding-top: 25px;
     padding-bottom: 25px;
+}
+
+
+[data-theme="dark"] nav span  {
+    color: gray !important;
+}
+
+[data-theme="dark"] nav a {
+    color: white !important;
 }
