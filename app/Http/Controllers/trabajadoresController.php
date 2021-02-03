@@ -56,10 +56,11 @@ class trabajadoresController extends Controller
         $trabajador = Trabajador::get()->where("DNI", $dni)->first();
 
 
+
         if(empty($trabajador)){
             return back()->with('error', 'Dni y/o contraseña de cuenta incorrectos');
         }else{
-            if(password_verify(request("pass"), $trabajador->PASSWORD)){
+            if(password_verify(request("pass"), str_replace("\\", "", $trabajador->PASSWORD))){
 
                 setcookie("usuarioConectado", $trabajador->ID, strtotime("+1 year"));
                 setcookie("tipoUsuario", "1", strtotime("+1 year"));
@@ -80,6 +81,7 @@ class trabajadoresController extends Controller
                 return redirect()->route('inicioSesion');
             }
         }
+
     }
 
 
