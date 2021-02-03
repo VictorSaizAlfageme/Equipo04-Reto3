@@ -366,7 +366,7 @@ footer-fijado{
     padding-top: 25px;
     padding-bottom: 25px;
     color: black;
-
+    margin-top: 40px;
 }
 
 .circulo {
@@ -385,6 +385,19 @@ footer-fijado{
     right: 20px;
 }
 
+.menu-desplegable i {
+    color: #157d6a;
+}
+
+.w-5{
+    display: none;
+}
+
+spans {
+    text-align: center;
+    position: relative;
+    top: 15px;
+}
 
 @media (max-width: 700px) {
 

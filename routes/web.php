@@ -90,3 +90,4 @@ Route::get('/emailtestform', function (){
 });
 Route::post('/contactar', 'App\Http\Controllers\emailTestController@contact')->name('contact');
 Route::get('/ver','App\Http\Controllers\UploadsController@verArchivo')->name('ver');
+

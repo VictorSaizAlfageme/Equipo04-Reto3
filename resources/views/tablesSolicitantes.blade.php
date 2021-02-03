@@ -58,9 +58,4 @@
         </spans>
     </div>
 
-<style>
-    .w-5{
-        display: none;
-    }
-</style>
 @endsection
