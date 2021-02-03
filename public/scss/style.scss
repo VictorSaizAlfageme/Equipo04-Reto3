@@ -1,0 +1,415 @@
+//importamos el scss de boostrap
+@import "../components/scss/sb-admin-2";
+@import "variables";
+.btn-primary, .dropdown-header {
+    background-color: $nuvecolor !important;
+    border-color: $nuvecolor !important;
+    transition: 1s;
+}
+.bg-gradient-primary {
+    background-color: $nuvecolor;
+}
+.btn-primary, .dropdown-header {
+    background-color: $nuvecolor;
+    border-color: $nuvecolor;
+}
+.logo {
+    width: 40px;
+    height: 40px;
+}
+.sidebar .sidebar-brand {
+    font-size: 1.3rem;
+}
+.left-column {
+    position: sticky;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    z-index: 5;
+}
+.footer-class {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.footer-img {
+    width: 100px;
+    height: 50px;
+}
+.form-select {
+    padding: 0 16px !important;
+    height: 50px;
+}
+
+.form-estado {
+    padding: 0 0 0 10px !important;
+    height: 38px;
+    border-radius: 0.35rem !important;
+    font-family: inherit;
+    font-size: 1rem;
+}
+.buzz {
+    animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+@keyframes shake {
+    10%, 90% {
+        transform: translate3d(-1px, 0, 0);
+    }
+    20%, 80% {
+        transform: translate3d(2px, 0, 0);
+    }
+    30%, 50%, 70% {
+        transform: translate3d(-4px, 0, 0);
+    }
+    40%, 60% {
+        transform: translate3d(4px, 0, 0);
+    }
+}
+.select-title {
+    font-weight: bolder;
+}
+#mensajeErrorSpan , #mensajeErrorSpan2  {
+    font-size: 1em;
+    text-align: center;
+    width: 100%;
+    margin-top: 10px !important;
+    margin-bottom: 15px;
+
+}
+
+.formulario-div {
+    align-self: center;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+button {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    outline: none;
+    border: 0;
+    vertical-align: middle;
+    text-decoration: none;
+    background: transparent;
+    padding: 0;
+    font-size: inherit;
+    font-family: inherit;
+    &.enviar {
+        width: 12rem;
+        height: auto;
+        .circle {
+            @include transition(all, 0.45s, cubic-bezier(0.65,0,.076,1));
+            position: relative;
+            display: block;
+            margin: 0;
+            width: 3rem;
+            height: 3rem;
+            background: $nuvecolor;
+            border-radius: 1.625rem;
+            .icon {
+                @include transition(all, 0.45s, cubic-bezier(0.65,0,.076,1));
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                margin: auto;
+                background: $white;
+                &.arrow {
+                    @include transition(all, 0.45s, cubic-bezier(0.65,0,.076,1));
+                    left: 0.625rem;
+                    width: 1.125rem;
+                    height: 0.125rem;
+                    background: none;
+                    &::before {
+                        position: absolute;
+                        content: '';
+                        top: -0.25rem;
+                        right: 0.0625rem;
+                        width: 0.625rem;
+                        height: 0.625rem;
+                        border-top: 0.125rem solid #fff;
+                        border-right: 0.125rem solid #fff;
+                        transform: rotate(45deg);
+                    }
+                }
+            }
+        }
+        .button-text {
+            @include transition(all, 0.45s, cubic-bezier(0.65,0,.076,1));
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            padding: 0.75rem 0;
+            margin: 0 0 0 1.85rem;
+            color: $black;
+            font-weight: 700;
+            line-height: 1.6;
+            text-align: center;
+            text-transform: uppercase;
+        }
+    }
+    &:hover {
+        .circle {
+            width: 100%;
+            transition: 0.5s;
+            .icon {
+                &.arrow {
+                    background: $white;
+                    transform: translate(1rem, 0);
+                    transition: 0.5s;
+                }
+            }
+        }
+        .button-text {
+            color: $white;
+        }
+    }
+}
+button.enviar {
+    outline: none;
+}
+.ap-cursor {
+    background-color: $nuvecolor;
+}
+.ap-input-icon, .ap-icon-clear, .ap-icon-pin {
+    display: none !important;
+}
+.descripcion {
+    resize: none;
+    border-radius: 30px !important;
+    height: 150px !important;
+}
+.descripcion::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+}
+.descripcion::-webkit-scrollbar-button {
+    width: 22px;
+    height: 22px;
+}
+.descripcion::-webkit-scrollbar-thumb {
+    background: #000000;
+}
+.descripcion::-webkit-scrollbar-thumb:hover {
+    background: black;
+}
+.descripcion::-webkit-scrollbar-thumb:active {
+    background: black;
+}
+.descripcion::-webkit-scrollbar-track {
+    background: white;
+}
+.descripcion::-webkit-scrollbar-track:active {
+    background: white;
+}
+.descripcion::-webkit-scrollbar-corner {
+    background: transparent;
+}
+.custom-file-input, .custom-file-label, .custom-file{
+    border-radius: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+.custom-file-label::after {
+    border-bottom-right-radius: 50px;
+    border-top-right-radius: 50px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+}
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+.registro-obra {
+    border-radius: 50px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.custom-file {
+    height: 52px !important;
+}
+input[type=file].hidden{
+    color: transparent;
+}
+.img-thumbnail{
+    border-radius: 50%;
+}
+.page-link{
+    color: black;
+}
+.page-item.active .page-link{
+    background-color: #0f6848;
+    border-color: #0f6848;
+}
+.pagination{
+    justify-content: center;
+}
+.badge-dark{ //Valorando
+    background-color: #9ac4f8;
+}
+.badge-secondary{ //Aceptado
+    background-color: #ffec17;
+}
+.badge-info{ //Denegado
+    background-color: #ff9000;
+}
+.badge-light{ //En proceso
+    background-color: #ff5c9a;
+    color: white;
+}
+.badge-success{ //Finalizado
+    background-color: #affc41;
+}
+.badge{
+    color: black;
+}
+.tr{
+    cursor: pointer;
+}
+#titulo-3{
+    text-align: center;
+    color: #157d6a;
+}
+
+
+.card-body{
+    height: 400px;
+}
+
+.bg-login-image{
+    height: 500px;
+}
+
+.login-form {
+    height: 100%;
+    width: 100%;
+}
+.pass-form{
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#mapid {
+    height: 300px;
+}
+
+
+.tipoTrabajador{
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+
+}
+
+#mensajeError,#mensajeError2 {
+    text-align: center;
+}
+
+.form-select {
+    width: 200px;
+    font-size: 0.8em;
+    border-radius: 50px;
+}
+
+.select{
+    justify-content: center;
+}
+
+.form-control {
+    color: black !important;
+}
+
+
+.card-body{
+    height: auto;
+}
+
+.text-welcome{
+    font-size: 15px;
+}
+
+.footer-fijado{
+    position: fixed;
+    bottom: 0;
+    width: 80%;
+}
+
+.mas-info {
+    text-align: end;
+}
+
+#provincias {
+    width: 100%;
+}
+
+footer-fijado{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: inherit;
+    text-align: center;
+    background-color: white;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    color: black;
+    margin-top: 40px;
+}
+
+.circulo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    width: 65px;
+    height: 65px;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    background: #ffffff;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+
+.menu-desplegable i {
+    color: #157d6a;
+}
+
+.w-5{
+    display: none;
+}
+
+spans {
+    text-align: center;
+    position: relative;
+    top: 15px;
+}
+
+@media (max-width: 700px) {
+
+    .hidden {
+        display: none;
+    }
+
+    .table-elipse {
+        border-top: none !important;
+    }
+
+    .vitoria2 {
+        display: none;
+    }
+}
