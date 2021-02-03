@@ -1,4 +1,12 @@
 
+[data-theme="dark"] nav span  {
+    color: gray !important;
+}
+
+[data-theme="dark"] nav a {
+    color: white !important;
+}
+
 [data-theme="dark"] {
     background-color: #111 !important;
     color: #eee;
@@ -31,13 +39,6 @@
     color: #ffffff !important;
 }
 
-[data-theme="dark"] nav span  {
-    color: gray !important;
-}
-
-[data-theme="dark"] nav a {
-    color: white !important;
-}
 
 
 [data-theme="dark"] .modal-content {
