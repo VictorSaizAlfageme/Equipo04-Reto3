@@ -11474,6 +11474,10 @@ footer-fijado {
   color: #157d6a;
 }
 
+#lugarNac {
+    width: 100%;  
+}
+
 .w-5 {
   display: none;
 }
