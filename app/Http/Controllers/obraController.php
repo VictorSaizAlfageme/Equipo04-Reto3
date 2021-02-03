@@ -22,13 +22,14 @@ class obraController extends Controller
     /*Retorna todas las filas de la tabla. (SELECT * FROM)*/
     public function listarTodos()
     {
-        $listaObras = Obra::get();
-        $listaUbicaciones = Ubicacion::get();
 
-        return view('listaObras', [
-            'listaObras' => $listaObras,
+        $listaObras = Obra::simplePaginate(10);
+        $listaUbicaciones = Ubicacion::get();
+        return view("listaObras", [
+            "listaObras"=>$listaObras,
             'listaUbicaciones' => $listaUbicaciones
         ]);
+
 
     }
 
@@ -36,12 +37,13 @@ class obraController extends Controller
     {
 
         $tecnico = Trabajador::get()->where('ID', $_COOKIE['usuarioConectado']);
-        $obrasTecnicos = Obra::get()->where('IDTRABAJADOR', $tecnico[1]["ID"]);
+        $listaTecnicos = DB::table("obras")->where('IDTRABAJADOR', $tecnico->ID)->simplePaginate(10);
+
         $listaUbicaciones = Ubicacion::get();
 
-        return view('listaObrasTecnico', [
-            'listaUbicaciones' => $listaUbicaciones,
-            'listaTecnicos' => $obrasTecnicos
+        return view("listaObrasTecnico", [
+            "listaTecnicos"=>$listaTecnicos,
+            'listaUbicaciones' => $listaUbicaciones
         ]);
 
     }
@@ -50,10 +52,13 @@ class obraController extends Controller
     public function listarObrasSolicitante()
     {
         $solicitante = Solicitante::get()->where('ID', $_COOKIE['usuarioConectado']);
-        $obrasSolicitantes = Obra::get()->where('IDSOLICITANTE', $solicitante[1]["ID"]);
+        $listaSolicitantes = DB::table("obras")->where('IDSOLICITANTE', $solicitante["1"]["ID"])->simplePaginate(10);
 
-        return view('listaObrasSolicitante', [
-            'listaSolicitantes' => $obrasSolicitantes
+        $listaUbicaciones = Ubicacion::get();
+
+        return view("listaObrasSolicitante", [
+            "listaSolicitantes"=>$listaSolicitantes,
+            'listaUbicaciones' => $listaUbicaciones
         ]);
 
     }
@@ -180,14 +185,19 @@ class obraController extends Controller
 
         $id = request("id3");
         $plano = $request->file("plano");
-        $nombreHash = $request->file("plano")->hashName();
-        $plano->move('img/planos/' , $nombreHash);
+        if($request->file("plano") != ""){
+            $nombreHash = $request->file("plano")->hashName();
+            $plano->move('img/planos/' , $nombreHash);
+            $ruta = "/img/planos/" . $nombreHash;
+        }
+
+
 
         $comentario  = new Comentario(
             [
                 "FECHA" => $now,
                 "TEXTO" => request("comentario"),
-                "MULTIMEDIA" => "/img/planos/" . $nombreHash,
+                "MULTIMEDIA" => $ruta ?? "",
                 "IDOBRA" => $id
             ]
         );

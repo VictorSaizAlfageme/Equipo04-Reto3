@@ -52,13 +52,12 @@ class trabajadoresController extends Controller
     }
 
     public function iniciarSesion(){
-
         $dni = request("dni");
         $trabajador = Trabajador::get()->where("DNI", $dni)->first();
 
 
         if(empty($trabajador)){
-            return view("loginTrabajadores");
+            return back()->with('error', 'Dni y/o contraseña de cuenta incorrectos');
         }else{
             if(password_verify(request("pass"), $trabajador->PASSWORD)){
 
@@ -66,20 +65,25 @@ class trabajadoresController extends Controller
                 setcookie("tipoUsuario", "1", strtotime("+1 year"));
                 setcookie("tipoTrabajador", $trabajador->IDTIPO, strtotime("+1 year"));
                 setcookie("nombreUsuario", $trabajador->NOMBRE, strtotime("+1 year"));
-
                 return redirect()->route('inicio');
             }else{
-                return view("loginTrabajadores");
+                $lista = Trabajador::get();
+                foreach ($lista as $elemento){
+                    if($elemento->DNI == request("dni")){
+                        return back()->with('error', 'Dni y/o contraseña de cuenta incorrectos');
+                    }
+                    if($elemento->PASS == request("pass")){
+                        return back()->with('error', 'Dni y/o contraseña de cuenta incorrectos');
+                    }
+                }
+
+                return redirect()->route('inicioSesion');
             }
         }
-        
     }
 
-    /*Abre el formulario crear*/
-    public function formCrear()
-    {
-        $this->listarTodos();
-    }
+
+
 
 
     /**

@@ -18,7 +18,6 @@
                 <table class="table">
                     <thead>
                     <tr class="tr">
-                        <th class="hidden">Nº</th>
                         <th class="hidden">COD. OBRA</th>
                         <th>TIPO DE OBRA</th>
                         <th>ESTADO</th>
@@ -33,7 +32,6 @@
 
                         <!--TUPLAS-->
                         <tr class="cell-1 tr" data-toggle="collapse" data-target="#id{{$obra->ID}}">
-                            <td class="text-center hidden">1</td>
 
                             <td class="hidden"><b>{{ $obra->ID }}</b></td>
 
@@ -112,6 +110,10 @@
                     </tbody>
                 </table>
             </div>
+
+            <spans>
+                {{$listaTecnicos->links()}}
+            </spans>
         </div>
     </div>
 

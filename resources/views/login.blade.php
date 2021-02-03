@@ -53,12 +53,15 @@
                                     </div>
                                     <div class="form-group">
                                         <input type="password" class="form-control form-control-user"
-                                               id="exampleInputPassword" placeholder="Contraseña" name="pass">
+                                               id="pass" placeholder="Contraseña" name="pass">
                                     </div>
                                     <a id="botonIniciarSesion" class="btn btn-primary btn-user btn-block">
                                         INICIAR SESIÓN
                                     </a>
                                 </form>
+                                <div class="mt-3" id="mensajeError">
+                                    <span  id="mensajeErrorSpan">{!! session()->get('error') !!}</span>
+                                </div>
                                 <hr>
                                 <div class="text-center">
                                     <a class="small" href="{{route('solicitarContrasena')}}">¿Se te ha olvidado la contraseña?</a>
@@ -97,6 +100,7 @@
 
 <!-- Custom scripts for all pages-->
 <script src="boostrap/js/sb-admin-2.min.js"></script>
+<script src="js/validaciones.js"></script>
 <script src="js/loginEnter.js"></script>
 
 </body>
