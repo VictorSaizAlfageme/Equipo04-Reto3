@@ -50,12 +50,6 @@ $(document).on('keypress',function(e) {
     }
 });
 
-function iniciarSesion():void {
-
-    $("#formulario").submit()
-
-}
-
 function validarDatosRegistroSolicitante():void {
     idsCampos = ["#nombre", "#apellido", "#email", "#pass", "#pass2", "#fechaNac", "#telefono", "#dni", "#lugarNac"];
 
