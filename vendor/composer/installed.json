@@ -2276,7 +2276,7 @@
                     "url": "https://github.com/gmponos",
                     "type": "github"
                 }
-            ],
+            ]
             "install-path": "../guzzlehttp/guzzle"
         },
         {
