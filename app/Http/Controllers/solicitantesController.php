@@ -35,14 +35,15 @@ class solicitantesController extends Controller
     public function iniciarSesion(){
 
         $dni = request("dni");
-        $solicitantes = Solicitante::get();
+        $solicitante = Solicitante::get()->where("DNI", $dni)->first();
+
+        return var_dump(password_verify("12345Abcde", $solicitante->PASSWORD));
 
 
-        foreach ($solicitantes as $solicitante){
-
-
-            //$dni == $solicitante->DNI && password_verify(request("pass"), $solicitante->PASSWORD)
-            if($dni == $solicitante->DNI){
+        if(empty($solicitante)){
+            return redirect()->route('inicioSesion');
+        }else{
+            if(password_verify(request("pass"), $solicitante->PASSWORD)){
 
 
 
@@ -51,10 +52,12 @@ class solicitantesController extends Controller
                 setcookie("nombreUsuario", $solicitante->NOMBRE, strtotime("+1 year"));
 
                 return redirect()->route('inicio');
+            }else{
+                return redirect()->route('inicioSesion');
             }
         }
 
-        return redirect()->route('inicioSesion');
+
     }
 
     /*Inserta un elemento en la tabla. (Los atributos se envían mediante POST)*/
@@ -63,7 +66,6 @@ class solicitantesController extends Controller
 
         //ENCRIPTACIÓN
         $encriptada = password_hash(request("pass"), PASSWORD_DEFAULT);
-
 
         $solicitante  = new Solicitante(
             [
