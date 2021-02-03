@@ -2277,7 +2277,6 @@
                     "type": "github"
                 }
             ],
-            "install-path": "../guzzlehttp/guzzle"
         },
         {
             "name": "guzzlehttp/promises",
