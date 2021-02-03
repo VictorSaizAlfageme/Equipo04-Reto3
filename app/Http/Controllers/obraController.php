@@ -36,8 +36,8 @@ class obraController extends Controller
     public function listarObrasTecnico()
     {
 
-        $tecnico = Trabajador::get()->where('ID', $_COOKIE['usuarioConectado']);
-        $listaTecnicos = DB::table("obras")->where('IDTRABAJADOR', $tecnico->ID)->simplePaginate(10);
+        $tecnico = Trabajador::get()->where('ID', $_COOKIE['usuarioConectado'])->first();
+        $listaTecnicos = DB::table("obras")->where('IDTRABAJADOR', $tecnico["ID"])->simplePaginate(10);
 
         $listaUbicaciones = Ubicacion::get();
 
@@ -51,8 +51,8 @@ class obraController extends Controller
 
     public function listarObrasSolicitante()
     {
-        $solicitante = Solicitante::get()->where('ID', $_COOKIE['usuarioConectado']);
-        $listaSolicitantes = DB::table("obras")->where('IDSOLICITANTE', $solicitante["1"]["ID"])->simplePaginate(10);
+        $solicitante = Solicitante::get()->where('ID', $_COOKIE['usuarioConectado'])->first();
+        $listaSolicitantes = DB::table("obras")->where('IDSOLICITANTE', $solicitante["ID"])->simplePaginate(10);
 
         $listaUbicaciones = Ubicacion::get();
 
