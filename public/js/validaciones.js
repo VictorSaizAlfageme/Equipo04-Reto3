@@ -47,9 +47,6 @@ $(document).on('keypress', function (e) {
         catch (error) { }
     }
 });
-function iniciarSesion() {
-    $("#formulario").submit();
-}
 function validarDatosRegistroSolicitante() {
     idsCampos = ["#nombre", "#apellido", "#email", "#pass", "#pass2", "#fechaNac", "#telefono", "#dni", "#lugarNac"];
     camposError = [];

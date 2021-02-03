@@ -61,6 +61,9 @@
                                         INICIAR SESIÓN
                                     </a>
                                 </form>
+                                <div class="mt-3" id="mensajeError">
+                                    <span  id="mensajeErrorSpan">{!! session()->get('error') !!}</span>
+                                </div>
                                 <hr>
                                 <div class="text-center mt-3">
                                     <small>¿No eres un trabajador? </small><a class="small" href="{{route("inicioSesion")}}">Haz click aquí.</a>

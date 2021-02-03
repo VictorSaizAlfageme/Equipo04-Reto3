@@ -37,11 +37,8 @@ class solicitantesController extends Controller
         $dni = request("dni");
         $solicitante = Solicitante::get()->where("DNI", $dni)->first();
 
-        return var_dump(password_verify("12345Abcde", $solicitante->PASSWORD));
-
-
         if(empty($solicitante)){
-            return redirect()->route('inicioSesion');
+            return back()->with('error', 'Dni y/o contraseña de cuenta incorrectos');
         }else{
             if(password_verify(request("pass"), $solicitante->PASSWORD)){
 
@@ -53,6 +50,16 @@ class solicitantesController extends Controller
 
                 return redirect()->route('inicio');
             }else{
+                $lista = Solicitante::get();
+                foreach ($lista as $elemento){
+                    if($elemento->DNI == request("dni")){
+                        return back()->with('error', 'Dni y/o contraseña de cuenta incorrectos');
+                    }
+                    if($elemento->PASS == request("pass")){
+                        return back()->with('error', 'Dni y/o contraseña de cuenta incorrectos');
+                    }
+                }
+
                 return redirect()->route('inicioSesion');
             }
         }

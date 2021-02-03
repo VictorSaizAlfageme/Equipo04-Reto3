@@ -52,32 +52,38 @@ class trabajadoresController extends Controller
     }
 
     public function iniciarSesion(){
-        //FALTA LA ENCRIPTACIÓN
         $dni = request("dni");
+        $trabajador = Trabajador::get()->where("DNI", $dni)->first();
 
-        $trabajadores = Trabajador::get();
 
-        foreach ($trabajadores as $trabajador){
+        if(empty($trabajador)){
+            return back()->with('error', 'Dni y/o contraseña de cuenta incorrectos');
+        }else{
+            if(password_verify(request("pass"), $trabajador->PASSWORD)){
 
-            //$dni == $trabajador->DNI && password_verify(request("pass"), $trabajador->PASSWORD)
-            if($dni == $trabajador->DNI){
                 setcookie("usuarioConectado", $trabajador->ID, strtotime("+1 year"));
                 setcookie("tipoUsuario", "1", strtotime("+1 year"));
                 setcookie("tipoTrabajador", $trabajador->IDTIPO, strtotime("+1 year"));
                 setcookie("nombreUsuario", $trabajador->NOMBRE, strtotime("+1 year"));
-
                 return redirect()->route('inicio');
+            }else{
+                $lista = Trabajador::get();
+                foreach ($lista as $elemento){
+                    if($elemento->DNI == request("dni")){
+                        return back()->with('error', 'Dni y/o contraseña de cuenta incorrectos');
+                    }
+                    if($elemento->PASS == request("pass")){
+                        return back()->with('error', 'Dni y/o contraseña de cuenta incorrectos');
+                    }
+                }
+
+                return redirect()->route('inicioSesion');
             }
         }
-
-        return view("loginTrabajadores");
     }
 
-    /*Abre el formulario crear*/
-    public function formCrear()
-    {
-        $this->listarTodos();
-    }
+
+
 
 
     /**
