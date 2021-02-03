@@ -133,8 +133,15 @@ class estadisticasController extends Controller
 
 
         //Regla de tres sobre las obras acabadas.
-        $obrasTotales = $obrasNoAcabadas + $obrasAcabadas;
-        $ratioObras = round(($obrasAcabadas * 100) / $obrasTotales);
+
+        if(sizeof($obras) <= 0){
+            $ratioObras = 0;
+        }else{
+            $obrasTotales = $obrasNoAcabadas + $obrasAcabadas;
+            $ratioObras = round(($obrasAcabadas * 100) / $obrasTotales);
+        }
+
+
 
 
         return view("estadisticas", [
