@@ -50,7 +50,7 @@
                             <div class="form-group row">
                                 <div class="col-sm-6 mb-3 mb-sm-0">
                                     <input type="password" class="pass form-control form-control-user"
-                                           id="pass" placeholder="Contraseña" name="password">
+                                           id="pass" placeholder="Contraseña" name="pass">
                                 </div>
                                 <div class="col-sm-6">
                                     <input type="password" class="form-control form-control-user"
