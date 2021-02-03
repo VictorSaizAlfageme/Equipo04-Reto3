@@ -340,7 +340,7 @@ function validarPass(){
     let campo : string = "#pass";
     // @ts-ignore
     let pass: string = $(campo).val();
-    let patron = RegExp("^(a-zA-Z0-9){5,30}$");
+    let patron = RegExp("^[a-zA-Z0-9]{5,30}$");
     try{
         if(!validarVacio(pass)){
             throw "Debes añadir una contraseña.";
