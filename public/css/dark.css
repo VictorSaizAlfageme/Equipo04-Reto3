@@ -31,6 +31,13 @@
     color: #ffffff !important;
 }
 
+[data-theme="dark"] nav span  {
+    color: gray !important;
+}
+
+[data-theme="dark"] nav a {
+    color: white !important;
+}
 
 
 [data-theme="dark"] .modal-content {
