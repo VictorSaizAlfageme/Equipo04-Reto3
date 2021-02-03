@@ -57,10 +57,11 @@ class trabajadoresController extends Controller
         $trabajador = Trabajador::get()->where("DNI", $dni)->first();
 
 
+
         if(empty($trabajador)){
             return view("loginTrabajadores");
         }else{
-            if(password_verify(request("pass"), $trabajador->PASSWORD)){
+            if(password_verify(request("pass"), str_replace("\\", "", $trabajador->PASSWORD))){
 
                 setcookie("usuarioConectado", $trabajador->ID, strtotime("+1 year"));
                 setcookie("tipoUsuario", "1", strtotime("+1 year"));
@@ -72,7 +73,7 @@ class trabajadoresController extends Controller
                 return view("loginTrabajadores");
             }
         }
-        
+
     }
 
     /*Abre el formulario crear*/
