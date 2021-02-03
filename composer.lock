@@ -1146,7 +1146,6 @@
                         "Laravel\\Ui\\UiServiceProvider"
                     ]
                 }
-<<<<<<< Updated upstream
             },
             "autoload": {
                 "psr-4": {
@@ -1173,30 +1172,6 @@
                 "issues": "https://github.com/laravel/ui/issues",
                 "source": "https://github.com/laravel/ui/tree/v3.2.0"
             },
-=======
-            },
-            "autoload": {
-                "psr-4": {
-                    "Laravel\\Ui\\": "src/",
-                    "Illuminate\\Foundation\\Auth\\": "auth-backend/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Taylor Otwell",
-                    "email": "taylor@laravel.com"
-                }
-            ],
-            "description": "Laravel UI utilities and presets.",
-            "keywords": [
-                "laravel",
-                "ui"
-            ],
->>>>>>> Stashed changes
             "time": "2021-01-06T19:20:22+00:00"
         },
         {
