@@ -77,3 +77,7 @@
 [data-theme="dark"] nav a {
     color: white !important;
 }
+
+[data-theme="dark"] #content-wrapper{
+    background-color: #1d1d1d !important;
+}
