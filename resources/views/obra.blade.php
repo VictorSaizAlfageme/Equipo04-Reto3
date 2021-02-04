@@ -22,7 +22,7 @@
                                         <option value="piso">Piso</option>
                                         <option value="casa">Casa</option>
                                         <option value="local">Local</option>
-                                        <option value="garaje">garaje</option>
+                                        <option value="garaje">Garaje</option>
                                         <option value="trastero">Trastero</option>
                                         <option value="edificio">Edificio</option>
                                         <option value="otro">Otro</option>
