@@ -205,7 +205,7 @@
                                             <i class="fas fa-circle text-success"></i> Vizcaya
                                         </span>
                                     <span class="mr-2">
-                                            <i class="fas fa-circle text-info"></i> Guipuzcoa
+                                            <i class="fas fa-circle text-warning"></i> Guipuzcoa
                                         </span>
                                 </div>
                             </div>

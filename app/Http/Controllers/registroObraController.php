@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Obra;
+use App\Models\Solicitante;
 use App\Models\Ubicacion;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class registroObraController extends Controller
 {
@@ -105,6 +107,15 @@ class registroObraController extends Controller
             ]
         );
         $obra->save();
-        return view("bienvenido");
+        
+        $solicitante = Solicitante::get()->where('ID', $_COOKIE['usuarioConectado'])->first();
+        $listaSolicitantes = DB::table("obras")->where('IDSOLICITANTE', $solicitante["ID"])->simplePaginate(10);
+
+        $listaUbicaciones = Ubicacion::get();
+
+        return view("listaObrasSolicitante", [
+            "listaSolicitantes"=>$listaSolicitantes,
+            'listaUbicaciones' => $listaUbicaciones
+        ]);
     }
 }
