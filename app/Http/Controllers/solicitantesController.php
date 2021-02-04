@@ -107,8 +107,9 @@ class solicitantesController extends Controller
 
     /*Elimina al usuario recibido por POST*/
     public function eliminar(){
+
         $solicitante = Solicitante::find(request("id"));
-        Solicitante::delete()->where("ID", $solicitante->ID);
+        Solicitante::where("ID", $solicitante->ID)->delete();
 
         //Mostrar de nuevo la tabla con los datos
         $listaSolicitantes = Solicitante::simplePaginate(10);

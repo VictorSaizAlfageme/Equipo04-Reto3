@@ -116,6 +116,7 @@ class trabajadoresController extends Controller
         $id = Trabajador::find(request("id"));
         Trabajador::where("ID", $id)->delete();
 
+
         //Mostrar de nuevo la tabla con los datos
         $listaTrabajadores = Trabajador::simplePaginate(10);
         return view("tables", ["listaTrabajadores"=>$listaTrabajadores]);
