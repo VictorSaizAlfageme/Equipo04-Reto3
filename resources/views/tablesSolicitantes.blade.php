@@ -18,7 +18,7 @@
                     <th class="hidden">Apellidos</th>
                     <th class="hidden">Email</th>
                     <th class="hidden">Telefono</th>
-                    <th>Más detalles</th>
+                    <th>Detalles</th>
                     <th>Borrar</th>
                 </tr>
                 </thead>
@@ -36,7 +36,7 @@
                                 <form method="POST" action="{{route("datosSolicitante")}}" id="formMasInformacion">
                                     @csrf
                                     <input name="id" type="hidden" value="{{$solicitante["ID"]}}">
-                                    <td colspan="1" style="text-align: center"><input type="submit" value="Más detalles" class="btn btn-primary"></td>
+                                    <td colspan="1" style="text-align: center"><input type="submit" value="Detalles" class="btn btn-primary"></td>
                                 </form>
 
                                 <form method="POST" action="{{route("borrarSolicitante")}}" id="formularioBorrar">
