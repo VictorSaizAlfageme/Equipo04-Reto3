@@ -113,8 +113,8 @@ class trabajadoresController extends Controller
 
     /*Elimina al usuario recibido por POST*/
     public function eliminar(){
-        $id = Trabajador::find(request("id"));
-        Trabajador::where("ID", $id)->delete();
+        $trabajador = Trabajador::find(request("id"));
+        Trabajador::where("ID", $trabajador->ID)->delete();
 
 
         //Mostrar de nuevo la tabla con los datos
