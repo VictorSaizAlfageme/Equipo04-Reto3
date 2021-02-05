@@ -63,7 +63,7 @@
                                 @break
 
                                 @case("41")
-                                <td><span class="badge badge-light">En proceso</span></td>
+                                <td><span class="badge badge-warning">Finalizando</span></td>
                                 @break
 
                                 @case("51")
